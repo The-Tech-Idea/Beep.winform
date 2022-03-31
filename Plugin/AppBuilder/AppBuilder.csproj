@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC737DED-D254-46A5-B987-7AA2DEAD342D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheTechIdea.Beep.AppBuilder</RootNamespace>
+    <AssemblyName>AppBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.5\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.5\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppbuilderSaveandLoad.cs" />
+    <Compile Include="AppBuilder\App.cs" />
+    <Compile Include="AppBuilder\AppField.cs" />
+    <Compile Include="AppBuilder\AppMenu.cs" />
+    <Compile Include="AppBuilder\AppMenuItem.cs" />
+    <Compile Include="AppBuilder\AppScreen.cs" />
+    <Compile Include="AppBuilder\AppVersion.cs" />
+    <Compile Include="AppBuilder\BreadCrumb.cs" />
+    <Compile Include="AppBuilder\DataSourceFieldProperties.cs" />
+    <Compile Include="AppBuilder\MainPanelDefinitions.cs" />
+    <Compile Include="DataManagement\DataManager.cs" />
+    <Compile Include="TreeNodes\AppCategoryNode.cs" />
+    <Compile Include="TreeNodes\AppEntitiesNode.cs" />
+    <Compile Include="TreeNodes\AppEntityField.cs" />
+    <Compile Include="TreeNodes\AppMenuNode.cs" />
+    <Compile Include="TreeNodes\AppMenuRootNode.cs" />
+    <Compile Include="TreeNodes\AppNode.cs" />
+    <Compile Include="TreeNodes\AppReportNode.cs" />
+    <Compile Include="TreeNodes\AppRootNode.cs" />
+    <Compile Include="TreeNodes\AppScreenNode.cs" />
+    <Compile Include="Controls\BeepBlock.cs" />
+    <Compile Include="Controls\BeepCheckBox.cs" />
+    <Compile Include="Controls\BeepGrid.cs" />
+    <Compile Include="Controls\BeepGridView.cs" />
+    <Compile Include="Controls\BeepPanel.cs" />
+    <Compile Include="Controls\ContainerControl.cs" />
+    <Compile Include="DesignerProperties.cs" />
+    <Compile Include="Controls\BeepChart.cs" />
+    <Compile Include="Controls\BeepComboBox.cs" />
+    <Compile Include="Controls\BeepButton.cs" />
+    <Compile Include="Controls\BeepDateTimePicker.cs" />
+    <Compile Include="Controls\BeepLabel.cs" />
+    <Compile Include="Controls\BeepListBox.cs" />
+    <Compile Include="Controls\BeepTextBox.cs" />
+    <Compile Include="AppAndDashboardFunctions.cs" />
+    <Compile Include="IBeepControlInterface.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceManager.cs" />
+    <Compile Include="ScreenDesigner.cs" />
+    <Compile Include="uc_ScreenDesigner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_ScreenDesigner.Designer.cs">
+      <DependentUpon>uc_ScreenDesigner.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Beep.Winform.Controls\Beep.Winform.Controls.csproj">
+      <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
+      <Name>Beep.Winform.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj">
+      <Project>{31940304-EF06-4104-94B4-59B40331391E}</Project>
+      <Name>BeepEnterprize.Vis.Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
+      <Project>{D185808C-5D43-454A-9468-829E122C2C2A}</Project>
+      <Name>BeepEnterprize.Winform.Vis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ModuleExtensions\AppModule\AppModule.csproj">
+      <Project>{728c3656-d039-4f7b-8796-acb59f9bf446}</Project>
+      <Name>AppModule</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="uc_ScreenDesigner.resx">
+      <DependentUpon>uc_ScreenDesigner.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\CheckBoxChecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\CheckBoxList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\CollapseLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Collapseright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\ComboBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\DateTimePicker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\GroupBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Label.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\LayoutPanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\ListBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\ListBoxSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\ListView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\MaskedTextBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\MonthCalendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\PictureAndText.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\RadioButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\RadioButtonList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\RichTextBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\TextBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\TimePicker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Timer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Trigger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Save.png" />
+    <EmbeddedResource Include="Gfx\SaveAs.png" />
+    <EmbeddedResource Include="Gfx\UploadDocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\DesignMode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\design.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\GridApplication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DashBoard\" />
+    <Folder Include="Report\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir  $(ProjectDir)..\outputdll\$(TargetName)\
+
+copy $(TargetName).dll  $(ProjectDir)..\outputdll\$(TargetName)\$(TargetName).dll
+copy AppModule.dll  $(ProjectDir)..\outputdll\$(TargetName)\AppModule.dll</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05C5B0EB-0230-4996-AB53-84FFB3F9EBF1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BeepEnterprize.Winform.Vis</RootNamespace>
+    <AssemblyName>BeepEnterprize.Winform.DevExpress.Vis</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.BonusSkins.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v16.2.Core, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Office.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v16.2.Core, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.2.UI, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v16.2.Wizard, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.XtraPrinting.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v16.2, Version=16.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\uc_ConfigurationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_ConfigurationControl.Designer.cs">
+      <DependentUpon>uc_ConfigurationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_ConnectionDrivers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_ConnectionDrivers.Designer.cs">
+      <DependentUpon>uc_ConnectionDrivers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_CreateEntity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_CreateEntity.Designer.cs">
+      <DependentUpon>uc_CreateEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_CreateLocalDatabase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_CreateLocalDatabase.Designer.cs">
+      <DependentUpon>uc_CreateLocalDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_DataConnection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_DataConnection.Designer.cs">
+      <DependentUpon>uc_DataConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_datasourceDefaults.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_datasourceDefaults.Designer.cs">
+      <DependentUpon>uc_datasourceDefaults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_DBFieldType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_DBFieldType.Designer.cs">
+      <DependentUpon>uc_DBFieldType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_DriversDefinitions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_DriversDefinitions.Designer.cs">
+      <DependentUpon>uc_DriversDefinitions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_events.Designer.cs">
+      <DependentUpon>uc_events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_function2function.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_function2function.Designer.cs">
+      <DependentUpon>uc_function2function.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_objectTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_objectTypes.Designer.cs">
+      <DependentUpon>uc_objectTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_QueryConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_QueryConfig.Designer.cs">
+      <DependentUpon>uc_QueryConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_webapiHeaders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_webapiHeaders.Designer.cs">
+      <DependentUpon>uc_webapiHeaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\uc_webapiQueryParameters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuration\uc_webapiQueryParameters.Designer.cs">
+      <DependentUpon>uc_webapiQueryParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlManager.cs" />
+    <Compile Include="Controls\BeepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BeepForm.Designer.cs">
+      <DependentUpon>BeepForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BeepWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BeepWait.Designer.cs">
+      <DependentUpon>BeepWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MenuControl.cs" />
+    <Compile Include="Controls\MyCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MyProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolbarControl.cs" />
+    <Compile Include="Controls\TreeControls\TreeBranchHandler.cs" />
+    <Compile Include="Controls\TreeControls\TreeControl.cs" />
+    <Compile Include="Controls\TreeControls\TreeNodeDragandDropHandler.cs" />
+    <Compile Include="Controls\TreeControls\TreeNodeEvents.cs" />
+    <Compile Include="CRUD\CrudManager.cs" />
+    <Compile Include="CRUD\Frm_ListEntities.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CRUD\Frm_ListEntities.Designer.cs">
+      <DependentUpon>Frm_ListEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\Frm_NewUpdateEntity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CRUD\Frm_NewUpdateEntity.Designer.cs">
+      <DependentUpon>Frm_NewUpdateEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataViewManagement\uc_CreateComposedLayerFromView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataViewManagement\uc_CreateComposedLayerFromView.Designer.cs">
+      <DependentUpon>uc_CreateComposedLayerFromView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataViewManagement\Uc_DataViewEntityEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataViewManagement\Uc_DataViewEntityEditor.Designer.cs">
+      <DependentUpon>Uc_DataViewEntityEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataViewManagement\uc_linkentitytoanother.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataViewManagement\uc_linkentitytoanother.Designer.cs">
+      <DependentUpon>uc_linkentitytoanother.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataViewManagement\uc_ViewEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataViewManagement\uc_ViewEditor.Designer.cs">
+      <DependentUpon>uc_ViewEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\CopyEntityandData\CopyEntityManager.cs" />
+    <Compile Include="ETL\CopyEntityandData\uc_CopyEntities.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\CopyEntityandData\uc_CopyEntities.Designer.cs">
+      <DependentUpon>uc_CopyEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\CreateEntity\CreateEditEntityManager.cs" />
+    <Compile Include="ETL\CreateEntity\uc_createeditentityfields.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\CreateEntity\uc_createeditentityfields.Designer.cs">
+      <DependentUpon>uc_createeditentityfields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\CreateEntity\uc_createeditEntitymain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\CreateEntity\uc_createeditEntitymain.Designer.cs">
+      <DependentUpon>uc_createeditEntitymain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\CreateEntity\uc_createeditentityrelations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\CreateEntity\uc_createeditentityrelations.Designer.cs">
+      <DependentUpon>uc_createeditentityrelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\ExportData\ExportDataManager.cs" />
+    <Compile Include="ETL\ExportData\uc_ExportData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\ExportData\uc_ExportData.Designer.cs">
+      <DependentUpon>uc_ExportData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\ImportData\ImportDataManager.cs" />
+    <Compile Include="ETL\ImportData\uc_addeditImportData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_addeditImportData.Designer.cs">
+      <DependentUpon>uc_addeditImportData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_FilterData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_FilterData.Designer.cs">
+      <DependentUpon>uc_FilterData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_MapFields.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_MapFields.Designer.cs">
+      <DependentUpon>uc_MapFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_RunImport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_RunImport.Designer.cs">
+      <DependentUpon>uc_RunImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_SelectField.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_SelectField.Designer.cs">
+      <DependentUpon>uc_SelectField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_SelectMapping.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\ImportData\uc_SelectMapping.Designer.cs">
+      <DependentUpon>uc_SelectMapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\MapEntities\MapEntitiesManager.cs" />
+    <Compile Include="ETL\ScriptRun\uc_ScriptDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\ScriptRun\uc_ScriptDetails.Designer.cs">
+      <DependentUpon>uc_ScriptDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\ScriptRun\uc_ScriptRun.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\ScriptRun\uc_ScriptRun.Designer.cs">
+      <DependentUpon>uc_ScriptRun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\ScriptRun\uc_scriptview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\ScriptRun\uc_scriptview.Designer.cs">
+      <DependentUpon>uc_scriptview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ETL\uc_DataEntityStructureViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ETL\uc_DataEntityStructureViewer.Designer.cs">
+      <DependentUpon>uc_DataEntityStructureViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FunctionsandExtensions\DataSourceMenuFunctions.cs" />
+    <Compile Include="FunctionsandExtensions\EditMenuFunctions.cs" />
+    <Compile Include="FunctionsandExtensions\FileMenuFunctions.cs" />
+    <Compile Include="Helpers\DataGridPrinting.cs" />
+    <Compile Include="Helpers\VisHelper.cs" />
+    <Compile Include="MainForms\Frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\Frm_Main.Designer.cs">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportManagement\uc_reportdefinition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReportManagement\uc_reportdefinition.Designer.cs">
+      <DependentUpon>uc_reportdefinition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceManager.cs" />
+    <Compile Include="uc_BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_BaseControl.Designer.cs">
+      <DependentUpon>uc_BaseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisManager.cs" />
+    <Compile Include="Wizards\ColorTemplate.cs" />
+    <Compile Include="Wizards\DataConnection\Frm_Cloud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_Cloud.Designer.cs">
+      <DependentUpon>Frm_Cloud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_File.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_File.Designer.cs">
+      <DependentUpon>Frm_File.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_MessegingQueue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_MessegingQueue.Designer.cs">
+      <DependentUpon>Frm_MessegingQueue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_RDBMS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_RDBMS.Designer.cs">
+      <DependentUpon>Frm_RDBMS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_SelectDataSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_SelectDataSource.Designer.cs">
+      <DependentUpon>Frm_SelectDataSource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_View.Designer.cs">
+      <DependentUpon>Frm_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_WebApi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\DataConnection\Frm_WebApi.Designer.cs">
+      <DependentUpon>Frm_WebApi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Frm_Wizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizards\Frm_Wizard.Designer.cs">
+      <DependentUpon>Frm_Wizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\WizardButton.cs" />
+    <Compile Include="Wizards\WizardManager.cs" />
+    <Compile Include="Wizards\WizardNode.cs" />
+    <EmbeddedResource Include="Configuration\uc_ConfigurationControl.resx">
+      <DependentUpon>uc_ConfigurationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_ConnectionDrivers.resx">
+      <DependentUpon>uc_ConnectionDrivers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_CreateEntity.resx">
+      <DependentUpon>uc_CreateEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_CreateLocalDatabase.resx">
+      <DependentUpon>uc_CreateLocalDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_DataConnection.resx">
+      <DependentUpon>uc_DataConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_datasourceDefaults.resx">
+      <DependentUpon>uc_datasourceDefaults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_DBFieldType.resx">
+      <DependentUpon>uc_DBFieldType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_DriversDefinitions.resx">
+      <DependentUpon>uc_DriversDefinitions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_events.resx">
+      <DependentUpon>uc_events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_function2function.resx">
+      <DependentUpon>uc_function2function.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_objectTypes.resx">
+      <DependentUpon>uc_objectTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_QueryConfig.resx">
+      <DependentUpon>uc_QueryConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_webapiHeaders.resx">
+      <DependentUpon>uc_webapiHeaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\uc_webapiQueryParameters.resx">
+      <DependentUpon>uc_webapiQueryParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BeepForm.resx">
+      <DependentUpon>BeepForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BeepWait.resx">
+      <DependentUpon>BeepWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRUD\Frm_ListEntities.resx">
+      <DependentUpon>Frm_ListEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRUD\Frm_NewUpdateEntity.resx">
+      <DependentUpon>Frm_NewUpdateEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataViewManagement\uc_CreateComposedLayerFromView.resx">
+      <DependentUpon>uc_CreateComposedLayerFromView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataViewManagement\Uc_DataViewEntityEditor.resx">
+      <DependentUpon>Uc_DataViewEntityEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataViewManagement\uc_linkentitytoanother.resx">
+      <DependentUpon>uc_linkentitytoanother.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataViewManagement\uc_ViewEditor.resx">
+      <DependentUpon>uc_ViewEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\CopyEntityandData\uc_CopyEntities.resx">
+      <DependentUpon>uc_CopyEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\CreateEntity\uc_createeditentityfields.resx">
+      <DependentUpon>uc_createeditentityfields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\CreateEntity\uc_createeditEntitymain.resx">
+      <DependentUpon>uc_createeditEntitymain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\CreateEntity\uc_createeditentityrelations.resx">
+      <DependentUpon>uc_createeditentityrelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\ExportData\uc_ExportData.resx">
+      <DependentUpon>uc_ExportData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\ImportData\uc_addeditImportData.resx">
+      <DependentUpon>uc_addeditImportData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\ImportData\uc_FilterData.resx">
+      <DependentUpon>uc_FilterData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\ImportData\uc_MapFields.resx">
+      <DependentUpon>uc_MapFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\ImportData\uc_RunImport.resx">
+      <DependentUpon>uc_RunImport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\ImportData\uc_SelectField.resx">
+      <DependentUpon>uc_SelectField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\ImportData\uc_SelectMapping.resx">
+      <DependentUpon>uc_SelectMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\ScriptRun\uc_ScriptRun.resx">
+      <DependentUpon>uc_ScriptRun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ETL\uc_DataEntityStructureViewer.resx">
+      <DependentUpon>uc_DataEntityStructureViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\Frm_Main.resx">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ReportManagement\uc_reportdefinition.resx">
+      <DependentUpon>uc_reportdefinition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_BaseControl.resx">
+      <DependentUpon>uc_BaseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\DataConnection\Frm_Cloud.resx">
+      <DependentUpon>Frm_Cloud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\DataConnection\Frm_File.resx">
+      <DependentUpon>Frm_File.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\DataConnection\Frm_RDBMS.resx">
+      <DependentUpon>Frm_RDBMS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\DataConnection\Frm_SelectDataSource.resx">
+      <DependentUpon>Frm_SelectDataSource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\DataConnection\Frm_View.resx">
+      <DependentUpon>Frm_View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\DataConnection\Frm_WebApi.resx">
+      <DependentUpon>Frm_WebApi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\Frm_Wizard.resx">
+      <DependentUpon>Frm_Wizard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\The-Tech-Idea\BeepDM\DataManagmentModels\DataManagmentModels.csproj">
+      <Project>{7697ebdc-a4f2-49b1-af91-79031516e679}</Project>
+      <Name>DataManagmentModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\The-Tech-Idea\BeepDM\DataManagment_Engine\DataManagmentEngine.csproj">
+      <Project>{45983087-5e0e-4bfb-86c1-a5bc54d2a86f}</Project>
+      <Name>DataManagmentEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj">
+      <Project>{31940304-ef06-4104-94b4-59b40331391e}</Project>
+      <Name>BeepEnterprize.Vis.Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\please_wait.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\clear64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\stop32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\stop64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\success32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\success64.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

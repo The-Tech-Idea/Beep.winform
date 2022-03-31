@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86A01E2B-0B8B-41CB-B747-A571146875A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Beep.Winform.Controls</RootNamespace>
+    <AssemblyName>Beep.Winform.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.5\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.5\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BeepDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeepDialog.Designer.cs">
+      <DependentUpon>BeepDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeepForm.Designer.cs">
+      <DependentUpon>BeepForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeepGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BeepWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeepWait.Designer.cs">
+      <DependentUpon>BeepWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExtension.cs" />
+    <Compile Include="GridControls\LovCell.cs" />
+    <Compile Include="GridControls\LovEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GridControls\LovGridColumn.cs" />
+    <Compile Include="LovListItem.cs" />
+    <Compile Include="PassedEvent.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceManager.cs" />
+    <Compile Include="Theme\Theme.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BeepControlBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="uc_BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_BaseControl.Designer.cs">
+      <DependentUpon>uc_BaseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_BeepGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_BeepGrid.Designer.cs">
+      <DependentUpon>uc_BeepGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_bindingNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_bindingNavigator.Designer.cs">
+      <DependentUpon>uc_bindingNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_lovControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_lovControl.Designer.cs">
+      <DependentUpon>uc_lovControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BeepDialog.resx">
+      <DependentUpon>BeepDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeepForm.resx">
+      <DependentUpon>BeepForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeepWait.resx">
+      <DependentUpon>BeepWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gfx\close.png" />
+    <EmbeddedResource Include="gfx\maximize.png" />
+    <EmbeddedResource Include="gfx\minimize.png" />
+    <EmbeddedResource Include="gfx\shrink.png" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_BaseControl.resx">
+      <DependentUpon>uc_BaseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_BeepGrid.resx">
+      <DependentUpon>uc_BeepGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_bindingNavigator.resx">
+      <DependentUpon>uc_bindingNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_lovControl.resx">
+      <DependentUpon>uc_lovControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\checked.png" />
+    <EmbeddedResource Include="gfx\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\inside.png" />
+    <EmbeddedResource Include="gfx\outside.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj">
+      <Project>{31940304-EF06-4104-94B4-59B40331391E}</Project>
+      <Name>BeepEnterprize.Vis.Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\add.png" />
+    <EmbeddedResource Include="gfx\edit.png" />
+    <EmbeddedResource Include="gfx\left.png" />
+    <EmbeddedResource Include="gfx\remove.png" />
+    <EmbeddedResource Include="gfx\right.png" />
+    <EmbeddedResource Include="gfx\save.png" />
+    <EmbeddedResource Include="gfx\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\messages.png" />
+    <EmbeddedResource Include="gfx\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\SimpleInfoApps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Resources\please_wait.gif" />
+    <EmbeddedResource Include="gfx\please_wait.gif" />
+    <EmbeddedResource Include="gfx\Filter.png" />
+    <EmbeddedResource Include="gfx\Print.png" />
+    <EmbeddedResource Include="gfx\ShareLink.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\cancel.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\delete.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\new.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\next.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\previous.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\save.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\saveas.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\edit.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\message.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\print.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\printer.png" />
+    <EmbeddedResource Include="gfx\CRUDSmall\search.png" />
+    <Content Include="gfx\tick.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{04ADF6E2-96AB-4B88-8FD5-CCD8916B7D2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BeepEnterprize.Winform.Vis.Dashboard.MicrosoftDashboard</RootNamespace>
+    <AssemblyName>MicrosoftDashboard</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.3\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.3\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="DragControlProject, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DragControl.1.0.2\lib\DragControlProject.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFileLoaderStandard, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.JsonLoader2.0.1.0.0.3\lib\netstandard2.0\JsonFileLoaderStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DashboardProperties.cs" />
+    <Compile Include="MsDashboardFunctions.cs" />
+    <Compile Include="MsChartComponent.cs" />
+    <Compile Include="MsChartDashBoard.cs" />
+    <Compile Include="MsDashboardDesigner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MsDashboardDesigner.Designer.cs">
+      <DependentUpon>MsDashboardDesigner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj">
+      <Project>{31940304-EF06-4104-94B4-59B40331391E}</Project>
+      <Name>BeepEnterprize.Vis.Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
+      <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
+      <Name>BeepEnterprize.Winform.Vis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ModuleExtensions\AppModule\AppModule.csproj">
+      <Project>{728c3656-d039-4f7b-8796-acb59f9bf446}</Project>
+      <Name>AppModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ModuleExtensions\DashboardInterfaces\DashboardInterfaces.csproj">
+      <Project>{9e67b135-ed55-46f0-a64f-76236c2bd903}</Project>
+      <Name>DashboardInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppBuilder\AppBuilder.csproj">
+      <Project>{FC737DED-D254-46A5-B987-7AA2DEAD342D}</Project>
+      <Name>AppBuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MsDashboardDesigner.resx">
+      <DependentUpon>MsDashboardDesigner.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\CollapseLeft.png" />
+    <EmbeddedResource Include="Gfx\Collapseright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Button.png" />
+    <EmbeddedResource Include="Gfx\Calendar.png" />
+    <EmbeddedResource Include="Gfx\CheckBoxChecked.png" />
+    <EmbeddedResource Include="Gfx\CheckBoxList.png" />
+    <EmbeddedResource Include="Gfx\ComboBox.png" />
+    <EmbeddedResource Include="Gfx\DateTimePicker.png" />
+    <EmbeddedResource Include="Gfx\GroupBox.png" />
+    <EmbeddedResource Include="Gfx\Label.png" />
+    <EmbeddedResource Include="Gfx\LayoutPanel.png" />
+    <EmbeddedResource Include="Gfx\ListBox.png" />
+    <EmbeddedResource Include="Gfx\ListBoxSearch.png" />
+    <EmbeddedResource Include="Gfx\ListView.png" />
+    <EmbeddedResource Include="Gfx\MaskedTextBox.png" />
+    <EmbeddedResource Include="Gfx\MonthCalendar.png" />
+    <EmbeddedResource Include="Gfx\Panel.png" />
+    <EmbeddedResource Include="Gfx\PictureAndText.png" />
+    <EmbeddedResource Include="Gfx\RadioButton.png" />
+    <EmbeddedResource Include="Gfx\RadioButtonList.png" />
+    <EmbeddedResource Include="Gfx\TextBox.png" />
+    <EmbeddedResource Include="Gfx\TimePicker.png" />
+    <EmbeddedResource Include="Gfx\Timer.png" />
+    <EmbeddedResource Include="Gfx\Trigger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gfx\Chart.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir  $(ProjectDir)..\outputdll\$(TargetName)\
+
+copy $(TargetName).dll  $(ProjectDir)..\outputdll\$(TargetName)\$(TargetName).dll</PostBuildEvent>
+  </PropertyGroup>
+</Project>
