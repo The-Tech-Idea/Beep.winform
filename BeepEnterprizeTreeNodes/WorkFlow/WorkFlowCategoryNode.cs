@@ -24,7 +24,7 @@ namespace  BeepEnterprize.Vis.Module
         }
         public WorkFlowCategoryNode(ITree pTreeEditor, IDMEEditor pDMEEditor, IBranch pParentNode, string pBranchText, int pID, EnumPointType pBranchType, string pimagename)
         {
-
+               
 
 
             TreeEditor = pTreeEditor;
