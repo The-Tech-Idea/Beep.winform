@@ -15,9 +15,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepContainersModel", "BeepContainersModel\BeepContainersModel.csproj", "{871AD324-9FD2-4EB3-AD3C-9DE66947AC52}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Winform", "Winform", "{FF56C05E-C8BE-40A4-B9B1-762925076F0F}"
-	ProjectSection(SolutionItems) = preProject
-		Controller.txt = Controller.txt
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepEnterprize.Winform", "BeepEnterprize.Winform\BeepEnterprize.Winform.csproj", "{98D9F47F-C4B3-4EF3-9888-40209E9D689E}"
 	ProjectSection(ProjectDependencies) = postProject
