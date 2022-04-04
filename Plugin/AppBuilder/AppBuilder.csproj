@@ -115,10 +115,6 @@
       <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
       <Name>Beep.Winform.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj">
-      <Project>{31940304-EF06-4104-94B4-59B40331391E}</Project>
-      <Name>BeepEnterprize.Vis.Module</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
       <Project>{D185808C-5D43-454A-9468-829E122C2C2A}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>

@@ -106,10 +106,6 @@
       <Project>{45983087-5e0e-4bfb-86c1-a5bc54d2a86f}</Project>
       <Name>DataManagmentEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj">
-      <Project>{31940304-EF06-4104-94B4-59B40331391E}</Project>
-      <Name>BeepEnterprize.Vis.Module</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ModuleExtensions\AppModule\AppModule.csproj">
       <Project>{728c3656-d039-4f7b-8796-acb59f9bf446}</Project>
       <Name>AppModule</Name>

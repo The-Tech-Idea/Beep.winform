@@ -254,10 +254,6 @@
       <Project>{45983087-5e0e-4bfb-86c1-a5bc54d2a86f}</Project>
       <Name>DataManagmentEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj">
-      <Project>{31940304-ef06-4104-94b4-59b40331391e}</Project>
-      <Name>BeepEnterprize.Vis.Module</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

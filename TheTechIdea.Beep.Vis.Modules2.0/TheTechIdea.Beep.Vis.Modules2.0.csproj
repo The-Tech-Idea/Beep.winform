@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>TheTechIdea.Beep.Vis.Modules2._0</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.0.0.5</Version>
+    <Authors>The Tech Idea</Authors>
+    <Description>Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
+    <PackageProjectUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform</RepositoryUrl>
+    <PackageIcon>SimpleODM.png</PackageIcon>
+    <Copyright>2022</Copyright>
+  </PropertyGroup>
+	<Target Name="CopyPackage" AfterTargets="Pack">
+		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="C:\Users\f_ald\source\repos\Nuget.Local" />
+	</Target>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\OneDrive\SimpleInfoapps\LogoGFx\128\SimpleODM.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.5" />
+  </ItemGroup>
+
+</Project>

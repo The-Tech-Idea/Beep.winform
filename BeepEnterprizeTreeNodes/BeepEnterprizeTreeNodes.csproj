@@ -100,12 +100,6 @@
     <Compile Include="WorkFlow\WorkFlowRootNode.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj">
-      <Project>{31940304-ef06-4104-94b4-59b40331391e}</Project>
-      <Name>BeepEnterprize.Vis.Module</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="App\" />
     <Folder Include="Tree\" />
   </ItemGroup>
