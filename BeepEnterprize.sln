@@ -120,21 +120,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.Vis.Module
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepEnterprize.Vis.Module", "BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj", "{31940304-EF06-4104-94B4-59B40331391E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataManagementEngineStandard", "..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj", "{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataManagementModelsStandard", "..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj", "{31263F85-6D55-41D4-8075-A79F3D4EE4D3}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataManagmentModelsShared", "..\BeepDM\DataManagementModelsShared\DataManagmentModelsShared.shproj", "{2F745B0A-B2F4-4EB8-9A8E-5A87B2988F99}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataManagmentEngineShared", "..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.shproj", "{B5D91583-1EB4-4B3C-8288-88FD13E35556}"
-EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\BeepDM\DataManagementModelsShared\DataManagementModelsShared.projitems*{2f745b0a-b2f4-4eb8-9a8e-5a87b2988f99}*SharedItemsImports = 13
-		..\BeepDM\DataManagementModelsShared\DataManagementModelsShared.projitems*{31263f85-6d55-41d4-8075-a79f3d4ee4d3}*SharedItemsImports = 5
-		..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.projitems*{b5d91583-1eb4-4b3c-8288-88fd13e35556}*SharedItemsImports = 13
-		..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.projitems*{e6dc63d8-a5c3-48c1-ba20-c1fe3e9d895f}*SharedItemsImports = 5
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
@@ -624,30 +610,6 @@ Global
 		{31940304-EF06-4104-94B4-59B40331391E}.x86|Any CPU.Build.0 = Debug|Any CPU
 		{31940304-EF06-4104-94B4-59B40331391E}.x86|x86.ActiveCfg = Debug|Any CPU
 		{31940304-EF06-4104-94B4-59B40331391E}.x86|x86.Build.0 = Debug|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.Debug|x86.Build.0 = Debug|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.Release|x86.ActiveCfg = Release|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.Release|x86.Build.0 = Release|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.x86|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.x86|Any CPU.Build.0 = Debug|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.x86|x86.ActiveCfg = Debug|Any CPU
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F}.x86|x86.Build.0 = Debug|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.Debug|x86.Build.0 = Debug|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.Release|x86.ActiveCfg = Release|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.Release|x86.Build.0 = Release|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.x86|Any CPU.ActiveCfg = Debug|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.x86|Any CPU.Build.0 = Debug|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.x86|x86.ActiveCfg = Debug|Any CPU
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3}.x86|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -703,10 +665,6 @@ Global
 		{12F5522A-6250-49DF-A4E1-67474E330661} = {5476A29B-D1C5-4E71-8362-428947F253F0}
 		{942285F3-E881-45CC-ACDF-7A4DE4259B77} = {FF56C05E-C8BE-40A4-B9B1-762925076F0F}
 		{31940304-EF06-4104-94B4-59B40331391E} = {FF56C05E-C8BE-40A4-B9B1-762925076F0F}
-		{E6DC63D8-A5C3-48C1-BA20-C1FE3E9D895F} = {FF56C05E-C8BE-40A4-B9B1-762925076F0F}
-		{31263F85-6D55-41D4-8075-A79F3D4EE4D3} = {FF56C05E-C8BE-40A4-B9B1-762925076F0F}
-		{2F745B0A-B2F4-4EB8-9A8E-5A87B2988F99} = {FF56C05E-C8BE-40A4-B9B1-762925076F0F}
-		{B5D91583-1EB4-4B3C-8288-88FD13E35556} = {FF56C05E-C8BE-40A4-B9B1-762925076F0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {080094DB-7666-459B-88F8-5F017533DAA6}
