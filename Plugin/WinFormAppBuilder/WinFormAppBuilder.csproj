@@ -118,13 +118,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\The-Tech-Idea\BeepDM\DataManagmentModels\DataManagmentModels.csproj">
-      <Project>{7697ebdc-a4f2-49b1-af91-79031516e679}</Project>
-      <Name>DataManagmentModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\The-Tech-Idea\BeepDM\DataManagment_Engine\DataManagmentEngine.csproj">
-      <Project>{45983087-5e0e-4bfb-86c1-a5bc54d2a86f}</Project>
-      <Name>DataManagmentEngine</Name>
+    <ProjectReference Include="..\..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
+      <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
+      <Name>BeepEnterprize.Winform.Vis</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\ModuleExtensions\AppModule\AppModule.csproj">
       <Project>{728c3656-d039-4f7b-8796-acb59f9bf446}</Project>

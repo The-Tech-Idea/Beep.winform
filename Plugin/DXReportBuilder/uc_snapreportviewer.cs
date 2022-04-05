@@ -62,7 +62,7 @@ namespace Beep.DExpress.ReportBuilder
         public string BranchDescription { get; set; } = "";
         public string BranchClass { get; set; } = "REPORTING";
         #endregion "IAddinVisSchema"
-        VisManager Vismanager;
+        IVisManager Vismanager;
         public IAppDefinition ReportDefinition { get; set; }
         public ReportDataManager reportOutput { get; set; }
         SnapControl snapControl1 = new SnapControl();
@@ -89,7 +89,7 @@ namespace Beep.DExpress.ReportBuilder
                 {
                     if (e.Objects.Where(c => c.Name == "VISUTIL").Any())
                     {
-                        Vismanager = (VisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
+                        Vismanager = (IVisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
                     }
                     if (Passedarg.Objects.Where(i => i.Name == "Branch").Any())
                     {

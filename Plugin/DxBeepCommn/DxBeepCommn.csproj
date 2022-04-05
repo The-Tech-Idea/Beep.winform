@@ -49,6 +49,9 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.5\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    </Reference>
     <Reference Include="DataManagmentEngineStandard, Version=1.0.0.12, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.12\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
     </Reference>
@@ -137,12 +140,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
-      <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
-      <Name>BeepEnterprize.Winform.Vis</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +160,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dummy.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
+      <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
+      <Name>BeepEnterprize.Winform.Vis</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -65,7 +65,7 @@ namespace TheTechIdea.Beep.AppBuilder
             // 
             // appsBindingSource
             // 
-            this.appsBindingSource.DataSource = typeof(TheTechIdea.Beep.AppBuilder.App);
+          //  this.appsBindingSource.DataSource = typeof(TheTechIdea.Beep.AppBuilder.AppBuilder.);
             // 
             // MenuBoxbutton
             // 
