@@ -319,7 +319,6 @@
     <Content Include="DataViews\HereweAddAllDataViews.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="dummy.txt" />
     <Content Include="GFX\accord.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

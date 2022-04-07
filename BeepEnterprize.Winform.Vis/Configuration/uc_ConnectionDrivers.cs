@@ -83,7 +83,8 @@ namespace BeepEnterprize.Winform.Vis
             DMEEditor = pbl;
            
             List<Icon> icons=new List<Icon>();
-
+           
+          
             Visutil = (IVisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
             foreach(AssemblyClassDefinition cls in DMEEditor.ConfigEditor.DataSourcesClasses)
             {
