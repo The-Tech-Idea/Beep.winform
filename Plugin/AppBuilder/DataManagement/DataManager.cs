@@ -112,7 +112,6 @@ namespace TheTechIdea.Beep.AppBuilder.DataManagement
 
         }
         #endregion
-
         #region "Table Events"
         private void Table_ColumnChanged(object sender, DataColumnChangeEventArgs e)
         {

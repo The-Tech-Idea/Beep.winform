@@ -589,9 +589,6 @@
     <EmbeddedResource Include="gfx\success32.png" />
     <EmbeddedResource Include="gfx\success64.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="dummy.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

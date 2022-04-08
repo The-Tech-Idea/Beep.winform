@@ -121,7 +121,7 @@ namespace TheTechIdea.Beep.AppBuilder.Controls
                 Container.AllowDrop = true;
                 Container.Height = 200;
                 ControlMenu= ScreenDesigner.SetupControlContextMenu( ControlMenu_Click);
-                ControlMenu.Click += ControlMenu_Click;
+             
                 if (Container != null)
                 {
                     if (args != null)
@@ -143,10 +143,18 @@ namespace TheTechIdea.Beep.AppBuilder.Controls
         }
         private void ControlMenu_Click(object sender, EventArgs e)
         {
+
             ToolStripItem menuItem = (ToolStripItem)sender;
-            draggables.Remove(ScreenDesigner.SelectedControl);
-            Container.Controls.Remove(ScreenDesigner.SelectedControl);
-            ScreenDesigner.Properties.Controls.Remove(ScreenDesigner.SelectedPanelControl);
+            if (menuItem != null)
+            {
+                if (menuItem.Text == "Remove")
+                {
+                    draggables.Remove(ScreenDesigner.SelectedControl);
+                    Container.Controls.Remove(ScreenDesigner.SelectedControl);
+                    ScreenDesigner.Properties.Controls.Remove(ScreenDesigner.SelectedPanelControl);
+                }
+            }
+          
         }
         private void Gbox_MouseUp(object sender, MouseEventArgs e)
         {

@@ -138,6 +138,7 @@ namespace BeepEnterprize.Winform.Vis
         {
             e.Cancel = true;
         }
+      
         private bool updateDriversemptycopy()
         {
             try
