@@ -75,7 +75,7 @@ namespace DataManagment_Engine
                 DMEEditor = scope.Resolve<IDMEEditor>();
                 typesHelper = scope.Resolve<IDataTypesHelper>();
 
-
+                typesHelper.DMEEditor = DMEEditor;
                 DMEEditor.typesHelper = typesHelper;
                 DMEEditor.ETL = eTL;
                 eTL.DMEEditor = DMEEditor;

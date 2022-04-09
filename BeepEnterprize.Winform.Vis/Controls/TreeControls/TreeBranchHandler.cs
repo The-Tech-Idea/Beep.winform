@@ -770,25 +770,38 @@ namespace BeepEnterprize.Winform.Vis.Controls
             try
             {
                 IBranch br = GetBranch(Convert.ToInt32(e.Node.Tag));
-                CheckNodes(e.Node, e.Node.Checked);
+              
                 if (br.BranchType == EnumPointType.Entity)
                 {
 
                     if (e.Node.Checked)
                     {
+                        CheckNodes(e.Node, e.Node.Checked);
                         Treecontrol.SelectedBranchs.Add(br.BranchID);
                     }
                     else
                         Treecontrol.SelectedBranchs.Remove(br.BranchID);
 
                 }
-                else
+
+                if (br.BranchType == EnumPointType.DataPoint)
                 {
                     if (e.Node.Checked)
                     {
-                        e.Node.Checked = false;
+                        CheckNodes(e.Node, true);
                     }
-                  
+                    else
+                        CheckNodes(e.Node, false);
+
+                }
+                if ((br.BranchType != EnumPointType.DataPoint)&&(br.BranchType != EnumPointType.Entity))
+                {
+                   
+                        if (e.Node.Checked)
+                        {
+                            e.Node.Checked = false;
+                        }
+
                 }
 
             }
@@ -819,18 +832,18 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             foreach (TreeNode item in treeNode.Nodes)
             {
-                if (item.Checked != checkedState)
-                {
+                //if (item.Checked != checkedState)
+                //{
 
                     // int vitem = Convert.ToInt32(item.Tag.ToString().Substring(item.Tag.ToString().IndexOf('-') + 1));
                     item.Checked = checkedState;
-                    if (item.Checked)
-                    {
-                        Treecontrol.SelectedBranchs.Add(Convert.ToInt32(item.Tag));
-                    }
-                    else
-                        Treecontrol.SelectedBranchs.Remove(Convert.ToInt32(item.Tag));
-                }
+                    //if (item.Checked)
+                    //{
+                    //    Treecontrol.SelectedBranchs.Add(Convert.ToInt32(item.Tag));
+                    //}
+                    //else
+                    //    Treecontrol.SelectedBranchs.Remove(Convert.ToInt32(item.Tag));
+                //}
                 SetChildrenChecked(item, item.Checked);
             }
         }
