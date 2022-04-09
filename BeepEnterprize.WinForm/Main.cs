@@ -74,18 +74,22 @@ namespace DataManagment_Engine
                 rulesEditor = scope.Resolve<IRulesEditor>();
                 DMEEditor = scope.Resolve<IDMEEditor>();
                 typesHelper = scope.Resolve<IDataTypesHelper>();
+
+
                 DMEEditor.typesHelper = typesHelper;
                 DMEEditor.ETL = eTL;
+                eTL.DMEEditor = DMEEditor;
                 DMEEditor.assemblyHandler = LLoader;
 
                 DMEEditor.WorkFlowEditor = WorkFlowEditor;
                 DMEEditor.WorkFlowEditor.DMEEditor = DMEEditor;
-                DMEEditor.WorkFlowEditor.DMEEditor = DMEEditor;
                 WorkFlowStepEditor.DMEEditor = DMEEditor;
                 DMEEditor.WorkFlowEditor.StepEditor = WorkFlowStepEditor;
+
                 ruleparser.DMEEditor = DMEEditor;
                 rulesEditor.DMEEditor = DMEEditor;
                 rulesEditor.Parser = ruleparser;
+                
                 DMEEditor.ETL.RulesEditor = rulesEditor;
 
                 vis = scope.Resolve<IVisManager>();
