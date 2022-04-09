@@ -316,6 +316,9 @@
     <Content Include="DataFiles\HereweAddAllLocalDatabase.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="DataFiles\SampleDB_SqlCompact.sdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="DataViews\HereweAddAllDataViews.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2786,19 +2789,10 @@
     <Content Include="DataViews\PPDM39.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="DataFiles\etl.s3db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataFiles\firebirddb.fdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="DataFiles\ppdm38.s3db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DataFiles\refdblocal.s3db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataFiles\simpleodmdblite.s3db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="config\default.nds">
@@ -2806,6 +2800,8 @@
     </Content>
     <None Include="config\reportsDefinition.json" />
     <None Include="config\Reportslist.json" />
+    <None Include="DataFiles\ppdm39_sqlite.s3db" />
+    <None Include="DataFiles\SampleDB_Sqlite.s3db" />
     <None Include="packages.config" />
     <Content Include="ProjectData\OilandGas\IHS\activity-codes_210667110913052332.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
