@@ -1369,38 +1369,41 @@ namespace BeepEnterprize.Winform.Vis
         }
         public object GetDisplayLookup(string datasourceid, string Parententityname, string ParentKeyField,string EntityField)
         {
-            object retval;
+            object retval=null;
             try
             {
-                IDataSource ds = DMEEditor.GetDataSource(datasourceid);
-                EntityStructure ent = ds.GetEntityStructure(Parententityname, false);
-                DisplayField = null;
-                // bool found = true;
-                // int i = 0;
-                List<DefaultValue> defaults = ds.Dataconnection.ConnectionProp.DatasourceDefaults.Where(o => o.propertyType == DefaultValueType.DisplayLookup).ToList();
-                List<string> fields = ent.Fields.Select(u => u.EntityName).ToList();
-                if (defaults != null)
+                if (Parententityname != null)
                 {
-                    DefaultValue defaultValue = defaults.Where(p => p.propertyName.Equals(EntityField, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
-                    if(defaultValue != null)
+                    IDataSource ds = DMEEditor.GetDataSource(datasourceid);
+                    EntityStructure ent = ds.GetEntityStructure(Parententityname, false);
+                    DisplayField = null;
+                    // bool found = true;
+                    // int i = 0;
+                    List<DefaultValue> defaults = ds.Dataconnection.ConnectionProp.DatasourceDefaults.Where(o => o.propertyType == DefaultValueType.DisplayLookup).ToList();
+                    List<string> fields = ent.Fields.Select(u => u.EntityName).ToList();
+                    if (defaults != null)
                     {
-                        DisplayField = defaultValue.propoertValue;
+                        DefaultValue defaultValue = defaults.Where(p => p.propertyName.Equals(EntityField, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+                        if (defaultValue != null)
+                        {
+                            DisplayField = defaultValue.propoertValue;
+                        }
+
                     }
-                    
-
-                }
-                if (string.IsNullOrWhiteSpace(DisplayField) || string.IsNullOrEmpty(DisplayField))
-                {
-                    DisplayField = ent.Fields.Where(r => r.fieldname.Contains("NAME")).Select(u => u.fieldname).FirstOrDefault();
-                }
-                if (string.IsNullOrWhiteSpace(DisplayField) || string.IsNullOrEmpty(DisplayField))
-                {
-                    DisplayField = ParentKeyField;
-                }
-                string qrystr = "select " + DisplayField + " as DisplayField," + ParentKeyField + "  from " + Parententityname;
+                    if (string.IsNullOrWhiteSpace(DisplayField) || string.IsNullOrEmpty(DisplayField))
+                    {
+                        DisplayField = ent.Fields.Where(r => r.fieldname.Contains("NAME")).Select(u => u.fieldname).FirstOrDefault();
+                    }
+                    if (string.IsNullOrWhiteSpace(DisplayField) || string.IsNullOrEmpty(DisplayField))
+                    {
+                        DisplayField = ParentKeyField;
+                    }
+                    string qrystr = "select " + DisplayField + " as DisplayField," + ParentKeyField + "  from " + Parententityname;
 
 
-                retval = ds.RunQuery(qrystr);
+                    retval = ds.RunQuery(qrystr);
+                }
+               
 
                 return retval;
             }

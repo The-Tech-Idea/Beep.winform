@@ -174,7 +174,6 @@
     <AdditionalFiles Include="python-3.9.5-embed-amd64\libssl-1_1.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AdditionalFiles>
-    <Content Include="dummy.txt" />
     <Content Include="Lib\abc.py" />
     <Content Include="Lib\aifc.py" />
     <Content Include="Lib\antigravity.py" />

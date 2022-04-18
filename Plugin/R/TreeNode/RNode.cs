@@ -157,7 +157,7 @@ namespace AI
                 };
 
                 
-                    Visutil.ShowPage("uc_ironpythonscriptrunner",  Passedarguments,DisplayType.InControl);
+                    Visutil.ShowPage("uc_REditor",  Passedarguments,DisplayType.InControl);
 
 
 
@@ -193,14 +193,7 @@ namespace AI
 
                 };
 
-                if (AddinTreeStructure.ObjectType == "UserControl")
-                {
-                    Visutil.ShowPage(AddinTreeStructure.className,  Passedarguments, DisplayType.InControl);
-                }
-                else
-                {
-                    Visutil.ShowPage(AddinTreeStructure.className, Passedarguments);
-                }
+                Visutil.ShowPage("uc_REditor", Passedarguments, DisplayType.InControl);
 
                 DMEEditor.AddLogMessage("Success", "Shown Module " + BranchText, DateTime.Now, 0, null, Errors.Ok);
             }

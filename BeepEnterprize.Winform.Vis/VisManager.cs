@@ -146,6 +146,7 @@ namespace BeepEnterprize.Winform.Vis
         {
             try
             {
+                ErrorsandMesseges = new ErrorsInfo();
                 AddinAttribute attrib = new AddinAttribute();
                 if (DMEEditor.assemblyHandler.AddIns.Where(c => c.ObjectName.Equals(pagename, StringComparison.OrdinalIgnoreCase)).Any())
                 {
@@ -157,35 +158,38 @@ namespace BeepEnterprize.Winform.Vis
                         {
                             displayType = DisplayType.Popup;
                         }
+                        switch (attrib.addinType)
+                        {
+                            case AddinType.Form:
+                                ShowForm(pagename, DMEEditor, new string[] { }, Passedarguments);
+                                break;
+                            case AddinType.Control:
+                                if (displayType == DisplayType.InControl)
+                                {
+                                    ShowUserControlInContainer(pagename, DMEEditor, new string[] { }, Passedarguments);
+                                }
+                                else
+                                {
+                                    ShowUserControlPopUp(pagename, DMEEditor, new string[] { }, Passedarguments);
+                                }
+                                break;
+                            case AddinType.Class:
+                                RunAddinClass(pagename, DMEEditor, new string[] { }, Passedarguments);
+                                break;
+                            case AddinType.Page:
+                                break;
+                            case AddinType.Link:
+                                break;
+                            default:
+                                break;
+                        }
                     }
+                    else
+                        DMEEditor.AddLogMessage("Beep Vis", $"Could Find Attrib for Addin {pagename}", DateTime.Now, 0, pagename, Errors.Failed);
                 }
                
-                ErrorsandMesseges = new ErrorsInfo();
-                switch (attrib.addinType)
-                {
-                    case AddinType.Form:
-                        ShowForm(pagename, DMEEditor, new string[] { }, Passedarguments);
-                        break;
-                    case AddinType.Control:
-                        if (displayType == DisplayType.InControl)
-                        {
-                            ShowUserControlInContainer(pagename, DMEEditor, new string[] { }, Passedarguments);
-                        }
-                        else
-                        {
-                            ShowUserControlPopUp(pagename, DMEEditor, new string[] { }, Passedarguments);
-                        }
-                        break;
-                    case AddinType.Class:
-                        RunAddinClass(pagename,DMEEditor, new string[] { }, Passedarguments);
-                        break;
-                    case AddinType.Page:
-                        break;
-                    case AddinType.Link:
-                        break;
-                    default:
-                        break;
-                }
+               
+              
                
 
                 ErrorsandMesseges.Flag = Errors.Ok;
@@ -196,6 +200,7 @@ namespace BeepEnterprize.Winform.Vis
                 ErrorsandMesseges.Flag = Errors.Failed;
                 ErrorsandMesseges.Message = ex.Message;
                 ErrorsandMesseges.Ex = ex;
+                DMEEditor.AddLogMessage("Beep Vis", $"Error in Getting Addin {pagename}", DateTime.Now, 0, pagename, Errors.Failed);
 
             }
             return ErrorsandMesseges;
@@ -591,7 +596,7 @@ namespace BeepEnterprize.Winform.Vis
             Stream stream;
             Assembly assembly = Assembly.GetExecutingAssembly();
             // Is this just a single (ie. one-time) image?
-            stream = assembly.GetManifestResourceStream("BeepEnterprize.Winform.Vis.gfx."+fullName);
+            stream = assembly.GetManifestResourceStream(fullName);
             if (stream != null)
             {
                 image = new Bitmap(stream);

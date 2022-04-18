@@ -102,9 +102,9 @@ namespace BeepEnterprize.Winform.Vis.DataViewManagement
                 this.CreateEntitiesbutton.Click += CreateEntitiesbutton_Click;
                 this.Okbutton.Click += Okbutton_Click;
                 this.Cancelbutton.Click += Cancelbutton_Click;
-                this.CreateLayerButton.Image = visManager.GetImage("clear64.png");
-                this.Okbutton.Image= visManager.GetImage("success32.png");
-                this.Cancelbutton.Image = visManager.GetImage("stop32.png");
+                this.CreateLayerButton.Image = visManager.GetImage("BeepEnterprize.Winform.Vis.gfx.clear64.png");
+                this.Okbutton.Image= visManager.GetImage("BeepEnterprize.Winform.Vis.gfx.success32.png");
+                this.Cancelbutton.Image = visManager.GetImage("BeepEnterprize.Winform.Vis.gfx.stop32.png");
             }
         }
         #region"Button Events"

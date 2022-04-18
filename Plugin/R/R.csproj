@@ -60,6 +60,7 @@
       <HintPath>..\..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
       <Private>True</Private>
@@ -71,6 +72,7 @@
     <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,20 +85,157 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceManager.cs" />
+    <Compile Include="RScriptRunner.cs" />
     <Compile Include="TreeNode\RNode.cs" />
+    <Compile Include="uc_REditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_REditor.Designer.cs">
+      <DependentUpon>uc_REditor.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
+      <Project>{D185808C-5D43-454A-9468-829E122C2C2A}</Project>
+      <Name>BeepEnterprize.Winform.Vis</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ModuleExtensions\AIModule\AIModule.csproj">
       <Project>{a81b09ed-c936-4c60-be8f-223d5d3fce8d}</Project>
       <Name>AIModule</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dummy.txt" />
+    <EmbeddedResource Include="uc_REditor.resx">
+      <DependentUpon>uc_REditor.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\cancel64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\clear.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\compute.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\gfx.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\gfx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\gfx64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\gui.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\gui.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\gui64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\info64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\install.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\jupyter.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\jupyter64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\linked.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\list.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\load.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\load64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\ml.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\ml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\ml64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\nolink.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\please_wait.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\qt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\qt64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\run.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\run.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\run64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\save64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\saveas.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\saveas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\saveas64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\SimpleInfoApps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\SimpleInfoApps64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\tools.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gfx\tools64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
