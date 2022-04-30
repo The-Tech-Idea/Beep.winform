@@ -58,8 +58,8 @@
     <ManifestKeyFile>TheTechIDea.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly_helpersStandard, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.AssemblyHelper2.0.1.0.0.6\lib\netstandard2.0\Assembly_helpersStandard.dll</HintPath>
+    <Reference Include="Assembly_helpersStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.AssemblyHelper2.0.1.0.0.7\lib\netstandard2.0\Assembly_helpersStandard.dll</HintPath>
     </Reference>
     <Reference Include="Autofac, Version=6.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.6.3.0\lib\netstandard2.0\Autofac.dll</HintPath>
@@ -68,17 +68,17 @@
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataManagementModelsStandard, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.5\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.6\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.12, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.12\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.15, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.15\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
     </Reference>
-    <Reference Include="DMLoggerStandard, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.DMLogger2.0.1.0.0.5\lib\netstandard2.0\DMLoggerStandard.dll</HintPath>
+    <Reference Include="DMLoggerStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DMLogger2.0.1.0.0.7\lib\netstandard2.0\DMLoggerStandard.dll</HintPath>
     </Reference>
-    <Reference Include="JsonFileLoaderStandard, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.JsonLoader2.0.1.0.0.5\lib\netstandard2.0\JsonFileLoaderStandard.dll</HintPath>
+    <Reference Include="JsonFileLoaderStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.JsonLoader2.0.1.0.0.7\lib\netstandard2.0\JsonFileLoaderStandard.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -86,8 +86,11 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RulesParser, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Workflow.RuleParser.1.0.0.1\lib\netstandard2.0\RulesParser.dll</HintPath>
+    </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
-      <HintPath>..\packages\Serilog.2.10.0\lib\net46\Serilog.dll</HintPath>
+      <HintPath>..\packages\Serilog.2.11.0\lib\net46\Serilog.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.Sinks.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.Sinks.Console.4.0.1\lib\net45\Serilog.Sinks.Console.dll</HintPath>
@@ -133,9 +136,17 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.5\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.6\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
+    </Reference>
+    <Reference Include="WorkFlowEditor, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Workflow.WorkFlowEditor.1.0.0.1\lib\netstandard2.0\WorkFlowEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="WorkFlowRules, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Workflow.Rules.1.0.0.1\lib\netstandard2.0\WorkFlowRules.dll</HintPath>
+    </Reference>
+    <Reference Include="WorkFlowStepEditor, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Workflow.WorkFlowStepEditor.1.0.0.2\lib\netstandard2.0\WorkFlowStepEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -3256,18 +3267,6 @@
     <ProjectReference Include="..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
       <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Plugin\RuleParser\RuleParserandEditor.csproj">
-      <Project>{8335eeea-2205-4fe0-926d-60d3254d1016}</Project>
-      <Name>RuleParserandEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Plugin\WorkFlowEditor\WorkFlowEditor.csproj">
-      <Project>{b238c0e6-ed3e-4501-aa63-6cc0cd757d9a}</Project>
-      <Name>WorkFlowEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Plugin\WorkflowStepEditor\WorkflowStepEditor.csproj">
-      <Project>{bb92b1a6-52d9-480b-9ff1-b854bb5a1f49}</Project>
-      <Name>WorkflowStepEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
