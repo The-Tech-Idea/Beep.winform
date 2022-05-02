@@ -280,40 +280,49 @@ namespace  BeepEnterprize.Vis.Module
                         }
                         string ext = Path.GetExtension(file).Replace(".", "").ToLower();
                         List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null).ToList();
-                        ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext)).FirstOrDefault();
-
-                        f.DriverName = c.PackageName;
-                        f.DriverVersion = c.version;
-                        f.Category = c.DatasourceCategory;
-
-                        switch (f.Ext.ToLower())
+                        ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext) && o.Favourite==true).FirstOrDefault();
+                        if(c is null)
                         {
-                            case "txt":
-                                f.DatabaseType = DataSourceType.Text;
-                                break;
-                            case "csv":
-                                f.DatabaseType = DataSourceType.CSV;
-                                break;
-                            case "xml":
-                                f.DatabaseType = DataSourceType.xml;
-
-                                break;
-                            case "json":
-                                f.DatabaseType = DataSourceType.Json;
-                                break;
-                            case "xls":
-                            case "xlsx":
-                                f.DatabaseType = DataSourceType.Xls;
-                                break;
-                            default:
-                                f.DatabaseType = DataSourceType.Text;
-                                break;
+                            c = clss.Where(o => o.extensionstoHandle.Contains(ext) ).FirstOrDefault();
                         }
-                        f.Category = DatasourceCategory.FILE;
+                        if (c != null) 
+                        {
+                            f.DriverName = c.PackageName;
+                            f.DriverVersion = c.version;
+                            f.Category = c.DatasourceCategory;
 
+                            switch (f.Ext.ToLower())
+                            {
+                                case "txt":
+                                    f.DatabaseType = DataSourceType.Text;
+                                    break;
+                                case "csv":
+                                    f.DatabaseType = DataSourceType.CSV;
+                                    break;
+                                case "xml":
+                                    f.DatabaseType = DataSourceType.xml;
 
+                                    break;
+                                case "json":
+                                    f.DatabaseType = DataSourceType.Json;
+                                    break;
+                                case "xls":
+                                case "xlsx":
+                                    f.DatabaseType = DataSourceType.Xls;
+                                    break;
+                                default:
+                                    f.DatabaseType = DataSourceType.Text;
+                                    break;
+                            }
+                            f.Category = DatasourceCategory.FILE;
+                            retval.Add(f);
 
-                        retval.Add(f);
+                        }
+                        else
+                        {
+                            DMEEditor.AddLogMessage("Beep",$"Could not Load File {f.ConnectionName}", DateTime.Now, -1, null, Errors.Failed);
+                        }
+                      
                     }
 
 

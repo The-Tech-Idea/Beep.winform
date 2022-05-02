@@ -34,18 +34,22 @@ namespace BeepEnterprize.Winform.Vis
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.connectiondriversConfigBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.connectiondriversConfigDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uc_bindingNavigator1 = new Beep.Winform.Controls.uc_bindingNavigator();
             this.iconname = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatasourceCategoryComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DatasourceTypeComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.classHandlerComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.CreateLocal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ADOType = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Favourite = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.extensionstoHandle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConnectionString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uc_bindingNavigator1 = new Beep.Winform.Controls.uc_bindingNavigator();
             ((System.ComponentModel.ISupportInitialize)(this.connectiondriversConfigBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectiondriversConfigDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -72,15 +76,17 @@ namespace BeepEnterprize.Winform.Vis
             this.connectiondriversConfigDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.connectiondriversConfigDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iconname,
+            this.dataGridViewTextBoxColumn1,
             this.DatasourceCategoryComboBox,
             this.DatasourceTypeComboBox,
             this.classHandlerComboBox,
             this.CreateLocal,
             this.ADOType,
-            this.dataGridViewTextBoxColumn1,
+            this.Favourite,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
+            this.extensionstoHandle,
             this.ConnectionString});
             this.connectiondriversConfigDataGridView.DataSource = this.connectiondriversConfigBindingSource;
             this.connectiondriversConfigDataGridView.Location = new System.Drawing.Point(2, 2);
@@ -91,96 +97,21 @@ namespace BeepEnterprize.Winform.Vis
             this.connectiondriversConfigDataGridView.Size = new System.Drawing.Size(1331, 623);
             this.connectiondriversConfigDataGridView.TabIndex = 1;
             // 
-            // iconname
+            // dataGridViewTextBoxColumn5
             // 
-            this.iconname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.iconname.DataPropertyName = "iconname";
-            this.iconname.HeaderText = "Icon";
-            this.iconname.MinimumWidth = 8;
-            this.iconname.Name = "iconname";
-            this.iconname.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.iconname.Width = 44;
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "ConnectionString";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Connection String";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // DatasourceCategoryComboBox
+            // dataGridViewTextBoxColumn6
             // 
-            this.DatasourceCategoryComboBox.DataPropertyName = "DatasourceCategory";
-            this.DatasourceCategoryComboBox.HeaderText = "Category";
-            this.DatasourceCategoryComboBox.Name = "DatasourceCategoryComboBox";
-            // 
-            // DatasourceTypeComboBox
-            // 
-            this.DatasourceTypeComboBox.DataPropertyName = "DatasourceType";
-            this.DatasourceTypeComboBox.HeaderText = "Type";
-            this.DatasourceTypeComboBox.Name = "DatasourceTypeComboBox";
-            // 
-            // classHandlerComboBox
-            // 
-            this.classHandlerComboBox.DataPropertyName = "classHandler";
-            this.classHandlerComboBox.HeaderText = "Class Handler";
-            this.classHandlerComboBox.MinimumWidth = 8;
-            this.classHandlerComboBox.Name = "classHandlerComboBox";
-            // 
-            // CreateLocal
-            // 
-            this.CreateLocal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CreateLocal.DataPropertyName = "CreateLocal";
-            this.CreateLocal.HeaderText = "Create Local";
-            this.CreateLocal.MinimumWidth = 8;
-            this.CreateLocal.Name = "CreateLocal";
-            this.CreateLocal.Width = 96;
-            // 
-            // ADOType
-            // 
-            this.ADOType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ADOType.DataPropertyName = "ADOType";
-            this.ADOType.HeaderText = "ADO Type";
-            this.ADOType.MinimumWidth = 8;
-            this.ADOType.Name = "ADOType";
-            this.ADOType.Width = 79;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "PackageName";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Package Name";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 129;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "DriverClass";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Driver Class";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 111;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "version";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Version";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 88;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "dllname";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DLL";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 62;
-            // 
-            // ConnectionString
-            // 
-            this.ConnectionString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ConnectionString.DataPropertyName = "ConnectionString";
-            this.ConnectionString.HeaderText = "Connection String";
-            this.ConnectionString.MinimumWidth = 8;
-            this.ConnectionString.Name = "ConnectionString";
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "ConnectionString";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Connection String";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // uc_bindingNavigator1
             // 
@@ -215,6 +146,110 @@ namespace BeepEnterprize.Winform.Vis
             this.uc_bindingNavigator1.TabIndex = 2;
             this.uc_bindingNavigator1.VerifyDelete = true;
             // 
+            // iconname
+            // 
+            this.iconname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.iconname.DataPropertyName = "iconname";
+            this.iconname.HeaderText = "Icon";
+            this.iconname.MinimumWidth = 8;
+            this.iconname.Name = "iconname";
+            this.iconname.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.iconname.Width = 44;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "PackageName";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Package Name";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 129;
+            // 
+            // DatasourceCategoryComboBox
+            // 
+            this.DatasourceCategoryComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DatasourceCategoryComboBox.DataPropertyName = "DatasourceCategory";
+            this.DatasourceCategoryComboBox.HeaderText = "Category";
+            this.DatasourceCategoryComboBox.Name = "DatasourceCategoryComboBox";
+            // 
+            // DatasourceTypeComboBox
+            // 
+            this.DatasourceTypeComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DatasourceTypeComboBox.DataPropertyName = "DatasourceType";
+            this.DatasourceTypeComboBox.HeaderText = "Type";
+            this.DatasourceTypeComboBox.Name = "DatasourceTypeComboBox";
+            // 
+            // classHandlerComboBox
+            // 
+            this.classHandlerComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.classHandlerComboBox.DataPropertyName = "classHandler";
+            this.classHandlerComboBox.HeaderText = "Class Handler";
+            this.classHandlerComboBox.MinimumWidth = 8;
+            this.classHandlerComboBox.Name = "classHandlerComboBox";
+            // 
+            // CreateLocal
+            // 
+            this.CreateLocal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CreateLocal.DataPropertyName = "CreateLocal";
+            this.CreateLocal.HeaderText = "Create Local";
+            this.CreateLocal.MinimumWidth = 8;
+            this.CreateLocal.Name = "CreateLocal";
+            this.CreateLocal.Width = 96;
+            // 
+            // ADOType
+            // 
+            this.ADOType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ADOType.DataPropertyName = "ADOType";
+            this.ADOType.HeaderText = "ADO Type";
+            this.ADOType.MinimumWidth = 8;
+            this.ADOType.Name = "ADOType";
+            this.ADOType.Width = 79;
+            // 
+            // Favourite
+            // 
+            this.Favourite.DataPropertyName = "Favourite";
+            this.Favourite.HeaderText = "Fav";
+            this.Favourite.Name = "Favourite";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "DriverClass";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Driver Class";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "version";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Version";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "dllname";
+            this.dataGridViewTextBoxColumn4.HeaderText = "DLL";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 62;
+            // 
+            // extensionstoHandle
+            // 
+            this.extensionstoHandle.DataPropertyName = "extensionstoHandle";
+            this.extensionstoHandle.HeaderText = "Extensions to Handle";
+            this.extensionstoHandle.Name = "extensionstoHandle";
+            // 
+            // ConnectionString
+            // 
+            this.ConnectionString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ConnectionString.DataPropertyName = "ConnectionString";
+            this.ConnectionString.HeaderText = "Connection String";
+            this.ConnectionString.MinimumWidth = 8;
+            this.ConnectionString.Name = "ConnectionString";
+            // 
             // uc_ConnectionDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,17 +269,21 @@ namespace BeepEnterprize.Winform.Vis
 
         private System.Windows.Forms.BindingSource connectiondriversConfigBindingSource;
         private System.Windows.Forms.DataGridView connectiondriversConfigDataGridView;
+        private uc_bindingNavigator uc_bindingNavigator1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewComboBoxColumn iconname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn DatasourceCategoryComboBox;
         private System.Windows.Forms.DataGridViewComboBoxColumn DatasourceTypeComboBox;
         private System.Windows.Forms.DataGridViewComboBoxColumn classHandlerComboBox;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CreateLocal;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ADOType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Favourite;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn extensionstoHandle;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConnectionString;
-        private uc_bindingNavigator uc_bindingNavigator1;
     }
 }

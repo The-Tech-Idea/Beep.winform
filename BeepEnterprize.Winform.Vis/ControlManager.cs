@@ -228,6 +228,7 @@ namespace BeepEnterprize.Winform.Vis
 
             return openFileDialog1.FileNames.ToList();
         }
+        
         public string LoadFileDialog(string exts, string dir,string filter)
         {
             OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog()

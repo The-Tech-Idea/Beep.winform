@@ -12,22 +12,27 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>H:\dev\Release\BeepEnterprize.Winform\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
+    <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
+    <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -56,6 +61,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>TheTechIDea.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SimpleODM.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=6.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
@@ -816,7 +827,13 @@
     <Content Include="GFX\zip.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="LoadingExtensions\AssemblyLoaderExtension\AssemblyLoaderExtension.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AIModule.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AIModule.pdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AppModule.dll">
@@ -825,7 +842,13 @@
     <Content Include="LoadingExtensions\AssemblyLoaderExtension\AssemblyLoaderExtension.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AppModule.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.pdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt">
@@ -2538,6 +2561,9 @@
     <Content Include="ProjectClasses\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ProjectClasses\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ProjectClasses\DataSources\AmazonCloudDatasource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2637,9 +2663,6 @@
     <Content Include="ProjectClasses\DataSources\YamlDataSource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\DefaultRules\DefaultRules.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ProjectClasses\DxDashboard\DxDashboard.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2680,6 +2703,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\Logs\HereweAddAllscriptlogs.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SimpleODM.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="WorkFlow\HereweAddAllworkflows.txt">
@@ -2798,6 +2824,12 @@
     <None Include="config\Reportslist.json" />
     <None Include="DataFiles\ppdm39_sqlite.s3db" />
     <None Include="DataFiles\SampleDB_Sqlite.s3db" />
+    <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AppModule.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <Content Include="ProjectData\OilandGas\IHS\activity-codes_210667110913052332.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -3257,6 +3289,10 @@
     <ProjectReference Include="..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
       <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.csproj">
+      <Project>{b4beda46-4d62-4709-92a1-9d5b39be8f31}</Project>
+      <Name>BeepEnterprizeTreeNodes</Name>
     </ProjectReference>
     <ProjectReference Include="..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
       <Project>{942285f3-e881-45cc-acdf-7a4de4259b77}</Project>

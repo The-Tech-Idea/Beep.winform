@@ -34,12 +34,6 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagementModelsStandard, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.6\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
-    </Reference>
-    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.15, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.15\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
@@ -56,9 +50,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.6\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyLoaderExtension.cs" />
@@ -67,6 +58,20 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj">
+      <Project>{282db559-9dca-4486-8830-cd18be56418b}</Project>
+      <Name>DataManagementEngineStandard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj">
+      <Project>{3b8d3f1b-6fa6-4cba-a256-02ceea3cc774}</Project>
+      <Name>DataManagementModelsStandard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
+      <Project>{942285f3-e881-45cc-acdf-7a4de4259b77}</Project>
+      <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
