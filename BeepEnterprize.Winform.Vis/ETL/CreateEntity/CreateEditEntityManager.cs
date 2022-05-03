@@ -52,6 +52,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
         uc_createeditEntitymain uc_entitymain;
         uc_createeditentityfields uc_entityfields;
         uc_createeditentityrelations uc_entityrelations;
+        public bool IsViewDataSource { get; set; } = false;
         public void Run(IPassedArgs pPassedarg)
         {
             Passedarg = pPassedarg;
@@ -122,6 +123,11 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
             }
             if(ds != null)
             {
+                if(ds.Category== DatasourceCategory.VIEWS)
+                {
+                    dvs = (DataViewDataSource)ds;
+                    IsViewDataSource = true;
+                }
                 visManager.wizardManager.WizardCloseEvent -= WizardManager_WizardCloseEvent;
                 if(string.IsNullOrEmpty(e.CurrentEntity))
                 {
@@ -194,11 +200,11 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
         {
             try
             {
-                
-                if (string.IsNullOrEmpty(Datasourcename))
+                if (!string.IsNullOrEmpty(EntityStructure.DataSourceID))
                 {
-                    ds = DMEEditor.GetDataSource(Datasourcename);
+                    ds = DMEEditor.GetDataSource(EntityStructure.DataSourceID);
                 }
+
                 if (ds != null)
                 {
                     uc_entitymain.EndEdit();
@@ -206,9 +212,26 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
                     uc_entityrelations.EndEdit();
                     if (IsNewEntity)
                     {
+                        if(ds.Category== DatasourceCategory.VIEWS)
+                        {
+                           
+                        }
+                        switch (ds.Category)
+                        {
+                              case DatasourceCategory.VIEWS:
+                                dvs.CreateEntityAs(EntityStructure);
+                                break;
+                            case DatasourceCategory.FILE:
+                            case DatasourceCategory.STREAM:
+                                break;
+                            case DatasourceCategory.WEBAPI:
+                                break;
+                            case DatasourceCategory.NOSQL:
+                            case DatasourceCategory.RDBMS:
+
+                                break;
+                        }
                        
-                        dvs =(DataViewDataSource)ds;
-                        dvs.CreateEntityAs(EntityStructure);
                     }
                     else
                     {
