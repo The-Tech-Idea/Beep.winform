@@ -123,7 +123,7 @@ namespace BeepEnterprize.Winform.Vis
                 dataConnection.DriverName = package.PackageName;
                 dataConnection.DriverVersion = package.version;
                 dataConnection.ID = DMEEditor.ConfigEditor.DataConnections.Max(y => y.ID) + 1;
-                dataConnection.FilePath = "./"+InstallFoldercomboBox.Text;
+                dataConnection.FilePath = ".\\"+InstallFoldercomboBox.Text;
                 dataConnection.FileName = databaseTextBox.Text;
                 dataConnection.ConnectionString =  package.ConnectionString; //Path.Combine(dataConnection.FilePath, dataConnection.FileName);
                 if (dataConnection.FilePath.Contains(DMEEditor.ConfigEditor.ExePath))
