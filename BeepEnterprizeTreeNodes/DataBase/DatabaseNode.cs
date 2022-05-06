@@ -136,7 +136,6 @@ namespace  BeepEnterprize.Vis.Module
                         {
                             foreach (string tb in diffnames) //
                             {
-                                //    TreeEditor.AddCommentsWaiting($"{i} - Added {tb} to {DataSourceName}");
                                ent = DataSource.GetEntityStructure(tb, true);
                                 if(ent != null)
                                 {
@@ -144,7 +143,6 @@ namespace  BeepEnterprize.Vis.Module
                                     {
                                         DataSource.Entities.Remove(ent);
                                         DataSource.EntitiesNames.Remove(tb);
-                                        //   iconimage = "entitynotcreated.ico";
                                     }
                                     else
                                     {
@@ -158,8 +156,6 @@ namespace  BeepEnterprize.Vis.Module
                                     }
                                   
                                 }
-
-                               
                             }
                             passedArgs.ParameterString1 = $"Getting {existing.Count} Entities";
                             Visutil.PasstoWaitForm(passedArgs);

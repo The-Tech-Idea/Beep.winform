@@ -52,6 +52,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
         uc_createeditEntitymain uc_entitymain;
         uc_createeditentityfields uc_entityfields;
         uc_createeditentityrelations uc_entityrelations;
+       
         public bool IsViewDataSource { get; set; } = false;
         public void Run(IPassedArgs pPassedarg)
         {
@@ -99,7 +100,9 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
                     Passedarg.Objects.Add(ob);
                 }
                 ob.obj = EntityStructure;
-
+                //pbr = visManager.Tree.treeBranchHandler.GetBranch(pPassedarg.Id);
+               
+                //RootBranch = TreeEditor.Branches[visManager..FindIndex(x => x.BranchClass == pbr.BranchClass && x.BranchType == EnumPointType.Root)];
                 visManager.wizardManager.Show();
                 visManager.wizardManager.WizardCloseEvent += WizardManager_WizardCloseEvent;
                

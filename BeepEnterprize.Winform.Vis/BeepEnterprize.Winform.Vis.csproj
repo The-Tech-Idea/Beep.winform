@@ -293,6 +293,7 @@
     <Compile Include="FunctionsandExtensions\DataSourceMenuFunctions.cs" />
     <Compile Include="FunctionsandExtensions\EditMenuFunctions.cs" />
     <Compile Include="FunctionsandExtensions\FileMenuFunctions.cs" />
+    <Compile Include="FunctionsandExtensions\FunctionandExtensionsHelpers.cs" />
     <Compile Include="Helpers\DataGridPrinting.cs" />
     <Compile Include="Helpers\VisHelper.cs" />
     <Compile Include="MainForms\Frm_Main.cs">

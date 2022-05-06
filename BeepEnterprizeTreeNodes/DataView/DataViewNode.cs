@@ -99,8 +99,8 @@ namespace  BeepEnterprize.Vis.Module
 
             try
             {
-                CreateViewEntites();
-
+                //CreateViewEntites();
+                CreateDataViewMethod();
                 DMEEditor.AddLogMessage("Success", "Added Child Nodes", DateTime.Now, 0, null, Errors.Ok);
             }
             catch (Exception ex)
@@ -264,16 +264,12 @@ namespace  BeepEnterprize.Vis.Module
                         }
                         if (loadv)
                         {
-                            // ds.Dataview;// DMEEditor.viewEditor.Views[DMEEditor.viewEditor.ViewListIndex(DataView.id)];
                             if (ds != null)
                             {
                                 if (DataView != null)
                                 {
-                                  //  TreeEditor.treeBranchHandler.RemoveChildBranchs(this);
                                     List<EntityStructure> cr = DataView.Entities.Where(cx => cx.ParentId == 0).ToList();
                                     int i = 0;
-                                //    TreeEditor.ShowWaiting();
-                                 //   TreeEditor.ChangeWaitingCaption($"Getting  DataView Entities Total:{DataView.Entities.Count}");
                                     foreach (EntityStructure tb in cr)
                                     {
 
@@ -283,20 +279,15 @@ namespace  BeepEnterprize.Vis.Module
                                             DataView.Entities[ds.EntityListIndex(tb.EntityName)].DatasourceEntityName = tb.EntityName;
                                         }
                                         dbent.ID = tb.Id;
-                                  //      TreeEditor.AddCommentsWaiting($"{i} - Added Main Entity {tb.EntityName} ");
                                         TreeEditor.treeBranchHandler.AddBranch(this, dbent);
                                         dbent.CreateChildNodes();
-                                   //     TreeEditor.AddCommentsWaiting($"{i} - Added Child Branch for Entity {tb.EntityName} ");
                                         ChildBranchs.Add(dbent);
                                         i += 1;
 
                                     }
-                               //     TreeEditor.HideWaiting();
                                     ds.WriteDataViewFile(DataSourceName);
-
                                     DMEEditor.ConfigEditor.SaveDataSourceEntitiesValues(new DatasourceEntities { datasourcename = DataSourceName, Entities = DataView.Entities });
                                 }
-
                             }
                             else
                             {
@@ -304,15 +295,11 @@ namespace  BeepEnterprize.Vis.Module
                             }
                             SaveView();
                         }
-                  
                     }
                 }else
                 {
                     DMEEditor.Logger.WriteLog($"Could not Find DataView File " + DataSourceName);
                 }
-               
-
-
             }
             catch (Exception ex)
             {
@@ -323,6 +310,7 @@ namespace  BeepEnterprize.Vis.Module
             return DMEEditor.ErrorObject;
 
         }
+        
         [CommandAttribute(Caption = "Save", iconimage = "save.ico")]
         public IErrorsInfo SaveView()
         {
@@ -637,6 +625,126 @@ namespace  BeepEnterprize.Vis.Module
                 string mes = "Could not Load File";
                 DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
             };
+            return DMEEditor.ErrorObject;
+        }
+        private IErrorsInfo CreateDataViewMethod()
+        {
+            DMEEditor.ErrorObject.Flag = Errors.Ok;
+            //     DMEEditor.Logger.WriteLog($"Filling Database Entites ) ");
+            PassedArgs passedArgs = new PassedArgs { DatasourceName = BranchText };
+            try
+            {
+                EntityStructure ent;
+                string iconimage;
+                DataSource = (IRDBSource)DMEEditor.GetDataSource(BranchText);
+                Visutil.ShowWaitForm(passedArgs);
+                if (DataSource != null)
+                {
+
+                    DataSource.Openconnection();
+                    if (DataSource.ConnectionStatus == System.Data.ConnectionState.Open)
+                    {
+                        ds = (DataViewDataSource)DMEEditor.GetDataSource(DataSourceName);
+                        passedArgs.ParameterString1 = "Connection Successful";
+                        Visutil.PasstoWaitForm(passedArgs);
+                        passedArgs.ParameterString1 = "Getting Entities";
+                        Visutil.PasstoWaitForm(passedArgs);
+
+                        List<string> ename = DataSource.Entities.Select(o => o.EntityName.ToUpper()).ToList();
+                        DataSource.GetEntitesList();
+                        List<string> existing = DataSource.EntitiesNames.ToList();
+                        List<string> diffnames = ename.Except(existing).ToList();
+                        TreeEditor.treeBranchHandler.RemoveChildBranchs(this);
+                        int i = 0;
+                        if (existing.Count > 0) // there is entities in Datasource
+                        {
+                            foreach (string tb in diffnames) //
+                            {
+                                ent = DataSource.GetEntityStructure(tb, true);
+                                if (ent != null)
+                                {
+                                    if (ent.Created == false)
+                                    {
+                                        DataSource.Entities.Remove(ent);
+                                        DataSource.EntitiesNames.Remove(tb);
+                                    }
+                                    else
+                                    {
+                                        iconimage = "databaseentities.ico";
+                                        ent = DataView.Entities[ds.EntityListIndex(tb)];
+                                        DataViewEntitiesNode dbent = new DataViewEntitiesNode(TreeEditor, DMEEditor, this, ent.EntityName, TreeEditor.SeqID, EnumPointType.Entity, ds.GeticonForViewType(ent.Viewtype), DataView.DataViewDataSourceID, ent);
+                                        dbent.DataSourceName = DataSource.DatasourceName;
+                                        dbent.DataSource = DataSource;
+                                        ChildBranchs.Add(dbent);
+                                        TreeEditor.treeBranchHandler.AddBranch(this, dbent);
+                                        i += 1;
+                                    }
+
+                                }
+                            }
+                            passedArgs.ParameterString1 = $"Getting {existing.Count} Entities";
+                            Visutil.PasstoWaitForm(passedArgs);
+                            //------------------------------- Draw Existing Entities
+                            foreach (string tb in existing) //
+                            {
+                                ent = DataSource.GetEntityStructure(tb, false);
+                                if (ent.Created == false)
+                                {
+                                    DataSource.Entities.Remove(ent);
+                                    DataSource.EntitiesNames.Remove(tb);
+                                    //   iconimage = "entitynotcreated.ico";
+                                }
+                                else
+                                {
+                                    iconimage = "databaseentities.ico";
+                                    ent = DataView.Entities[ds.EntityListIndex(tb)];
+                                    DataViewEntitiesNode dbent = new DataViewEntitiesNode(TreeEditor, DMEEditor, this, ent.EntityName, TreeEditor.SeqID, EnumPointType.Entity, ds.GeticonForViewType(ent.Viewtype), DataView.DataViewDataSourceID, ent);
+                                 
+                                    dbent.DataSourceName = DataSource.DatasourceName;
+                                    dbent.DataSource = DataSource;
+                                    ChildBranchs.Add(dbent);
+                                    TreeEditor.treeBranchHandler.AddBranch(this, dbent);
+                                    i += 1;
+                                }
+
+                            }
+                            //------------------------------------------------------
+
+                        }
+                        else
+                        {
+                            passedArgs.ParameterString1 = passedArgs.ParameterString1 + Environment.NewLine + "No Entities Found";
+                            Visutil.PasstoWaitForm(passedArgs);
+                        }
+
+
+                        passedArgs.ParameterString1 = passedArgs.ParameterString1 + Environment.NewLine + "Done";
+                        Visutil.PasstoWaitForm(passedArgs);
+                        DMEEditor.ConfigEditor.SaveDataSourceEntitiesValues(new TheTechIdea.Beep.ConfigUtil.DatasourceEntities { datasourcename = DataSourceName, Entities = DataSource.Entities });
+                    }
+                    else
+                    {
+                        passedArgs.ParameterString1 = passedArgs.ParameterString1 + Environment.NewLine + "Could not Open Connection";
+                        Visutil.PasstoWaitForm(passedArgs);
+                    }
+                }
+                else
+                {
+                    passedArgs.ParameterString1 = passedArgs.ParameterString1 + Environment.NewLine + "Could not Get Datsource";
+                    Visutil.PasstoWaitForm(passedArgs);
+                }
+                Visutil.CloseWaitForm();
+            }
+            catch (Exception ex)
+            {
+                DMEEditor.Logger.WriteLog($"Error in Connecting to DataSource ({ex.Message}) ");
+                DMEEditor.ErrorObject.Flag = Errors.Failed;
+                DMEEditor.ErrorObject.Ex = ex;
+                passedArgs.ParameterString1 = "Could not Open Connection";
+                Visutil.PasstoWaitForm(passedArgs);
+                Visutil.CloseWaitForm();
+            }
+
             return DMEEditor.ErrorObject;
         }
         #endregion"Other Methods"
