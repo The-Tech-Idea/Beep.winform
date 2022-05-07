@@ -53,6 +53,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // TitleLabel
+            // 
+            this.TitleLabel.Location = new System.Drawing.Point(266, 7);
+            // 
             // entityColumnIDLabel
             // 
             entityColumnIDLabel.AutoSize = true;

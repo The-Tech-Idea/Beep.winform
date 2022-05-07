@@ -28,15 +28,19 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
         CreateEditEntityManager entityManager;
         public override void Run(IPassedArgs pPassedarg)
         {
-            base.Run(pPassedarg);
+            //base.Run(pPassedarg);
             relationsBindingSource.DataSource = entityManager.EntityStructure.Relations;
             entityColumnIDComboBox.DataSource = entityManager.EntityStructure.Fields;
-            uc_bindingNavigator1.bindingSource = relationsBindingSource;
+          
             entityColumnIDComboBox.DisplayMember = "fieldname";
             entityColumnIDComboBox.ValueMember = "fieldname";
             relatedEntityIDComboBox.DataSource = entityManager.ds.Entities;
             relatedEntityIDComboBox.DisplayMember = "EntityName";
-            //   relatedEntityIDComboBox.ValueMember = "EntityName";
+          
+            uc_bindingNavigator1.SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, new string[] { }, pPassedarg, DMEEditor.ErrorObject);
+            uc_bindingNavigator1.HightlightColor = Color.Yellow;
+            uc_bindingNavigator1.bindingSource = relationsBindingSource;
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = relationsBindingSource;
             dataGridView1.Refresh();
             dataGridView1.Invalidate();

@@ -68,6 +68,10 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // TitleLabel
+            // 
+            this.TitleLabel.Location = new System.Drawing.Point(287, 5);
+            // 
             // idLabel
             // 
             idLabel.AutoSize = true;

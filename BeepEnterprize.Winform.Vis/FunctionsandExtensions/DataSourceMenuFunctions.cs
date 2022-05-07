@@ -374,7 +374,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 {
                    
                     Passedarguments.DatasourceName = ExtensionsHelpers.pbr.BranchText;
-                    if(!ExtensionsHelpers.pbr.BranchClass.Equals("View",StringComparison.InvariantCultureIgnoreCase))
+                    Passedarguments.CurrentEntity = null;
+                    if (!ExtensionsHelpers.pbr.BranchClass.Equals("View",StringComparison.InvariantCultureIgnoreCase))
                     {
                         ExtensionsHelpers.Vismanager.ShowPage("uc_CreateEntity", (PassedArgs)Passedarguments, DisplayType.InControl);
                     }else

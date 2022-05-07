@@ -225,16 +225,17 @@ namespace  BeepEnterprize.Vis.Module
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             DMEEditor.Logger.WriteLog($"Filling View Entites ) ");
-            string iconname;
+          //  string iconname;
+           // CreateDataViewMethod();
             try
             {
-               
+
                 ds = (DataViewDataSource)DMEEditor.GetDataSource(DataSourceName);
                 ds.Openconnection();
-           
-                if (ds != null )
+
+                if (ds != null)
                 {
-                 if (ds.ConnectionStatus != System.Data.ConnectionState.Open)
+                    if (ds.ConnectionStatus != System.Data.ConnectionState.Open)
                     {
                         DMEEditor.Logger.WriteLog($"Could not Find DataView File " + DataSourceName);
                     }
@@ -243,7 +244,7 @@ namespace  BeepEnterprize.Vis.Module
                         bool loadv = false;
                         if (ChildBranchs.Count > 0)
                         {
-                            if (Visutil.Controlmanager.InputBoxYesNo("Beep", "Do you want to over write th existing View Structure?") ==BeepEnterprize.Vis.Module.DialogResult.Yes)
+                            if (Visutil.Controlmanager.InputBoxYesNo("Beep", "Do you want to over write th existing View Structure?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
                             {
                                 TreeEditor.treeBranchHandler.RemoveChildBranchs(this);
                                 ds.LoadView();
@@ -254,12 +255,12 @@ namespace  BeepEnterprize.Vis.Module
                         {
                             if (DataView.Entities != null)
                             {
-                                if (DataView.Entities.Count== 0)
+                                if (DataView.Entities.Count == 0)
                                 {
                                     ds.LoadView();
                                 }
                             }
-                          
+
                             loadv = true;
                         }
                         if (loadv)
@@ -296,7 +297,8 @@ namespace  BeepEnterprize.Vis.Module
                             SaveView();
                         }
                     }
-                }else
+                }
+                else
                 {
                     DMEEditor.Logger.WriteLog($"Could not Find DataView File " + DataSourceName);
                 }
@@ -636,49 +638,57 @@ namespace  BeepEnterprize.Vis.Module
             {
                 EntityStructure ent;
                 string iconimage;
-                DataSource = (IRDBSource)DMEEditor.GetDataSource(BranchText);
+                DataSource = DMEEditor.GetDataSource(BranchText);
+                ds = (DataViewDataSource)DMEEditor.GetDataSource(BranchText);
                 Visutil.ShowWaitForm(passedArgs);
                 if (DataSource != null)
                 {
-
-                    DataSource.Openconnection();
-                    if (DataSource.ConnectionStatus == System.Data.ConnectionState.Open)
+                    ds.Openconnection();
+                    if (ds.ConnectionStatus == System.Data.ConnectionState.Open)
                     {
-                        ds = (DataViewDataSource)DMEEditor.GetDataSource(DataSourceName);
+                        if (DataView.Entities != null)
+                        {
+                            if (DataView.Entities.Count == 0)
+                            {
+                                ds.LoadView();
+                            }
+                        }
                         passedArgs.ParameterString1 = "Connection Successful";
                         Visutil.PasstoWaitForm(passedArgs);
                         passedArgs.ParameterString1 = "Getting Entities";
                         Visutil.PasstoWaitForm(passedArgs);
 
-                        List<string> ename = DataSource.Entities.Select(o => o.EntityName.ToUpper()).ToList();
-                        DataSource.GetEntitesList();
-                        List<string> existing = DataSource.EntitiesNames.ToList();
+                        List<string> ename = ds.Entities.Select(o => o.EntityName).ToList();
+                        ds.GetEntitesList();
+                        List<string> existing = ds.EntitiesNames.ToList();
                         List<string> diffnames = ename.Except(existing).ToList();
                         TreeEditor.treeBranchHandler.RemoveChildBranchs(this);
                         int i = 0;
                         if (existing.Count > 0) // there is entities in Datasource
                         {
-                            foreach (string tb in diffnames) //
+                             foreach (string tb in diffnames) //
                             {
-                                ent = DataSource.GetEntityStructure(tb, true);
+                                ent = DataView.Entities[ds.EntityListIndex(tb)];
+                                // ent = DataSource.GetEntityStructure(tb, true);
                                 if (ent != null)
                                 {
-                                    if (ent.Created == false)
-                                    {
-                                        DataSource.Entities.Remove(ent);
-                                        DataSource.EntitiesNames.Remove(tb);
-                                    }
-                                    else
-                                    {
+                                    //if (ent.Created == false)
+                                    //{
+                                    //    DataSource.Entities.Remove(ent);
+                                    //    DataSource.EntitiesNames.Remove(tb);
+                                    //}
+                                    //else
+                                    //{
                                         iconimage = "databaseentities.ico";
-                                        ent = DataView.Entities[ds.EntityListIndex(tb)];
+                                      
                                         DataViewEntitiesNode dbent = new DataViewEntitiesNode(TreeEditor, DMEEditor, this, ent.EntityName, TreeEditor.SeqID, EnumPointType.Entity, ds.GeticonForViewType(ent.Viewtype), DataView.DataViewDataSourceID, ent);
                                         dbent.DataSourceName = DataSource.DatasourceName;
                                         dbent.DataSource = DataSource;
                                         ChildBranchs.Add(dbent);
+                                        dbent.CreateChildNodes();
                                         TreeEditor.treeBranchHandler.AddBranch(this, dbent);
                                         i += 1;
-                                    }
+                                  //  }
 
                                 }
                             }
@@ -687,15 +697,15 @@ namespace  BeepEnterprize.Vis.Module
                             //------------------------------- Draw Existing Entities
                             foreach (string tb in existing) //
                             {
-                                ent = DataSource.GetEntityStructure(tb, false);
-                                if (ent.Created == false)
-                                {
-                                    DataSource.Entities.Remove(ent);
-                                    DataSource.EntitiesNames.Remove(tb);
-                                    //   iconimage = "entitynotcreated.ico";
-                                }
-                                else
-                                {
+                                //ent = ds.GetEntityStructure(tb, false);
+                                //if (ent.Created == false)
+                                //{
+                                //    ds.Entities.Remove(ent);
+                                //    ds.EntitiesNames.Remove(tb);
+                                //    //   iconimage = "entitynotcreated.ico";
+                                //}
+                                //else
+                                //{
                                     iconimage = "databaseentities.ico";
                                     ent = DataView.Entities[ds.EntityListIndex(tb)];
                                     DataViewEntitiesNode dbent = new DataViewEntitiesNode(TreeEditor, DMEEditor, this, ent.EntityName, TreeEditor.SeqID, EnumPointType.Entity, ds.GeticonForViewType(ent.Viewtype), DataView.DataViewDataSourceID, ent);
@@ -703,9 +713,10 @@ namespace  BeepEnterprize.Vis.Module
                                     dbent.DataSourceName = DataSource.DatasourceName;
                                     dbent.DataSource = DataSource;
                                     ChildBranchs.Add(dbent);
+                                    dbent.CreateChildNodes();
                                     TreeEditor.treeBranchHandler.AddBranch(this, dbent);
                                     i += 1;
-                                }
+                               // }
 
                             }
                             //------------------------------------------------------

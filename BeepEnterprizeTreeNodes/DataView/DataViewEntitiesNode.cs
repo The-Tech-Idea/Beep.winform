@@ -52,6 +52,7 @@ namespace  BeepEnterprize.Vis.Module
                 ID = pID;
                 BranchID = pID;
             }
+            Name=entityStructure.EntityName.Trim();
         }
         #region "Properties"
         public int ID { get; set; }

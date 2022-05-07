@@ -36,20 +36,23 @@
             this.fieldIndexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fieldnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fieldtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.isKeyDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.size1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numericPrecisionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numericScaleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isAutoIncrementDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.allowDBNullDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isCheckDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.isUniqueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.isKeyDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.checkedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.LogopictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fieldsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.Location = new System.Drawing.Point(260, 5);
             // 
             // fieldsBindingSource
             // 
@@ -108,15 +111,14 @@
             this.fieldIndexDataGridViewTextBoxColumn,
             this.fieldnameDataGridViewTextBoxColumn,
             this.fieldtypeDataGridViewTextBoxColumn,
+            this.isKeyDataGridViewCheckBoxColumn,
             this.size1DataGridViewTextBoxColumn,
-            this.size2DataGridViewTextBoxColumn,
             this.numericPrecisionDataGridViewTextBoxColumn,
             this.numericScaleDataGridViewTextBoxColumn,
             this.isAutoIncrementDataGridViewCheckBoxColumn,
             this.allowDBNullDataGridViewCheckBoxColumn,
             this.isCheckDataGridViewCheckBoxColumn,
             this.isUniqueDataGridViewCheckBoxColumn,
-            this.isKeyDataGridViewCheckBoxColumn,
             this.checkedDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.fieldsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 72);
@@ -151,17 +153,17 @@
             this.fieldtypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.fieldtypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // isKeyDataGridViewCheckBoxColumn
+            // 
+            this.isKeyDataGridViewCheckBoxColumn.DataPropertyName = "IsKey";
+            this.isKeyDataGridViewCheckBoxColumn.HeaderText = "IsKey";
+            this.isKeyDataGridViewCheckBoxColumn.Name = "isKeyDataGridViewCheckBoxColumn";
+            // 
             // size1DataGridViewTextBoxColumn
             // 
             this.size1DataGridViewTextBoxColumn.DataPropertyName = "Size1";
             this.size1DataGridViewTextBoxColumn.HeaderText = "Size1";
             this.size1DataGridViewTextBoxColumn.Name = "size1DataGridViewTextBoxColumn";
-            // 
-            // size2DataGridViewTextBoxColumn
-            // 
-            this.size2DataGridViewTextBoxColumn.DataPropertyName = "Size2";
-            this.size2DataGridViewTextBoxColumn.HeaderText = "Size2";
-            this.size2DataGridViewTextBoxColumn.Name = "size2DataGridViewTextBoxColumn";
             // 
             // numericPrecisionDataGridViewTextBoxColumn
             // 
@@ -199,12 +201,6 @@
             this.isUniqueDataGridViewCheckBoxColumn.HeaderText = "IsUnique";
             this.isUniqueDataGridViewCheckBoxColumn.Name = "isUniqueDataGridViewCheckBoxColumn";
             // 
-            // isKeyDataGridViewCheckBoxColumn
-            // 
-            this.isKeyDataGridViewCheckBoxColumn.DataPropertyName = "IsKey";
-            this.isKeyDataGridViewCheckBoxColumn.HeaderText = "IsKey";
-            this.isKeyDataGridViewCheckBoxColumn.Name = "isKeyDataGridViewCheckBoxColumn";
-            // 
             // checkedDataGridViewCheckBoxColumn
             // 
             this.checkedDataGridViewCheckBoxColumn.DataPropertyName = "Checked";
@@ -235,15 +231,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fieldIndexDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fieldnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn fieldtypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isKeyDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn size1DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn size2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numericPrecisionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numericScaleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isAutoIncrementDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn allowDBNullDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isCheckDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isUniqueDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn isKeyDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkedDataGridViewCheckBoxColumn;
     }
 }

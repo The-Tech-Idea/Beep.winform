@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeepEnterprize.Vis.Module;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -52,7 +53,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
         uc_createeditEntitymain uc_entitymain;
         uc_createeditentityfields uc_entityfields;
         uc_createeditentityrelations uc_entityrelations;
-       
+        IBranch ViewBranch;
         public bool IsViewDataSource { get; set; } = false;
         public void Run(IPassedArgs pPassedarg)
         {
@@ -98,12 +99,20 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
                     ob = new ObjectItem();
                     ob.Name = "Entity";
                     Passedarg.Objects.Add(ob);
+                
                 }
                 ob.obj = EntityStructure;
-                //pbr = visManager.Tree.treeBranchHandler.GetBranch(pPassedarg.Id);
+                if (Passedarg.Objects.Where(c => c.Name == "Branch").Any())
+                {
+                    ViewBranch = (IBranch)Passedarg.Objects.Where(c => c.Name == "Branch").FirstOrDefault().obj;
+                  
+                }
+              
+               
                
                 //RootBranch = TreeEditor.Branches[visManager..FindIndex(x => x.BranchClass == pbr.BranchClass && x.BranchType == EnumPointType.Root)];
                 visManager.wizardManager.Show();
+                visManager.wizardManager.WizardCloseEvent -= WizardManager_WizardCloseEvent;
                 visManager.wizardManager.WizardCloseEvent += WizardManager_WizardCloseEvent;
                
             }
@@ -120,21 +129,22 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
             }
             Datasourcename = e.DatasourceName;
             Entityname = e.CurrentEntity;
-            if (!string.IsNullOrEmpty(e.DatasourceName))
+            if (!string.IsNullOrEmpty(Datasourcename))
             {
-                ds=DMEEditor.GetDataSource(e.DatasourceName);
+                ds=DMEEditor.GetDataSource(Datasourcename);
+               // dvs = (DataViewDataSource)DMEEditor.GetDataSource(Datasourcename);
             }
             if(ds != null)
             {
-                if(ds.Category== DatasourceCategory.VIEWS)
+                if (ds.Category == DatasourceCategory.VIEWS)
                 {
-                    dvs = (DataViewDataSource)ds;
+                    dvs = (DataViewDataSource)DMEEditor.GetDataSource(Datasourcename);
                     IsViewDataSource = true;
                 }
-                visManager.wizardManager.WizardCloseEvent -= WizardManager_WizardCloseEvent;
-                if(string.IsNullOrEmpty(e.CurrentEntity))
+              
+                if(!string.IsNullOrEmpty(e.CurrentEntity))
                 {
-                    EntityStructure = ds.GetEntityStructure(e.CurrentEntity, false);
+                    EntityStructure = dvs.GetEntityStructure(e.CurrentEntity, false);
                     IsNewEntity = false;
                 }
                 else
@@ -162,7 +172,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
                 MessageBox.Show($"Entity Property Missing", "Beep", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (MessageBox.Show("Would you like to save Changes ?", "Beep", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Would you like to save Changes ?", "Beep", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
                 Save();
             }
@@ -215,13 +225,9 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
                     uc_entityrelations.EndEdit();
                     if (IsNewEntity)
                     {
-                        if(ds.Category== DatasourceCategory.VIEWS)
+                        switch (dvs.Category)
                         {
-                           
-                        }
-                        switch (ds.Category)
-                        {
-                              case DatasourceCategory.VIEWS:
+                           case DatasourceCategory.VIEWS:
                                 dvs.CreateEntityAs(EntityStructure);
                                 break;
                             case DatasourceCategory.FILE:
@@ -234,13 +240,15 @@ namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
 
                                 break;
                         }
-                       
+                        dvs.WriteDataViewFile(dvs.DataViewDataSourceID);
+                        ViewBranch.CreateChildNodes();
+                  
                     }
                     else
                     {
-                        ds.Entities[ds.Entities.FindIndex(o => o.OriginalEntityName == EntityStructure.OriginalEntityName)] = EntityStructure;
+                        dvs.Entities[ds.Entities.FindIndex(o => o.OriginalEntityName == EntityStructure.OriginalEntityName)] = EntityStructure;
                     }
-                    DMEEditor.ConfigEditor.SaveDataSourceEntitiesValues(new DatasourceEntities() { Entities = ds.Entities, datasourcename = ds.DatasourceName });
+                  //  DMEEditor.ConfigEditor.SaveDataSourceEntitiesValues(new DatasourceEntities() { Entities = ds.Entities, datasourcename = ds.DatasourceName });
                     MessageBox.Show($"Saved Entity in DataSource {Datasourcename}", "Beep", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
