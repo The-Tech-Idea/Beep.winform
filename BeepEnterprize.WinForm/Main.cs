@@ -71,12 +71,13 @@ namespace BeepEnterprize.Winform
                 rulesEditor = scope.Resolve<IRulesEditor>();
                 DMEEditor = scope.Resolve<IDMEEditor>();
                 typesHelper = scope.Resolve<IDataTypesHelper>();
-
+                classCreator = scope.Resolve<IClassCreator>();
                 typesHelper.DMEEditor = DMEEditor;
                 DMEEditor.typesHelper = typesHelper;
                 DMEEditor.ETL = eTL;
                 eTL.DMEEditor = DMEEditor;
                 DMEEditor.assemblyHandler = LLoader;
+                DMEEditor.classCreator = classCreator;
 
                 DMEEditor.WorkFlowEditor = WorkFlowEditor;
                 DMEEditor.WorkFlowEditor.DMEEditor = DMEEditor;
