@@ -11,7 +11,6 @@ namespace Dhub3.DataServices
 {
     public class Dhub3DataServices
     {
-       
         public Dhub3DataServices(IDMEEditor editor)
         {
             DMeditor = editor;
@@ -22,13 +21,15 @@ namespace Dhub3.DataServices
         {
             try
             {
-
+                DMeditor.ErrorObject.Ex = null;
+                DMeditor.ErrorObject.Flag = Errors.Ok;
             }
             catch (Exception ex)
             {
-                DMeditor.AddLogMessage("Dhub3", $"Could not Get/Create Data Connection {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
+                DMeditor.AddLogMessage("Dhub3", $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
             }
+            return DMeditor.ErrorObject;
         }
-
+       
     }
 }

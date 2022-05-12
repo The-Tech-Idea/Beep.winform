@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="DataServices\Dhub3DataServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Well\Analysis\Class1.cs" />
+    <Compile Include="Well\DataEntry\Class1.cs" />
+    <Compile Include="Well\Reports\Class1.cs" />
     <Compile Include="Well\uc_well.cs">
       <SubType>UserControl</SubType>
     </Compile>
