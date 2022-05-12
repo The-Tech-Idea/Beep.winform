@@ -40,9 +40,9 @@ namespace Beep.Winform.Controls
         public IPassedArgs Passedarg { get; set; }
         public IVisManager visManager { get; set; }
         public bool HeaderShown { get { return TopPanel.Visible; } set { TopPanel.Visible = !TopPanel.Visible; }}
-        IBranch branch = null;
-        IBranch Parentbranch = null;
-        IBranch RootAppBranch = null;
+        public IBranch branch { get; set; } = null;
+        public IBranch Parentbranch { get; set; } = null;
+        public IBranch RootAppBranch { get; set; } = null;
 
         public EntityStructure ParentEntity { get; set; } = null;
        
