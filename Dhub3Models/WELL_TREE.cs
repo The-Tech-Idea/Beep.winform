@@ -8,36 +8,37 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KOC.DHUB3.Models
+using System;
+
+namespace KocSharedLib.KocClasses
 {
     
     
     public class WELL_TREE
     {
-        
-public System.Decimal? ID  { get; set; }
-public System.Decimal? PARENTID  { get; set; }
-public System.String UWI  { get; set; }
-public System.String FACILITY_TYPE  { get; set; }
-public System.DateTime? START_TIME  { get; set; }
-public System.DateTime? END_TIME  { get; set; }
-public System.String ACTIVE  { get; set; }
-public System.Decimal? INSERTBY  { get; set; }
-public System.DateTime? INSERTDATE  { get; set; }
-public System.Decimal? UPDATEBY  { get; set; }
-public System.DateTime? UPDATEDATE  { get; set; }
-public System.String FACILITY_KEY  { get; set; }
-public System.String FACILITY_NAME  { get; set; }
-public System.String DEFINITION  { get; set; }
-public System.Decimal? TOP  { get; set; }
-public System.Decimal? BOTTOM  { get; set; }
-public System.String GRADE  { get; set; }
-public System.Decimal? WEIGHT  { get; set; }
-public System.Decimal? INNER_DIAMETER  { get; set; }
-public System.Decimal? OUTER_DIAMETER  { get; set; }
-public System.String STATUS  { get; set; }
-public System.DateTime? WO_DATE  { get; set; }
-public System.Int64 RN  { get; set; }
+        public int ID { get; set; }
+        public int PARENTID { get; set; }
+        public string UWI { get; set; }
+        public string FACILITY_TYPE { get; set; }
+        public DateTime? START_TIME { get; set; }
+        public DateTime? END_TIME { get; set; }
+        public string ACTIVE { get; set; }
+        public int INSERTBY { get; set; }
+        public DateTime? INSERTDATE { get; set; }
+        public int UPDATEBY { get; set; }
+        public DateTime? UPDATEDATE { get; set; }
+        public int FACILITY_KEY { get; set; }
+        public string FACILITY_NAME { get; set; }
+        public string DEFINITION { get; set; }
+        public int TOP { get; set; }
+        public int BOTTOM { get; set; }
+        public string GRADE { get; set; }
+        public int WEIGHT { get; set; }
+        public int INNER_DIAMETER { get; set; }
+        public int OUTER_DIAMETER { get; set; }
+        public string STATUS { get; set; }
+        public DateTime? WO_DATE { get; set; }
+        public System.Int64 RN  { get; set; }
         
         public WELL_TREE()
         {

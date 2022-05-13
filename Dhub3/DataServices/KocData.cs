@@ -52,7 +52,7 @@ namespace KOC.DHUB3.DataServices
         public Dashboard DashBoards { get; set; }
         public string SelectedWells { get; set; } = "";
         public string SelectedCompletions { get; set; } = "";
-;
+
 
 
 

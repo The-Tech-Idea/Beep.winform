@@ -60,6 +60,7 @@
     <Compile Include="ActiveDirectory\cls_user.cs" />
     <Compile Include="Analysis\Dashboard.cs" />
     <Compile Include="DataServices\cls_FinderData.cs" />
+    <Compile Include="DataServices\DataRepo.cs" />
     <Compile Include="DataServices\Dhub3DataServices.cs" />
     <Compile Include="DataServices\KocData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

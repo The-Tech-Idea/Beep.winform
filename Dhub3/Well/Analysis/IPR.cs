@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KOC.DHUB3.Models;
+using KOC.DHUB3.Models.Analysis;
+using System;
 using System.Collections.Generic;
 
 namespace KOC.DHUB3.Well.Analysis

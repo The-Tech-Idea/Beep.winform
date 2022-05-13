@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KOC.DHUB3.Models
+namespace KocSharedLib.KocClasses
 {
     
     
