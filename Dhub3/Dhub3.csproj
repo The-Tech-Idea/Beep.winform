@@ -7,7 +7,7 @@
     <ProjectGuid>{59FE5603-A9BC-483D-91E8-4F42D65C36E2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dhub3</RootNamespace>
+    <RootNamespace>KOC.DHUB3</RootNamespace>
     <AssemblyName>Dhub3</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -31,9 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Contrib.2.0.78\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,9 +51,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActiveDirectory\AD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActiveDirectory\clsAD.cs" />
+    <Compile Include="ActiveDirectory\cls_authuser.cs" />
+    <Compile Include="ActiveDirectory\cls_get_Active_directoryData.cs" />
+    <Compile Include="ActiveDirectory\cls_user.cs" />
+    <Compile Include="Analysis\Dashboard.cs" />
+    <Compile Include="DataServices\cls_FinderData.cs" />
     <Compile Include="DataServices\Dhub3DataServices.cs" />
+    <Compile Include="DataServices\KocData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Well\Analysis\Class1.cs" />
+    <Compile Include="Well\Analysis\DCA.cs" />
+    <Compile Include="Well\Analysis\IPR.cs" />
     <Compile Include="Well\DataEntry\Class1.cs" />
     <Compile Include="Well\Reports\Class1.cs" />
     <Compile Include="Well\uc_well.cs">
@@ -72,13 +91,16 @@
       <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Dhub3Models\Dhub3Models.csproj">
+      <Project>{8f319d0f-b304-4d52-8793-b5e92993b673}</Project>
+      <Name>Dhub3Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
       <Project>{942285F3-E881-45CC-ACDF-7A4DE4259B77}</Project>
       <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Analysis\" />
     <Folder Include="BusinessWorkFlow\" />
     <Folder Include="Facility\" />
     <Folder Include="Field\" />
@@ -87,7 +109,11 @@
     <Folder Include="Helpers\" />
     <Folder Include="Reservoir\" />
     <Folder Include="Schematics\" />
+    <Folder Include="TreeNodes\" />
     <Folder Include="Well\WellReview\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

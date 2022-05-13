@@ -11,7 +11,7 @@ namespace Dhub3.DataServices
 {
     public class Dhub3DataServices
     {
-        public Dhub3DataServices(IDMEEditor editor)
+        public Dhub3DataServices(DMEEditor editor)
         {
             DMeditor = editor;
         }

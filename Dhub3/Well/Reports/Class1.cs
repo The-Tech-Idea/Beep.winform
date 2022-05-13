@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dhub3.Well.Analysis
 {
-    internal class Class1
+    internal class Class19
     {
     }
 }
