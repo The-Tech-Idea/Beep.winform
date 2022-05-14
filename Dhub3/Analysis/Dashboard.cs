@@ -689,9 +689,6 @@ namespace KOC.DHUB3.Analysis
         {
             GetDashBoard(pdash, pArea, pAreaType);
         }
-
-       
-      
         public void InitDashBoard()
         {
             cls_Dashboard_data x;

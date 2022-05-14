@@ -10,7 +10,7 @@
 
 using System;
 
-namespace KocSharedLib.KocClasses
+namespace KOC.DHUB3.Models
 {
     
     

@@ -6,15 +6,56 @@ using Dapper;
 using System.Data;
 using System.Reflection;
 using KOC.DHUB3.Models;
+using TheTechIdea.Beep;
+using TheTechIdea;
+using TheTechIdea.Beep.DataBase;
 
 namespace KocSharedLib
 {
     public class DataRepo
     {
-
-        public IDbConnection KocDB;
+        public IDMEEditor DMEditor { get; }
+        public string DataSourcename { get; }
         public string pStart_date { get; set; }
         public string pEnd_date { get; set; }
+
+        public IDbConnection KocDB;
+        public IDataSource DataSource { get; set; }
+        private RDBSource RDB { get; set; }
+        public RDBDataConnection RDBConn { get; private set; }
+
+        public DataRepo(IDMEEditor dMEditor,string dataSourcename)
+        {
+            DMEditor = dMEditor;
+            DataSourcename = dataSourcename;
+            DataSource = dMEditor.GetDataSource(dataSourcename);
+            if (DataSource != null)
+            {
+                DataSource.Openconnection();
+                if (DataSource.ConnectionStatus == ConnectionState.Open)
+                {
+                    RDB = (RDBSource)DataSource;
+                    RDBConn = RDB.RDBMSConnection;
+                    KocDB = RDBConn.DbConn;
+                }
+            }
+        }
+        public DataRepo(IDMEEditor dMEditor, string pStart_date, string pEnd_date)
+        {
+
+            DMEditor = dMEditor;
+            this.pStart_date = pStart_date;
+            this.pEnd_date = pEnd_date;
+        }
+
+        public DataRepo(IDbConnection kocDB, string pStart_date, string pEnd_date)
+        {
+            KocDB = kocDB;
+            this.pStart_date = pStart_date;
+            this.pEnd_date = pEnd_date;
+        }
+
+      
         #region "Well Schematics Methods"
         public string GetWellDeviation(string puwi)
         {
@@ -138,15 +179,15 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
         #region "Digital Hub Schema"
         public IEnumerable<CasePortableData> GetDCAPortableTestData(int wcs)
         {
-            return KocDB.QueryAsync<CasePortableData>("SELECT  well_completion_S,   TEST_STAGE_S, OIL_FIELD_OPERATION_S, START_TIME, TEST_TYPE,  TEST_RATE, WC, GOR, WHP, FLP,  ROUND(test_rate * (1 - WC / 100) ) AS OILRATE,  " + " LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE " + " FROM well_tests_v1 " + " WHERE     (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (WELL_COMPLETION_S= " + wcs + ") and gor is not null " + "    ORDER BY start_time DESC").Result;
+            return KocDB.QueryAsync<CasePortableData>("SELECT  well_completion_S,     START_TIME, TEST_TYPE,  TEST_RATE, WC, GOR, WHP, FLP,  ROUND(test_rate * (1 - WC / 100) ) AS OILRATE,  " + " LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE " + " FROM well_tests_v1 " + " WHERE     (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (WELL_COMPLETION_S= " + wcs + ") and gor is not null " + "    ORDER BY start_time DESC").Result;
         }
         public IEnumerable<CasePortableData> GetDCAPortableTestDataForField(string FLD_CODE)
         {
-            return KocDB.QueryAsync<CasePortableData>("SELECT   b.ppdm_WCS_UWI uwi, b.well_completion_S,  a.TEST_STAGE_S, a.OIL_FIELD_OPERATION_S, a.START_TIME, a.TEST_TYPE,  a.TEST_RATE, a.WC, a.GOR, a.WHP, a.FLP,  ROUND(a.test_rate * (1 - a.WC / 100) ) AS test_rate,  " + " a.LEFT_CHOKE_SIZE, a.RIGHT_CHOKE_SIZE, a.CHOKE,b.area,b.field_code " + " FROM well_tests_v1 a,well_latest_data b " + " WHERE    (a.well_completion_s=b.well_completion_s)and b.wcc_status='OPEN'  and  (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (b.field_code= '" + FLD_CODE + "') and gor is not null " + "    ORDER BY start_time DESC").Result;
+            return KocDB.QueryAsync<CasePortableData>("SELECT   b.ppdm_WCS_UWI uwi, b.well_completion_S,    a.START_TIME, a.TEST_TYPE,  a.TEST_RATE, a.WC, a.GOR, a.WHP, a.FLP,  ROUND(a.test_rate * (1 - a.WC / 100) ) AS test_rate,  " + " a.LEFT_CHOKE_SIZE, a.RIGHT_CHOKE_SIZE, a.CHOKE,b.area,b.field_code " + " FROM well_tests_v1 a,well_latest_data b " + " WHERE    (a.well_completion_s=b.well_completion_s)and b.wcc_status='OPEN'  and  (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (b.field_code= '" + FLD_CODE + "') and gor is not null " + "    ORDER BY start_time DESC").Result;
         }
         public IEnumerable<CasePortableData> GetDCAPortableTestDataForArea(string AreaCode)
         {
-            return KocDB.QueryAsync<CasePortableData>("SELECT b.ppdm_WCS_UWI uwi, b.well_completion_S a.start_time ,   a.TEST_STAGE_S, a.OIL_FIELD_OPERATION_S, a.START_TIME, a.TEST_TYPE,  a.TEST_RATE, a.WC, a.GOR, a.WHP, a.FLP,  ROUND(a.test_rate * (1 - a.WC / 100) ) AS test_rate,  " + " a.LEFT_CHOKE_SIZE, a.RIGHT_CHOKE_SIZE, a.CHOKE,b.area,b.field_code " + " FROM well_tests_v1 a,well_latest_data b " + " WHERE    (a.WELL_COMPLETION_S=b.WELL_COMPLETION_S) and  b.wcc_status='OPEN' and  (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (decode('" + AreaCode + "','ALL','ALL',b.area)= '" + AreaCode + "') and gor is not null " + "    ORDER BY start_time DESC").Result;
+            return KocDB.QueryAsync<CasePortableData>("SELECT b.ppdm_WCS_UWI uwi, b.well_completion_S a.start_time ,     a.START_TIME, a.TEST_TYPE,  a.TEST_RATE, a.WC, a.GOR, a.WHP, a.FLP,  ROUND(a.test_rate * (1 - a.WC / 100) ) AS test_rate,  " + " a.LEFT_CHOKE_SIZE, a.RIGHT_CHOKE_SIZE, a.CHOKE,b.area,b.field_code " + " FROM well_tests_v1 a,well_latest_data b " + " WHERE    (a.WELL_COMPLETION_S=b.WELL_COMPLETION_S) and  b.wcc_status='OPEN' and  (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (decode('" + AreaCode + "','ALL','ALL',b.area)= '" + AreaCode + "') and gor is not null " + "    ORDER BY start_time DESC").Result;
         }
         public IEnumerable<CasePortableData> GetDCAMaxPortableTestDataForArea2YearsAgo(string AreaCode)
         {
@@ -225,7 +266,7 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
             try
             {
                 var parameters = new { wcs = WCS };
-                dr = KocDB.QueryAsync<WellSCADAcls>("SELECT oil_field_operation_s,start_time FROM koc.oil_field_operation ofo WHERE ofo.activity_type='SCADA_INSTALL' AND ofo.well_completion_s= @wcs AND ofo.end_time is null", parameters).Result;
+                dr = KocDB.QueryAsync<WellSCADAcls>("SELECT start_time FROM koc.oil_field_operation ofo WHERE ofo.activity_type='SCADA_INSTALL' AND ofo.well_completion_s= @wcs AND ofo.end_time is null", parameters).Result;
                 return dr;
             }
             catch (Exception ex)
@@ -419,7 +460,7 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
         public IEnumerable<DCSData> GetDCSTestData(int wcs)
         {
             // 
-            return KocDB.QueryAsync<DCSData>("SELECT     TEST_STAGE_S, OIL_FIELD_OPERATION_S, START_TIME, TEST_TYPE, TEST_RATE, WC, GOR, WHP, FLP,  ROUND(test_rate * (100 - WC / 100) ) AS OILRATE,  " + " LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE " + " FROM well_tests_v1 " + " WHERE     (TEST_TYPE ='DCS' ) AND (WELL_COMPLETION_S= " + wcs + ")  " + "    ORDER BY start_time DESC").Result;
+            return KocDB.QueryAsync<DCSData>("SELECT       START_TIME, TEST_TYPE, TEST_RATE, WC, GOR, WHP, FLP,  ROUND(test_rate * (100 - WC / 100) ) AS OILRATE,  " + " LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE " + " FROM well_tests_v1 " + " WHERE     (TEST_TYPE ='DCS' ) AND (WELL_COMPLETION_S= " + wcs + ")  " + "    ORDER BY start_time DESC").Result;
         }
         public IEnumerable<FluidAnalysisData> GetFuildAnalysis(int wcs)
         {
