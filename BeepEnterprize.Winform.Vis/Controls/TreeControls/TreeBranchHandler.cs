@@ -35,7 +35,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
 
         #region "Branch Handling"
-
         public IErrorsInfo CreateBranch(IBranch Branch)
         {
             throw new NotImplementedException();
@@ -163,7 +162,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             return null;
         }
-
         public bool RemoveEntityFromCategory(string root, string foldername, string entityname)
         {
 
@@ -421,9 +419,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
             return DMEEditor.ErrorObject;
 
         }
-
-
-
         #endregion
 
         #region "Node Handling Functions"
