@@ -76,27 +76,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj">
+    <ProjectReference Include="..\..\..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj">
       <Project>{282db559-9dca-4486-8830-cd18be56418b}</Project>
       <Name>DataManagementEngineStandard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj">
+    <ProjectReference Include="..\..\..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj">
       <Project>{3b8d3f1b-6fa6-4cba-a256-02ceea3cc774}</Project>
       <Name>DataManagementModelsStandard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Beep.Winform.Controls\Beep.Winform.Controls.csproj">
+    <ProjectReference Include="..\..\Beep.Winform.Controls\Beep.Winform.Controls.csproj">
       <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
       <Name>Beep.Winform.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
+    <ProjectReference Include="..\..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
       <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Dhub3Models\Dhub3Models.csproj">
-      <Project>{8f319d0f-b304-4d52-8793-b5e92993b673}</Project>
-      <Name>Dhub3Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
+    <ProjectReference Include="..\..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
       <Project>{942285F3-E881-45CC-ACDF-7A4DE4259B77}</Project>
       <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>
     </ProjectReference>
