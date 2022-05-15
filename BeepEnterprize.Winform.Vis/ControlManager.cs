@@ -75,7 +75,7 @@ namespace BeepEnterprize.Winform.Vis
             form.CancelButton = buttonCancel;
 
             BeepEnterprize.Vis.Module.DialogResult dialogResult = MapDialogResult(form.ShowDialog());
-            // value = textBox.Text;
+            //value = textBox.Text;
             return dialogResult;
         }
         public BeepEnterprize.Vis.Module.DialogResult InputBox(string title, string promptText, ref string value)

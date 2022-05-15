@@ -233,50 +233,59 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
 
         }
-//        [CommandAttribute(Name = "CreateNewEntities", Caption = "Create New Entities", Click = true, iconimage = "createnewentities.ico", PointType = EnumPointType.DataPoint)]
-//        public void CreateNewEntities(IPassedArgs Passedarguments)
-//        {
-//            DMEEditor.ErrorObject.Flag = Errors.Ok;
-//            //     DMEEditor.Logger.WriteLog($"Filling Database Entites ) ");
-//            try
-//            {
-//                string iconimage;
+        [CommandAttribute(Name = "CreateNewViewFromEntitiesList", Caption = "Create View From Entities List", Click = true, iconimage = "createnewentities.ico", PointType = EnumPointType.DataPoint)]
+        public void CreateNewViewFromEntitiesList(IPassedArgs Passedarguments)
+        {
+            try
+            {
+                ExtensionsHelpers.GetValues(Passedarguments);
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
+                {
+                    List<EntityStructure> ls = new List<EntityStructure>();
+                    if (DMEEditor.Passedarguments != null)
+                    {
+                        if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
+                        {
+                            string viewname = null;
+                            if(ExtensionsHelpers.Vismanager._controlManager.InputBox("Beep","Please Enter New View Name",ref viewname) == DialogResult.OK)
+                            {
+                                if (!string.IsNullOrEmpty(viewname))
+                                {
+                                    if (DMEEditor.CheckDataSourceExist(viewname))
+                                    {
+                                        DMEEditor.AddLogMessage("Beep",$"View Name Exist, please Try another one", DateTime.Now, -1, null, Errors.Failed);
+                                        return;
+                                    }
+                                }
+                                else
+                                {
+                                    DMEEditor.AddLogMessage("Beep", $"please enter a valid Viewname", DateTime.Now, -1, null, Errors.Failed);
+                                    return;
+                                }
+                                if (ExtensionsHelpers.CreateView(viewname) == Errors.Ok)
+                                {
+                                    ls = ExtensionsHelpers.CreateEntitiesList();
+                                    if (ExtensionsHelpers.CopyEntitiesFromList(viewname+".json", ls, Passedarguments) == Errors.Ok)
+                                    {
+                                        ExtensionsHelpers.pbr.CreateChildNodes();
+                                    }
 
-//                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-//                if (pbr.BranchType == EnumPointType.DataPoint)
-//                {
-//                    GetValues(Passedarguments);
-//                    if (DataSource != null)
-//                    {
-//                        //  DataSource.Dataconnection.OpenConnection();
-//                        if (DataSource.ConnectionStatus == System.Data.ConnectionState.Open)
-//                        {
-//                            if (Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, this might take some time?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
-//                            {
-//                               // pbr.CreateChildNodes();
-//                                //TreeEditor.HideWaiting();
-//                                DMEEditor.Passedarguments = Passedarguments;
-//                                DMEEditor.Passedarguments.DatasourceName = DataSource.DatasourceName;
-//                                Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)DMEEditor.Passedarguments, DisplayType.InControl);
-//                                DMEEditor.AddLogMessage("Success", $"Creatd New Entities in DataSource", DateTime.Now, 0, null, Errors.Ok);
-////                                Vismanager.Controlmanager.MsgBox("Beep", $"Created New Entities in DataSource");
-//                            }
+                                }
 
-//                        }
+                            }
+                          
+                        }
+                    }
+                }
+                DMEEditor.AddLogMessage("Success", $"Paste entities", DateTime.Now, 0, null, Errors.Ok);
+            }
+            catch (Exception ex)
+            {
+                string mes = $" Could not Added Entity {ex.Message} ";
+                DMEEditor.AddLogMessage("Fail", mes, DateTime.Now, -1, mes, Errors.Failed);
+            };
 
-//                    }
-//                }
-
-
-//            }
-//            catch (Exception ex)
-//            {
-//                DMEEditor.Logger.WriteLog($"Error in Filling Database Entites ({ex.Message}) ");
-//                DMEEditor.ErrorObject.Flag = Errors.Failed;
-//                DMEEditor.ErrorObject.Ex = ex;
-//            }
-
-//        }
+        }
         [CommandAttribute(Caption = "Drop Entities", Name = "dropentities", Click = true, iconimage = "dropentities.ico", PointType = EnumPointType.DataPoint)]
         public IErrorsInfo DropEntities(IPassedArgs Passedarguments)
         {

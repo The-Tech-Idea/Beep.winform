@@ -3,12 +3,18 @@ using BeepEnterprize.Winform.Vis.Controls;
 using BeepEnterprize.Winform.Vis.CRUD;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TheTechIdea;
 using TheTechIdea.Beep;
+using TheTechIdea.Beep.DataBase;
+using TheTechIdea.Beep.DataView;
+using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Vis;
+using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
@@ -23,7 +29,9 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
         public ToolbarControl Toolbarcontrol { get; set; }
         public TreeControl TreeEditor { get; set; }
 
+        CancellationTokenSource tokenSource;
 
+        CancellationToken token;
 
         public  IDataSource DataSource { get; set; }
         public IBranch pbr { get; set; }
@@ -98,6 +106,153 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
 
 
+        }
+        public Errors CreateView(string viewname)
+        {
+          
+             try
+            {
+                DMEEditor.ErrorObject.Ex = null;
+                DMEEditor.ErrorObject.Flag = Errors.Ok;
+                if ((viewname != null) && DMEEditor.ConfigEditor.DataConnectionExist(viewname + ".json") == false)
+                {
+                    string fullname = Path.Combine(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.DataView).FirstOrDefault().FolderPath, viewname + ".json");
+                    ConnectionProperties f = new ConnectionProperties
+                    {
+
+                        FileName = Path.GetFileName(fullname),
+                        FilePath = "./DataViews/", //'Path.GetDirectoryName(fullname),
+                        Ext = Path.GetExtension(fullname),
+                        ConnectionName = Path.GetFileName(fullname)
+                    };
+
+                    f.Category = DatasourceCategory.VIEWS;
+                    f.DriverVersion = "1";
+                    f.DriverName = "DataViewReader";
+
+                    DMEEditor.ConfigEditor.DataConnections.Add(f);
+                    DMEEditor.ConfigEditor.SaveDataconnectionsValues();
+
+                    DataViewDataSource ds = (DataViewDataSource)DMEEditor.GetDataSource(f.ConnectionName);
+                    ds.DataView = ds.GenerateView(f.ConnectionName, f.ConnectionName);
+
+                    ds.WriteDataViewFile(fullname);
+                    // pdr,CreateViewNode(ds.DataView.ViewID, ds.DataView.ViewName, f.ConnectionName);
+                    DMEEditor.AddLogMessage("Success", "Added View", DateTime.Now, 0, null, Errors.Ok);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                DMEEditor.AddLogMessage("Dhub3", $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
+            }
+            return DMEEditor.ErrorObject.Flag;
+            
+           
+        }
+        public List<EntityStructure> CreateEntitiesList ()
+        {
+            List<EntityStructure> ls = new List<EntityStructure>();
+            try
+            {
+                DMEEditor.ErrorObject.Ex = null;
+                DMEEditor.ErrorObject.Flag = Errors.Ok;
+                int cnt = 0;
+                foreach (int item in TreeEditor.SelectedBranchs)
+                {
+                   
+                    IBranch br = TreeEditor.treeBranchHandler.GetBranch(item);
+                    IDataSource srcds = DMEEditor.GetDataSource(br.DataSourceName);
+                    if(br.BranchType== EnumPointType.Entity)
+                    {
+                        if (srcds != null)
+                        {
+                            EntityStructure entity = (EntityStructure)srcds.GetEntityStructure(br.BranchText, false).Clone();
+                            bool IsView = false;
+
+                            //if (DataSource.CheckEntityExist(entity.EntityName))
+                            //{
+                            //    if (pbr.BranchClass == "VIEW")
+                            //    {
+                            //        IsView = false;
+                            //    }
+                            //    else
+                            //    {
+                            //        IsView = true;
+                            //        DMEEditor.AddLogMessage("Fail", $"Could Not Paste Entity {entity.EntityName}, it already exist", DateTime.Now, -1, null, Errors.Failed);
+                            //    }
+                            //}
+                            //if (!IsView)
+                            //{
+                                entity.Caption = entity.EntityName.ToUpper();
+                                entity.DatasourceEntityName = entity.DatasourceEntityName;
+                                entity.Created = false;
+                                entity.DataSourceID = srcds.DatasourceName;
+                                entity.Id = cnt + 1;
+                                cnt += 1;
+                                entity.ParentId = 0;
+                                entity.ViewID = 0;
+                                entity.DatabaseType = srcds.DatasourceType;
+                                entity.Viewtype = ViewType.Table;
+                                ls.Add(entity);
+                          //  }
+
+                        }
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+
+                DMEEditor.AddLogMessage("Dhub3", $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
+            }
+            return ls;
+
+        }
+        public Errors CopyEntitiesFromList(string datasourcename,List<EntityStructure> ls, IPassedArgs Passedarguments)
+        {
+             try
+            {
+                DMEEditor.ErrorObject.Ex = null;
+                DMEEditor.ErrorObject.Flag = Errors.Ok;
+                if (pbr.BranchClass == "VIEW")
+                {
+                    DataViewDataSource ds = (DataViewDataSource)DMEEditor.GetDataSource(datasourcename);
+                    Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
+                    Passedarguments.ParameterString1 = $"Creating {ls.Count()} entities ...";
+                    Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                    foreach (var item in ls)
+                    {
+                        Passedarguments.ParameterString1 = $"Adding {item} and Child if there is ...";
+                        Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                        ds.AddEntitytoDataView(item);
+                    }
+                    Passedarguments.ParameterString1 = $"Done ...";
+                    Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                    Passedarguments.ParameterString1 = $"Done ...";
+                    Vismanager.CloseWaitForm();
+                    ds.WriteDataViewFile(ds.DatasourceName);
+                }
+                else
+                {
+                    DMEEditor.ETL.Script = new ETLScriptHDR();
+                    DMEEditor.ETL.Script.id = 1;
+                    var progress = new Progress<PassedArgs>(percent => {
+                    });
+                    tokenSource = new CancellationTokenSource();
+                    token = tokenSource.Token;
+                    DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(DataSource, ls, progress, token);
+                    Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                DMEEditor.AddLogMessage("Dhub3", $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
+            }
+            return DMEEditor.ErrorObject.Flag;
         }
     }
 }
