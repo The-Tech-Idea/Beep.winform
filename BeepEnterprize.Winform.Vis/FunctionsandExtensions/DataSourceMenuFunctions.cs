@@ -233,8 +233,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
 
         }
-        [CommandAttribute(Name = "CreateNewViewFromEntitiesList", Caption = "Create View From Entities List", Click = true, iconimage = "createnewentities.ico", PointType = EnumPointType.DataPoint)]
-        public void CreateNewViewFromEntitiesList(IPassedArgs Passedarguments)
+        [CommandAttribute(Name = "CreateViewFromDataSource", Caption = "Create View From DataSource", Click = true, iconimage = "createnewentities.ico", PointType = EnumPointType.DataPoint)]
+        public void CreateViewFromDataSource(IPassedArgs Passedarguments)
         {
             try
             {
@@ -244,14 +244,14 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                     List<EntityStructure> ls = new List<EntityStructure>();
                     if (DMEEditor.Passedarguments != null)
                     {
-                        if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
-                        {
+                        //if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
+                        //{
                             string viewname = null;
                             if(ExtensionsHelpers.Vismanager._controlManager.InputBox("Beep","Please Enter New View Name",ref viewname) == DialogResult.OK)
                             {
                                 if (!string.IsNullOrEmpty(viewname))
                                 {
-                                    if (DMEEditor.CheckDataSourceExist(viewname))
+                                    if (DMEEditor.CheckDataSourceExist(viewname + ".json"))
                                     {
                                         DMEEditor.AddLogMessage("Beep",$"View Name Exist, please Try another one", DateTime.Now, -1, null, Errors.Failed);
                                         return;
@@ -264,17 +264,14 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                 }
                                 if (ExtensionsHelpers.CreateView(viewname) == Errors.Ok)
                                 {
-                                    ls = ExtensionsHelpers.CreateEntitiesList();
-                                    if (ExtensionsHelpers.CopyEntitiesFromList(viewname+".json", ls, Passedarguments) == Errors.Ok)
+                                    ls = ExtensionsHelpers.CreateEntitiesListFromDataSource(ExtensionsHelpers.pbr.BranchText);
+                                    if (ExtensionsHelpers.AddEntitiesToView(viewname+".json", ls, Passedarguments) == Errors.Ok)
                                     {
-                                        ExtensionsHelpers.pbr.CreateChildNodes();
+                                        ExtensionsHelpers.ViewRootBranch.CreateChildNodes();
                                     }
-
                                 }
-
                             }
-                          
-                        }
+                        //}
                     }
                 }
                 DMEEditor.AddLogMessage("Success", $"Paste entities", DateTime.Now, 0, null, Errors.Ok);

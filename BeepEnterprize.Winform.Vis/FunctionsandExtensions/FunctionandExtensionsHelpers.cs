@@ -37,6 +37,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
         public IBranch pbr { get; set; }
         public IBranch RootBranch { get; set; }
         public IBranch ParentBranch { get; set; }
+        public IBranch ViewRootBranch { get; set; }
         public FunctionandExtensionsHelpers(IDMEEditor pdMEEditor, VisManager pvisManager, TreeControl ptreeControl)
         {
             DMEEditor = pdMEEditor;
@@ -45,7 +46,6 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
         }
         public void GetValues(IPassedArgs Passedarguments)
         {
-
             if (Passedarguments.Objects.Where(c => c.Name == "Vismanager").Any())
             {
                 Vismanager = (VisManager)Passedarguments.Objects.Where(c => c.Name == "Vismanager").FirstOrDefault().obj;
@@ -66,7 +66,6 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             {
                 Menucontrol = (MenuControl)Passedarguments.Objects.Where(c => c.Name == "MenuControl").FirstOrDefault().obj;
             }
-
             if (Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").Any())
             {
                 Toolbarcontrol = (ToolbarControl)Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").FirstOrDefault().obj;
@@ -97,15 +96,11 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 ParentBranch = TreeEditor.treeBranchHandler.GetBranch(pbr.ParentBranchID);
                 Passedarguments.Objects.Add(new ObjectItem() { Name = "ParentBranch", obj = ParentBranch });
             }
-
             DataSource = DMEEditor.GetDataSource(Passedarguments.DatasourceName);
             DMEEditor.OpenDataSource(Passedarguments.DatasourceName);
-
             Passedarguments.DatasourceName = pbr.DataSourceName;
             Passedarguments.CurrentEntity = pbr.BranchText;
-
-
-
+            ViewRootBranch = TreeEditor.Branches[TreeEditor.Branches.FindIndex(x => x.BranchClass == "VIEW" && x.BranchType == EnumPointType.Root)];
         }
         public Errors CreateView(string viewname)
         {
@@ -151,7 +146,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             
            
         }
-        public List<EntityStructure> CreateEntitiesList ()
+        public List<EntityStructure> CreateEntitiesListFromSelectedBranchs ()
         {
             List<EntityStructure> ls = new List<EntityStructure>();
             try
@@ -211,15 +206,13 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return ls;
 
         }
-        public Errors CopyEntitiesFromList(string datasourcename,List<EntityStructure> ls, IPassedArgs Passedarguments)
+        public Errors AddEntitiesToView(string datasourcename,List<EntityStructure> ls, IPassedArgs Passedarguments)
         {
              try
             {
                 DMEEditor.ErrorObject.Ex = null;
                 DMEEditor.ErrorObject.Flag = Errors.Ok;
-                if (pbr.BranchClass == "VIEW")
-                {
-                    DataViewDataSource ds = (DataViewDataSource)DMEEditor.GetDataSource(datasourcename);
+                DataViewDataSource ds = (DataViewDataSource)DMEEditor.GetDataSource(datasourcename);
                     Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
                     Passedarguments.ParameterString1 = $"Creating {ls.Count()} entities ...";
                     Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
@@ -234,18 +227,18 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                     Passedarguments.ParameterString1 = $"Done ...";
                     Vismanager.CloseWaitForm();
                     ds.WriteDataViewFile(ds.DatasourceName);
-                }
-                else
-                {
-                    DMEEditor.ETL.Script = new ETLScriptHDR();
-                    DMEEditor.ETL.Script.id = 1;
-                    var progress = new Progress<PassedArgs>(percent => {
-                    });
-                    tokenSource = new CancellationTokenSource();
-                    token = tokenSource.Token;
-                    DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(DataSource, ls, progress, token);
-                    Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
-                }
+                //}
+                //else
+                //{
+                //    DMEEditor.ETL.Script = new ETLScriptHDR();
+                //    DMEEditor.ETL.Script.id = 1;
+                //    var progress = new Progress<PassedArgs>(percent => {
+                //    });
+                //    tokenSource = new CancellationTokenSource();
+                //    token = tokenSource.Token;
+                //    DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(DataSource, ls, progress, token);
+                //    Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
+                //}
             }
             catch (Exception ex)
             {
@@ -253,6 +246,42 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 DMEEditor.AddLogMessage("Dhub3", $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
             }
             return DMEEditor.ErrorObject.Flag;
+        }
+        public List<EntityStructure> CreateEntitiesListFromDataSource(string Datasourcename)
+        {
+            List<EntityStructure> ls = new List<EntityStructure>();
+            try
+            {
+                DMEEditor.ErrorObject.Ex = null;
+                DMEEditor.ErrorObject.Flag = Errors.Ok;
+                int cnt = 0;
+                List<string> lsnames = new List<string>();
+                IDataSource ds = DMEEditor.GetDataSource(Datasourcename);
+                lsnames = ds.GetEntitesList();
+                foreach (string item in lsnames)
+                {
+                            EntityStructure entity = (EntityStructure)ds.GetEntityStructure(item, false).Clone();
+                            entity.Caption = entity.EntityName.ToUpper();
+                            entity.DatasourceEntityName = entity.DatasourceEntityName;
+                            entity.Created = false;
+                            entity.DataSourceID = entity.DataSourceID;
+                            entity.Id = cnt + 1;
+                            cnt += 1;
+                            entity.ParentId = 0;
+                            entity.ViewID = 0;
+                            entity.DatabaseType = entity.DatabaseType;
+                            entity.Viewtype = ViewType.Table;
+                            ls.Add(entity);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                DMEEditor.AddLogMessage("Dhub3", $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
+            }
+            return ls;
+
         }
     }
 }

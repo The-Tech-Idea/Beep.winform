@@ -51,6 +51,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.UseWaitCursor = true;
             // 
             // messege
             // 
@@ -67,6 +68,7 @@
             this.messege.Size = new System.Drawing.Size(274, 47);
             this.messege.TabIndex = 1;
             this.messege.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.messege.UseWaitCursor = true;
             // 
             // panel1
             // 
@@ -78,6 +80,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(276, 26);
             this.panel1.TabIndex = 2;
+            this.panel1.UseWaitCursor = true;
             // 
             // Title
             // 
@@ -91,6 +94,7 @@
             this.Title.TabIndex = 1;
             this.Title.Text = "Waiting";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Title.UseWaitCursor = true;
             // 
             // panel2
             // 
@@ -103,6 +107,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(276, 254);
             this.panel2.TabIndex = 3;
+            this.panel2.UseWaitCursor = true;
             // 
             // BeepWait
             // 
@@ -113,8 +118,11 @@
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BeepWait";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "BeepWait";
+            this.TopMost = true;
+            this.UseWaitCursor = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
