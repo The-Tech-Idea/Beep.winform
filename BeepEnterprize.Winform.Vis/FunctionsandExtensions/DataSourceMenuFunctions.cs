@@ -254,13 +254,15 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                     if (DMEEditor.CheckDataSourceExist(viewname + ".json"))
                                     {
                                         DMEEditor.AddLogMessage("Beep",$"View Name Exist, please Try another one", DateTime.Now, -1, null, Errors.Failed);
-                                        return;
+                                        ExtensionsHelpers.Vismanager._controlManager.MsgBox("Beep", $"View Name Exist, please Try another one");
+                                       return;
                                     }
                                 }
                                 else
                                 {
                                     DMEEditor.AddLogMessage("Beep", $"please enter a valid Viewname", DateTime.Now, -1, null, Errors.Failed);
-                                    return;
+                                ExtensionsHelpers.Vismanager._controlManager.MsgBox("Beep", $"View Name Exist, please Try another one");
+                                return;
                                 }
                                 if (ExtensionsHelpers.CreateView(viewname) == Errors.Ok)
                                 {

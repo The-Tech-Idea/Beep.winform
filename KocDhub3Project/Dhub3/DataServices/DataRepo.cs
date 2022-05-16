@@ -2,15 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dapper;
+
 using System.Data;
 using System.Reflection;
 using KOC.DHUB3.Models;
 using TheTechIdea.Beep;
 using TheTechIdea;
 using TheTechIdea.Beep.DataBase;
+using Dapper;
+using System.Threading.Tasks;
 
-namespace KocSharedLib
+namespace Dhub3.DataServices
 {
     public class DataRepo
     {
@@ -54,8 +56,13 @@ namespace KocSharedLib
             this.pStart_date = pStart_date;
             this.pEnd_date = pEnd_date;
         }
-
-      
+        #region "Dapper Methods"
+        public async Task<IEnumerable<T>> LoadData<T, U>(string querystring,U parameters)
+        {
+         
+            return await KocDB.QueryAsync<T>(querystring, parameters);
+        }
+        #endregion "Dapper Methods"
         #region "Well Schematics Methods"
         public string GetWellDeviation(string puwi)
         {
@@ -179,15 +186,15 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
         #region "Digital Hub Schema"
         public IEnumerable<CasePortableData> GetDCAPortableTestData(int wcs)
         {
-            return KocDB.QueryAsync<CasePortableData>("SELECT  well_completion_S,     START_TIME, TEST_TYPE,  TEST_RATE, WC, GOR, WHP, FLP,  ROUND(test_rate * (1 - WC / 100) ) AS OILRATE,  " + " LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE " + " FROM well_tests_v1 " + " WHERE     (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (WELL_COMPLETION_S= " + wcs + ") and gor is not null " + "    ORDER BY start_time DESC").Result;
+            return KocDB.QueryAsync<CasePortableData>("SELECT  well_completion_S,     START_TIME, TEST_TYPE,  TEST_RATE, WC, GOR, WHP, FLP,  ROUND(test_rate * (1 - WC / 100) ) AS OILRATE,  " + " LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE " + " FROM WELL_TESTS_VW " + " WHERE     (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (WELL_COMPLETION_S= " + wcs + ") and gor is not null " + "    ORDER BY start_time DESC").Result;
         }
         public IEnumerable<CasePortableData> GetDCAPortableTestDataForField(string FLD_CODE)
         {
-            return KocDB.QueryAsync<CasePortableData>("SELECT   b.ppdm_WCS_UWI uwi, b.well_completion_S,    a.START_TIME, a.TEST_TYPE,  a.TEST_RATE, a.WC, a.GOR, a.WHP, a.FLP,  ROUND(a.test_rate * (1 - a.WC / 100) ) AS test_rate,  " + " a.LEFT_CHOKE_SIZE, a.RIGHT_CHOKE_SIZE, a.CHOKE,b.area,b.field_code " + " FROM well_tests_v1 a,well_latest_data b " + " WHERE    (a.well_completion_s=b.well_completion_s)and b.wcc_status='OPEN'  and  (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (b.field_code= '" + FLD_CODE + "') and gor is not null " + "    ORDER BY start_time DESC").Result;
+            return KocDB.QueryAsync<CasePortableData>("SELECT   b.ppdm_WCS_UWI uwi, b.well_completion_S,    a.START_TIME, a.TEST_TYPE,  a.TEST_RATE, a.WC, a.GOR, a.WHP, a.FLP,  ROUND(a.test_rate * (1 - a.WC / 100) ) AS test_rate,  " + " a.LEFT_CHOKE_SIZE, a.RIGHT_CHOKE_SIZE, a.CHOKE,b.area,b.field_code " + " FROM WELL_TESTS_VW a,well_latest_data b " + " WHERE    (a.well_completion_s=b.well_completion_s)and b.wcc_status='OPEN'  and  (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (b.field_code= '" + FLD_CODE + "') and gor is not null " + "    ORDER BY start_time DESC").Result;
         }
         public IEnumerable<CasePortableData> GetDCAPortableTestDataForArea(string AreaCode)
         {
-            return KocDB.QueryAsync<CasePortableData>("SELECT b.ppdm_WCS_UWI uwi, b.well_completion_S a.start_time ,     a.START_TIME, a.TEST_TYPE,  a.TEST_RATE, a.WC, a.GOR, a.WHP, a.FLP,  ROUND(a.test_rate * (1 - a.WC / 100) ) AS test_rate,  " + " a.LEFT_CHOKE_SIZE, a.RIGHT_CHOKE_SIZE, a.CHOKE,b.area,b.field_code " + " FROM well_tests_v1 a,well_latest_data b " + " WHERE    (a.WELL_COMPLETION_S=b.WELL_COMPLETION_S) and  b.wcc_status='OPEN' and  (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (decode('" + AreaCode + "','ALL','ALL',b.area)= '" + AreaCode + "') and gor is not null " + "    ORDER BY start_time DESC").Result;
+            return KocDB.QueryAsync<CasePortableData>("SELECT b.ppdm_WCS_UWI uwi, b.well_completion_S a.start_time ,     a.START_TIME, a.TEST_TYPE,  a.TEST_RATE, a.WC, a.GOR, a.WHP, a.FLP,  ROUND(a.test_rate * (1 - a.WC / 100) ) AS test_rate,  " + " a.LEFT_CHOKE_SIZE, a.RIGHT_CHOKE_SIZE, a.CHOKE,b.area,b.field_code " + " FROM WELL_TESTS_VW a,well_latest_data b " + " WHERE    (a.WELL_COMPLETION_S=b.WELL_COMPLETION_S) and  b.wcc_status='OPEN' and  (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (decode('" + AreaCode + "','ALL','ALL',b.area)= '" + AreaCode + "') and gor is not null " + "    ORDER BY start_time DESC").Result;
         }
         public IEnumerable<CasePortableData> GetDCAMaxPortableTestDataForArea2YearsAgo(string AreaCode)
         {
@@ -226,17 +233,22 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
         public IEnumerable<cls_ESP_DAILY_READING_report> GetWellESPReadingData(string puwi)
         {
             IEnumerable<cls_ESP_DAILY_READING_report> ls;
-            ls = KocDB.QueryAsync<cls_ESP_DAILY_READING_report>("select WELL,GC,INSTALLATION_DATE,WELL_COMPLETION_S,READING_DATE_TIME,RECORD_ENTRY_DATE_TIME,PI,PD,WHP,TI,TM,FLP,CURRENT_A,CURRENT_B,CURRENT_C,VOLTAGE_AB, VOLTAGE_BC, VOLTAGE_CA, FREQUENCY, VIBRATION, TANK_LEVEL, REMARKS from OTS_DM_ESP_LAST_DAILY_READINGS where well = '" + puwi + "'  order by reading_date_time asc").Result; // and reading_date_time between to_date('" + startdate + "','dd-mm-yyyy') and to_date('" + enddate + "','dd-mm-yyyy')
+            ls = KocDB.QueryAsync<cls_ESP_DAILY_READING_report>("select WELL,GC,INSTALLATION_DATE,WELL_COMPLETION_S,READING_DATE_TIME,RECORD_ENTRY_DATE_TIME,PI,PD,WHP,TI,TM,FLP,CURRENT_A,CURRENT_B,CURRENT_C,VOLTAGE_AB, VOLTAGE_BC, VOLTAGE_CA, FREQUENCY, VIBRATION, TANK_LEVEL, REMARKS from ESP_DAILY_READING_VW where UBHI = '" + puwi + "'  order by reading_date_time asc").Result; // and reading_date_time between to_date('" + startdate + "','dd-mm-yyyy') and to_date('" + enddate + "','dd-mm-yyyy')
             //WellLatestDataList.Where(o => o.UWI == puwi).FirstOrDefault.rep_ESP_Reading_report = ls;
             return ls;
         }
         public IEnumerable<cls_ESP_DAILY_READING_report> GetWellESPReadingData(string puwi, string startdate, string enddate)
         {
             IEnumerable<cls_ESP_DAILY_READING_report> ls;
-            ls = KocDB.QueryAsync<cls_ESP_DAILY_READING_report>("select WELL,GC,INSTALLATION_DATE,WELL_COMPLETION_S,READING_DATE_TIME,RECORD_ENTRY_DATE_TIME,PI,PD,WHP,TI,TM,FLP,CURRENT_A,CURRENT_B,CURRENT_C,VOLTAGE_AB, VOLTAGE_BC, VOLTAGE_CA, FREQUENCY, VIBRATION, TANK_LEVEL, REMARKS from OTS_DM_ESP_DAILY_READINGS where well = '" + puwi + "' and pi is not null and reading_date_time between '" + startdate + "' and '" + enddate + "' order by reading_date_time asc").Result; // 
+            ls = KocDB.QueryAsync<cls_ESP_DAILY_READING_report>("select WELL,GC,INSTALLATION_DATE,WELL_COMPLETION_S,READING_DATE_TIME,RECORD_ENTRY_DATE_TIME,PI,PD,WHP,TI,TM,FLP,CURRENT_A,CURRENT_B,CURRENT_C,VOLTAGE_AB, VOLTAGE_BC, VOLTAGE_CA, FREQUENCY, VIBRATION, TANK_LEVEL, REMARKS from OTS_DM_ESP_DAILY_READINGS where UBHI = '" + puwi + "' and pi is not null and reading_date_time between '" + startdate + "' and '" + enddate + "' order by reading_date_time asc").Result; // 
             //WellLatestDataList.Where(o => o.UWI == puwi).FirstOrDefault.rep_ESP_Reading_report = ls;
             return ls;
         }
+        /// <summary>
+        /// Missing
+        /// </summary>
+        /// <param name="pUWI"></param>
+        /// <returns></returns>
         public IEnumerable<cls_survillanceclassreport> GetOTSALMSEventsdata(string pUWI)
         {
             IEnumerable<cls_survillanceclassreport> ls;
@@ -244,6 +256,12 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
             // WellLatestDataList.Where(o => o.UWI == pUWI).FirstOrDefault.rep_survillance_report = ls;
             return ls;
         }
+
+        /// <summary>
+        /// |Missing 
+        /// </summary>
+        /// <param name="pUWI"></param>
+        /// <returns></returns>
         public IEnumerable<cls_ots_dm_al_stopstart_events> GetALMStartStopdata(string pUWI)
         {
             IEnumerable<cls_ots_dm_al_stopstart_events> ls;
@@ -254,19 +272,24 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
         public IEnumerable<cls_survillanceclassreport> GetWellSurvillancedata(string pUWI)
         {
             IEnumerable<cls_survillanceclassreport> ls;
-            ls = KocDB.QueryAsync<cls_survillanceclassreport>("Select distinct well WellName,  service_status , contractor, service_status_date , main_job_type , service_remarks  from OTS_DM_ACTIVITIES_HISTORY where well like '" + pUWI + "'  order by 1").Result;
+            ls = KocDB.QueryAsync<cls_survillanceclassreport>("Select distinct UWI WellName, STATUS service_status , contractor,STATUS service_status_date , ACTIVITY_NAME main_job_type , REMARKS service_remarks  from WIRELINE_ACTIVITY_VW where uwi like '" + pUWI + "'  order by 1").Result;
             // WellLatestDataList.Where(o => o.UWI == pUWI).FirstOrDefault.rep_survillance_report = ls;
             return ls;
         }
         #endregion
         #region "Finder Methods"
+        /// <summary>
+        /// missing
+        /// </summary>
+        /// <param name="WCS"></param>
+        /// <returns></returns>
         public IEnumerable<WellSCADAcls> GetSCADA(int WCS)
         {
             IEnumerable<WellSCADAcls> dr;
             try
             {
                 var parameters = new { wcs = WCS };
-                dr = KocDB.QueryAsync<WellSCADAcls>("SELECT start_time FROM koc.oil_field_operation ofo WHERE ofo.activity_type='SCADA_INSTALL' AND ofo.well_completion_s= @wcs AND ofo.end_time is null", parameters).Result;
+                dr = KocDB.QueryAsync<WellSCADAcls>("SELECT start_time FROM WELL_OPERATION_STATUS_VW ofo WHERE ofo.activity_type='SCADA_INSTALL' AND ofo.well_completion_s= @wcs AND ofo.end_time is null", parameters).Result;
                 return dr;
             }
             catch (Exception ex)
@@ -447,20 +470,20 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
         }
         public IEnumerable<PortableMultiRate> GetPortableTestMultiRateData(int wcs)
         {
-            return KocDB.QueryAsync<PortableMultiRate>("SELECT   UWI, STRING WellSTRING, RESR_ID, START_TIME, END_TIME, DURATION, CONTRACTOR, REPORT_NUMBER, T_FLOW_PERIOD, ACTIVITY_TYPE, " + " ACTUAL_CHOKE, C_PRESS, T_PRESS, WHT, FLP, FLOW_P_NO, CRITICAL_FLOW, F_DURATION, TEST_CHOKE, CHOKE_LC, CHOKE_RC, CHOKE_LT, " + " CHOKE_RT, LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, LIQUID_RATE, WATER_RATE, REMARKS, WATER_CUT, TOTAL_GOR, GAS_RATE, HP_GOR, " + " SEP_PRESS, SEP_TEMP, LP_GOR, FORMATION_GOR, TOTAL_GLR, INJECTION_GLR, API, SPECIFIC_GRAVITY, SHRINKAGE_FACTOR, " + "  WATER_SALINITY, WELL_COMPLETION_S" + " FROM  finderweb.PORTABLE_MULTRATE_V " + " WHERE    WELL_COMPLETION_S= " + wcs + " " + "    ORDER BY start_time,FLOW_P_NO DESC").Result;
+            return KocDB.QueryAsync<PortableMultiRate>("SELECT   UWI, STRING WellSTRING, RESR_ID, START_TIME, END_TIME, DURATION, CONTRACTOR, REPORT_NUMBER, T_FLOW_PERIOD, ACTIVITY_TYPE, " + " ACTUAL_CHOKE, C_PRESS, T_PRESS, WHT, FLP, FLOW_P_NO, CRITICAL_FLOW, F_DURATION, TEST_CHOKE, CHOKE_LC, CHOKE_RC, CHOKE_LT, " + " CHOKE_RT, LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, LIQUID_RATE, WATER_RATE, REMARKS, WATER_CUT, TOTAL_GOR, GAS_RATE, HP_GOR, " + " SEP_PRESS, SEP_TEMP, LP_GOR, FORMATION_GOR, TOTAL_GLR, INJECTION_GLR, API, SPECIFIC_GRAVITY, SHRINKAGE_FACTOR, " + "  WATER_SALINITY, WELL_COMPLETION_S" + " FROM   PORTABLE_MULTRATE_V " + " WHERE    WELL_COMPLETION_S= " + wcs + " " + "    ORDER BY start_time,FLOW_P_NO DESC").Result;
         }
         public IEnumerable<PortableData> GetPortableTestData(int wcs)
         {
-            return KocDB.QueryAsync<PortableData>("SELECT    well_completion_S,   START_TIME, TEST_TYPE,  TEST_RATE, WC, GOR, WHP, FLP,  ROUND(test_rate * (1 - WC / 100) ) AS OILRATE, ROUND(GOR*test_rate/1000,3)  AS GASRATE," + " LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE " + " FROM well_tests_v1 " + " WHERE     (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (WELL_COMPLETION_S= " + wcs + ") and gor is not null " + "    ORDER BY start_time DESC").Result;
+            return KocDB.QueryAsync<PortableData>("SELECT    well_completion_S,   START_TIME, TEST_TYPE,  TEST_RATE, WC, GOR, WHP, FLP,  ROUND(test_rate * (1 - WC / 100) ) AS OILRATE, ROUND(GOR*test_rate/1000,3)  AS GASRATE," + " LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE " + " FROM WELL_TESTS_VW " + " WHERE     (TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE')  ) AND (WELL_COMPLETION_S= " + wcs + ") and gor is not null " + "    ORDER BY start_time DESC").Result;
         }
         public IEnumerable<WaterCutData> GetWaterCutTestData(int wcs)
         {
-            return KocDB.QueryAsync<WaterCutData>("SELECT DISTINCT WT.WELL_COMPLETION_S, WT.UWI, WT.FACILITY_TYPE,  WT.ACTIVITY_TYPE, WT.ACTIVITY_NAME, WT.START_TIME, WT.LIQUID_RATE, WT.CASING_PRESSURE, WT.TUBING_PRESSURE, WT.FLOW_LINE_PRESSURE, WT.LEFT_CHOKE_SIZE, WT.RIGHT_CHOKE_SIZE, WT.WATER_RATE,pp.nominal_water_cut, GET_WCS_SALT_uwi(WT.UWI, TO_CHAR(WT.START_TIME, 'dd/mm/yyyy')) AS SALT, PP.ACTIVITY_TYPE AS TEST_TYPE FROM FINDERWEB.TEST_STAGE WT ,FINDERWEB.PERIODIC_PRODUCTION(PP) WHERE     (PP.ACTIVITY_TYPE = 'WATER_CUT') AND (PP.PREFERRED_FLAG = 'Y') AND  (WT.WELL_COMPLETION_S =" + wcs + ") AND  WT.TEST_STAGE_S = PP.TEST_STAGE_S ORDER BY WT.START_TIME DESC").Result;
+            return KocDB.QueryAsync<WaterCutData>("SELECT DISTINCT WT.WELL_COMPLETION_S, WT.UWI, WT.FACILITY_TYPE,  WT.ACTIVITY_TYPE, WT.ACTIVITY_NAME, WT.START_TIME, WT.LIQUID_RATE, WT.CASING_PRESSURE, WT.TUBING_PRESSURE, WT.FLOW_LINE_PRESSURE, WT.LEFT_CHOKE_SIZE, WT.RIGHT_CHOKE_SIZE, WT.WATER_RATE,pp.nominal_water_cut, GET_WCS_SALT_uwi(WT.UWI, TO_CHAR(WT.START_TIME, 'dd/mm/yyyy')) AS SALT, PP.ACTIVITY_TYPE AS TEST_TYPE FROM  TEST_STAGE WT , PERIODIC_PRODUCTION(PP) WHERE     (PP.ACTIVITY_TYPE = 'WATER_CUT') AND (PP.PREFERRED_FLAG = 'Y') AND  (WT.WELL_COMPLETION_S =" + wcs + ") AND  WT.TEST_STAGE_S = PP.TEST_STAGE_S ORDER BY WT.START_TIME DESC").Result;
         }
         public IEnumerable<DCSData> GetDCSTestData(int wcs)
         {
             // 
-            return KocDB.QueryAsync<DCSData>("SELECT       START_TIME, TEST_TYPE, TEST_RATE, WC, GOR, WHP, FLP,  ROUND(test_rate * (100 - WC / 100) ) AS OILRATE,  " + " LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE " + " FROM well_tests_v1 " + " WHERE     (TEST_TYPE ='DCS' ) AND (WELL_COMPLETION_S= " + wcs + ")  " + "    ORDER BY start_time DESC").Result;
+            return KocDB.QueryAsync<DCSData>("SELECT       START_TIME, TEST_TYPE, TEST_RATE, WC, GOR, WHP, FLP,  ROUND(test_rate * (100 - WC / 100) ) AS OILRATE,  " + " LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE " + " FROM WELL_TESTS_VW " + " WHERE     (TEST_TYPE ='DCS' ) AND (WELL_COMPLETION_S= " + wcs + ")  " + "    ORDER BY start_time DESC").Result;
         }
         public IEnumerable<FluidAnalysisData> GetFuildAnalysis(int wcs)
         {
@@ -468,7 +491,7 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
         }
         public IEnumerable<TestStageData> GetTestStageData(int wcs)
         {
-            return KocDB.QueryAsync<TestStageData>("SELECT    START_TIME as starttime, TEST_TYPE, TEST_RATE, WC, GOR, WHP, FLP, LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE, WELL_COMPLETION_S, UWI   FROM FINDERWEB.WELL_TESTS_V1  WHERE        (TEST_TYPE ='DCS') AND (WELL_COMPLETION_S = " + wcs + ") ORDER BY START_TIME desc").Result;
+            return KocDB.QueryAsync<TestStageData>("SELECT    START_TIME as starttime, TEST_TYPE, TEST_RATE, WC, GOR, WHP, FLP, LEFT_CHOKE_SIZE, RIGHT_CHOKE_SIZE, CHOKE, WELL_COMPLETION_S, UWI   FROM  WELL_TESTS_VW  WHERE        (TEST_TYPE ='DCS') AND (WELL_COMPLETION_S = " + wcs + ") ORDER BY START_TIME desc").Result;
         }
         public IEnumerable<FBHPclassreport> GetFBHPDataForFieldandRes(string FldID, string resid)
         {
@@ -505,9 +528,14 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
             // WellLatestDataList.Where(o => o.UWI == pUWI).FirstOrDefault.rep_RigAcivities_report = ls;
             return ls;
         }
+        /// <summary>
+        /// Missing Functions
+        /// </summary>
+        /// <param name="v_wcs"></param>
+        /// <returns></returns>
         public IEnumerable<cls_ba> GetBAData(int v_wcs)
         {
-            return KocDB.QueryAsync<cls_ba>("SELECT     FIELD_CODE, OIL_VOLUME AS TOTOIL, WATER_VOLUME AS TOTWater, GAS_VOLUME AS TOTGAS,PRODUCTION_DATE " + "      AS proddate, finderweb.GET_WCS_WATER_CUT(WELL_COMPLETION_S,   " + "     to_char(PRODUCTION_DATE,'dd/mm/yyyy')) AS WC," + "    decode(WATER_VOLUME,0,0,(WATER_VOLUME   / (WATER_VOLUME + OIL_VOLUME))*100) AS ba_wc, finderweb.GET_WCS_LIQUID_RATE(WELL_COMPLETION_S,  to_char(PRODUCTION_DATE,'dd/mm/yyyy')) AS lq, " + " WELL_COMPLETION_S FROM koc.KOC_MONTHLY_OWG_SNAP   WHERE WELL_COMPLETION_S =" + v_wcs + " ORDER BY PRODUCTION_DATE").Result;
+            return KocDB.QueryAsync<cls_ba>("SELECT     UBHI, OIL_VOLUME AS TOTOIL, WATER_VOLUME AS TOTWater, GAS_VOLUME AS TOTGAS,PRODUCTION_DATE " + "      AS proddate,  GET_WCS_WATER_CUT(WELL_COMPLETION_S,   " + "     to_char(PRODUCTION_DATE,'dd/mm/yyyy')) AS WC," + "    decode(WATER_VOLUME,0,0,(WATER_VOLUME   / (WATER_VOLUME + OIL_VOLUME))*100) AS ba_wc,  GET_WCS_LIQUID_RATE(WELL_COMPLETION_S,  to_char(PRODUCTION_DATE,'dd/mm/yyyy')) AS lq, " + " WELL_COMPLETION_S FROM PRODUCTION_HISTORY_VW   WHERE WELL_COMPLETION_S =" + v_wcs + " ORDER BY PRODUCTION_DATE").Result;
         }
         public IEnumerable<cls_proddata> GetProdData(string puwi, int pwcs, int pmonths)
         {
@@ -515,7 +543,7 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
         }
         public cls_prepostdata GetWellPrePostData(int v_wcs, string pdate, string cond)
         {
-            return KocDB.QueryAsync<cls_prepostdata>(" SELECT  " + v_wcs + "  AS Completion_No, ' " + pdate + "'  AS Entered_Date,  finderweb.GET_PREPOST_WCS_BHP(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   , 'FBHP',  '" + cond + "' ) AS FBHP,  finderweb.Get_PREPOST_Wcs_Perf(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS Perf,  finderweb.GET_PREPOST_WCS_CHOKE(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   , '" + cond + "' ) AS CHOKE,  finderweb.Get_PREPOST_Wcs_PI(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS PI,  finderweb.GET_PREPOST_ESP_TYPE(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS ESP_TYPE,  finderweb.GET_PREPOST_WCS_LQ_RATE(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS Liquid_rate,  finderweb.GET_PREPOST_WCS_GOR(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS GOR,  finderweb.GET_PREPOST_WCS_WATER_CUT(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS WC,  finderweb.GET_PREPOST_WCS_BHP(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   , 'SBHP',  '" + cond + "' ) AS SBHP,   finderweb.GET_PREPOST_WCS_WHP(" + v_wcs + ", to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS WHP  FROM DUAL").Result.FirstOrDefault();
+            return KocDB.QueryAsync<cls_prepostdata>(" SELECT  " + v_wcs + "  AS Completion_No, ' " + pdate + "'  AS Entered_Date,   GET_PREPOST_WCS_BHP(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   , 'FBHP',  '" + cond + "' ) AS FBHP,   Get_PREPOST_Wcs_Perf(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS Perf,   GET_PREPOST_WCS_CHOKE(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   , '" + cond + "' ) AS CHOKE,   Get_PREPOST_Wcs_PI(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS PI,   GET_PREPOST_ESP_TYPE(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS ESP_TYPE,   GET_PREPOST_WCS_LQ_RATE(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS Liquid_rate,   GET_PREPOST_WCS_GOR(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS GOR,   GET_PREPOST_WCS_WATER_CUT(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS WC,   GET_PREPOST_WCS_BHP(" + v_wcs + ",  to_date('" + pdate + "','dd/mm/yyyy')   , 'SBHP',  '" + cond + "' ) AS SBHP,    GET_PREPOST_WCS_WHP(" + v_wcs + ", to_date('" + pdate + "','dd/mm/yyyy')   ,  '" + cond + "' ) AS WHP  FROM DUAL").Result.FirstOrDefault();
         }
         public cls_outvaluewithdate Completion_GOR(int v_wcs)
         {
@@ -617,7 +645,7 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
         public IEnumerable<cls_portable_vs_dcs_report> Completion_PortablevsDCS(int v_wcs)
         {
             IEnumerable<cls_portable_vs_dcs_report> ls;
-            ls = KocDB.QueryAsync<cls_portable_vs_dcs_report>("SELECT      a.START_TIME AS starttime, a.TEST_RATE DCSLQ, a.WC DCSWC,  GET_WCS_LQ_PORT_ATDATE(a.WELL_COMPLETION_S,to_char(a.start_time,'dd-mm-yyyy')) as PortLQ,GET_WCS_WATER_CUT_PORT_ATDATE(a.WELL_COMPLETION_S,to_char(a.start_time,'dd-mm-yyyy')) as  PortWC,GET_WCS_TOTAL_GOR_ATDATE(a.WELL_COMPLETION_S,to_char(a.start_time,'dd-mm-yyyy')) as TotalGor  " + "  FROM         well_tests_v1 a " + "  WHERE     (a.TEST_TYPE ='DCS' ) AND (a.WELL_COMPLETION_S= nvl( " + v_wcs + ", a.WELL_COMPLETION_S)) " + "       union all " + "  SELECT       b.START_TIME AS starttime ,GET_WCS_LQ_RATE_DCS(b.WELL_COMPLETION_S,to_char(b.start_time,'dd-mm-yyyy')) as DCSLQ,GET_WCS_WATER_CUT_DCS_ATDATE(b.WELL_COMPLETION_S,to_char(b.start_time,'dd-mm-yyyy')) as  DCSWC ,  b.TEST_RATE PortLQ, b.WC PortWC,GET_WCS_TOTAL_GOR_ATDATE(b.WELL_COMPLETION_S,to_char(b.start_time,'dd-mm-yyyy')) as TotalGor " + "  FROM         well_tests_v1 b " + "  WHERE    b.TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE') AND (b.WELL_COMPLETION_S= nvl( " + v_wcs + " , b.WELL_COMPLETION_S)) and b.gor is not null  " + "  order by starttime desc").Result;
+            ls = KocDB.QueryAsync<cls_portable_vs_dcs_report>("SELECT      a.START_TIME AS starttime, a.TEST_RATE DCSLQ, a.WC DCSWC,  GET_WCS_LQ_PORT_ATDATE(a.WELL_COMPLETION_S,to_char(a.start_time,'dd-mm-yyyy')) as PortLQ,GET_WCS_WATER_CUT_PORT_ATDATE(a.WELL_COMPLETION_S,to_char(a.start_time,'dd-mm-yyyy')) as  PortWC,GET_WCS_TOTAL_GOR_ATDATE(a.WELL_COMPLETION_S,to_char(a.start_time,'dd-mm-yyyy')) as TotalGor  " + "  FROM         WELL_TESTS_VW a " + "  WHERE     (a.TEST_TYPE ='DCS' ) AND (a.WELL_COMPLETION_S= nvl( " + v_wcs + ", a.WELL_COMPLETION_S)) " + "       union all " + "  SELECT       b.START_TIME AS starttime ,GET_WCS_LQ_RATE_DCS(b.WELL_COMPLETION_S,to_char(b.start_time,'dd-mm-yyyy')) as DCSLQ,GET_WCS_WATER_CUT_DCS_ATDATE(b.WELL_COMPLETION_S,to_char(b.start_time,'dd-mm-yyyy')) as  DCSWC ,  b.TEST_RATE PortLQ, b.WC PortWC,GET_WCS_TOTAL_GOR_ATDATE(b.WELL_COMPLETION_S,to_char(b.start_time,'dd-mm-yyyy')) as TotalGor " + "  FROM         WELL_TESTS_VW b " + "  WHERE    b.TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE') AND (b.WELL_COMPLETION_S= nvl( " + v_wcs + " , b.WELL_COMPLETION_S)) and b.gor is not null  " + "  order by starttime desc").Result;
             return ls;
         }
       

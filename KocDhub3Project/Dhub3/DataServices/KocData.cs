@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheTechIdea.Beep;
 
+
 namespace KOC.DHUB3.DataServices
 {
     public class KocData
@@ -57,24 +58,6 @@ namespace KOC.DHUB3.DataServices
 
 
 
-        public List<cls_hr_lov> Rep_ListofFiles { get; set; } = new List<cls_hr_lov>();
-        public List<cls_gcproductionreport> Stat_gcproduction_report { get; set; } = new List<cls_gcproductionreport>();
-        public List<cls_lastProductiondatareport> Stat_lastProductiondata_report { get; set; } = new List<cls_lastProductiondatareport>();
-        public List<cls_rigactivityreport> Stat_rigactivityreport { get; set; } = new List<cls_rigactivityreport>();
-        public List<cls_survillanceclassreport> Stat_survillanceclass_report { get; set; } = new List<cls_survillanceclassreport>();
-        public List<cls_lastCloseOpenEvent> Stat_lastCloseOpenEvent_report { get; set; } = new List<cls_lastCloseOpenEvent>();
-        public List<cls_chockchange_report> Stat_chockchange_report { get; set; } = new List<cls_chockchange_report>();
-        public List<cls_Area_Stat> Stat_Capacity_Area_Report { get; set; } = new List<cls_Area_Stat>();
-        public List<cls_Area_Stat> Hist_Capacity_Area_Report { get; set; } = new List<cls_Area_Stat>();
-        // Dashboard
-        public List<cls_survillanceclassreport> Stat_survillanceclass_reportStats { get; set; } = new List<cls_survillanceclassreport>();
-        public List<cls_survillanceclassreport> Stat_survillanceclass_reportStatsContractorstats { get; set; } = new List<cls_survillanceclassreport>();
-        public List<cls_lastCloseOpenEvent> Stat_lastCloseOpenEvent_reportdataStatsbyField { get; set; } = new List<cls_lastCloseOpenEvent>();
-        public List<cls_lastCloseOpenEvent> Stat_lastCloseOpenEvent_reportdataStatsbyres { get; set; } = new List<cls_lastCloseOpenEvent>();
-        public List<cls_chockchange_report> Stat_chockchange_reportStats { get; set; } = new List<cls_chockchange_report>();
-        public List<cls_ProductionPerLF> stat_ProductionPerFieldBasedonLF { get; set; }
-        public List<cls_ProductionPerLF> stat_ProductionPerFacilityBasedonLF { get; set; }
-        public List<cls_ProductionForField> stat_FieldProductionHist { get; set; } = new List<cls_ProductionForField>();
         // ---------------------------------------------------------------------------
         public string[] Dateformats = new[] { "M/d/yyyy h:mm:ss tt", "M/d/yyyy h:mm tt", "MM/dd/yyyy hh:mm:ss", "M/d/yyyy h:mm:ss", "M/d/yyyy hh:mm tt", "M/d/yyyy hh tt", "M/d/yyyy h:mm", "M/d/yyyy h:mm", "MM/dd/yyyy hh:mm", "M/dd/yyyy hh:mm", "MM/d/yyyy HH:mm:ss.ffffff" };
 

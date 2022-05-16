@@ -209,18 +209,26 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
         public Errors AddEntitiesToView(string datasourcename,List<EntityStructure> ls, IPassedArgs Passedarguments)
         {
              try
-            {
-                DMEEditor.ErrorObject.Ex = null;
-                DMEEditor.ErrorObject.Flag = Errors.Ok;
-                DataViewDataSource ds = (DataViewDataSource)DMEEditor.GetDataSource(datasourcename);
+            {       DataViewDataSource ds = (DataViewDataSource)DMEEditor.GetDataSource(datasourcename);
                     Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
                     Passedarguments.ParameterString1 = $"Creating {ls.Count()} entities ...";
                     Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                     foreach (var item in ls)
                     {
-                        Passedarguments.ParameterString1 = $"Adding {item} and Child if there is ...";
+                        Passedarguments.ParameterString1 = $"Adding {item.EntityName} and Child if there is ...";
                         Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
-                        ds.AddEntitytoDataView(item);
+                        try
+                        {
+                        if (ds.AddEntitytoDataView(item) ==-1)
+                        {
+                           
+                        }
+                        }
+                        catch (Exception ex1)
+                        {
+                          DMEEditor.AddLogMessage("Dhub3", $"Error in adding {item.EntityName} - {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex1.Message}", DateTime.Now, 0, null, Errors.Ok);
+                        }
+                      
                     }
                     Passedarguments.ParameterString1 = $"Done ...";
                     Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
@@ -239,10 +247,11 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 //    DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(DataSource, ls, progress, token);
                 //    Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
                 //}
+                DMEEditor.ErrorObject.Ex = null;
+                DMEEditor.ErrorObject.Flag = Errors.Ok;
             }
             catch (Exception ex)
             {
-
                 DMEEditor.AddLogMessage("Dhub3", $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
             }
             return DMEEditor.ErrorObject.Flag;

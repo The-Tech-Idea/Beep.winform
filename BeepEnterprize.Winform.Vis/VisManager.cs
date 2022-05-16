@@ -510,10 +510,10 @@ namespace BeepEnterprize.Winform.Vis
                 //form.SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, Passedarguments, ErrorsandMesseges);
                 //form.Run(Passedarguments);
                 form.TopMost=true;
-                Form frm = (Form)MainFormView;
-                form.StartPosition = FormStartPosition.CenterParent;
-                form.Parent = frm;
-                form.ShowDialog(frm);
+               // Form frm = (Form)MainFormView;
+                form.StartPosition = FormStartPosition.CenterScreen;
+               // form.Parent = frm;
+                form.ShowDialog();
    
             }).ConfigureAwait(true);
         }
