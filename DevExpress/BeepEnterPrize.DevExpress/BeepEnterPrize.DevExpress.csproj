@@ -94,13 +94,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\The-Tech-Idea\BeepDM\DataManagmentModels\DataManagmentModels.csproj">
-      <Project>{7697ebdc-a4f2-49b1-af91-79031516e679}</Project>
-      <Name>DataManagmentModels</Name>
+    <ProjectReference Include="..\..\..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj">
+      <Project>{282db559-9dca-4486-8830-cd18be56418b}</Project>
+      <Name>DataManagementEngineStandard</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\The-Tech-Idea\BeepDM\DataManagment_Engine\DataManagmentEngine.csproj">
-      <Project>{45983087-5e0e-4bfb-86c1-a5bc54d2a86f}</Project>
-      <Name>DataManagmentEngine</Name>
+    <ProjectReference Include="..\..\..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj">
+      <Project>{3b8d3f1b-6fa6-4cba-a256-02ceea3cc774}</Project>
+      <Name>DataManagementModelsStandard</Name>
     </ProjectReference>
     <ProjectReference Include="..\Beep.Winform.Controls.DevExpress\Beep.Winform.Controls.DevExpress.csproj">
       <Project>{88d0f06c-9911-4f1b-9c8b-9cfce138272c}</Project>
