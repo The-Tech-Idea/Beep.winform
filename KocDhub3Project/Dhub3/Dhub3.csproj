@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59FE5603-A9BC-483D-91E8-4F42D65C36E2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KOC.DHUB3</RootNamespace>
+    <AssemblyName>Dhub3</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.Contrib.2.0.78\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Configuration.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Primitives.6.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveDirectory\AD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ActiveDirectory\clsAD.cs" />
+    <Compile Include="ActiveDirectory\cls_authuser.cs" />
+    <Compile Include="ActiveDirectory\cls_get_Active_directoryData.cs" />
+    <Compile Include="ActiveDirectory\cls_user.cs" />
+    <Compile Include="Analysis\Dashboard.cs" />
+    <Compile Include="DataServices\CRUDModels\LibraryDocument.cs" />
+    <Compile Include="DataServices\CRUDModels\PatternReview.cs" />
+    <Compile Include="DataServices\CRUDModels\WellReview.cs" />
+    <Compile Include="DataServices\DataRepo.cs" />
+    <Compile Include="DataServices\Dhub3DataServices.cs" />
+    <Compile Include="DataServices\KocData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\FacilityViewModel.cs" />
+    <Compile Include="ViewModels\FieldViewModel.cs" />
+    <Compile Include="ViewModels\GasFieldViewModel.cs" />
+    <Compile Include="ViewModels\GasWellViewModel.cs" />
+    <Compile Include="ViewModels\HeavyOilVFieldViewModel.cs" />
+    <Compile Include="ViewModels\HeavyOilWellViewModel.cs" />
+    <Compile Include="ViewModels\WellReviewViewModel.cs" />
+    <Compile Include="ViewModels\WellViewModel.cs" />
+    <Compile Include="Well\Analysis\DCA.cs" />
+    <Compile Include="Well\Analysis\IPR.cs" />
+    <Compile Include="Well\DataEntry\Class1.cs" />
+    <Compile Include="Well\Reports\pp.cs" />
+    <Compile Include="Well\uc_well.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Well\uc_well.Designer.cs">
+      <DependentUpon>uc_well.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj">
+      <Project>{282db559-9dca-4486-8830-cd18be56418b}</Project>
+      <Name>DataManagementEngineStandard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj">
+      <Project>{3b8d3f1b-6fa6-4cba-a256-02ceea3cc774}</Project>
+      <Name>DataManagementModelsStandard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Beep.Winform.Controls\Beep.Winform.Controls.csproj">
+      <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
+      <Name>Beep.Winform.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
+      <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
+      <Name>BeepEnterprize.Winform.Vis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
+      <Project>{942285F3-E881-45CC-ACDF-7A4DE4259B77}</Project>
+      <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dhub3Models\Dhub3Models.csproj">
+      <Project>{170FC601-57C2-454D-82F8-C23EB5783619}</Project>
+      <Name>Dhub3Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BusinessWorkFlow\" />
+    <Folder Include="Facility\" />
+    <Folder Include="Field\" />
+    <Folder Include="FileLibrary\" />
+    <Folder Include="gfx\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Reservoir\" />
+    <Folder Include="Schematics\" />
+    <Folder Include="TreeNodes\" />
+    <Folder Include="Well\WellReview\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataServices\CRUDModels\how to use CRUD.txt" />
+    <Content Include="HelpDocs\DapperExamples.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
