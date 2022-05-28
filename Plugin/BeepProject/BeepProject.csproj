@@ -72,10 +72,6 @@
       <Project>{a81b09ed-c936-4c60-be8f-223d5d3fce8d}</Project>
       <Name>AIModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ModuleExtensions\AppModule\AppModule.csproj">
-      <Project>{728c3656-d039-4f7b-8796-acb59f9bf446}</Project>
-      <Name>AppModule</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
       <Project>{942285f3-e881-45cc-acdf-7a4de4259b77}</Project>
       <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>

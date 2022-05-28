@@ -594,6 +594,10 @@
       <Project>{3b8d3f1b-6fa6-4cba-a256-02ceea3cc774}</Project>
       <Name>DataManagementModelsStandard</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
+      <Project>{942285F3-E881-45CC-ACDF-7A4DE4259B77}</Project>
+      <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

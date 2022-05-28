@@ -65,10 +65,6 @@
       <Project>{A81B09ED-C936-4C60-BE8F-223D5D3FCE8D}</Project>
       <Name>AIModule</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ModuleExtensions\AppModule\AppModule.csproj">
-      <Project>{728C3656-D039-4F7B-8796-ACB59F9BF446}</Project>
-      <Name>AppModule</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
