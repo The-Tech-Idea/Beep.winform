@@ -10,7 +10,7 @@ using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.AI;
 
-using TheTechIdea.Beep.AppModule;
+
 using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.Report;
 using TheTechIdea.Beep.Vis;
@@ -103,33 +103,7 @@ namespace AssemblyLoaderExtension
                         //-------------------------------------------------------
                         // Get IBranch Definitions
                         //-------------------------------------------------------
-                        // Get IAppBuilder  Definitions
-                        if (type.ImplementedInterfaces.Contains(typeof(IAppBuilder)))
-                        {
-                            
-                            Loader.ConfigEditor.AppWritersClasses.Add(Loader.GetAssemblyClassDefinition(type, "IAppBuilder"));
-                        }
-                        if (type.ImplementedInterfaces.Contains(typeof(IAppComponent)))
-                        {
-                            
-                            Loader.ConfigEditor.AppComponents.Add(Loader.GetAssemblyClassDefinition(type, "IAppComponent"));
-                        }
-                        if (type.ImplementedInterfaces.Contains(typeof(TheTechIdea.Beep.AppModule.IAppBlock)))
-                        {
-
-                            Loader.ConfigEditor.AppComponents.Add(Loader.GetAssemblyClassDefinition(type, "IAppBlock"));
-                        }
-                        if (type.ImplementedInterfaces.Contains(typeof(IAppDesigner)))
-                        {
-                           
-                            Loader.ConfigEditor.AppWritersClasses.Add(Loader.GetAssemblyClassDefinition(type, "IAppDesigner"));
-                        }
-                        if (type.ImplementedInterfaces.Contains(typeof(IAppScreen)))
-                        {
-                           
-                            Loader.ConfigEditor.AppComponents.Add(Loader.GetAssemblyClassDefinition(type, "IAppScreen"));
-                        }
-
+                     
                         //-------------------------------------------------------
                         // Get Reports Implementations Definitions
                         if (type.ImplementedInterfaces.Contains(typeof(IReportDMWriter)))

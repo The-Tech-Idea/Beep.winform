@@ -562,7 +562,7 @@
       <Name>Beep.Winform.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
-      <Project>{942285f3-e881-45cc-acdf-7a4de4259b77}</Project>
+      <Project>{48aad630-7a91-49c9-9c02-619043a77ab7}</Project>
       <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>
     </ProjectReference>
   </ItemGroup>

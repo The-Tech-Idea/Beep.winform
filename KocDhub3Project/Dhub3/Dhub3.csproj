@@ -124,10 +124,6 @@
       <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
-      <Project>{942285F3-E881-45CC-ACDF-7A4DE4259B77}</Project>
-      <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Dhub3Models\Dhub3Models.csproj">
       <Project>{170FC601-57C2-454D-82F8-C23EB5783619}</Project>
       <Name>Dhub3Models</Name>
