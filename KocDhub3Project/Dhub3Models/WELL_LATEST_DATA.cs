@@ -211,7 +211,9 @@ public System.String INTERVENTION_PURPOSE  { get; set; }
 public System.DateTime? INTERVENTION_START  { get; set; }
 public System.String BLOCK  { get; set; }
 public System.String PATTERN  { get; set; }
-public System.Int64 RN  { get; set; }
+public int BOPD { get; set; }
+public int BWPD { get; set; }
+        public System.Int64 RN  { get; set; }
         
         public WELL_LATEST_DATA()
         {

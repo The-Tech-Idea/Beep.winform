@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.InteropServices; // DllImport
 using System.Security.Principal; // WindowsImpersonationContext
-using Microsoft.VisualBasic.CompilerServices;
+
 
 namespace FinderData
 {
@@ -118,9 +118,9 @@ namespace FinderData
                 const int LOGON32_PROVIDER_DEFAULT = 0;
                 const int LOGON32_LOGON_NEW_CREDENTIALS = 9;
 
-                bool bImpersonated = Conversions.ToBoolean(clsAuthenticator.LogonUser(ref sUsername, ref sDomain, ref sPassword, (LogonType)LOGON32_LOGON_NEW_CREDENTIALS, (LogonProvider)LOGON32_PROVIDER_DEFAULT, ref pExistingTokenHandle));
+                int bImpersonated = clsAuthenticator.LogonUser( sUsername,  sDomain,  sPassword, (LogonType)LOGON32_LOGON_NEW_CREDENTIALS, (LogonProvider)LOGON32_PROVIDER_DEFAULT, ref pExistingTokenHandle);
 
-                if (bImpersonated == false)
+                if (bImpersonated == 0)
                 {
                     int nErrorCode = Marshal.GetLastWin32Error();
                     throw new ApplicationException("LogonUser() failed with error code: " + nErrorCode.ToString());

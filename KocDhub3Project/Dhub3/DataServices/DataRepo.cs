@@ -21,6 +21,12 @@ namespace Dhub3.DataServices
         public string pStart_date { get; set; }
         public string pEnd_date { get; set; }
 
+        public List<WELL_LATEST_DATA> WellLatestList { get;set; }=new List<WELL_LATEST_DATA>();
+        public List<cls_RESERVOIR_LIST> ReservoirList { get; set; } = new List<cls_RESERVOIR_LIST>();
+        public List<cls_FinderField> FieldDataList { get; set; } = new List<cls_FinderField>();
+        public List<cls_FinderGC> GCListDataList { get; set; } = new List<cls_FinderGC>();
+
+
         public IDbConnection KocDB;
         public IDataSource DataSource { get; set; }
         private RDBSource RDB { get; set; }
@@ -57,7 +63,7 @@ namespace Dhub3.DataServices
             this.pEnd_date = pEnd_date;
         }
         #region "Dapper Methods"
-        public async Task<IEnumerable<T>> LoadData<T, U>(string querystring,U parameters)
+        public async Task<IEnumerable<T>> LoadData<T>(string querystring,object parameters)
         {
          
             return await KocDB.QueryAsync<T>(querystring, parameters);

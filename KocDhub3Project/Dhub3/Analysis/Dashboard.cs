@@ -1,4 +1,4 @@
-﻿using KOC.DHUB3.DataServices;
+﻿using Dhub3.DataServices;
 using KOC.DHUB3.Models;
 using KOC.DHUB3.Well.Analysis;
 using System;
@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using TheTechIdea.Beep;
-using static System.Math;
 
 
 namespace KOC.DHUB3.Analysis
@@ -15,13 +14,13 @@ namespace KOC.DHUB3.Analysis
     public class Dashboard
     {
         IDMEEditor DMEditor { get; set; }
-        public Dashboard(IDMEEditor pDMEditor,  Cls_FinderDataList pKocFieldData)
+        public Dashboard(IDMEEditor pDMEditor)
         {
             DMEditor = pDMEditor;
-            KocFieldData = pKocFieldData;
+           
 
         }
-        public Cls_FinderDataList KocFieldData { get; set; }
+        public DataRepo KocFieldData { get; set; }
 
         public string FieldID { get; set; } = "";
         public string GCID { get; set; } = "";
@@ -161,18 +160,18 @@ namespace KOC.DHUB3.Analysis
             try
             {
 
-                pdashAll.HighestAPIWell = (cls_Finderwell)IIf(pdashAll.HighestAPIWell.OIL_API > pdashArea.HighestAPIWell.OIL_API, pdashAll.HighestAPIWell, pdashArea.HighestAPIWell);
-                pdashAll.LowestAPIWell = (cls_Finderwell)IIf(pdashAll.LowestAPIWell.OIL_API > pdashArea.LowestAPIWell.OIL_API, pdashAll.LowestAPIWell, pdashArea.LowestAPIWell);
-                pdashAll.HighestH2SWell = (cls_Finderwell)IIf(pdashAll.HighestH2SWell.H2S > pdashArea.HighestH2SWell.H2S, pdashAll.HighestH2SWell, pdashArea.HighestH2SWell);
-                pdashAll.HighestSaltWell = (cls_Finderwell)IIf(pdashAll.HighestSaltWell.SALT > pdashArea.HighestSaltWell.SALT, pdashAll.HighestSaltWell, pdashArea.HighestSaltWell);
-                pdashAll.MaxSulferDWell = (cls_Finderwell)IIf(pdashAll.MaxSulferDWell.LATEST_SULFUR > pdashArea.MaxSulferDWell.LATEST_SULFUR, pdashAll.MaxSulferDWell, pdashArea.MaxSulferDWell);
-                pdashAll.MaxTVDWell = (cls_Finderwell)IIf(pdashAll.MaxTVDWell.TVD > pdashArea.MaxTVDWell.TVD, pdashAll.MaxTVDWell, pdashArea.MaxTVDWell);
-                pdashAll.MinTVDWell = (cls_Finderwell)IIf(pdashAll.MinTVDWell.TVD > pdashArea.MinTVDWell.TVD, pdashAll.MinTVDWell, pdashArea.MinTVDWell);
-                pdashAll.maxWaterwellv = (cls_Finderwell)IIf(pdashAll.maxWaterwellv.BWPD > pdashArea.maxWaterwellv.BWPD, pdashAll.maxWaterwellv, pdashArea.maxWaterwellv);
-                pdashAll.maxwellv = (cls_Finderwell)IIf(pdashAll.maxwellv.BOPD > pdashArea.maxwellv.BOPD, pdashAll.maxwellv, pdashArea.maxwellv);
-                pdashAll.MinTVDWell = (cls_Finderwell)IIf(pdashAll.MinTVDWell.TVD < pdashArea.MinTVDWell.TVD, pdashAll.MinTVDWell, pdashArea.MinTVDWell);
-                pdashAll.minWaterwellv = (cls_Finderwell)IIf(pdashAll.minWaterwellv.BWPD < pdashArea.minWaterwellv.BWPD, pdashAll.minWaterwellv, pdashArea.minWaterwellv);
-                pdashAll.minwellv = (cls_Finderwell)IIf(pdashAll.minwellv.BOPD < pdashArea.minwellv.BOPD, pdashAll.minwellv, pdashArea.minwellv);
+                pdashAll.HighestAPIWell = (WELL_LATEST_DATA)IIf(pdashAll.HighestAPIWell.OIL_API > pdashArea.HighestAPIWell.OIL_API, pdashAll.HighestAPIWell, pdashArea.HighestAPIWell);
+                pdashAll.LowestAPIWell = (WELL_LATEST_DATA)IIf(pdashAll.LowestAPIWell.OIL_API > pdashArea.LowestAPIWell.OIL_API, pdashAll.LowestAPIWell, pdashArea.LowestAPIWell);
+                pdashAll.HighestH2SWell = (WELL_LATEST_DATA)IIf(pdashAll.HighestH2SWell.H2S > pdashArea.HighestH2SWell.H2S, pdashAll.HighestH2SWell, pdashArea.HighestH2SWell);
+                pdashAll.HighestSaltWell = (WELL_LATEST_DATA)IIf(pdashAll.HighestSaltWell.SALT > pdashArea.HighestSaltWell.SALT, pdashAll.HighestSaltWell, pdashArea.HighestSaltWell);
+                pdashAll.MaxSulferDWell = (WELL_LATEST_DATA)IIf(pdashAll.MaxSulferDWell.LATEST_SULFUR > pdashArea.MaxSulferDWell.LATEST_SULFUR, pdashAll.MaxSulferDWell, pdashArea.MaxSulferDWell);
+                pdashAll.MaxTVDWell = (WELL_LATEST_DATA)IIf(pdashAll.MaxTVDWell.TVD > pdashArea.MaxTVDWell.TVD, pdashAll.MaxTVDWell, pdashArea.MaxTVDWell);
+                pdashAll.MinTVDWell = (WELL_LATEST_DATA)IIf(pdashAll.MinTVDWell.TVD > pdashArea.MinTVDWell.TVD, pdashAll.MinTVDWell, pdashArea.MinTVDWell);
+                pdashAll.maxWaterwellv = (WELL_LATEST_DATA)IIf(pdashAll.maxWaterwellv.BWPD > pdashArea.maxWaterwellv.BWPD, pdashAll.maxWaterwellv, pdashArea.maxWaterwellv);
+                pdashAll.maxwellv = (WELL_LATEST_DATA)IIf(pdashAll.maxwellv.BOPD > pdashArea.maxwellv.BOPD, pdashAll.maxwellv, pdashArea.maxwellv);
+                pdashAll.MinTVDWell = (WELL_LATEST_DATA)IIf(pdashAll.MinTVDWell.TVD < pdashArea.MinTVDWell.TVD, pdashAll.MinTVDWell, pdashArea.MinTVDWell);
+                pdashAll.minWaterwellv = (WELL_LATEST_DATA)IIf(pdashAll.minWaterwellv.BWPD < pdashArea.minWaterwellv.BWPD, pdashAll.minWaterwellv, pdashArea.minWaterwellv);
+                pdashAll.minwellv = (WELL_LATEST_DATA)IIf(pdashAll.minwellv.BOPD < pdashArea.minwellv.BOPD, pdashAll.minwellv, pdashArea.minwellv);
             }
             catch (Exception ex)
             {
@@ -181,8 +180,8 @@ namespace KOC.DHUB3.Analysis
             try
             {
 
-                pdashAll.HighestAPIWell = (cls_Finderwell)IIf(pdashAll.HighestAPIWell.OIL_API > pdashArea.HighestAPIWell.OIL_API, pdashAll.HighestAPIWell, pdashArea.HighestAPIWell);
-                pdashAll.LowestAPIWell = (cls_Finderwell)IIf(pdashAll.LowestAPIWell.OIL_API > pdashArea.LowestAPIWell.OIL_API, pdashAll.LowestAPIWell, pdashArea.LowestAPIWell);
+                pdashAll.HighestAPIWell = (WELL_LATEST_DATA)IIf(pdashAll.HighestAPIWell.OIL_API > pdashArea.HighestAPIWell.OIL_API, pdashAll.HighestAPIWell, pdashArea.HighestAPIWell);
+                pdashAll.LowestAPIWell = (WELL_LATEST_DATA)IIf(pdashAll.LowestAPIWell.OIL_API > pdashArea.LowestAPIWell.OIL_API, pdashAll.LowestAPIWell, pdashArea.LowestAPIWell);
             }
 
             catch (Exception ex)
@@ -191,8 +190,8 @@ namespace KOC.DHUB3.Analysis
             }
             try
             {
-                pdashAll.HighestH2SWell = (cls_Finderwell)IIf(pdashAll.HighestH2SWell.H2S > pdashArea.HighestH2SWell.H2S, pdashAll.HighestH2SWell, pdashArea.HighestH2SWell);
-                pdashAll.HighestSaltWell = (cls_Finderwell)IIf(pdashAll.HighestSaltWell.SALT > pdashArea.HighestSaltWell.SALT, pdashAll.HighestSaltWell, pdashArea.HighestSaltWell);
+                pdashAll.HighestH2SWell = (WELL_LATEST_DATA)IIf(pdashAll.HighestH2SWell.H2S > pdashArea.HighestH2SWell.H2S, pdashAll.HighestH2SWell, pdashArea.HighestH2SWell);
+                pdashAll.HighestSaltWell = (WELL_LATEST_DATA)IIf(pdashAll.HighestSaltWell.SALT > pdashArea.HighestSaltWell.SALT, pdashAll.HighestSaltWell, pdashArea.HighestSaltWell);
             }
 
             catch (Exception ex)
@@ -201,9 +200,9 @@ namespace KOC.DHUB3.Analysis
             }
             try
             {
-                pdashAll.MaxSulferDWell = (cls_Finderwell)IIf(pdashAll.MaxSulferDWell.LATEST_SULFUR > pdashArea.MaxSulferDWell.LATEST_SULFUR, pdashAll.MaxSulferDWell, pdashArea.MaxSulferDWell);
-                pdashAll.MaxTVDWell = (cls_Finderwell)IIf(pdashAll.MaxTVDWell.TVD > pdashArea.MaxTVDWell.TVD, pdashAll.MaxTVDWell, pdashArea.MaxTVDWell);
-                pdashAll.MinTVDWell = (cls_Finderwell)IIf(pdashAll.MinTVDWell.TVD > pdashArea.MinTVDWell.TVD, pdashAll.MinTVDWell, pdashArea.MinTVDWell);
+                pdashAll.MaxSulferDWell = (WELL_LATEST_DATA)IIf(pdashAll.MaxSulferDWell.LATEST_SULFUR > pdashArea.MaxSulferDWell.LATEST_SULFUR, pdashAll.MaxSulferDWell, pdashArea.MaxSulferDWell);
+                pdashAll.MaxTVDWell = (WELL_LATEST_DATA)IIf(pdashAll.MaxTVDWell.TVD > pdashArea.MaxTVDWell.TVD, pdashAll.MaxTVDWell, pdashArea.MaxTVDWell);
+                pdashAll.MinTVDWell = (WELL_LATEST_DATA)IIf(pdashAll.MinTVDWell.TVD > pdashArea.MinTVDWell.TVD, pdashAll.MinTVDWell, pdashArea.MinTVDWell);
             }
 
             catch (Exception ex)
@@ -212,10 +211,10 @@ namespace KOC.DHUB3.Analysis
             }
             try
             {
-                pdashAll.maxWaterwellv = (cls_Finderwell)IIf(pdashAll.maxWaterwellv.BWPD > pdashArea.maxWaterwellv.BWPD, pdashAll.maxWaterwellv, pdashArea.maxWaterwellv);
-                pdashAll.minWaterwellv = (cls_Finderwell)IIf(pdashAll.minWaterwellv.BWPD < pdashArea.minWaterwellv.BWPD, pdashAll.minWaterwellv, pdashArea.minWaterwellv);
-                pdashAll.maxwellv = (cls_Finderwell)IIf(pdashAll.maxwellv.BOPD > pdashArea.maxwellv.BOPD, pdashAll.maxwellv, pdashArea.maxwellv);
-                pdashAll.minwellv = (cls_Finderwell)IIf(pdashAll.minwellv.BOPD < pdashArea.minwellv.BOPD, pdashAll.minwellv, pdashArea.minwellv);
+                pdashAll.maxWaterwellv = (WELL_LATEST_DATA)IIf(pdashAll.maxWaterwellv.BWPD > pdashArea.maxWaterwellv.BWPD, pdashAll.maxWaterwellv, pdashArea.maxWaterwellv);
+                pdashAll.minWaterwellv = (WELL_LATEST_DATA)IIf(pdashAll.minWaterwellv.BWPD < pdashArea.minWaterwellv.BWPD, pdashAll.minWaterwellv, pdashArea.minWaterwellv);
+                pdashAll.maxwellv = (WELL_LATEST_DATA)IIf(pdashAll.maxwellv.BOPD > pdashArea.maxwellv.BOPD, pdashAll.maxwellv, pdashArea.maxwellv);
+                pdashAll.minwellv = (WELL_LATEST_DATA)IIf(pdashAll.minwellv.BOPD < pdashArea.minwellv.BOPD, pdashAll.minwellv, pdashArea.minwellv);
             }
             catch (Exception ex)
             {
@@ -318,14 +317,14 @@ namespace KOC.DHUB3.Analysis
                         {
 
                         }
-                        try
-                        {
-                            GetESPStatusList(pdash, pArea);
-                        }
-                        catch (Exception ex)
-                        {
+                        //try
+                        //{
+                        //    GetESPStatusList(pdash, pArea);
+                        //}
+                        //catch (Exception ex)
+                        //{
 
-                        }
+                        //}
 
                         try
                         {
@@ -335,22 +334,22 @@ namespace KOC.DHUB3.Analysis
                         {
 
                         }
-                        try
-                        {
-                            GetESPStatusHist(pdash, pArea);
-                        }
-                        catch (Exception ex)
-                        {
+                        //try
+                        //{
+                        //    GetESPStatusHist(pdash, pArea);
+                        //}
+                        //catch (Exception ex)
+                        //{
 
-                        }
-                        try
-                        {
-                            GetProdHist(pdash, pArea);
-                        }
-                        catch (Exception ex)
-                        {
+                        //}
+                        //try
+                        //{
+                        //    GetProdHist(pdash, pArea);
+                        //}
+                        //catch (Exception ex)
+                        //{
 
-                        }
+                        //}
 
                         break;
                     }
@@ -446,7 +445,7 @@ namespace KOC.DHUB3.Analysis
                         }
                         try
                         {
-                            GetESPStatusList(pdash, pGCID: pArea);
+                            //GetESPStatusList(pdash, pGCID: pArea);
                         }
                         catch (Exception ex)
                         {
@@ -463,7 +462,7 @@ namespace KOC.DHUB3.Analysis
                         }
                         try
                         {
-                            GetESPStatusHist(pdash, pGCID: pArea);
+                         //   GetESPStatusHist(pdash, pGCID: pArea);
                         }
                         catch (Exception ex)
                         {
@@ -471,7 +470,7 @@ namespace KOC.DHUB3.Analysis
                         }
                         try
                         {
-                            GetProdHist(pdash, pGCID: pArea);
+                           // GetProdHist(pdash, pGCID: pArea);
                         }
                         catch (Exception ex)
                         {
@@ -573,7 +572,7 @@ namespace KOC.DHUB3.Analysis
                         }
                         try
                         {
-                            GetESPStatusList(pdash, pFieldID: pArea);
+                            //GetESPStatusList(pdash, pFieldID: pArea);
                         }
                         catch (Exception ex)
                         {
@@ -590,7 +589,7 @@ namespace KOC.DHUB3.Analysis
                         }
                         try
                         {
-                            GetESPStatusHist(pdash, pFieldID: pArea);
+                          //  GetESPStatusHist(pdash, pFieldID: pArea);
                         }
                         catch (Exception ex)
                         {
@@ -598,7 +597,7 @@ namespace KOC.DHUB3.Analysis
                         }
                         try
                         {
-                            GetProdHist(pdash, pFieldID: pArea);
+                            //GetProdHist(pdash, pFieldID: pArea);
                         }
                         catch (Exception ex)
                         {
@@ -749,10 +748,10 @@ namespace KOC.DHUB3.Analysis
                 DashBoard_data.Add(x);
             }
 
-            foreach (var f in KocFieldData.Q8ReservoirList)
+            foreach (var f in KocFieldData.ReservoirList)
             {
                 x = new cls_Dashboard_data();
-                x.Res = f.Reservoir_ID;
+                x.Res = f.RESERVOIR_ID;
                 x.DashType = "RES";
                 // x.Area = f.Area
                 DashBoard_data.Add(x);
@@ -764,8 +763,8 @@ namespace KOC.DHUB3.Analysis
 
             var maxitems_avg = new List<CasePortableData>();
             var minitems_avg = new List<CasePortableData>();
-            maxitems_avg = KocFieldData.GetDCAavgPortableTestDataForArea2YearsAgo(pArea);
-            minitems_avg = KocFieldData.GetDCAAvgPortableTestDataForArea(pArea);
+            maxitems_avg = (List<CasePortableData>)KocFieldData.GetDCAavgPortableTestDataForArea2YearsAgo(pArea);
+            minitems_avg = (List<CasePortableData>)KocFieldData.GetDCAAvgPortableTestDataForArea(pArea);
             minitems_avg.Add(maxitems_avg.FirstOrDefault());
             DCA_GEN.CreateDeclineForArea(minitems_avg, DateTime.Today, 12);
 
@@ -777,9 +776,9 @@ namespace KOC.DHUB3.Analysis
             int wcs;
             string uwi;
 
-            maxitems = KocFieldData.GetDCAMaxPortableTestDataForField2YearsAgo(pArea);
+            maxitems = (List<CasePortableData>)KocFieldData.GetDCAMaxPortableTestDataForField2YearsAgo(pArea);
             wcs = maxitems.FirstOrDefault().Well_Completion_s;
-            uwi = KocFieldData.MyWellLatestDataList.Where(x => x.WELL_COMPLETION_S == wcs).FirstOrDefault().PPDM_WCS_UWI;
+            uwi = KocFieldData.WellLatestList.Where(x => x.WELL_COMPLETION_S == wcs).FirstOrDefault().PPDM_WCS_UWI;
             minitems.Add(KocFieldData.GetDCAFromWellLatestDataPortableTestDataForField(pArea, wcs));
 
             minitems.Add(maxitems.FirstOrDefault());
@@ -826,9 +825,9 @@ namespace KOC.DHUB3.Analysis
             int wcs;
             string uwi;
 
-            maxitems = KocFieldData.GetDCAMaxPortableTestDataForArea2YearsAgo(pArea);
+            maxitems = (List<CasePortableData>)KocFieldData.GetDCAMaxPortableTestDataForArea2YearsAgo(pArea);
             wcs = maxitems.FirstOrDefault().Well_Completion_s;
-            uwi = KocFieldData.MyWellLatestDataList.Where(x => x.WELL_COMPLETION_S == wcs).FirstOrDefault().PPDM_WCS_UWI;
+            uwi = KocFieldData.WellLatestList.Where(x => x.WELL_COMPLETION_S == wcs).FirstOrDefault().PPDM_WCS_UWI;
             minitems.Add(KocFieldData.GetDCAFromWellLatestDataPortableTestDataForArea(pArea, wcs));
 
             minitems.Add(maxitems.FirstOrDefault());
@@ -875,7 +874,7 @@ namespace KOC.DHUB3.Analysis
             {
                 if (pAreaID.Length > 0)
                 {
-                    dash.top10maxwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
+                    dash.top10maxwellv = KocFieldData.WellLatestList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
                 }
             }
             catch (Exception ex)
@@ -885,136 +884,136 @@ namespace KOC.DHUB3.Analysis
 
             if (pGCID.Length > 0)
             {
-                dash.top10maxwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
+                dash.top10maxwellv = KocFieldData.WellLatestList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
             }
             if (pFieldID.Length > 0)
             {
-                dash.top10maxwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
+                dash.top10maxwellv = KocFieldData.WellLatestList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
             }
             if (pRESID.Length > 0)
             {
-                dash.top10maxwellv = KocFieldData.MyWellLatestDataList.Where(X => X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
+                dash.top10maxwellv = KocFieldData.WellLatestList.Where(X => X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
             }
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                dash.top10maxwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
+                dash.top10maxwellv = KocFieldData.WellLatestList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                dash.top10maxwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
+                dash.top10maxwellv = KocFieldData.WellLatestList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                dash.top10maxwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
+                dash.top10maxwellv = KocFieldData.WellLatestList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                dash.top10maxwellv = KocFieldData.MyWellLatestDataList.Where(X => X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
+                dash.top10maxwellv = KocFieldData.WellLatestList.Where(X => X.BOPD > 0m).OrderByDescending(x => x.BOPD).ToList();
             }
             // ------------------------
             if (pAreaID.Length > 0)
             {
-                dash.top10maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
+                dash.top10maxWaterwellv = KocFieldData.WellLatestList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
             }
             if (pGCID.Length > 0)
             {
-                dash.top10maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
+                dash.top10maxWaterwellv = KocFieldData.WellLatestList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
             }
             if (pFieldID.Length > 0)
             {
-                dash.top10maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
+                dash.top10maxWaterwellv = KocFieldData.WellLatestList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
             }
             if (pRESID.Length > 0)
             {
-                dash.top10maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
+                dash.top10maxWaterwellv = KocFieldData.WellLatestList.Where(X => X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
             }
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                dash.top10maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
+                dash.top10maxWaterwellv = KocFieldData.WellLatestList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                dash.top10maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
+                dash.top10maxWaterwellv = KocFieldData.WellLatestList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                dash.top10maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
+                dash.top10maxWaterwellv = KocFieldData.WellLatestList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                dash.top10maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
+                dash.top10maxWaterwellv = KocFieldData.WellLatestList.Where(X => X.BWPD > 0m).OrderByDescending(x => x.BWPD).ToList();
             }
 
             // Get Bottom 10 Performance
 
             if (pAreaID.Length > 0)
             {
-                dash.top10minwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
+                dash.top10minwellv = KocFieldData.WellLatestList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
             }
             if (pGCID.Length > 0)
             {
-                dash.top10minwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
+                dash.top10minwellv = KocFieldData.WellLatestList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
             }
             if (pFieldID.Length > 0)
             {
-                dash.top10minwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
+                dash.top10minwellv = KocFieldData.WellLatestList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
             }
             if (pRESID.Length > 0)
             {
-                dash.top10minwellv = KocFieldData.MyWellLatestDataList.Where(X => X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
+                dash.top10minwellv = KocFieldData.WellLatestList.Where(X => X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
             }
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                dash.top10minwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
+                dash.top10minwellv = KocFieldData.WellLatestList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                dash.top10minwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
+                dash.top10minwellv = KocFieldData.WellLatestList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                dash.top10minwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
+                dash.top10minwellv = KocFieldData.WellLatestList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                dash.top10minwellv = KocFieldData.MyWellLatestDataList.Where(X => X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
+                dash.top10minwellv = KocFieldData.WellLatestList.Where(X => X.BOPD > 0m).OrderBy(x => x.BOPD).ToList();
             }
             // ------------------------
             if (pAreaID.Length > 0)
             {
-                dash.top10minWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
+                dash.top10minWaterwellv = KocFieldData.WellLatestList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
             }
             if (pGCID.Length > 0)
             {
-                dash.top10minWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
+                dash.top10minWaterwellv = KocFieldData.WellLatestList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
             }
             if (pFieldID.Length > 0)
             {
-                dash.top10minWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
+                dash.top10minWaterwellv = KocFieldData.WellLatestList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
             }
             if (pRESID.Length > 0)
             {
-                dash.top10minWaterwellv = KocFieldData.MyWellLatestDataList.OrderBy(x => x.BWPD).ToList();
+                dash.top10minWaterwellv = KocFieldData.WellLatestList.OrderBy(x => x.BWPD).ToList();
             }
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                dash.top10minWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
+                dash.top10minWaterwellv = KocFieldData.WellLatestList.Where(X => (X.AREA ?? "") == (pAreaID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                dash.top10minWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
+                dash.top10minWaterwellv = KocFieldData.WellLatestList.Where(X => (X.CURRENT_GC ?? "") == (pGCID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                dash.top10minWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
+                dash.top10minWaterwellv = KocFieldData.WellLatestList.Where(X => (X.FIELD_CODE ?? "") == (pFieldID ?? "") & X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                dash.top10minWaterwellv = KocFieldData.MyWellLatestDataList.Where(X => X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
+                dash.top10minWaterwellv = KocFieldData.WellLatestList.Where(X => X.BWPD > 0m).OrderBy(x => x.BWPD).ToList();
             }
         }
         public void GetTopandBottomPerformer(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "", string pESP = "")
@@ -1023,61 +1022,61 @@ namespace KOC.DHUB3.Analysis
 
             if (pAreaID.Length > 0)
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Max(y => y.BOPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.BOPD > 0m).Min(y => y.BOPD));
-                dash.maxwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BOPD == maxv).FirstOrDefault();
-                dash.minwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BOPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Max(y => y.BOPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.BOPD > 0m).Min(y => y.BOPD);
+                dash.maxwellv = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BOPD == maxv).FirstOrDefault();
+                dash.minwellv = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BOPD == minv).FirstOrDefault();
             }
             if (pGCID.Length > 0)
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Max(y => y.BOPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.BOPD > 0m).Min(y => y.BOPD));
-                dash.maxwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BOPD == maxv).FirstOrDefault();
-                dash.minwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BOPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Max(y => y.BOPD);
+                minv =KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.BOPD > 0m).Min(y => y.BOPD);
+                dash.maxwellv = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BOPD == maxv).FirstOrDefault();
+                dash.minwellv = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BOPD == minv).FirstOrDefault();
             }
             if (pFieldID.Length > 0)
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Max(y => y.BOPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.BOPD > 0m).Min(y => y.BOPD));
-                dash.maxwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BOPD == maxv).FirstOrDefault();
-                dash.minwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BOPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Max(y => y.BOPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.BOPD > 0m).Min(y => y.BOPD);
+                dash.maxwellv = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BOPD == maxv).FirstOrDefault();
+                dash.minwellv = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BOPD == minv).FirstOrDefault();
             }
             if (pRESID.Length > 0)
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Max(y => y.BOPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.BOPD > 0m).Min(y => y.BOPD));
-                dash.maxwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BOPD == maxv).FirstOrDefault();
-                dash.minwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BOPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Max(y => y.BOPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.BOPD > 0m).Min(y => y.BOPD);
+                dash.maxwellv = KocFieldData.WellLatestList.Where(x => x.BOPD == maxv).FirstOrDefault();
+                dash.minwellv = KocFieldData.WellLatestList.Where(x => x.BOPD == minv).FirstOrDefault();
             }
 
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Max(y => y.BOPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.BOPD > 0m & y.ESP.Length > 0).Min(y => y.BOPD));
-                dash.maxwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BOPD == maxv).FirstOrDefault();
-                dash.minwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BOPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Max(y => y.BOPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.BOPD > 0m & y.ESP.Length > 0).Min(y => y.BOPD);
+                dash.maxwellv = KocFieldData.WellLatestList.Where(x => x.BOPD == maxv).FirstOrDefault();
+                dash.minwellv = KocFieldData.WellLatestList.Where(x => x.BOPD == minv).FirstOrDefault();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.ESP.Length > 0).Max(y => y.BOPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.BOPD > 0m & y.ESP.Length > 0).Min(y => y.BOPD));
-                dash.maxwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BOPD == maxv).FirstOrDefault();
-                dash.minwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BOPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.ESP.Length > 0).Max(y => y.BOPD);
+                minv =KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.BOPD > 0m & y.ESP.Length > 0).Min(y => y.BOPD);
+                dash.maxwellv = KocFieldData.WellLatestList.Where(x => x.BOPD == maxv).FirstOrDefault();
+                dash.minwellv = KocFieldData.WellLatestList.Where(x => x.BOPD == minv).FirstOrDefault();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Max(y => y.BOPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.BOPD > 0m & y.ESP.Length > 0).Min(y => y.BOPD));
-                dash.maxwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BOPD == maxv).FirstOrDefault();
-                dash.minwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BOPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Max(y => y.BOPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.BOPD > 0m & y.ESP.Length > 0).Min(y => y.BOPD);
+                dash.maxwellv = KocFieldData.WellLatestList.Where(x => x.BOPD == maxv).FirstOrDefault();
+                dash.minwellv = KocFieldData.WellLatestList.Where(x => x.BOPD == minv).FirstOrDefault();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Max(y => y.BOPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.BOPD > 0m & y.ESP.Length > 0).Min(y => y.BOPD));
-                dash.maxwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BOPD == maxv).FirstOrDefault();
-                dash.minwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BOPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Max(y => y.BOPD);
+                minv =KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.BOPD > 0m & y.ESP.Length > 0).Min(y => y.BOPD);
+                dash.maxwellv = KocFieldData.WellLatestList.Where(x => x.BOPD == maxv).FirstOrDefault();
+                dash.minwellv = KocFieldData.WellLatestList.Where(x => x.BOPD == minv).FirstOrDefault();
             }
         }
         public void GetTopandBottomWaterProducer(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "", string pESP = "")
@@ -1086,335 +1085,335 @@ namespace KOC.DHUB3.Analysis
 
             if (pAreaID.Length > 0)
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Max(y => y.BWPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Min(y => y.BWPD));
-                dash.maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BWPD == maxv).FirstOrDefault();
-                dash.minWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BWPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Max(y => y.BWPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Min(y => y.BWPD);
+                dash.maxWaterwellv = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BWPD == maxv).FirstOrDefault();
+                dash.minWaterwellv = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BWPD == minv).FirstOrDefault();
             }
             if (pGCID.Length > 0)
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Max(y => y.BWPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Min(y => y.BWPD));
-                dash.maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BWPD == maxv).FirstOrDefault();
-                dash.minWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BWPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Max(y => y.BWPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Min(y => y.BWPD);
+                dash.maxWaterwellv = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BWPD == maxv).FirstOrDefault();
+                dash.minWaterwellv = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BWPD == minv).FirstOrDefault();
             }
             if (pFieldID.Length > 0)
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Max(y => y.BWPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Min(y => y.BWPD));
-                dash.maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BWPD == maxv).FirstOrDefault();
-                dash.minWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BWPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Max(y => y.BWPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Min(y => y.BWPD);
+                dash.maxWaterwellv = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BWPD == maxv).FirstOrDefault();
+                dash.minWaterwellv = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BWPD == minv).FirstOrDefault();
             }
             if (pRESID.Length > 0)
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Max(y => y.BWPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Min(y => y.BWPD));
-                dash.maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BWPD == maxv).FirstOrDefault();
-                dash.minWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BWPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Max(y => y.BWPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Min(y => y.BWPD);
+                dash.maxWaterwellv = KocFieldData.WellLatestList.Where(x => x.BWPD == maxv).FirstOrDefault();
+                dash.minWaterwellv = KocFieldData.WellLatestList.Where(x => x.BWPD == minv).FirstOrDefault();
             }
 
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Max(y => y.BWPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Min(y => y.BWPD));
-                dash.maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BWPD == maxv).FirstOrDefault();
-                dash.minWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BWPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Max(y => y.BWPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Min(y => y.BWPD);
+                dash.maxWaterwellv = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BWPD == maxv).FirstOrDefault();
+                dash.minWaterwellv = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.BWPD == minv).FirstOrDefault();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.ESP.Length > 0).Max(y => y.BWPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.ESP.Length > 0).Min(y => y.BWPD));
-                dash.maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BWPD == maxv).FirstOrDefault();
-                dash.minWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BWPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.ESP.Length > 0).Max(y => y.BWPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.ESP.Length > 0).Min(y => y.BWPD);
+                dash.maxWaterwellv = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BWPD == maxv).FirstOrDefault();
+                dash.minWaterwellv = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.BWPD == minv).FirstOrDefault();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Max(y => y.BWPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Min(y => y.BWPD));
-                dash.maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BWPD == maxv).FirstOrDefault();
-                dash.minWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BWPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Max(y => y.BWPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Min(y => y.BWPD);
+                dash.maxWaterwellv = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BWPD == maxv).FirstOrDefault();
+                dash.minWaterwellv = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.BWPD == minv).FirstOrDefault();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                maxv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Max(y => y.BWPD));
-                minv = (int)Round(KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Min(y => y.BWPD));
-                dash.maxWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BWPD == maxv).FirstOrDefault();
-                dash.minWaterwellv = KocFieldData.MyWellLatestDataList.Where(x => x.BWPD == minv).FirstOrDefault();
+                maxv = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Max(y => y.BWPD);
+                minv = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Min(y => y.BWPD);
+                dash.maxWaterwellv = KocFieldData.WellLatestList.Where(x => x.BWPD == maxv).FirstOrDefault();
+                dash.minWaterwellv = KocFieldData.WellLatestList.Where(x => x.BWPD == minv).FirstOrDefault();
             }
         }
         public void GetHighestH2SWell(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "", string pESP = "")
         {
-            decimal maxh2s;
+            decimal? maxh2s;
             if (pAreaID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Max(y => y.H2S);
-                dash.HighestH2SWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.H2S == maxh2s).FirstOrDefault();
+                maxh2s = (decimal)KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Max(y => y.H2S);
+                dash.HighestH2SWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.H2S == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "")).Max(y => y.H2S);
-                dash.HighestH2SWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.H2S == maxh2s).FirstOrDefault();
+                maxh2s = (decimal)KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "")).Max(y => y.H2S);
+                dash.HighestH2SWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.H2S == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Max(y => y.H2S);
-                dash.HighestH2SWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.H2S == maxh2s).FirstOrDefault();
+                maxh2s = (decimal)KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Max(y => y.H2S);
+                dash.HighestH2SWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.H2S == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Max(y => y.H2S);
-                dash.HighestH2SWell = KocFieldData.MyWellLatestDataList.Where(x => x.H2S == maxh2s).FirstOrDefault();
+                maxh2s = (decimal)KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Max(y => y.H2S);
+                dash.HighestH2SWell = KocFieldData.WellLatestList.Where(x => x.H2S == maxh2s).FirstOrDefault();
             }
 
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Max(y => y.H2S);
-                dash.HighestH2SWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.H2S == maxh2s).FirstOrDefault();
+                maxh2s = (decimal)KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Max(y => y.H2S);
+                dash.HighestH2SWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.H2S == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.ESP.Length > 0).Max(y => y.H2S);
-                dash.HighestH2SWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.H2S == maxh2s).FirstOrDefault();
+                maxh2s = (decimal)KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.ESP.Length > 0).Max(y => y.H2S);
+                dash.HighestH2SWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.H2S == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Max(y => y.H2S);
-                dash.HighestH2SWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.H2S == maxh2s).FirstOrDefault();
+                maxh2s = (decimal)KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Max(y => y.H2S);
+                dash.HighestH2SWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.H2S == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Max(y => y.H2S);
-                dash.HighestH2SWell = KocFieldData.MyWellLatestDataList.Where(x => x.H2S == maxh2s).FirstOrDefault();
+                maxh2s = (decimal)KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Max(y => y.H2S);
+                dash.HighestH2SWell = KocFieldData.WellLatestList.Where(x => x.H2S == maxh2s).FirstOrDefault();
             }
         }
         public void GetMaxMinTVDWell(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "", string pESP = "")
         {
-            decimal maxh2s;
+            double maxh2s;
             if (pAreaID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.TVD > 0m).Max(y => y.TVD);
-                dash.MaxTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.TVD > 0).Max(y => y.TVD);
+                dash.MaxTVDWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.TVD > 0m).Max(y => y.TVD);
-                dash.MaxTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.TVD > 0).Max(y => y.TVD);
+                dash.MaxTVDWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.TVD > 0m).Max(y => y.TVD);
-                dash.MaxTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.TVD > 0).Max(y => y.TVD);
+                dash.MaxTVDWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.TVD > 0m).Max(y => y.TVD);
-                dash.MaxTVDWell = KocFieldData.MyWellLatestDataList.Where(x => x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.TVD > 0).Max(y => y.TVD);
+                dash.MaxTVDWell = KocFieldData.WellLatestList.Where(x => x.TVD == maxh2s).FirstOrDefault();
             }
 
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.TVD > 0m & y.ESP.Length > 0).Max(y => y.TVD);
-                dash.MaxTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.TVD > 0 & y.ESP.Length > 0).Max(y => y.TVD);
+                dash.MaxTVDWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.ESP.Length > 0 & y.TVD > 0m).Max(y => y.TVD);
-                dash.MaxTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.ESP.Length > 0 & y.TVD > 0).Max(y => y.TVD);
+                dash.MaxTVDWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0 & y.TVD > 0m).Max(y => y.TVD);
-                dash.MaxTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0 & y.TVD > 0).Max(y => y.TVD);
+                dash.MaxTVDWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0 & y.TVD > 0m).Max(y => y.TVD);
-                dash.MaxTVDWell = KocFieldData.MyWellLatestDataList.Where(x => x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0 & y.TVD > 0).Max(y => y.TVD);
+                dash.MaxTVDWell = KocFieldData.WellLatestList.Where(x => x.TVD == maxh2s).FirstOrDefault();
             }
 
             // ------------------------------------- Get minimum
 
             if (pAreaID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.TVD > 0m).Min(y => y.TVD);
-                dash.MinTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.TVD > 0).Min(y => y.TVD);
+                dash.MinTVDWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.TVD > 0m).Min(y => y.TVD);
-                dash.MinTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.TVD > 0).Min(y => y.TVD);
+                dash.MinTVDWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.TVD > 0m).Min(y => y.TVD);
-                dash.MinTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.TVD > 0).Min(y => y.TVD);
+                dash.MinTVDWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.TVD > 0m).Min(y => y.TVD);
-                dash.MinTVDWell = KocFieldData.MyWellLatestDataList.Where(x => x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.TVD > 0).Min(y => y.TVD);
+                dash.MinTVDWell = KocFieldData.WellLatestList.Where(x => x.TVD == maxh2s).FirstOrDefault();
             }
 
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0 & y.TVD > 0m).Min(y => y.TVD);
-                dash.MinTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0 & y.TVD > 0).Min(y => y.TVD);
+                dash.MinTVDWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.ESP.Length > 0 & y.TVD > 0m).Min(y => y.TVD);
-                dash.MinTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.ESP.Length > 0 & y.TVD > 0).Min(y => y.TVD);
+                dash.MinTVDWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0 & y.TVD > 0m).Max(y => y.TVD);
-                dash.MinTVDWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0 & y.TVD > 0).Max(y => y.TVD);
+                dash.MinTVDWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.TVD == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0 & y.TVD > 0m).Min(y => y.TVD);
-                dash.MinTVDWell = KocFieldData.MyWellLatestDataList.Where(x => x.TVD == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0 & y.TVD > 0).Min(y => y.TVD);
+                dash.MinTVDWell = KocFieldData.WellLatestList.Where(x => x.TVD == maxh2s).FirstOrDefault();
             }
 
 
         }
         public void GetHighestLowestAPIWell(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "", string pESP = "")
         {
-            decimal maxh2s;
+            decimal? maxh2s;
             if (pAreaID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Max(y => y.OIL_API);
-                dash.HighestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Max(y => y.OIL_API);
+                dash.HighestAPIWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "")).Max(y => y.OIL_API);
-                dash.HighestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "")).Max(y => y.OIL_API);
+                dash.HighestAPIWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Max(y => y.OIL_API);
-                dash.HighestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Max(y => y.OIL_API);
+                dash.HighestAPIWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Max(y => y.OIL_API);
-                dash.HighestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Max(y => y.OIL_API);
+                dash.HighestAPIWell = KocFieldData.WellLatestList.Where(x => x.OIL_API == maxh2s).FirstOrDefault();
             }
 
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Max(y => y.OIL_API);
-                dash.HighestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Max(y => y.OIL_API);
+                dash.HighestAPIWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.ESP.Length > 0).Max(y => y.OIL_API);
-                dash.HighestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.ESP.Length > 0).Max(y => y.OIL_API);
+                dash.HighestAPIWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Max(y => y.OIL_API);
-                dash.HighestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Max(y => y.OIL_API);
+                dash.HighestAPIWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Max(y => y.OIL_API);
-                dash.HighestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Max(y => y.OIL_API);
+                dash.HighestAPIWell = KocFieldData.WellLatestList.Where(x => x.OIL_API == maxh2s).FirstOrDefault();
             }
             // ------------------- get minimum
             if (pAreaID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.OIL_API > 0).Min(y => y.OIL_API);
-                dash.LowestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.OIL_API > 0).Min(y => y.OIL_API);
+                dash.LowestAPIWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.OIL_API > 0).Min(y => y.OIL_API);
-                dash.LowestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.OIL_API > 0).Min(y => y.OIL_API);
+                dash.LowestAPIWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.OIL_API > 0).Min(y => y.OIL_API);
-                dash.LowestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.OIL_API > 0).Min(y => y.OIL_API);
+                dash.LowestAPIWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.OIL_API > 0).Min(y => y.OIL_API);
-                dash.LowestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.OIL_API > 0).Min(y => y.OIL_API);
+                dash.LowestAPIWell = KocFieldData.WellLatestList.Where(x => x.OIL_API == maxh2s).FirstOrDefault();
             }
 
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.OIL_API > 0 & y.ESP.Length > 0).Min(y => y.OIL_API);
-                dash.LowestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.OIL_API > 0 & y.ESP.Length > 0).Min(y => y.OIL_API);
+                dash.LowestAPIWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.OIL_API > 0 & y.ESP.Length > 0).Min(y => y.OIL_API);
-                dash.LowestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.OIL_API > 0 & y.ESP.Length > 0).Min(y => y.OIL_API);
+                dash.LowestAPIWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Min(y => y.OIL_API);
-                dash.LowestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Min(y => y.OIL_API);
+                dash.LowestAPIWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.OIL_API == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.OIL_API > 0 & y.ESP.Length > 0).Min(y => y.OIL_API);
-                dash.LowestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => x.OIL_API == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.OIL_API > 0 & y.ESP.Length > 0).Min(y => y.OIL_API);
+                dash.LowestAPIWell = KocFieldData.WellLatestList.Where(x => x.OIL_API == maxh2s).FirstOrDefault();
             }
         }
         public void GetHighestSaltWell(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "", string pESP = "")
         {
-            int maxh2s;
+            decimal? maxh2s;
             if (pAreaID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Max(y => y.SALT);
-                dash.HighestSaltWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.SALT == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Max(y => y.SALT);
+                dash.HighestSaltWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.SALT == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "")).Max(y => y.SALT);
-                dash.HighestSaltWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.SALT == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "")).Max(y => y.SALT);
+                dash.HighestSaltWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.SALT == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Max(y => y.SALT);
-                dash.HighestSaltWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.SALT == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Max(y => y.SALT);
+                dash.HighestSaltWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.SALT == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0)
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Max(y => y.SALT);
-                dash.HighestSaltWell = KocFieldData.MyWellLatestDataList.Where(x => x.SALT == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Max(y => y.SALT);
+                dash.HighestSaltWell = KocFieldData.WellLatestList.Where(x => x.SALT == maxh2s).FirstOrDefault();
             }
 
 
             if (pAreaID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Max(y => y.SALT);
-                dash.HighestSaltWell = KocFieldData.MyWellLatestDataList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.SALT == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP.Length > 0).Max(y => y.SALT);
+                dash.HighestSaltWell = KocFieldData.WellLatestList.Where(x => (x.AREA ?? "") == (pAreaID ?? "") & x.SALT == maxh2s).FirstOrDefault();
             }
             if (pGCID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.ESP.Length > 0).Max(y => y.SALT);
-                dash.HighestSaltWell = KocFieldData.MyWellLatestDataList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.SALT == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (GCID ?? "") & y.ESP.Length > 0).Max(y => y.SALT);
+                dash.HighestSaltWell = KocFieldData.WellLatestList.Where(x => (x.CURRENT_GC ?? "") == (pGCID ?? "") & x.SALT == maxh2s).FirstOrDefault();
             }
             if (pFieldID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Max(y => y.SALT);
-                dash.HighestAPIWell = KocFieldData.MyWellLatestDataList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.SALT == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.ESP.Length > 0).Max(y => y.SALT);
+                dash.HighestAPIWell = KocFieldData.WellLatestList.Where(x => (x.FIELD_CODE ?? "") == (pFieldID ?? "") & x.SALT == maxh2s).FirstOrDefault();
             }
             if (pRESID.Length > 0 & pESP == "Y")
             {
-                maxh2s = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Max(y => y.SALT);
-                dash.HighestSaltWell = KocFieldData.MyWellLatestDataList.Where(x => x.SALT == maxh2s).FirstOrDefault();
+                maxh2s = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP.Length > 0).Max(y => y.SALT);
+                dash.HighestSaltWell = KocFieldData.WellLatestList.Where(x => x.SALT == maxh2s).FirstOrDefault();
             }
         }
         public void GetTotalESPWells(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "")
@@ -1422,19 +1421,19 @@ namespace KOC.DHUB3.Analysis
 
             if (pAreaID.Length > 0)
             {
-                dash.TotalNoofESPWells = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP == "Y").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofESPWells = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.ESP == "Y").Count();
             }
             if (pGCID.Length > 0)
             {
-                dash.TotalNoofESPWells = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.ESP == "Y").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofESPWells = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.ESP == "Y").Count();
             }
             if (pFieldID.Length > 0)
             {
-                dash.TotalNoofESPWells = KocFieldData.MyWellLatestDataList.Where(y => y.FIELD_CODE == pFieldID && y.ESP == "Y").Count(u => u.WELL_COMPLETION_S);
+                dash.TotalNoofESPWells = KocFieldData.WellLatestList.Where(y => y.FIELD_CODE == pFieldID && y.ESP == "Y").Count();
             }
             if (pRESID.Length > 0)
             {
-                dash.TotalNoofESPWells = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP == "Y").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofESPWells = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.ESP == "Y").Count();
             }
 
 
@@ -1446,19 +1445,19 @@ namespace KOC.DHUB3.Analysis
 
             if (pAreaID.Length > 0)
             {
-                dash.TotalNoofINJWells = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.INJ == "x").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofINJWells = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.INJ == "x").Count();
             }
             if (pGCID.Length > 0)
             {
-                dash.TotalNoofINJWells = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.INJ == "x").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofINJWells = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.INJ == "x").Count();
             }
             if (pFieldID.Length > 0)
             {
-                dash.TotalNoofINJWells = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.INJ == "x").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofINJWells = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.INJ == "x").Count();
             }
             if (pRESID.Length > 0)
             {
-                dash.TotalNoofINJWells = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.INJ == "x").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofINJWells = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.INJ == "x").Count();
             }
 
 
@@ -1470,19 +1469,19 @@ namespace KOC.DHUB3.Analysis
 
             if (pAreaID.Length > 0)
             {
-                dash.TotalNoofGASINJWells = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.GASINJ == "Y").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofGASINJWells = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "") & y.GASINJ == "Y").Count();
             }
             if (pGCID.Length > 0)
             {
-                dash.TotalNoofGASINJWells = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.GASINJ == "Y").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofGASINJWells = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "") & y.GASINJ == "Y").Count();
             }
             if (pFieldID.Length > 0)
             {
-                dash.TotalNoofGASINJWells = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.GASINJ == "Y").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofGASINJWells = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "") & y.GASINJ == "Y").Count();
             }
             if (pRESID.Length > 0)
             {
-                dash.TotalNoofGASINJWells = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.GASINJ == "Y").Count(y => y.WELL_COMPLETION_S);
+                dash.TotalNoofGASINJWells = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "") & y.GASINJ == "Y").Count();
             }
 
 
@@ -1494,316 +1493,146 @@ namespace KOC.DHUB3.Analysis
             dash.ProductionList.Clear();
             if (pAreaID.Length > 0)
             {
-                dash.ProductionTotal.Oil = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Sum(y => y.BOPD);
-                dash.ProductionTotal.Water = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Sum(y => y.BWPD);
-                dash.ProductionTotal.Gas = KocFieldData.MyWellLatestDataList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Sum(y => y.LATEST_GAS_RATE);
+                dash.ProductionTotal.Oil = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Sum(y => y.BOPD);
+                dash.ProductionTotal.Water = KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Sum(y => y.BWPD);
+                dash.ProductionTotal.Gas = (decimal)KocFieldData.WellLatestList.Where(y => (y.AREA ?? "") == (pAreaID ?? "")).Sum(y => y.LATEST_GAS_RATE);
 
 
             }
             if (pGCID.Length > 0)
             {
-                dash.ProductionTotal.Oil = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Sum(y => y.BOPD);
-                dash.ProductionTotal.Water = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Sum(y => y.BWPD);
-                dash.ProductionTotal.Gas = KocFieldData.MyWellLatestDataList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Sum(y => y.LATEST_GAS_RATE);
+                dash.ProductionTotal.Oil = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Sum(y => y.BOPD);
+                dash.ProductionTotal.Water = KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Sum(y => y.BWPD);
+                dash.ProductionTotal.Gas = (decimal)KocFieldData.WellLatestList.Where(y => (y.CURRENT_GC ?? "") == (pGCID ?? "")).Sum(y => y.LATEST_GAS_RATE);
 
             }
             if (pFieldID.Length > 0)
             {
-                dash.ProductionTotal.Oil = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Sum(y => y.BOPD);
-                dash.ProductionTotal.Water = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Sum(y => y.BWPD);
-                dash.ProductionTotal.Gas = KocFieldData.MyWellLatestDataList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Sum(y => y.LATEST_GAS_RATE);
+                dash.ProductionTotal.Oil = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Sum(y => y.BOPD);
+                dash.ProductionTotal.Water = KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Sum(y => y.BWPD);
+                dash.ProductionTotal.Gas =(decimal) KocFieldData.WellLatestList.Where(y => (y.FIELD_CODE ?? "") == (pFieldID ?? "")).Sum(y => y.LATEST_GAS_RATE);
 
             }
             if (pRESID.Length > 0)
             {
-                dash.ProductionTotal.Oil = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Sum(y => y.BOPD);
-                dash.ProductionTotal.Water = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Sum(y => y.BWPD);
-                dash.ProductionTotal.Gas = KocFieldData.MyWellLatestDataList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Sum(y => y.LATEST_GAS_RATE);
+                dash.ProductionTotal.Oil = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Sum(y => y.BOPD);
+                dash.ProductionTotal.Water = KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Sum(y => y.BWPD);
+                dash.ProductionTotal.Gas = (decimal)KocFieldData.WellLatestList.Where(y => (y.RESERVOIR_ID ?? "") == (pRESID ?? "")).Sum(y => y.LATEST_GAS_RATE);
 
             }
 
-            dash.ProductionList.Add(new cls_Dashbaord_productionTotalListValues("Oil", (int)Round(dash.ProductionTotal.Oil), System.Drawing.Color.Black));
-            dash.ProductionList.Add(new cls_Dashbaord_productionTotalListValues("Water", (int)Round(dash.ProductionTotal.Water), System.Drawing.Color.Blue));
-            dash.ProductionList.Add(new cls_Dashbaord_productionTotalListValues("Gas", (int)Round(dash.ProductionTotal.Gas), System.Drawing.Color.Gray));
+         //   dash.ProductionList.Add(new cls_Dashbaord_productionTotalListValues("Oil", (int)dash.ProductionTotal.Oil), System.Drawing.Color.Black));
+           // dash.ProductionList.Add(new cls_Dashbaord_productionTotalListValues("Water", (int)dash.ProductionTotal.Water), System.Drawing.Color.Blue));
+          //  dash.ProductionList.Add(new cls_Dashbaord_productionTotalListValues("Gas", (int)dash.ProductionTotal.Gas), System.Drawing.Color.Gray));
 
 
         }
-        public void GetESPStatusList(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "")
-        {
+        //public void GetESPStatusList(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "")
+        //{
+        //    if (pAreaID.Length > 0)
+        //    {
+        //        string p = "select count(*) production, " + "              case  " + "              when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "              when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "              when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "              when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + "              when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + "              when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + "              when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + "              when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + "              when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + "              when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp'   " + "              when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'   " + "              Else  " + "                ESP_STATUS_REASON " + "              end  TypeName  " + "            from WELL_LATEST_DATA " + "   where area='" + pAreaID + "' and esp_status='ESP CLOSE' and esp_status_reason is not null " + "   group by case  " + "             when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "             when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "             when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "              when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + " when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + " when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + " when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + " when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + " when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + " when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp' " + " when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'    " + " else " + "          ESP_STATUS_REASON" + "              END " + "              having count(*) >1 ";
+        //        dash.ESPStatusList = KocFieldData.LoadData<cls_Dashbaord_productionTotalListValues>(p, default);
+        //    }
+        //    if (pGCID.Length > 0)
+        //    {
+        //        string p = "select count(*) production, " + "              case  " + "                     when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + "              when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + "              when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + "              when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + "              when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + "              when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + "              when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp'   " + "              when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'   " + "        Else  " + "            ESP_STATUS_REASON " + "              end  TypeName  " + "            from WELL_LATEST_DATA " + "where current_gc='" + pGCID + "' and esp_status='ESP CLOSE' and esp_status_reason is not null " + "group by case  " + "             when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + " when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + " when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + " when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + " when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + " when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + " when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp' " + " when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'    " + "           else " + "          ESP_STATUS_REASON" + "           END " + "having count(*) >1 ";
 
+        //        dash.ESPStatusList = KocConfig.DhubContext.ExecuteStoreQuery<cls_Dashbaord_productionTotalListValues>(p, default).ToList;
 
-            if (pAreaID.Length > 0)
-            {
-                string p = "select count(*) production, " + "              case  " + "              when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "              when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "              when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "              when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + "              when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + "              when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + "              when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + "              when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + "              when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + "              when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp'   " + "              when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'   " + "              Else  " + "                ESP_STATUS_REASON " + "              end  TypeName  " + "            from WELL_LATEST_DATA " + "   where area='" + pAreaID + "' and esp_status='ESP CLOSE' and esp_status_reason is not null " + "   group by case  " + "             when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "             when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "             when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "              when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + " when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + " when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + " when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + " when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + " when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + " when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp' " + " when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'    " + " else " + "          ESP_STATUS_REASON" + "              END " + "              having count(*) >1 ";
+        //    }
+        //    if (pFieldID.Length > 0)
+        //    {
+        //        string p = "select count(*) production, " + "              case  " + "                     when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + "              when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + "              when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + "              when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + "              when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + "              when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + "              when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp'   " + "              when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'   " + "        Else  " + "            ESP_STATUS_REASON " + "              end  TypeName  " + "            from WELL_LATEST_DATA " + "where field_code='" + pFieldID + "' and esp_status='ESP CLOSE' and esp_status_reason is not null " + "group by case  " + "             when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + " when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + " when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + " when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + " when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + " when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + " when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp' " + " when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'    " + "           else " + "          ESP_STATUS_REASON" + "           END " + "having count(*) >1 ";
 
+        //        dash.ESPStatusList = KocConfig.DhubContext.ExecuteStoreQuery<cls_Dashbaord_productionTotalListValues>(p, default).ToList;
 
+        //    }
+        //    if (pRESID.Length > 0)
+        //    {
+        //        string p = "select count(*) production, " + "              case  " + "                     when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + "              when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + "              when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + "              when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + "              when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + "              when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + "              when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp'   " + "              when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'   " + "        Else  " + "            ESP_STATUS_REASON " + "              end  TypeName  " + "            from WELL_LATEST_DATA " + "where  RESERVOIR_ID='" + pRESID + "' and esp_status='ESP CLOSE' and esp_status_reason is not null " + "group by case  " + "             when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + " when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + " when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + " when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + " when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + " when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + " when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp' " + " when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'    " + "           else " + "          ESP_STATUS_REASON" + "           END " + "having count(*) >1 ";
 
+        //        dash.ESPStatusList = KocConfig.DhubContext.ExecuteStoreQuery<cls_Dashbaord_productionTotalListValues>(p, default).ToList;
 
+        //    }
 
 
+        //    // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Water", dash.ProductionTotal.Water, Drawing.Color.Blue))
+        //    // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Gas", dash.ProductionTotal.Gas, Drawing.Color.Gray))
 
 
+        //}
+        //public void GetESPStatusHist(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "")
+        //{
 
 
+        //    if (pAreaID.Length > 0)
+        //    {
 
+        //        dash.ESP_Failures_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_esp_failures_hist>("select sum(failures) failures,typename from stat_esp_failures where area='" + pAreaID + "'  group by typename", default).ToList;
+        //        // select sum(floor(a.LIQUID_RATE * (1 - a.LATEST_WC / 100))) as  BOPD,sum(floor(a.LIQUID_RATE * (a.LATEST_WC / 100))) as BWPD,area,field_code,current_gc gc,reservoir_id,insertmonth pmonth,insertyear pyear ,status_type statustype,'AREA' DATATYPE
+        //        // From well_latest_data_hist a
+        //        // dash.ESP_Failures_hist = 
 
+        //    }
+        //    if (pGCID.Length > 0)
+        //    {
 
+        //        dash.ESP_Failures_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_esp_failures_hist>("select sum(failures) failures,typename from stat_esp_failures where current_gc='" + pGCID + "'  group by typenameorder ", default).ToList;
 
+        //    }
+        //    if (pFieldID.Length > 0)
+        //    {
 
+        //        dash.ESP_Failures_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_esp_failures_hist>("select sum(failures) failures,typename from stat_esp_failures where field_code='" + pFieldID + "' group by typename ", default).ToList;
 
+        //    }
+        //    if (pRESID.Length > 0)
+        //    {
 
+        //        dash.ESP_Failures_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_esp_failures_hist>("select sum(failures) failures,typename from stat_esp_failures where RESERVOIR_ID='" + pRESID + "'  group by typename ", default).ToList;
 
+        //    }
 
 
+        //    // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Water", dash.ProductionTotal.Water, Drawing.Color.Blue))
+        //    // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Gas", dash.ProductionTotal.Gas, Drawing.Color.Gray))
 
 
+        //}
+        //public void GetProdHist(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "")
+        //{
+        //    if (pAreaID.Length > 0)
+        //    {
 
+        //        dash.Prod_hist =KocFieldData.LoadData<cls_stat_production_hist>("select sum(bopd) bopd,sum(bwpd) bwpd,monthyear from stat_production  where area='" + pAreaID + "' group by monthyear order by monthyear asc", default);
 
+        //    }
+        //    if (pGCID.Length > 0)
+        //    {
 
+        //        dash.Prod_hist = KocFieldData.LoadData<cls_stat_production_hist>("select sum(bopd) bopd,sum(bwpd) bwpd,monthyear from stat_production where current_gc='" + pGCID + "'  group by monthyear order by monthyear asc", default).ToList;
 
+        //    }
+        //    if (pFieldID.Length > 0)
+        //    {
 
+        //        dash.Prod_hist = KocFieldData.LoadData<cls_stat_production_hist>("select sum(bopd) bopd,sum(bwpd) bwpd,monthyear from stat_production where field_code='" + pFieldID + "'  group by monthyear order by monthyear asc", default).ToList;
 
+        //    }
+        //    if (pRESID.Length > 0)
+        //    {
 
+        //        dash.Prod_hist = KocFieldData.LoadData<cls_stat_production_hist>("select sum(bopd) bopd,sum(bwpd) bwpd,monthyear from stat_production where RESERVOIR_ID='" + pRESID + "'  group by monthyear order by monthyear asc", default).ToList;
 
+        //    }
 
 
+        //    // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Water", dash.ProductionTotal.Water, Drawing.Color.Blue))
+        //    // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Gas", dash.ProductionTotal.Gas, Drawing.Color.Gray))
 
 
-
-
-
-
-
-
-
-
-                dash.ESPStatusList = KocConfig.DhubContext.ExecuteStoreQuery<cls_Dashbaord_productionTotalListValues>(p, default).ToList;
-
-            }
-            if (pGCID.Length > 0)
-            {
-                string p = "select count(*) production, " + "              case  " + "                     when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + "              when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + "              when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + "              when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + "              when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + "              when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + "              when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp'   " + "              when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'   " + "        Else  " + "            ESP_STATUS_REASON " + "              end  TypeName  " + "            from WELL_LATEST_DATA " + "where current_gc='" + pGCID + "' and esp_status='ESP CLOSE' and esp_status_reason is not null " + "group by case  " + "             when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + " when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + " when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + " when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + " when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + " when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + " when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp' " + " when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'    " + "           else " + "          ESP_STATUS_REASON" + "           END " + "having count(*) >1 ";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                dash.ESPStatusList = KocConfig.DhubContext.ExecuteStoreQuery<cls_Dashbaord_productionTotalListValues>(p, default).ToList;
-
-            }
-            if (pFieldID.Length > 0)
-            {
-                string p = "select count(*) production, " + "              case  " + "                     when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + "              when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + "              when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + "              when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + "              when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + "              when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + "              when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp'   " + "              when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'   " + "        Else  " + "            ESP_STATUS_REASON " + "              end  TypeName  " + "            from WELL_LATEST_DATA " + "where field_code='" + pFieldID + "' and esp_status='ESP CLOSE' and esp_status_reason is not null " + "group by case  " + "             when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + " when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + " when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + " when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + " when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + " when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + " when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp' " + " when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'    " + "           else " + "          ESP_STATUS_REASON" + "           END " + "having count(*) >1 ";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                dash.ESPStatusList = KocConfig.DhubContext.ExecuteStoreQuery<cls_Dashbaord_productionTotalListValues>(p, default).ToList;
-
-            }
-            if (pRESID.Length > 0)
-            {
-                string p = "select count(*) production, " + "              case  " + "                     when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + "              when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + "              when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + "              when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + "              when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + "              when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + "              when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + "              when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + "              when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp'   " + "              when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'   " + "        Else  " + "            ESP_STATUS_REASON " + "              end  TypeName  " + "            from WELL_LATEST_DATA " + "where  RESERVOIR_ID='" + pRESID + "' and esp_status='ESP CLOSE' and esp_status_reason is not null " + "group by case  " + "             when instr(upper(esp_status_reason),'POWER',1)>0  then 'Power Surge' " + "               when instr(upper(esp_status_reason),'WC',1)>0  then 'Due to High WC' " + "               when instr(upper(esp_status_reason),'NO FLOW',1)>0  then 'Due to No flow' " + "               when instr(upper(esp_status_reason),'REMOT',1)>0  then 'Restarted Remotely' " + "              when instr(upper(esp_status_reason),'MANUALLY',1)>0  then 'Restarted Manually' " + " when instr(upper(esp_status_reason),'STALL',1)>0  then 'Due to Motor stall' " + " when instr(upper(esp_status_reason),'O/L',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'OVER LOAD',1)>0  then 'Tripped due to O/L' " + " when instr(upper(esp_status_reason),'GC',1)>0  then 'GC Request' " + " when instr(upper(esp_status_reason),'U/L',1)>0  then 'Due to U/L' " + " when instr(upper(esp_status_reason),'W/O',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'WORKOVER',1)>0  then 'Manual off for Workover' " + " when instr(upper(esp_status_reason),'RESTARTED',1)>0  then 'Restarted' " + " when instr(upper(esp_status_reason),'SCADA',1)>0  then 'SCADA'   " + " when instr(upper(esp_status_reason),'TM',1)>0  then 'Due to High Temp' " + " when instr(upper(esp_status_reason),'TEMP',1)>0  then 'Due to High Temp'    " + "           else " + "          ESP_STATUS_REASON" + "           END " + "having count(*) >1 ";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                dash.ESPStatusList = KocConfig.DhubContext.ExecuteStoreQuery<cls_Dashbaord_productionTotalListValues>(p, default).ToList;
-
-            }
-
-
-            // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Water", dash.ProductionTotal.Water, Drawing.Color.Blue))
-            // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Gas", dash.ProductionTotal.Gas, Drawing.Color.Gray))
-
-
-        }
-        public void GetESPStatusHist(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "")
-        {
-
-
-            if (pAreaID.Length > 0)
-            {
-
-                dash.ESP_Failures_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_esp_failures_hist>("select sum(failures) failures,typename from stat_esp_failures where area='" + pAreaID + "'  group by typename", default).ToList;
-                // select sum(floor(a.LIQUID_RATE * (1 - a.LATEST_WC / 100))) as  BOPD,sum(floor(a.LIQUID_RATE * (a.LATEST_WC / 100))) as BWPD,area,field_code,current_gc gc,reservoir_id,insertmonth pmonth,insertyear pyear ,status_type statustype,'AREA' DATATYPE
-                // From well_latest_data_hist a
-                // dash.ESP_Failures_hist = 
-
-            }
-            if (pGCID.Length > 0)
-            {
-
-                dash.ESP_Failures_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_esp_failures_hist>("select sum(failures) failures,typename from stat_esp_failures where current_gc='" + pGCID + "'  group by typenameorder ", default).ToList;
-
-            }
-            if (pFieldID.Length > 0)
-            {
-
-                dash.ESP_Failures_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_esp_failures_hist>("select sum(failures) failures,typename from stat_esp_failures where field_code='" + pFieldID + "' group by typename ", default).ToList;
-
-            }
-            if (pRESID.Length > 0)
-            {
-
-                dash.ESP_Failures_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_esp_failures_hist>("select sum(failures) failures,typename from stat_esp_failures where RESERVOIR_ID='" + pRESID + "'  group by typename ", default).ToList;
-
-            }
-
-
-            // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Water", dash.ProductionTotal.Water, Drawing.Color.Blue))
-            // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Gas", dash.ProductionTotal.Gas, Drawing.Color.Gray))
-
-
-        }
-        public void GetProdHist(cls_Dashboard_data dash, string pAreaID = "", string pGCID = "", string pFieldID = "", string pRESID = "")
-        {
-
-
-            if (pAreaID.Length > 0)
-            {
-
-                dash.Prod_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_production_hist>("select sum(bopd) bopd,sum(bwpd) bwpd,monthyear from stat_production  where area='" + pAreaID + "' group by monthyear order by monthyear asc", default).ToList;
-
-            }
-            if (pGCID.Length > 0)
-            {
-
-                dash.Prod_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_production_hist>("select sum(bopd) bopd,sum(bwpd) bwpd,monthyear from stat_production where current_gc='" + pGCID + "'  group by monthyear order by monthyear asc", default).ToList;
-
-            }
-            if (pFieldID.Length > 0)
-            {
-
-                dash.Prod_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_production_hist>("select sum(bopd) bopd,sum(bwpd) bwpd,monthyear from stat_production where field_code='" + pFieldID + "'  group by monthyear order by monthyear asc", default).ToList;
-
-            }
-            if (pRESID.Length > 0)
-            {
-
-                dash.Prod_hist = KocConfig.DhubContext.ExecuteStoreQuery<cls_stat_production_hist>("select sum(bopd) bopd,sum(bwpd) bwpd,monthyear from stat_production where RESERVOIR_ID='" + pRESID + "'  group by monthyear order by monthyear asc", default).ToList;
-
-            }
-
-
-            // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Water", dash.ProductionTotal.Water, Drawing.Color.Blue))
-            // dash.ProductionList.Add(New cls_Dashbaord_productionTotalListValues("Gas", dash.ProductionTotal.Gas, Drawing.Color.Gray))
-
-
-        }
+        //}
 
     }
 }

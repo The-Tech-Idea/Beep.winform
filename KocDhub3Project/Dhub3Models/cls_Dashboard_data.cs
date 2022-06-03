@@ -20,34 +20,34 @@ namespace KOC.DHUB3.Models
         public string Area { get; set; } = "";
         public string Res { get; set; } = "";
         public string Layer { get; set; } = "";
-        public cls_Finderwell HighestH2SWell { get; set; } = new cls_Finderwell();
-        public cls_Finderwell HighestAPIWell { get; set; } = new cls_Finderwell();
-        public cls_Finderwell LowestAPIWell { get; set; } = new cls_Finderwell();
-        public cls_Finderwell HighestSaltWell { get; set; } = new cls_Finderwell();
+        public WELL_LATEST_DATA HighestH2SWell { get; set; } = new WELL_LATEST_DATA();
+        public WELL_LATEST_DATA HighestAPIWell { get; set; } = new WELL_LATEST_DATA();
+        public WELL_LATEST_DATA LowestAPIWell { get; set; } = new WELL_LATEST_DATA();
+        public WELL_LATEST_DATA HighestSaltWell { get; set; } = new WELL_LATEST_DATA();
         public int TotalNoofESPWells { get; set; }
         public int TotalNoofINJWells { get; set; } // X for 
         public int TotalNoofGASINJWells { get; set; } // N for not
 
-        public cls_Finderwell MaxTVDWell { get; set; } = new cls_Finderwell();
-        public cls_Finderwell MinTVDWell { get; set; } = new cls_Finderwell();
-        public cls_Finderwell MaxSulferDWell { get; set; } = new cls_Finderwell();
+        public WELL_LATEST_DATA MaxTVDWell { get; set; } = new WELL_LATEST_DATA();
+        public WELL_LATEST_DATA MinTVDWell { get; set; } = new WELL_LATEST_DATA();
+        public WELL_LATEST_DATA MaxSulferDWell { get; set; } = new WELL_LATEST_DATA();
         public List<cls_stat_esp_failures_hist> ESP_Failures_hist { get; set; } = new List<cls_stat_esp_failures_hist>();
         public List<cls_stat_production_hist> Prod_hist { get; set; } = new List<cls_stat_production_hist>();
      
 
         public string DashType { get; set; } = "";
 
-        public cls_Finderwell maxwellv { get; set; } = new cls_Finderwell();
-        public cls_Finderwell minwellv { get; set; } = new cls_Finderwell();
+        public WELL_LATEST_DATA maxwellv { get; set; } = new WELL_LATEST_DATA();
+        public WELL_LATEST_DATA minwellv { get; set; } = new WELL_LATEST_DATA();
 
-        public cls_Finderwell maxWaterwellv { get; set; } = new cls_Finderwell();
-        public cls_Finderwell minWaterwellv { get; set; } = new cls_Finderwell();
+        public WELL_LATEST_DATA maxWaterwellv { get; set; } = new WELL_LATEST_DATA();
+        public WELL_LATEST_DATA minWaterwellv { get; set; } = new WELL_LATEST_DATA();
 
-        public List<cls_Finderwell> top10maxwellv { get; set; } = new List<cls_Finderwell>();
-        public List<cls_Finderwell> top10minwellv { get; set; } = new List<cls_Finderwell>();
+        public List<WELL_LATEST_DATA> top10maxwellv { get; set; } = new List<WELL_LATEST_DATA>();
+        public List<WELL_LATEST_DATA> top10minwellv { get; set; } = new List<WELL_LATEST_DATA>();
 
-        public List<cls_Finderwell> top10maxWaterwellv { get; set; } = new List<cls_Finderwell>();
-        public List<cls_Finderwell> top10minWaterwellv { get; set; } = new List<cls_Finderwell>();
+        public List<WELL_LATEST_DATA> top10maxWaterwellv { get; set; } = new List<WELL_LATEST_DATA>();
+        public List<WELL_LATEST_DATA> top10minWaterwellv { get; set; } = new List<WELL_LATEST_DATA>();
 
         public cls_Dashbaord_productionTotal ProductionTotal { get; set; } = new cls_Dashbaord_productionTotal();
         public List<cls_Dashbaord_productionTotalListValues> ProductionList { get; set; } = new List<cls_Dashbaord_productionTotalListValues>();
