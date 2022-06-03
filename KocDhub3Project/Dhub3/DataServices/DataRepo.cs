@@ -16,23 +16,7 @@ namespace Dhub3.DataServices
 {
     public class DataRepo
     {
-        public IDMEEditor DMEditor { get; }
-        public string DataSourcename { get; }
-        public string pStart_date { get; set; }
-        public string pEnd_date { get; set; }
-
-        public List<WELL_LATEST_DATA> WellLatestList { get;set; }=new List<WELL_LATEST_DATA>();
-        public List<cls_RESERVOIR_LIST> ReservoirList { get; set; } = new List<cls_RESERVOIR_LIST>();
-        public List<cls_FinderField> FieldDataList { get; set; } = new List<cls_FinderField>();
-        public List<cls_FinderGC> GCListDataList { get; set; } = new List<cls_FinderGC>();
-
-
-        public IDbConnection KocDB;
-        public IDataSource DataSource { get; set; }
-        private RDBSource RDB { get; set; }
-        public RDBDataConnection RDBConn { get; private set; }
-
-        public DataRepo(IDMEEditor dMEditor,string dataSourcename)
+        public DataRepo(IDMEEditor dMEditor, string dataSourcename)
         {
             DMEditor = dMEditor;
             DataSourcename = dataSourcename;
@@ -55,13 +39,35 @@ namespace Dhub3.DataServices
             this.pStart_date = pStart_date;
             this.pEnd_date = pEnd_date;
         }
-
         public DataRepo(IDbConnection kocDB, string pStart_date, string pEnd_date)
         {
             KocDB = kocDB;
             this.pStart_date = pStart_date;
             this.pEnd_date = pEnd_date;
         }
+        public IDMEEditor DMEditor { get; }
+        public string DataSourcename { get; }
+
+        #region "Dhub Properties"
+        public string pStart_date { get; set; }
+        public string pEnd_date { get; set; }
+        public string SelectedWells { get; set; } = "";
+        public string SelectedCompletions { get; set; } = "";
+        public List<WELL_LATEST_DATA> WellLatestList { get; set; } = new List<WELL_LATEST_DATA>();
+        public List<cls_RESERVOIR_LIST> ReservoirList { get; set; } = new List<cls_RESERVOIR_LIST>();
+        public List<cls_FinderField> FieldDataList { get; set; } = new List<cls_FinderField>();
+        public List<cls_FinderGC> GCListDataList { get; set; } = new List<cls_FinderGC>();
+        #endregion
+        #region "Database Connection"
+
+        public IDbConnection KocDB;
+        public IDataSource DataSource { get; set; }
+        private RDBSource RDB { get; set; }
+        public RDBDataConnection RDBConn { get; private set; }
+        #endregion
+
+
+
         #region "Dapper Methods"
         public async Task<IEnumerable<T>> LoadData<T>(string querystring,object parameters)
         {
