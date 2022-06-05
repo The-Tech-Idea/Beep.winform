@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>KOC.DHUB3</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Well\wellreview\**" />
+    <EmbeddedResource Remove="Well\wellreview\**" />
+    <None Remove="Well\wellreview\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="DataServices\CRUDModels\how to use CRUD.txt" />
+    <None Remove="HelpDocs\DapperExamples.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="DataServices\CRUDModels\how to use CRUD.txt" />
+    <Content Include="HelpDocs\DapperExamples.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Common" Version="7.1.2" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="7.1.2" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Dapper.Contrib" Version="2.0.78" />
+    <PackageReference Include="System.DirectoryServices" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj" />
+    <ProjectReference Include="..\..\..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj" />
+    <ProjectReference Include="..\..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj" />
+    <ProjectReference Include="..\..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj" />
+    <ProjectReference Include="..\Dhub3Models\Dhub3Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web.Services">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Web.Services.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ActiveDirectory\AD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
