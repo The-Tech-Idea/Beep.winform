@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using KOC.DHUB3.Models;
 using System;
 using System.Collections.Generic;
@@ -9,18 +10,18 @@ using TheTechIdea.Util;
 
 namespace KOC.DHUB3.ViewModels
 {
-    public class WellReviewViewModel : BaseViewModel
+    public partial  class WellViewModel : BaseViewModel
     {
-        public WELL_LATEST_DATA Well { get; set; }
-
+        [ObservableProperty]
+        WELL_LATEST_DATA well;
         [ICommand]
-        public IErrorsInfo GetWell(string puwi)
+        private void GetWellByUWI(string puwi)
         {
             try
             {
                 DMEditor.ErrorObject.Ex = null;
                 DMEditor.ErrorObject.Flag = Errors.Ok;
-                Well = Repo.GetWell(puwi);
+                well = Repo.GetWell(puwi);
             }
             catch (Exception ex)
             {
@@ -28,16 +29,16 @@ namespace KOC.DHUB3.ViewModels
                 DMEditor.ErrorObject.Message = $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}";
                 DMEditor.ErrorObject.Flag = Errors.Failed;
             }
-            return DMEditor.ErrorObject;
+          //  return DMEditor.ErrorObject;
         }
         [ICommand]
-        public IErrorsInfo GetWell(int pwell_completion_id)
+        private void GetWellByCompletion(int pwell_completion_id)
         {
             try
             {
                 DMEditor.ErrorObject.Ex = null;
                 DMEditor.ErrorObject.Flag = Errors.Ok;
-                Well = Repo.GetWell(pwell_completion_id);
+                well = Repo.GetWell(pwell_completion_id);
             }
             catch (Exception ex)
             {
@@ -45,9 +46,7 @@ namespace KOC.DHUB3.ViewModels
                 DMEditor.ErrorObject.Message = $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}";
                 DMEditor.ErrorObject.Flag = Errors.Failed;
             }
-            return DMEditor.ErrorObject;
+          //  return DMEditor.ErrorObject;
         }
-
-
     }
 }

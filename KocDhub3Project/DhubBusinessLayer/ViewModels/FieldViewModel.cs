@@ -11,21 +11,21 @@ using TheTechIdea.Util;
 
 namespace KOC.DHUB3.ViewModels
 {
-    public class GasFieldViewModel : BaseViewModel
+    public partial  class FieldViewModel : BaseViewModel
     {
-       
         [ObservableProperty]
         List<WELL_LATEST_DATA> wells;
+
         [ICommand]
-        public IErrorsInfo GetWells(string pfldid)
+        private void GetWells(string pfldid)
         {
             try
             {
                 DMEditor.ErrorObject.Ex = null;
                 DMEditor.ErrorObject.Flag = Errors.Ok;
                 wells = new List<WELL_LATEST_DATA>();
-
-                wells = Repo.GetFieldWells(pfldid);
+              
+                wells =Repo.GetFieldWells(pfldid);
             }
             catch (Exception ex)
             {
@@ -33,7 +33,7 @@ namespace KOC.DHUB3.ViewModels
                 DMEditor.ErrorObject.Message = $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}";
                 DMEditor.ErrorObject.Flag = Errors.Failed;
             }
-            return DMEditor.ErrorObject;
+           // return DMEditor.ErrorObject;
         }
     }
 }

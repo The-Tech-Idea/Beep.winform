@@ -9,12 +9,11 @@ using TheTechIdea.Util;
 
 namespace KOC.DHUB3.ViewModels
 {
-    public class WellReviewViewModel : BaseViewModel
+    public partial class HeavyOilWellViewModel : BaseViewModel
     {
         public WELL_LATEST_DATA Well { get; set; }
-
         [ICommand]
-        public IErrorsInfo GetWell(string puwi)
+        private void GetWellByUWI(string puwi)
         {
             try
             {
@@ -28,10 +27,10 @@ namespace KOC.DHUB3.ViewModels
                 DMEditor.ErrorObject.Message = $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}";
                 DMEditor.ErrorObject.Flag = Errors.Failed;
             }
-            return DMEditor.ErrorObject;
+           // return DMEditor.ErrorObject;
         }
         [ICommand]
-        public IErrorsInfo GetWell(int pwell_completion_id)
+        private void GetWellByCompletion(int pwell_completion_id)
         {
             try
             {
@@ -45,9 +44,7 @@ namespace KOC.DHUB3.ViewModels
                 DMEditor.ErrorObject.Message = $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}";
                 DMEditor.ErrorObject.Flag = Errors.Failed;
             }
-            return DMEditor.ErrorObject;
+          //  return DMEditor.ErrorObject;
         }
-
-
     }
 }

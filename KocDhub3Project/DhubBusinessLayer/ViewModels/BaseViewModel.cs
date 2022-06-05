@@ -1,5 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿
+using CommunityToolkit.Mvvm.ComponentModel;
 using Dhub3.DataServices;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,23 +11,25 @@ using TheTechIdea.Beep;
 
 namespace KOC.DHUB3.ViewModels
 {
-    public class BaseViewModel:ObservableObject
+    public partial  class BaseViewModel:ObservableObject
     {
         
             
         [ObservableProperty]
-        private bool isBusy;
+         bool isBusy;
         [ObservableProperty]
-        private DateTime dateCreated;
+         DateTime dateCreated;
         [ObservableProperty]
-        private DateTime dateUpdated;
+         DateTime dateUpdated;
         [ObservableProperty]
-        private string createdBy;
+         string createdBy;
         [ObservableProperty]
-        private string updatedBy;
+         string updatedBy;
 
         public IDMEEditor DMEditor { get; set; }   
         public DataRepo Repo { get; set; }
+       
+
 
     }
 }

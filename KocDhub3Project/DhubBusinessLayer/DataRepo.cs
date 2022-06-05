@@ -1,8 +1,6 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using System.Data;
 using System.Reflection;
 using KOC.DHUB3.Models;
@@ -12,7 +10,6 @@ using TheTechIdea.Beep.DataBase;
 using Dapper;
 using System.Threading.Tasks;
 using TheTechIdea.Util;
-using KOC.DHUB3.ViewModels;
 
 namespace Dhub3.DataServices
 {
@@ -49,7 +46,6 @@ namespace Dhub3.DataServices
         }
         public IDMEEditor DMEditor { get; }
         public string DataSourcename { get; }
-
         #region "Dhub Properties"
         public string pStart_date { get; set; }
         public string pEnd_date { get; set; }
@@ -144,8 +140,7 @@ namespace Dhub3.DataServices
             List<WELL_LATEST_DATA> Wells = new List<WELL_LATEST_DATA>();
             try
             {
-                FacilityViewModel a = new FacilityViewModel();
-                a.
+              
                 DMEditor.ErrorObject.Ex = null;
                 DMEditor.ErrorObject.Flag = Errors.Ok;
 
