@@ -1,51 +1,32 @@
-﻿using System;
+﻿using Dhub3.DataServices;
+using KOC.DHUB3.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Data;
-using System.Reflection;
-using KOC.DHUB3.Models;
-using TheTechIdea.Beep;
-using TheTechIdea;
-using TheTechIdea.Beep.DataBase;
-using Dapper;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
+using TheTechIdea.Beep;
 using TheTechIdea.Util;
 
-namespace Dhub3.DataServices
+namespace KOC.DHUB3
 {
-    public class DataRepo
+    public class APIDataRepo : IDataRepo
     {
-        public DataRepo(IDMEEditor dMEditor, string dataSourcename)
+        static HttpClient client;
+        public APIDataRepo(string uri)
         {
-            DMEditor = dMEditor;
-            DataSourcename = dataSourcename;
-            DataSource = dMEditor.GetDataSource(dataSourcename);
-            if (DataSource != null)
-            {
-                DataSource.Openconnection();
-                if (DataSource.ConnectionStatus == ConnectionState.Open)
-                {
-                    RDB = (RDBSource)DataSource;
-                    RDBConn = RDB.RDBMSConnection;
-                    KocDB = RDBConn.DbConn;
-                }
-            }
-        }
-        public DataRepo(IDMEEditor dMEditor, string pStart_date, string pEnd_date)
-        {
-
-            DMEditor = dMEditor;
-            this.pStart_date = pStart_date;
-            this.pEnd_date = pEnd_date;
-        }
-        public DataRepo(IDbConnection kocDB, string pStart_date, string pEnd_date)
-        {
-            KocDB = kocDB;
-            this.pStart_date = pStart_date;
-            this.pEnd_date = pEnd_date;
+            client = new HttpClient();
+            client.BaseAddress = new Uri(uri);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
         }
         public IDMEEditor DMEditor { get; }
         public string DataSourcename { get; }
+
+      
         #region "Dhub Properties"
         public string pStart_date { get; set; }
         public string pEnd_date { get; set; }
@@ -56,22 +37,31 @@ namespace Dhub3.DataServices
         public List<cls_FinderField> FieldDataList { get; set; } = new List<cls_FinderField>();
         public List<cls_FinderGC> GCListDataList { get; set; } = new List<cls_FinderGC>();
         #endregion
-        #region "Database Connection"
+        #region "API Connection"
+       public async Task<IEnumerable<T>?> LoadData<T>(string querystring, object parameters)
+        {
+          
+            HttpResponseMessage response = await client.GetAsync(querystring);
+            if (response.IsSuccessStatusCode)
+            {
+                var readTask = response.Content.ReadAsAsync<IEnumerable<T>>();
+                readTask.Wait();
 
-        public IDbConnection KocDB;
-        public IDataSource DataSource { get; set; }
-        private RDBSource RDB { get; set; }
-        public RDBDataConnection RDBConn { get; private set; }
+                return readTask.Result;
+            }
+            else return null;
+            
+        }
         #endregion
         #region "Well Data"
         public WELL_LATEST_DATA GetWell(string puwi)
         {
-            WELL_LATEST_DATA  Well = new WELL_LATEST_DATA();
+            WELL_LATEST_DATA Well = new WELL_LATEST_DATA();
             try
             {
                 DMEditor.ErrorObject.Ex = null;
                 DMEditor.ErrorObject.Flag = Errors.Ok;
-              
+
                 var parameters = new { UWI = puwi };
                 var src = Task.Run(() => { return LoadData<WELL_LATEST_DATA>("select * from well_latest_data where uwi=:uwi", parameters); });
                 src.Wait();
@@ -83,7 +73,7 @@ namespace Dhub3.DataServices
                 DMEditor.ErrorObject.Ex = ex;
                 DMEditor.ErrorObject.Message = $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}";
                 DMEditor.ErrorObject.Flag = Errors.Failed;
-              
+
             }
             return Well;
         }
@@ -94,7 +84,7 @@ namespace Dhub3.DataServices
             {
                 DMEditor.ErrorObject.Ex = null;
                 DMEditor.ErrorObject.Flag = Errors.Ok;
-               
+
                 var parameters = new { well_completion_id = pwell_completion_id };
                 var src = Task.Run(() => { return LoadData<WELL_LATEST_DATA>("select * from well_latest_data where well_completion_s=:well_completion_id", parameters); });
                 src.Wait();
@@ -118,7 +108,7 @@ namespace Dhub3.DataServices
             {
                 DMEditor.ErrorObject.Ex = null;
                 DMEditor.ErrorObject.Flag = Errors.Ok;
-               
+
                 var parameters = new { fldid = pfldid };
                 var src = Task.Run(() => { return LoadData<WELL_LATEST_DATA>("select * from well_latest_data where field_code=:fldid", parameters); });
                 src.Wait();
@@ -140,7 +130,7 @@ namespace Dhub3.DataServices
             List<WELL_LATEST_DATA> Wells = new List<WELL_LATEST_DATA>();
             try
             {
-              
+
                 DMEditor.ErrorObject.Ex = null;
                 DMEditor.ErrorObject.Flag = Errors.Ok;
 
@@ -159,13 +149,7 @@ namespace Dhub3.DataServices
             return Wells;
         }
         #endregion
-        #region "Dapper Methods"
-        public async Task<IEnumerable<T>> LoadData<T>(string querystring,object parameters)
-        {
-         
-            return await KocDB.QueryAsync<T>(querystring, parameters);
-        }
-        #endregion "Dapper Methods"
+      
         #region "Well Schematics Methods"
         public string GetWellDeviation(string puwi)
         {
@@ -751,45 +735,8 @@ WHERE        (tt.PREFERRED_FLAG = 'Y') AND (tt.UWI = @puwi)", parameters).Result
             ls = KocDB.QueryAsync<cls_portable_vs_dcs_report>("SELECT      a.START_TIME AS starttime, a.TEST_RATE DCSLQ, a.WC DCSWC,  GET_WCS_LQ_PORT_ATDATE(a.WELL_COMPLETION_S,to_char(a.start_time,'dd-mm-yyyy')) as PortLQ,GET_WCS_WATER_CUT_PORT_ATDATE(a.WELL_COMPLETION_S,to_char(a.start_time,'dd-mm-yyyy')) as  PortWC,GET_WCS_TOTAL_GOR_ATDATE(a.WELL_COMPLETION_S,to_char(a.start_time,'dd-mm-yyyy')) as TotalGor  " + "  FROM         WELL_TESTS_VW a " + "  WHERE     (a.TEST_TYPE ='DCS' ) AND (a.WELL_COMPLETION_S= nvl( " + v_wcs + ", a.WELL_COMPLETION_S)) " + "       union all " + "  SELECT       b.START_TIME AS starttime ,GET_WCS_LQ_RATE_DCS(b.WELL_COMPLETION_S,to_char(b.start_time,'dd-mm-yyyy')) as DCSLQ,GET_WCS_WATER_CUT_DCS_ATDATE(b.WELL_COMPLETION_S,to_char(b.start_time,'dd-mm-yyyy')) as  DCSWC ,  b.TEST_RATE PortLQ, b.WC PortWC,GET_WCS_TOTAL_GOR_ATDATE(b.WELL_COMPLETION_S,to_char(b.start_time,'dd-mm-yyyy')) as TotalGor " + "  FROM         WELL_TESTS_VW b " + "  WHERE    b.TEST_TYPE in ('PORTABLE GOR MULTIRATE','PORTABLE') AND (b.WELL_COMPLETION_S= nvl( " + v_wcs + " , b.WELL_COMPLETION_S)) and b.gor is not null  " + "  order by starttime desc").Result;
             return ls;
         }
-      
-       
-        #endregion
-        #region "Misc Util Functions"
-        private void FillData(PropertyInfo[] properties, DataTable dt, Object o)
-        {
-            DataRow dr = dt.NewRow();
-            foreach (PropertyInfo pi in properties)
-            {
-                if (pi.Name != null)
-                    dr[pi.Name] = pi.GetValue(o, null);
-            }
-            dt.Rows.Add(dr);
-        }
-        public DataTable CreateDataTable(Object[] array)
-        {
-            PropertyInfo[] properties = array.GetType().GetElementType().GetProperties();
-            DataTable dt = CreateTable(properties);
-            if (array.Length != 0)
-            {
-                foreach (object o in array)
-                    FillData(properties, dt, o);
-            }
-            return dt;
-        }
-        private DataTable CreateTable(PropertyInfo[] properties)
-        {
-            DataTable dt = new DataTable();
-            foreach (PropertyInfo pi in properties)
-            {
-                DataColumn dc = new DataColumn
-                {
-                    ColumnName = pi.Name,
-                    DataType = pi.PropertyType
-                };
-                dt.Columns.Add(dc);
-            }
-            return dt;
-        }
+
+
         #endregion
     }
 }

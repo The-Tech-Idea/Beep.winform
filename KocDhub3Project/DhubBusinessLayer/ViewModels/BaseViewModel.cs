@@ -27,7 +27,7 @@ namespace KOC.DHUB3.ViewModels
          string updatedBy;
 
         public IDMEEditor DMEditor { get; set; }   
-        public DataRepo Repo { get; set; }
+        public IDataRepo Repo { get; set; }
        
 
 

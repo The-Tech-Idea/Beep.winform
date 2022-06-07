@@ -1,9 +1,7 @@
 ﻿using BeepEnterprize.Vis.Module;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
@@ -12,9 +10,9 @@ using TheTechIdea.Util;
 
 namespace KOC.DHUB3.TreeNodes
 {
-    public class HeavyOilRootNode : IBranch
+    public class HeavyOilBlockNode : IBranch
     {
-        public HeavyOilRootNode(int iD, IDMEEditor dMEEditor, IDataSource dataSource, string dataSourceName, ITree treeEditor, IVisManager visutil,  int miscID, string name, int branchID, string iconImageName)
+        public HeavyOilBlockNode(int iD, int parentBranchID, IDMEEditor dMEEditor, IDataSource dataSource, string dataSourceName, ITree treeEditor, IVisManager visutil, int miscID, string name, int branchID, string iconImageName)
         {
             ID = iD;
             DMEEditor = dMEEditor;
@@ -22,7 +20,7 @@ namespace KOC.DHUB3.TreeNodes
             DataSourceName = dataSourceName;
             TreeEditor = treeEditor;
             Visutil = visutil;
-          
+            ParentBranchID = parentBranchID;
             MiscID = miscID;
             Name = name;
             BranchID = branchID;
@@ -42,7 +40,7 @@ namespace KOC.DHUB3.TreeNodes
         public string Name { get  ; set  ; }
         public string BranchText { get; set; } = "Heavy Oil";
         public int Level { get; set; } = 0;
-        public EnumPointType BranchType { get; set; } = EnumPointType.Root;
+        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
         public int BranchID { get; set; }
         public string IconImageName { get; set; }
         public string BranchStatus { get; set; }
@@ -72,28 +70,7 @@ namespace KOC.DHUB3.TreeNodes
 
         public IErrorsInfo SetConfig(ITree pTreeEditor, IDMEEditor pDMEEditor, IBranch pParentNode, string pBranchText, int pID, EnumPointType pBranchType, string pimagename)
         {
-            try
-            {
-                TreeEditor = pTreeEditor;
-                DMEEditor = pDMEEditor;
-                ParentBranchID = pParentNode.ID;
-                BranchText = pBranchText;
-                BranchType = pBranchType;
-                IconImageName = pimagename;
-                if (pID != 0)
-                {
-                    ID = pID;
-                    BranchID = ID;
-                }
-
-                //   DMEEditor.AddLogMessage("Success", "Set Config OK", DateTime.Now, 0, null, Errors.Ok);
-            }
-            catch (Exception ex)
-            {
-                string mes = "Could not Set Config";
-                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
-            };
-            return DMEEditor.ErrorObject;
+            throw new NotImplementedException();
         }
     }
 }

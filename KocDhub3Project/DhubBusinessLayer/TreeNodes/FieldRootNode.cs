@@ -14,7 +14,7 @@ namespace KOC.DHUB3.TreeNodes
 {
     public class FieldRootNode : IBranch
     {
-        public FieldRootNode(int iD, IDMEEditor dMEEditor, IDataSource dataSource, string dataSourceName, ITree treeEditor, IVisManager visutil, EntityStructure entityStructure, int miscID, string name, int branchID, string iconImageName)
+        public FieldRootNode(int iD, IDMEEditor dMEEditor, IDataSource dataSource, string dataSourceName, ITree treeEditor, IVisManager visutil,  int miscID, string name, int branchID, string iconImageName)
         {
             ID = iD;
             DMEEditor = dMEEditor;
@@ -22,7 +22,7 @@ namespace KOC.DHUB3.TreeNodes
             DataSourceName = dataSourceName;
             TreeEditor = treeEditor;
             Visutil = visutil;
-            EntityStructure = entityStructure;
+          
             MiscID = miscID;
             Name = name;
             BranchID = branchID;

@@ -20,7 +20,7 @@ namespace KOC.DHUB3.Analysis
            
 
         }
-        public DataRepo KocFieldData { get; set; }
+        public IDataRepo KocFieldData { get; set; }
 
         public string FieldID { get; set; } = "";
         public string GCID { get; set; } = "";

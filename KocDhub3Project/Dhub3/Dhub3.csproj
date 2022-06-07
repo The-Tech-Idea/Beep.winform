@@ -149,10 +149,6 @@
       <Project>{48AAD630-7A91-49C9-9C02-619043A77AB7}</Project>
       <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Dhub3Models\Dhub3Models.csproj">
-      <Project>{170FC601-57C2-454D-82F8-C23EB5783619}</Project>
-      <Name>Dhub3Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessWorkFlow\" />
