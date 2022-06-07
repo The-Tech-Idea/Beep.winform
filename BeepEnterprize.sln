@@ -118,8 +118,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Graphs", "Graphs", "{4FA37B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScottPlots", "Plugin\ScottPlot\ScottPlots.csproj", "{C17327F3-7780-4A72-AC26-7EC7735D78CC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dhub3", "Dhub3", "{4A6AB440-51BF-4FAC-BAB1-6A48BD738719}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BPM", "BPM", "{EAEAEA63-A70B-464D-A139-61FAA7B61A7F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.BusinessProcess", "..\Beep.BusinessProcess\Beep.BusinessProcess.csproj", "{145F545E-BE24-4B20-B695-AA058113E974}"
