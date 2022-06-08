@@ -2552,6 +2552,9 @@
     <Content Include="ProjectClasses\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ProjectClasses\CommunityToolkit.Mvvm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ProjectClasses\DataSources\AmazonCloudDatasource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2649,6 +2652,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\DataSources\YamlDataSource.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\dhubLogic\DhubLogicStandard.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\DxDashboard\DxDashboard.dll">
