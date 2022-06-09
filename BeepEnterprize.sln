@@ -126,23 +126,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Winform.ScreenDesigner
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Winform.ScreenControls", "..\Beep.Winfom.AppBuilders\WinformScreenControls\Beep.Winform.ScreenControls.csproj", "{A2A31854-3FB5-4979-A39E-13EA954B253E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevExpressReportsDesigner", "..\DevExpress\DevExpressDrawingEngineReports\DevExpressReportsDesigner.csproj", "{4DB4E8AC-F35E-4FBA-908B-7B996410F1B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevExpressReportsDesigner", "..\DevExpress\DevExpressWindowsFormsApp\DevExpressDrawingEngineReports\DevExpressReportsDesigner.csproj", "{4DB4E8AC-F35E-4FBA-908B-7B996410F1B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevExpressReportGenerator", "..\DevExpress\DevExpressReportGenerator\DevExpressReportGenerator.csproj", "{BF03AB54-DA75-4332-93C4-97ECEDE759CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevExpressReportGenerator", "..\DevExpress\DevExpressWindowsFormsApp\DevExpressReportGenerator\DevExpressReportGenerator.csproj", "{BF03AB54-DA75-4332-93C4-97ECEDE759CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DxBeepCommn", "..\DevExpress\DxBeepCommn\DxBeepCommn.csproj", "{0DE2E675-0340-4804-96D0-725EC7CB7737}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DxBeepCommn", "..\DevExpress\DevExpressWindowsFormsApp\DxBeepCommn\DxBeepCommn.csproj", "{0DE2E675-0340-4804-96D0-725EC7CB7737}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DxDashboard", "..\DevExpress\DxDashboard\DxDashboard.csproj", "{685C77AB-5242-43F3-97DA-6334E6DA78FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DxDashboard", "..\DevExpress\DevExpressWindowsFormsApp\DxDashboard\DxDashboard.csproj", "{685C77AB-5242-43F3-97DA-6334E6DA78FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXReportBuilder", "..\DevExpress\DXReportBuilder\DXReportBuilder.csproj", "{0B437803-244C-4B3E-9BC6-D2F33AD3D685}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXReportBuilder", "..\DevExpress\DevExpressWindowsFormsApp\DXReportBuilder\DXReportBuilder.csproj", "{0B437803-244C-4B3E-9BC6-D2F33AD3D685}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DxSimpleReporting", "..\DevExpress\DxSimpleReporting\DxSimpleReporting.csproj", "{6E979E3F-AA8B-4D54-A4C2-F060CA6E649A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DxSimpleReporting", "..\DevExpress\DevExpressWindowsFormsApp\DxSimpleReporting\DxSimpleReporting.csproj", "{6E979E3F-AA8B-4D54-A4C2-F060CA6E649A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Winform.Controls.DevExpress", "..\DevExpress\Beep.Winform.Controls.DevExpress\Beep.Winform.Controls.DevExpress.csproj", "{88D0F06C-9911-4F1B-9C8B-9CFCE138272C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Winform.Controls.DevExpress", "..\DevExpress\DevExpressWindowsFormsApp\Beep.Winform.Controls.DevExpress\Beep.Winform.Controls.DevExpress.csproj", "{88D0F06C-9911-4F1B-9C8B-9CFCE138272C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepEnterPrize.DevExpress", "..\DevExpress\BeepEnterPrize.DevExpress\BeepEnterPrize.DevExpress.csproj", "{5B3B0F5A-9327-4B42-BEFC-628C0FFD87CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepEnterPrize.DevExpress", "..\DevExpress\DevExpressWindowsFormsApp\BeepEnterPrize.DevExpress\BeepEnterPrize.DevExpress.csproj", "{5B3B0F5A-9327-4B42-BEFC-628C0FFD87CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepEnterprize.Winform.DevExpress.Vis", "..\DevExpress\BeepEnterprize.Winform.DevExpress\BeepEnterprize.Winform.DevExpress.Vis.csproj", "{05C5B0EB-0230-4996-AB53-84FFB3F9EBF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepEnterprize.Winform.DevExpress.Vis", "..\DevExpress\DevExpressWindowsFormsApp\BeepEnterprize.Winform.DevExpress\BeepEnterprize.Winform.DevExpress.Vis.csproj", "{05C5B0EB-0230-4996-AB53-84FFB3F9EBF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
