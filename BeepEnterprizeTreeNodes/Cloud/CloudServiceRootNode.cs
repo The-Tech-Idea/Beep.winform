@@ -12,6 +12,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
+    [AddinAttribute(Caption = "Cloud", Name = "cloud.Beep", misc = "Beep", iconimage = "cloud.ico", menu = "Beep")]
     public class CloudServiceRootNode  : IBranch , IOrder,IBranchRootCategory
     {
         public CloudServiceRootNode()

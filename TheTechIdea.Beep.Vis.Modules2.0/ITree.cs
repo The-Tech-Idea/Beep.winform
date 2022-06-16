@@ -15,6 +15,7 @@ namespace BeepEnterprize.Vis.Module
     {
             string CategoryIcon { get; set; }
             string SelectIcon { get; set; }
+            string  TreeType { get; set; }
             IBranch CurrentBranch { get; set; }
             IDMEEditor DMEEditor { get; set; }
             PassedArgs args { get; set; }

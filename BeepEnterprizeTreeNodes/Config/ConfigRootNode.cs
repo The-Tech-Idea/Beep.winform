@@ -16,7 +16,8 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
-     public class ConfigRootNode  : IBranch ,IOrder
+    [AddinAttribute(Caption = "Configuration", Name = "Configuration.Beep", misc = "Beep", iconimage = "settings.ico", menu = "Beep")]
+    public class ConfigRootNode  : IBranch ,IOrder
     {
         public ConfigRootNode()
         {

@@ -15,6 +15,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
+    [AddinAttribute(Caption = "DataView", Name = "DataView.Beep", misc = "Beep", iconimage = "dataview.ico", menu = "Beep")]
     public class DataViewRootNode  : IBranch ,IOrder,IBranchRootCategory
     {
         public DataViewRootNode()

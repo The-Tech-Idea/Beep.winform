@@ -14,6 +14,7 @@ using TheTechIdea;
 
 namespace  BeepEnterprize.Vis.Module.Mapping
 {
+    [AddinAttribute(Caption = "Mapping", Name = "Mapping.Beep", misc = "Beep", iconimage = "mapping.ico", menu = "Beep")]
     public class MappingRootNode  : IBranch ,IOrder,IBranchRootCategory
     {
         public MappingRootNode()
