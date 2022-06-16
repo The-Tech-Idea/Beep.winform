@@ -57,7 +57,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
             {
                 TreeOP = "UnSelect";
                 StartselectBranchID = 0;
-                int BranchID = Convert.ToInt32(TreeV.SelectedNode.Tag);
+                IBranch br = (IBranch)TreeV.SelectedNode.Tag;
+                int BranchID =br.ID;
                 TreeV.BeginUpdate();
                 if (TreeV.SelectedNode.BackColor == SelectBackColor)
                 {
@@ -96,20 +97,21 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
                         if (SelectedBranchID > StartselectBranchID)
                         {
-                            startnode = Treecontrol.GetTreeNodeByTag(StartselectBranchID.ToString(), TreeV.Nodes);
-                            endnode = Treecontrol.GetTreeNodeByTag(SelectedBranchID.ToString(), TreeV.Nodes);
+                            startnode = Treecontrol.GetTreeNodeByID(StartselectBranchID, TreeV.Nodes);
+                            endnode = Treecontrol.GetTreeNodeByID(SelectedBranchID, TreeV.Nodes);
                         }
                         else
                         {
-                            startnode = Treecontrol.GetTreeNodeByTag(SelectedBranchID.ToString(), TreeV.Nodes);
-                            endnode = Treecontrol.GetTreeNodeByTag(StartselectBranchID.ToString(), TreeV.Nodes);
+                            startnode = Treecontrol.GetTreeNodeByID(SelectedBranchID, TreeV.Nodes);
+                            endnode = Treecontrol.GetTreeNodeByID(StartselectBranchID, TreeV.Nodes);
                         }
                         TreeNode n = startnode;
                         while (!found)
                         {
                             TreeV.BeginUpdate();
                             n.BackColor = SelectBackColor;
-                            Treecontrol.SelectedBranchs.Add(Convert.ToInt32(n.Tag));
+                            IBranch nbr = (IBranch)n.Tag;
+                            Treecontrol.SelectedBranchs.Add(nbr.ID);
                             if (n == endnode)
                             {
                                 found = true;
@@ -144,21 +146,21 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
                         if (SelectedBranchID > StartselectBranchID)
                         {
-                            startnode = Treecontrol.GetTreeNodeByTag(StartselectBranchID.ToString(), TreeV.Nodes);
-                            endnode = Treecontrol.GetTreeNodeByTag(SelectedBranchID.ToString(), TreeV.Nodes);
+                            startnode = Treecontrol.GetTreeNodeByID(StartselectBranchID, TreeV.Nodes);
+                            endnode = Treecontrol.GetTreeNodeByID(SelectedBranchID, TreeV.Nodes);
                         }
                         else
                         {
-                            startnode = Treecontrol.GetTreeNodeByTag(SelectedBranchID.ToString(), TreeV.Nodes);
-                            endnode = Treecontrol.GetTreeNodeByTag(StartselectBranchID.ToString(), TreeV.Nodes);
+                            startnode = Treecontrol.GetTreeNodeByID(SelectedBranchID, TreeV.Nodes);
+                            endnode = Treecontrol.GetTreeNodeByID(StartselectBranchID, TreeV.Nodes);
                         }
                         TreeNode n = startnode;
                         while (!found)
                         {
                             TreeV.BeginUpdate();
                             n.BackColor = Color.White;
-
-                            Tree.SelectedBranchs.Remove(Convert.ToInt32(n.Tag));
+                            IBranch nbr = (IBranch)n.Tag;
+                            Tree.SelectedBranchs.Remove(nbr.ID);
                             if (n == endnode)
                             {
                                 found = true;
@@ -190,7 +192,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
             LastSelectedNode = e.Node;
             if (TreeOP != "StartSelect")
             {
-                StartselectBranchID = Convert.ToInt32(LastSelectedNode.Tag);
+                IBranch nbr = (IBranch)e.Node.Tag;
+                StartselectBranchID = nbr.ID;
             }
             //        break;
             //    case TreeViewAction.ByMouse:
@@ -207,9 +210,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public void NodeEvent(TreeNodeMouseClickEventArgs e)
         {
             TreeV.SelectedNode = e.Node;
-            int BranchID = Convert.ToInt32(e.Node.Tag);
-            string BranchText = e.Node.Text;
-            IBranch br = Tree.Branches.Where(x => x.BranchID.ToString() == e.Node.Tag.ToString()).FirstOrDefault();
+            IBranch br = (IBranch)e.Node.Tag;
+            int BranchID = br.ID;
+            string BranchText =br.BranchText;
+           
             SelectedBranchID = BranchID;
             if (br != null)
             {
@@ -374,7 +378,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
             
             try
             {
-                IBranch br = Treecontrol.treeBranchHandler.GetBranch(Convert.ToInt32(e.Node.Tag));
+                IBranch br = (IBranch)e.Node.Tag;
+               
                 CheckNodes(e.Node, e.Node.Checked);
                 if (br.BranchType == EnumPointType.Entity)
                 {
@@ -425,12 +430,13 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
                     // int vitem = Convert.ToInt32(item.Tag.ToString().Substring(item.Tag.ToString().IndexOf('-') + 1));
                     item.Checked = checkedState;
+                    IBranch br = (IBranch)item.Tag;
                     if (item.Checked)
                     {
-                        Treecontrol.SelectedBranchs.Add(Convert.ToInt32(item.Tag));
+                        Treecontrol.SelectedBranchs.Add(br.ID);
                     }
                     else
-                        Treecontrol.SelectedBranchs.Remove(Convert.ToInt32(item.Tag));
+                        Treecontrol.SelectedBranchs.Remove(br.ID);
                 }
                 SetChildrenChecked(item, item.Checked);
             }
@@ -449,7 +455,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
         private void Nodeclickhandler(TreeNodeMouseClickEventArgs e)
         {
             SelectedNode = e.Node;
-            SelectedBranchID = Convert.ToInt32(e.Node.Tag);
+            IBranch br = (IBranch)e.Node.Tag;
+            SelectedBranchID =br.ID;
             NodeEvent(e);
         }
         #endregion

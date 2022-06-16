@@ -32,7 +32,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
         }
         public System.Windows.Forms.TreeView TreeV { get; set; }
+        public System.Windows.Forms.TreeView SecondaryTreeV { get; set; }
         private TreeControl Treecontrol { get; set; }
+        private TreeControl SecondaryTreecontrol { get; set; }
         public string ParentName { get ; set ; }
         public string ObjectName { get ; set ; }
         public string ObjectType { get ; set ; }

@@ -59,9 +59,10 @@ namespace BeepEnterprize.Winform.Vis.MainForms
           
             ToolbarControl toolbar = (ToolbarControl)visManager.ToolStrip;
             MenuControl menu = (MenuControl)visManager.MenuStrip;
-            TreeControl tree = (TreeControl)visManager.Tree;
+            TreeControl Datatree = (TreeControl)visManager.Tree;
+            TreeControl Apptree = (TreeControl)visManager.SecondaryTree;
 
-          
+
             if (Passedarg.Objects.Where(i => i.Name == "TreeControl").Any())
             {
                 Passedarg.Objects.Remove(Passedarg.Objects.Where(i => i.Name == "TreeControl").FirstOrDefault());
@@ -78,18 +79,33 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             {
                 Passedarg.Objects.Remove(Passedarg.Objects.Where(i => i.Name == "ToolbarControl").FirstOrDefault());
             }
-            Passedarg.Objects.Add(new ObjectItem() { Name = "TreeControl", obj = tree });
+            Passedarg.Objects.Add(new ObjectItem() { Name = "TreeControl", obj = Datatree });
+            Passedarg.Objects.Add(new ObjectItem() { Name = "AppTreeControl", obj = Apptree });
             Passedarg.Objects.Add(new ObjectItem() { Name = "ControlManager", obj = visManager._controlManager });
             Passedarg.Objects.Add(new ObjectItem() { Name = "MenuControl", obj = menu });
             Passedarg.Objects.Add(new ObjectItem() { Name = "ToolbarControl", obj = toolbar });
+
             DMEEditor.Passedarguments = Passedarg;
             visManager.Container = ContainerPanel;
-            tree.TreeV = treeView1;
-            toolbar.TreeV = tree.TreeV;
-            menu.TreeV = tree.TreeV;
+
+            Datatree.TreeType = "Beep";
+            Datatree.TreeV = DatatreeView;
+
+            Apptree.TreeType = "app";
+            Apptree.TreeV = PlugintreeView;
+
+            toolbar.TreeV = Datatree.TreeV;
+            menu.TreeV = Datatree.TreeV;
+
+            toolbar.TreeV = Apptree.TreeV;
+            menu.TreeV = Apptree.TreeV;
+
             menu.vismanager = visManager;
             toolbar.vismanager = visManager;
-            tree.CreateRootTree();
+
+            Datatree.CreateRootTree();
+            Apptree.CreateRootTree();
+
             menu.menustrip = MainMenuStrip;
             menu.CreateGlobalMenu();
             toolbar.toolbarstrip = MaintoolStrip1;

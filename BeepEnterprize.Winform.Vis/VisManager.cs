@@ -30,6 +30,7 @@ namespace BeepEnterprize.Winform.Vis
         public IDMEEditor DMEEditor { get; set; }
         public IDM_Addin ToolStrip { get; set; }
         public IDM_Addin Tree { get; set; }
+        public IDM_Addin SecondaryTree { get; set; }
         public IDM_Addin MenuStrip { get; set; }
         public IVisHelper visHelper { get; set; }
         public IControlManager Controlmanager { get; set; }
@@ -40,6 +41,7 @@ namespace BeepEnterprize.Winform.Vis
             DMEEditor = pdmeeditor;
             visHelper = new VisHelper(DMEEditor,this);
             Tree = new TreeControl(DMEEditor, this);
+            SecondaryTree = new TreeControl(DMEEditor, this);
             ToolStrip = new ToolbarControl(DMEEditor, (TreeControl)Tree);
             MenuStrip = new MenuControl(DMEEditor, (TreeControl)Tree);
             Controlmanager = new ControlManager(DMEEditor, this);

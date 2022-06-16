@@ -16,6 +16,7 @@ namespace BeepEnterprize.Vis.Module
         IControlManager Controlmanager { get; set; }
         IDM_Addin ToolStrip { get; set; }
         IDM_Addin Tree { get; set; }
+        IDM_Addin SecondaryTree { get; set; }
         IDM_Addin MenuStrip { get; set; }
 
         IErrorsInfo loadpalette();

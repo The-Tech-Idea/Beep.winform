@@ -4,13 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.0.7</Version>
+    <Version>1.0.0.8</Version>
     <Authors>The Tech Idea</Authors>
     <Description>Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
     <PackageProjectUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform</PackageProjectUrl>
     <RepositoryUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform</RepositoryUrl>
     <PackageIcon>SimpleODM.png</PackageIcon>
     <Copyright>2022</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 	<Target Name="CopyPackage" AfterTargets="Pack">
 		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="C:\Users\f_ald\source\repos\Nuget.Local" />

@@ -42,14 +42,9 @@ namespace  BeepEnterprize.Vis.Module
             //}
             if (ds != null) MiscID = ds.ViewID ; 
             DataSourceName = ConnectionName;
-            if (pID != 0)
-
-            {
-               
-                    ID = pID;
-                   
-                BranchID = pID;
-            }
+            ID = pID;
+            BranchID = pID;
+       
         }
         #region "Properties"
         public int ID { get; set; }

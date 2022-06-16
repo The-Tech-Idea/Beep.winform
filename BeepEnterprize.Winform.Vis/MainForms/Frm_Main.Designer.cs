@@ -34,16 +34,24 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MaintoolStrip1 = new System.Windows.Forms.ToolStrip();
             this.MainmenuStrip = new System.Windows.Forms.MenuStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.ContainerPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LogPanel = new System.Windows.Forms.TextBox();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.PlugintreeView = new System.Windows.Forms.TreeView();
+            this.DatatreeView = new System.Windows.Forms.TreeView();
             this.Toppanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
+            this.splitContainerControl1.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).BeginInit();
+            this.splitContainerControl1.Panel2.SuspendLayout();
+            this.splitContainerControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Toppanel
@@ -83,7 +91,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainerControl1);
             // 
             // splitContainer1.Panel2
             // 
@@ -92,14 +100,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.splitContainer1.Size = new System.Drawing.Size(1184, 691);
             this.splitContainer1.SplitterDistance = 258;
             this.splitContainer1.TabIndex = 1;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(258, 691);
-            this.treeView1.TabIndex = 0;
             // 
             // ContainerPanel
             // 
@@ -134,6 +134,42 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.LogPanel.Size = new System.Drawing.Size(922, 74);
             this.LogPanel.TabIndex = 0;
             // 
+            // splitContainerControl1
+            // 
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.Horizontal = false;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            // 
+            // splitContainerControl1.Panel1
+            // 
+            this.splitContainerControl1.Panel1.Controls.Add(this.PlugintreeView);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            // 
+            // splitContainerControl1.Panel2
+            // 
+            this.splitContainerControl1.Panel2.Controls.Add(this.DatatreeView);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(258, 691);
+            this.splitContainerControl1.SplitterPosition = 396;
+            this.splitContainerControl1.TabIndex = 2;
+            // 
+            // PlugintreeView
+            // 
+            this.PlugintreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlugintreeView.Location = new System.Drawing.Point(0, 0);
+            this.PlugintreeView.Name = "PlugintreeView";
+            this.PlugintreeView.Size = new System.Drawing.Size(258, 396);
+            this.PlugintreeView.TabIndex = 2;
+            // 
+            // DatatreeView
+            // 
+            this.DatatreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DatatreeView.Location = new System.Drawing.Point(0, 0);
+            this.DatatreeView.Name = "DatatreeView";
+            this.DatatreeView.Size = new System.Drawing.Size(258, 285);
+            this.DatatreeView.TabIndex = 1;
+            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,6 +192,12 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
+            this.splitContainerControl1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).EndInit();
+            this.splitContainerControl1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -169,7 +211,9 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         private System.Windows.Forms.TextBox LogPanel;
         
         private System.Windows.Forms.ToolStrip MaintoolStrip1;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Panel ContainerPanel;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private System.Windows.Forms.TreeView PlugintreeView;
+        private System.Windows.Forms.TreeView DatatreeView;
     }
 }
