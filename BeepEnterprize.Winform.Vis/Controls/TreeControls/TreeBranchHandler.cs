@@ -25,6 +25,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             CreateDelagates();
 
         }
+      
         public System.Windows.Forms.TreeView TreeV { get; set; }
         private TreeControl Treecontrol { get; set; }
         public IDMEEditor DMEEditor { get; set; }
@@ -852,6 +853,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             Nodeclickhandler(e);
 
         }
+
         private void TreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             Treecontrol.TreeEvent = "MouseClick";
@@ -865,6 +867,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
             NodeEvent(e);
         }
         #endregion
-
+      
     }
 }

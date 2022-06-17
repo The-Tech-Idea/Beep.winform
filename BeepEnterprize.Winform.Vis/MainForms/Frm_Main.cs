@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using BeepEnterprize.Winform.Vis.Controls;
@@ -44,7 +45,17 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         {
            
         }
-
+        ToolbarControl toolbar;
+        MenuControl menu;
+        TreeControl Datatree;
+        TreeControl Apptree;
+        bool IsTreeSideOpen = true;
+        int TreeSidePanelWidth;
+        private System.Windows.Forms.Button MinMaxButton;
+        Image CollapseLeft;
+        Image Collapseright;
+        bool IsAddingControl = false;
+        
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
             DMEEditor = pbl;
@@ -57,10 +68,10 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             }
             Logger.Onevent += Logger_Onevent;
           
-            ToolbarControl toolbar = (ToolbarControl)visManager.ToolStrip;
-            MenuControl menu = (MenuControl)visManager.MenuStrip;
-            TreeControl Datatree = (TreeControl)visManager.Tree;
-            TreeControl Apptree = (TreeControl)visManager.SecondaryTree;
+             toolbar = (ToolbarControl)visManager.ToolStrip;
+             menu = (MenuControl)visManager.MenuStrip;
+             Datatree = (TreeControl)visManager.Tree;
+             Apptree = (TreeControl)visManager.SecondaryTree;
 
 
             if (Passedarg.Objects.Where(i => i.Name == "TreeControl").Any())
@@ -113,7 +124,61 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.Shown += Frm_Main_Shown;
             startLoggin = true;
            
+            this.Filterbutton.Click += Filterbutton_Click;
+          
+            TreeSidePanelWidth = MainSplitContainer1.Panel1.Width;
+            MainSplitContainer1.Panel1MinSize = 40;
+            
+        
 
+
+            CollapseLeft = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseLeft");
+
+            Collapseright = (Bitmap)Properties.Resources.ResourceManager.GetObject("Collapseright");
+            CreateMinMAxButtonforMainSplitter();
+        }
+        private void CreateMinMAxButtonforMainSplitter()
+        {
+            MinMaxButton = new Button();
+            this.MinMaxButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.MinMaxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinMaxButton.FlatAppearance.BorderSize = 0;
+            this.MinMaxButton.Location = new System.Drawing.Point(0,0);
+            this.MinMaxButton.Name = "MinMaxButton";
+            this.MinMaxButton.Size = new System.Drawing.Size(15, 15);
+            this.MinMaxButton.TabIndex = 13;
+            this.MinMaxButton.UseVisualStyleBackColor = true;
+            this.MinMaxButton.Click += MinMaxButton_Click;
+            MinMaxButton.Image = CollapseLeft;
+            MainSplitContainer1.Panel2.Controls.Add(MinMaxButton);
+           
+        }
+      
+
+        private void MinMaxButton_Click(object sender, EventArgs e)
+        {
+            if (IsTreeSideOpen)
+            {
+
+                //TreeSidePanelWidth = MainSplitContainer1.Panel1.Width;
+                //MainSplitContainer1.SplitterDistance = 25;
+                MainSplitContainer1.Panel1Collapsed = true;
+                MinMaxButton.Image = Collapseright;
+                IsTreeSideOpen =false;
+            }
+            else
+            {
+                MainSplitContainer1.Panel1Collapsed = false;
+                MinMaxButton.Image = CollapseLeft;
+                //MainSplitContainer1.SplitterDistance = TreeSidePanelWidth;
+                IsTreeSideOpen = true;
+            }
+
+        }
+
+        private void Filterbutton_Click(object sender, EventArgs e)
+        {
+            Apptree.Filterstring=TreeFilterTextBox.Text;
         }
 
         private void Frm_Main_Shown(object sender, EventArgs e)

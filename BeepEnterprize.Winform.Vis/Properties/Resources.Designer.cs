@@ -83,6 +83,26 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CollapseLeft {
+            get {
+                object obj = ResourceManager.GetObject("CollapseLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Collapseright {
+            get {
+                object obj = ResourceManager.GetObject("Collapseright", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap expand_26px {
             get {
                 object obj = ResourceManager.GetObject("expand_26px", resourceCulture);

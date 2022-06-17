@@ -18,7 +18,8 @@ using TheTechIdea.Util;
 
 namespace AI
 {
-    [AddinAttribute(Caption = "R", misc = "AI", FileType = "AI", iconimage = "rlogo.ico", menu = "AI")]
+    
+    [AddinAttribute(Caption = "R", FileType = "AI", misc = "AI", iconimage = "rlogo.ico", menu = "AI")]
     public class RNode : IBranch
     {
       

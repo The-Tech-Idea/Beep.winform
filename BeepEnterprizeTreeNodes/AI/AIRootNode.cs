@@ -18,7 +18,7 @@ using TheTechIdea.Util;
 
 namespace BeepEnterprize.Vis.Module
 {
-    [AddinAttribute(Caption = "AI", misc = "AI.Brep", FileType = "Beep", iconimage = "ai.ico", menu = "AI")]
+    [AddinAttribute(Caption = "AI", misc = "Beep", FileType = "Beep", iconimage = "ai.ico", menu = "AI")]
     public class AIBuilder : IBranch, IOrder, IBranchRootCategory
     {
         public AIBuilder()

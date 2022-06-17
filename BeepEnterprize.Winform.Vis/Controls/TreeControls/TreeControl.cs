@@ -163,13 +163,19 @@ namespace BeepEnterprize.Winform.Vis.Controls
                             {
                                 int id = SeqID;
                                 br.Name = cls.PackageName;
-                                if (cls.classProperties.misc != null)
+                                if (TreeType != null)
                                 {
-                                    if (cls.classProperties.misc.Equals(TreeType, StringComparison.InvariantCultureIgnoreCase))
+                                    if (cls.classProperties.misc != null)
                                     {
-                                        CreateNode(id, br, TreeV);
+                                        if (cls.classProperties.misc.Equals(TreeType, StringComparison.InvariantCultureIgnoreCase))
+                                        {
+                                            CreateNode(id, br, TreeV);
+                                        }
                                     }
-                                }       
+                                }
+                                else CreateNode(id, br, TreeV);
+
+
                             }
                         }
                         catch (Exception ex)
@@ -408,7 +414,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
 
             Vismanager.Images = new ImageList();
-            Vismanager.Images.ImageSize = new Size(24, 24);
+           // Vismanager.Images.ImageSize = new Size(24, 24);
             Vismanager.Images.ColorDepth = ColorDepth.Depth32Bit;
             foreach (string filename_w_path in Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories))
             {
@@ -430,7 +436,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             TreeV.CheckBoxes = false;
             TreeV.ImageList = Vismanager.Images;
-            TreeV.ItemHeight = 24;
+           // TreeV.ItemHeight = 24;
             TreeV.SelectedImageKey = SelectIcon;
             //TreeV.Dock = DockStyle.Fill;
             //TreeV.SendToBack();
@@ -511,11 +517,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
         #region "Method Calling"
         public void Nodemenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            ContextMenuStrip n = (ContextMenuStrip)sender;
+            ContextMenuStrip menu = (ContextMenuStrip)sender;
             ToolStripItem item = e.ClickedItem;
-            //IBranch br  = (IBranch)n.Tag;
-            n.Hide();
-            IBranch br = treeBranchHandler.GetBranch(SelectedBranchID);
+            TreeNode n = TreeV.SelectedNode;
+            menu.Hide();
+            IBranch br = (IBranch)n.Tag;
             AssemblyClassDefinition cls = (AssemblyClassDefinition)item.Tag;
            
             if (cls != null)
@@ -533,27 +539,77 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public void Nodemenu_MouseClick(TreeNodeMouseClickEventArgs e)
         {
             // ContextMenuStrip n = (ContextMenuStrip)e.;
-            IBranch br =treeBranchHandler.GetBranch(SelectedBranchID);
-            string clicks = "";
-            switch (e.Clicks)
+            TreeNode n = TreeV.SelectedNode;
+            IBranch br =(IBranch)n.Tag;
+            if(br != null)
             {
-                case 1:
-                    clicks = "SingleClick";
-                    break;
-                case 2:
-                    clicks = "DoubleClick";
-                    break;
+                string clicks = "";
+                switch (e.Clicks)
+                {
+                    case 1:
+                        clicks = "SingleClick";
+                        break;
+                    case 2:
+                        clicks = "DoubleClick";
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
+                AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == br.Name && x.Methods.Where(y => y.DoubleClick == true || y.Click == true).Any()).FirstOrDefault();
+                if (cls != null)
+                {
+                    RunMethod(br, clicks);
+                }
             }
-            AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == br.Name && x.Methods.Where(y => y.DoubleClick == true || y.Click == true).Any()).FirstOrDefault();
-            if (cls != null)
-            {
-                RunMethod(br, clicks);
-            }
+            
         }
 
+        #endregion
+        #region "Filter Nodes"
+        public string Filterstring { set { FilterString_TextChanged(value); } }
+        private TreeView TreeCache = new TreeView();
+        private bool IsFiltering=false;
+        public void FilterString_TextChanged(string value)
+        {
+            if (IsFiltering==false)
+            {
+                TreeCache.Nodes.Clear();
+                foreach (TreeNode _node in TreeV.Nodes)
+                {
+                    TreeCache.Nodes.Add((TreeNode)_node.Clone());
+                }
+                IsFiltering = true;
+            }
+          
+            //blocks repainting tree till all objects loaded
+            
+            this.TreeV.BeginUpdate();
+            this.TreeV.Nodes.Clear();
+            if (value != string.Empty)
+            {
+                foreach (TreeNode _parentNode in TreeCache.Nodes)
+                {
+                    foreach (TreeNode _childNode in _parentNode.Nodes)
+                    {
+                        if (_childNode.Text.StartsWith(value))
+                        {
+                            this.TreeV.Nodes.Add((TreeNode)_childNode.Clone());
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (TreeNode _node in TreeCache.Nodes)
+                {
+                    TreeV.Nodes.Add((TreeNode)_node.Clone());
+                }
+                IsFiltering = false;
+            }
+            //enables redrawing tree after all objects have been added
+            this.TreeV.EndUpdate();
+        }
         #endregion
     }
 }

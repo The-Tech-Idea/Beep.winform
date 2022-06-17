@@ -29,9 +29,9 @@ namespace BeepEnterprize.Vis.Module
             IErrorsInfo RunMethod(object branch, string MethodName);
             IErrorsInfo CreateRootTree();
             IErrorsInfo CreateFunctionExtensions(MethodsClass item);
-           
-           
 
-        
+        string Filterstring { set; }
+
+
     }
 }

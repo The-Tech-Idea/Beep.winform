@@ -827,13 +827,13 @@
     <Content Include="GFX\zip.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="LoadingExtensions\AssemblyLoaderExtension\AssemblyLoaderExtension.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AIModule.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AppModule.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LoadingExtensions\AssemblyLoaderExtension\AssemblyLoaderExtension.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll">
@@ -2657,6 +2657,56 @@
     <Content Include="ProjectClasses\dhubLogic\DhubLogicStandard.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Charts.Designer.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Charts.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.CodeParser.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Dashboard.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Dashboard.v16.2.Win.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Data.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.DataAccess.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.DataAccess.v16.2.UI.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Diagram.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Images.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Map.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Office.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Pdf.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.PivotGrid.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Printing.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.RichEdit.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Snap.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Snap.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Snap.v16.2.Extensions.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Sparkline.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.TreeMap.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Utils.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Utils.v16.2.UI.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Xpo.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraBars.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraCharts.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraCharts.v16.2.Extensions.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraCharts.v16.2.UI.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraCharts.v16.2.Wizard.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraDiagram.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraEditors.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraGauges.v16.2.Core.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraGauges.v16.2.Presets.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraGauges.v16.2.Win - Copy.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraGauges.v16.2.Win.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraGrid.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraLayout.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraMap.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraNavBar.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraPivotGrid.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraPrinting.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraReports.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraReports.v16.2.Extensions.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraRichEdit.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraRichEdit.v16.2.Extensions.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraTreeList.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraTreeMap.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraVerticalGrid.v16.2.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\System.Windows.Interactivity.dll" />
+    <Content Include="ProjectClasses\DxBeepCommn\DxBeepCommn.dll" />
     <Content Include="ProjectClasses\DxDashboard\DxDashboard.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2742,9 +2792,6 @@
     <Content Include="config\ConnectionConfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="config\DataConnections.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="config\DataTypeMapping.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2758,15 +2805,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="config\Function2Function.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="config\Mapping.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="config\MappingList.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="config\Maps.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="config\ObjectTypes.json">
@@ -2814,15 +2852,10 @@
     <Content Include="config\default.nds">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="config\reportsDefinition.json" />
-    <None Include="config\Reportslist.json" />
     <Content Include="DataFiles\ppdm39_sqlite.s3db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DataFiles\SampleDB_Sqlite.s3db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AppModule.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll.config">
@@ -3252,6 +3285,7 @@
     <Content Include="ProjectData\Dhub3Lite.s3db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="ProjectClasses\DataConnections.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

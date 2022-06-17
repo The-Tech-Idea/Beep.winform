@@ -247,7 +247,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             TreeNode n = (TreeNode)e.Item;
             if (e.Button == MouseButtons.Left)
             {
-                IBranch branch = treeControl.treeBranchHandler.GetBranch(Convert.ToInt32(n.Tag));
+                IBranch branch = (IBranch)n.Tag;
                 x.SetData(branch);
                 switch (branch.BranchType)
                 {
