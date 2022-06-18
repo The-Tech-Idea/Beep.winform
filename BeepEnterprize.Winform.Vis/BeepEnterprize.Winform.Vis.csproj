@@ -608,6 +608,9 @@
   <ItemGroup>
     <None Include="Resources\collapseright.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ListBoxSearch.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

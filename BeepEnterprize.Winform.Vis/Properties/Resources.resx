@@ -142,4 +142,7 @@
   <data name="Collapseright" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\collapseright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ListBoxSearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ListBoxSearch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

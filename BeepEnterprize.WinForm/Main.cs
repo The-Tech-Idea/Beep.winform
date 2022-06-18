@@ -56,6 +56,7 @@ namespace BeepEnterprize.Winform
             Builder.RegisterType<ClassCreator>().As<IClassCreator>().SingleInstance();
             Builder.RegisterType<ETL>().As<IETL>().SingleInstance();
             return Builder.Build();
+           
         }
         public MainApp()
         {

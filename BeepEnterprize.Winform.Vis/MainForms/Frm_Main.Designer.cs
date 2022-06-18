@@ -34,26 +34,26 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MaintoolStrip1 = new System.Windows.Forms.ToolStrip();
             this.MainmenuStrip = new System.Windows.Forms.MenuStrip();
             this.MainSplitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ContainerPanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.LogPanel = new System.Windows.Forms.TextBox();
             this.SidePanelContainer = new System.Windows.Forms.SplitContainer();
+            this.PlugintreeView = new System.Windows.Forms.TreeView();
             this.FilterTextboxLine2 = new System.Windows.Forms.Panel();
             this.TextFilterLine = new System.Windows.Forms.Panel();
             this.Filterbutton = new System.Windows.Forms.Button();
             this.TreeFilterTextBox = new System.Windows.Forms.TextBox();
-            this.PlugintreeView = new System.Windows.Forms.TreeView();
             this.DatatreeView = new System.Windows.Forms.TreeView();
+            this.ContainerPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LogPanel = new System.Windows.Forms.TextBox();
             this.Toppanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer1)).BeginInit();
             this.MainSplitContainer1.Panel1.SuspendLayout();
             this.MainSplitContainer1.Panel2.SuspendLayout();
             this.MainSplitContainer1.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SidePanelContainer)).BeginInit();
             this.SidePanelContainer.Panel1.SuspendLayout();
             this.SidePanelContainer.Panel2.SuspendLayout();
             this.SidePanelContainer.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Toppanel
@@ -104,6 +104,85 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MainSplitContainer1.SplitterWidth = 2;
             this.MainSplitContainer1.TabIndex = 1;
             // 
+            // SidePanelContainer
+            // 
+            this.SidePanelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SidePanelContainer.Location = new System.Drawing.Point(0, 0);
+            this.SidePanelContainer.Name = "SidePanelContainer";
+            this.SidePanelContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // SidePanelContainer.Panel1
+            // 
+            this.SidePanelContainer.Panel1.Controls.Add(this.PlugintreeView);
+            this.SidePanelContainer.Panel1.Controls.Add(this.FilterTextboxLine2);
+            this.SidePanelContainer.Panel1.Controls.Add(this.TextFilterLine);
+            this.SidePanelContainer.Panel1.Controls.Add(this.Filterbutton);
+            this.SidePanelContainer.Panel1.Controls.Add(this.TreeFilterTextBox);
+            this.SidePanelContainer.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.SidePanelContainer_Panel1_Paint);
+            // 
+            // SidePanelContainer.Panel2
+            // 
+            this.SidePanelContainer.Panel2.Controls.Add(this.DatatreeView);
+            this.SidePanelContainer.Size = new System.Drawing.Size(243, 691);
+            this.SidePanelContainer.SplitterDistance = 280;
+            this.SidePanelContainer.TabIndex = 0;
+            // 
+            // PlugintreeView
+            // 
+            this.PlugintreeView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PlugintreeView.Location = new System.Drawing.Point(0, 40);
+            this.PlugintreeView.Name = "PlugintreeView";
+            this.PlugintreeView.Size = new System.Drawing.Size(243, 240);
+            this.PlugintreeView.TabIndex = 14;
+            // 
+            // FilterTextboxLine2
+            // 
+            this.FilterTextboxLine2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.FilterTextboxLine2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FilterTextboxLine2.Location = new System.Drawing.Point(1, 7);
+            this.FilterTextboxLine2.Name = "FilterTextboxLine2";
+            this.FilterTextboxLine2.Size = new System.Drawing.Size(240, 2);
+            this.FilterTextboxLine2.TabIndex = 12;
+            // 
+            // TextFilterLine
+            // 
+            this.TextFilterLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextFilterLine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextFilterLine.Location = new System.Drawing.Point(1, 34);
+            this.TextFilterLine.Name = "TextFilterLine";
+            this.TextFilterLine.Size = new System.Drawing.Size(240, 2);
+            this.TextFilterLine.TabIndex = 11;
+            // 
+            // Filterbutton
+            // 
+            this.Filterbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Filterbutton.FlatAppearance.BorderSize = 0;
+            this.Filterbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Filterbutton.Location = new System.Drawing.Point(214, 8);
+            this.Filterbutton.Name = "Filterbutton";
+            this.Filterbutton.Size = new System.Drawing.Size(26, 28);
+            this.Filterbutton.TabIndex = 10;
+            this.Filterbutton.UseVisualStyleBackColor = true;
+            // 
+            // TreeFilterTextBox
+            // 
+            this.TreeFilterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TreeFilterTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.TreeFilterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TreeFilterTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TreeFilterTextBox.Location = new System.Drawing.Point(6, 13);
+            this.TreeFilterTextBox.Name = "TreeFilterTextBox";
+            this.TreeFilterTextBox.Size = new System.Drawing.Size(202, 17);
+            this.TreeFilterTextBox.TabIndex = 9;
+            // 
+            // DatatreeView
+            // 
+            this.DatatreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DatatreeView.Location = new System.Drawing.Point(0, 0);
+            this.DatatreeView.Name = "DatatreeView";
+            this.DatatreeView.Size = new System.Drawing.Size(243, 407);
+            this.DatatreeView.TabIndex = 2;
+            // 
             // ContainerPanel
             // 
             this.ContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -111,9 +190,9 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ContainerPanel.BackColor = System.Drawing.Color.White;
             this.ContainerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ContainerPanel.Location = new System.Drawing.Point(16, 0);
+            this.ContainerPanel.Location = new System.Drawing.Point(16, 40);
             this.ContainerPanel.Name = "ContainerPanel";
-            this.ContainerPanel.Size = new System.Drawing.Size(919, 617);
+            this.ContainerPanel.Size = new System.Drawing.Size(927, 577);
             this.ContainerPanel.TabIndex = 2;
             // 
             // panel1
@@ -140,82 +219,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.LogPanel.Size = new System.Drawing.Size(923, 74);
             this.LogPanel.TabIndex = 0;
             // 
-            // SidePanelContainer
-            // 
-            this.SidePanelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SidePanelContainer.Location = new System.Drawing.Point(0, 0);
-            this.SidePanelContainer.Name = "SidePanelContainer";
-            this.SidePanelContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // SidePanelContainer.Panel1
-            // 
-            this.SidePanelContainer.Panel1.Controls.Add(this.PlugintreeView);
-            this.SidePanelContainer.Panel1.Controls.Add(this.FilterTextboxLine2);
-            this.SidePanelContainer.Panel1.Controls.Add(this.TextFilterLine);
-            this.SidePanelContainer.Panel1.Controls.Add(this.Filterbutton);
-            this.SidePanelContainer.Panel1.Controls.Add(this.TreeFilterTextBox);
-            // 
-            // SidePanelContainer.Panel2
-            // 
-            this.SidePanelContainer.Panel2.Controls.Add(this.DatatreeView);
-            this.SidePanelContainer.Size = new System.Drawing.Size(243, 691);
-            this.SidePanelContainer.SplitterDistance = 280;
-            this.SidePanelContainer.TabIndex = 0;
-            // 
-            // FilterTextboxLine2
-            // 
-            this.FilterTextboxLine2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.FilterTextboxLine2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FilterTextboxLine2.Location = new System.Drawing.Point(14, 8);
-            this.FilterTextboxLine2.Name = "FilterTextboxLine2";
-            this.FilterTextboxLine2.Size = new System.Drawing.Size(178, 2);
-            this.FilterTextboxLine2.TabIndex = 12;
-            // 
-            // TextFilterLine
-            // 
-            this.TextFilterLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextFilterLine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextFilterLine.Location = new System.Drawing.Point(13, 34);
-            this.TextFilterLine.Name = "TextFilterLine";
-            this.TextFilterLine.Size = new System.Drawing.Size(178, 2);
-            this.TextFilterLine.TabIndex = 11;
-            // 
-            // Filterbutton
-            // 
-            this.Filterbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Filterbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Filterbutton.Location = new System.Drawing.Point(214, 8);
-            this.Filterbutton.Name = "Filterbutton";
-            this.Filterbutton.Size = new System.Drawing.Size(26, 28);
-            this.Filterbutton.TabIndex = 10;
-            this.Filterbutton.UseVisualStyleBackColor = true;
-            // 
-            // TreeFilterTextBox
-            // 
-            this.TreeFilterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TreeFilterTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.TreeFilterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TreeFilterTextBox.Location = new System.Drawing.Point(16, 16);
-            this.TreeFilterTextBox.Name = "TreeFilterTextBox";
-            this.TreeFilterTextBox.Size = new System.Drawing.Size(202, 13);
-            this.TreeFilterTextBox.TabIndex = 9;
-            // 
-            // PlugintreeView
-            // 
-            this.PlugintreeView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PlugintreeView.Location = new System.Drawing.Point(0, 40);
-            this.PlugintreeView.Name = "PlugintreeView";
-            this.PlugintreeView.Size = new System.Drawing.Size(243, 240);
-            this.PlugintreeView.TabIndex = 14;
-            // 
-            // DatatreeView
-            // 
-            this.DatatreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DatatreeView.Location = new System.Drawing.Point(0, 0);
-            this.DatatreeView.Name = "DatatreeView";
-            this.DatatreeView.Size = new System.Drawing.Size(243, 407);
-            this.DatatreeView.TabIndex = 2;
-            // 
             // Frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,13 +239,13 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MainSplitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer1)).EndInit();
             this.MainSplitContainer1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.SidePanelContainer.Panel1.ResumeLayout(false);
             this.SidePanelContainer.Panel1.PerformLayout();
             this.SidePanelContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SidePanelContainer)).EndInit();
             this.SidePanelContainer.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -259,10 +262,10 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         private System.Windows.Forms.Panel ContainerPanel;
         private System.Windows.Forms.SplitContainer SidePanelContainer;
         private System.Windows.Forms.TreeView PlugintreeView;
-        private System.Windows.Forms.Panel FilterTextboxLine2;
-        private System.Windows.Forms.Panel TextFilterLine;
         private System.Windows.Forms.Button Filterbutton;
         private System.Windows.Forms.TextBox TreeFilterTextBox;
         private System.Windows.Forms.TreeView DatatreeView;
+        private System.Windows.Forms.Panel FilterTextboxLine2;
+        private System.Windows.Forms.Panel TextFilterLine;
     }
 }

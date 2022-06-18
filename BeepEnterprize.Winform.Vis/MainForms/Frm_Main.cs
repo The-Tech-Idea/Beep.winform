@@ -54,7 +54,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         private System.Windows.Forms.Button MinMaxButton;
         Image CollapseLeft;
         Image Collapseright;
-        bool IsAddingControl = false;
+        Image ListSearch;
+       // bool IsAddingControl = false;
         
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
@@ -125,16 +126,17 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             startLoggin = true;
            
             this.Filterbutton.Click += Filterbutton_Click;
-          
+
             TreeSidePanelWidth = MainSplitContainer1.Panel1.Width;
             MainSplitContainer1.Panel1MinSize = 40;
-            
-        
 
 
+
+
+            ListSearch = (Bitmap)Properties.Resources.ResourceManager.GetObject("ListBoxSearch");
             CollapseLeft = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseLeft");
-
             Collapseright = (Bitmap)Properties.Resources.ResourceManager.GetObject("Collapseright");
+            Filterbutton.Image = ListSearch;
             CreateMinMAxButtonforMainSplitter();
         }
         private void CreateMinMAxButtonforMainSplitter()
@@ -143,7 +145,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MinMaxButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             this.MinMaxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinMaxButton.FlatAppearance.BorderSize = 0;
-            this.MinMaxButton.Location = new System.Drawing.Point(0,0);
+            this.MinMaxButton.Location = new System.Drawing.Point(0,15);
             this.MinMaxButton.Name = "MinMaxButton";
             this.MinMaxButton.Size = new System.Drawing.Size(15, 15);
             this.MinMaxButton.TabIndex = 13;
@@ -197,6 +199,11 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                     LogPanel.ScrollToCaret();
                 }));
             }
+
+        }
+
+        private void SidePanelContainer_Panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

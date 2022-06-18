@@ -116,7 +116,7 @@ namespace BeepEnterprize.Vis.Module
             }
             catch (Exception ex)
             {
-                DMEEditor.Logger.WriteLog($"Error Creating Category Node ({ex.Message}) ");
+              //  DMEEditor.Logger.WriteLog($"Error Creating Category Node ({ex.Message}) ");
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }

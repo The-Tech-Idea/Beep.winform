@@ -94,7 +94,7 @@ namespace AssemblyLoaderExtension
                         TypeInfo type = mytype.GetTypeInfo();
                         string[] p = asm.FullName.Split(new char[] { ',' });
                         p[1] = p[1].Substring(p[1].IndexOf("=") + 1);
-                        Console.WriteLine(p[1]);
+                       // Console.WriteLine(p[1]);
                         //-------------------------------------------------------
 
 
