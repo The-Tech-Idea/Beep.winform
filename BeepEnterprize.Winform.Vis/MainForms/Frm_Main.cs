@@ -50,10 +50,13 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         TreeControl Datatree;
         TreeControl Apptree;
         bool IsTreeSideOpen = true;
+        bool IsSidePanelsOpen = true;
         int TreeSidePanelWidth;
-        private System.Windows.Forms.Button MinMaxButton;
+       // private System.Windows.Forms.Button MinMaxButton;
         Image CollapseLeft;
         Image Collapseright;
+        Image CollapseUp;
+        Image CollapseDown;
         Image ListSearch;
        // bool IsAddingControl = false;
         
@@ -126,6 +129,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             startLoggin = true;
            
             this.Filterbutton.Click += Filterbutton_Click;
+            this.SidePanelCollapsebutton.Click += SidePanelCollapsebutton_Click;
+            this.MinMaxButton.Click += MinMaxButton_Click;
 
             TreeSidePanelWidth = MainSplitContainer1.Panel1.Width;
             MainSplitContainer1.Panel1MinSize = 40;
@@ -136,25 +141,37 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             ListSearch = (Bitmap)Properties.Resources.ResourceManager.GetObject("ListBoxSearch");
             CollapseLeft = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseLeft");
             Collapseright = (Bitmap)Properties.Resources.ResourceManager.GetObject("Collapseright");
+            CollapseUp = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseUp");
+            CollapseDown = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseDown");
+            this.SidePanelCollapsebutton.Image = CollapseDown;
+            this.MinMaxButton.Image= CollapseLeft;
             Filterbutton.Image = ListSearch;
-            CreateMinMAxButtonforMainSplitter();
-        }
-        private void CreateMinMAxButtonforMainSplitter()
-        {
-            MinMaxButton = new Button();
-            this.MinMaxButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.MinMaxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinMaxButton.FlatAppearance.BorderSize = 0;
-            this.MinMaxButton.Location = new System.Drawing.Point(0,15);
-            this.MinMaxButton.Name = "MinMaxButton";
-            this.MinMaxButton.Size = new System.Drawing.Size(15, 15);
-            this.MinMaxButton.TabIndex = 13;
-            this.MinMaxButton.UseVisualStyleBackColor = true;
-            this.MinMaxButton.Click += MinMaxButton_Click;
-            MinMaxButton.Image = CollapseLeft;
-            MainSplitContainer1.Panel2.Controls.Add(MinMaxButton);
            
         }
+
+      
+
+        private void SidePanelCollapsebutton_Click(object sender, EventArgs e)
+        {
+            //IsSidePanelsOpen
+            if (IsSidePanelsOpen)
+            {
+
+
+                SidePanelContainer.Panel2Collapsed = true;
+                SidePanelCollapsebutton.Image = CollapseUp;
+                IsSidePanelsOpen = false;
+            }
+            else
+            {
+                SidePanelContainer.Panel2Collapsed = false;
+                SidePanelCollapsebutton.Image = CollapseDown;
+               
+                IsSidePanelsOpen = true;
+            }
+        }
+
+     
       
 
         private void MinMaxButton_Click(object sender, EventArgs e)

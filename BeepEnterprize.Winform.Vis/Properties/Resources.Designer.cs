@@ -83,6 +83,16 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CollapseDown {
+            get {
+                object obj = ResourceManager.GetObject("CollapseDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CollapseLeft {
             get {
                 object obj = ResourceManager.GetObject("CollapseLeft", resourceCulture);
@@ -96,6 +106,16 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         internal static System.Drawing.Bitmap Collapseright {
             get {
                 object obj = ResourceManager.GetObject("Collapseright", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CollapseUp {
+            get {
+                object obj = ResourceManager.GetObject("CollapseUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

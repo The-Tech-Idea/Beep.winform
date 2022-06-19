@@ -170,6 +170,12 @@
     <Compile Include="Controls\TreeControls\TreeControl.cs" />
     <Compile Include="Controls\TreeControls\TreeNodeDragandDropHandler.cs" />
     <Compile Include="Controls\TreeControls\TreeNodeEvents.cs" />
+    <Compile Include="Controls\uc_Container.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\uc_Container.Designer.cs">
+      <DependentUpon>uc_Container.cs</DependentUpon>
+    </Compile>
     <Compile Include="CRUD\CrudManager.cs" />
     <Compile Include="CRUD\Frm_ListEntities.cs">
       <SubType>UserControl</SubType>
@@ -435,6 +441,9 @@
     <EmbeddedResource Include="Configuration\uc_webapiQueryParameters.resx">
       <DependentUpon>uc_webapiQueryParameters.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\uc_Container.resx">
+      <DependentUpon>uc_Container.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRUD\Frm_ListEntities.resx">
       <DependentUpon>Frm_ListEntities.cs</DependentUpon>
     </EmbeddedResource>
@@ -610,6 +619,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ListBoxSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CollapseDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CollapseUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

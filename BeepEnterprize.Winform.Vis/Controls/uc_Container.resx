@@ -117,38 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="collapse_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\collapse_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="045-database-8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\045-database-8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="waiting1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\waiting1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="expand_26px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\expand_26px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pasteentities_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pasteentities_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="please_wait" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\please_wait.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CollapseLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\collapseleft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Collapseright" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\collapseright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ListBoxSearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ListBoxSearch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CollapseDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CollapseDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CollapseUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CollapseUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

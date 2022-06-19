@@ -35,12 +35,14 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MainmenuStrip = new System.Windows.Forms.MenuStrip();
             this.MainSplitContainer1 = new System.Windows.Forms.SplitContainer();
             this.SidePanelContainer = new System.Windows.Forms.SplitContainer();
+            this.SidePanelCollapsebutton = new System.Windows.Forms.Button();
             this.PlugintreeView = new System.Windows.Forms.TreeView();
             this.FilterTextboxLine2 = new System.Windows.Forms.Panel();
             this.TextFilterLine = new System.Windows.Forms.Panel();
             this.Filterbutton = new System.Windows.Forms.Button();
             this.TreeFilterTextBox = new System.Windows.Forms.TextBox();
             this.DatatreeView = new System.Windows.Forms.TreeView();
+            this.MinMaxButton = new System.Windows.Forms.Button();
             this.ContainerPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LogPanel = new System.Windows.Forms.TextBox();
@@ -97,6 +99,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             // MainSplitContainer1.Panel2
             // 
+            this.MainSplitContainer1.Panel2.Controls.Add(this.MinMaxButton);
             this.MainSplitContainer1.Panel2.Controls.Add(this.ContainerPanel);
             this.MainSplitContainer1.Panel2.Controls.Add(this.panel1);
             this.MainSplitContainer1.Size = new System.Drawing.Size(1184, 691);
@@ -113,6 +116,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             // SidePanelContainer.Panel1
             // 
+            this.SidePanelContainer.Panel1.Controls.Add(this.SidePanelCollapsebutton);
             this.SidePanelContainer.Panel1.Controls.Add(this.PlugintreeView);
             this.SidePanelContainer.Panel1.Controls.Add(this.FilterTextboxLine2);
             this.SidePanelContainer.Panel1.Controls.Add(this.TextFilterLine);
@@ -124,20 +128,34 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.SidePanelContainer.Panel2.Controls.Add(this.DatatreeView);
             this.SidePanelContainer.Size = new System.Drawing.Size(243, 691);
-            this.SidePanelContainer.SplitterDistance = 280;
+            this.SidePanelContainer.SplitterDistance = 387;
+            this.SidePanelContainer.SplitterWidth = 1;
             this.SidePanelContainer.TabIndex = 0;
+            // 
+            // SidePanelCollapsebutton
+            // 
+            this.SidePanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SidePanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
+            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(222, 363);
+            this.SidePanelCollapsebutton.Name = "SidePanelCollapsebutton";
+            this.SidePanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
+            this.SidePanelCollapsebutton.TabIndex = 15;
+            this.SidePanelCollapsebutton.UseVisualStyleBackColor = false;
             // 
             // PlugintreeView
             // 
-            this.PlugintreeView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PlugintreeView.Location = new System.Drawing.Point(0, 40);
+            this.PlugintreeView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlugintreeView.Location = new System.Drawing.Point(0, 38);
             this.PlugintreeView.Name = "PlugintreeView";
-            this.PlugintreeView.Size = new System.Drawing.Size(243, 240);
+            this.PlugintreeView.Size = new System.Drawing.Size(243, 346);
             this.PlugintreeView.TabIndex = 14;
             // 
             // FilterTextboxLine2
             // 
-            this.FilterTextboxLine2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.FilterTextboxLine2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FilterTextboxLine2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FilterTextboxLine2.Location = new System.Drawing.Point(1, 7);
             this.FilterTextboxLine2.Name = "FilterTextboxLine2";
@@ -146,7 +164,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             // TextFilterLine
             // 
-            this.TextFilterLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextFilterLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TextFilterLine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextFilterLine.Location = new System.Drawing.Point(1, 34);
             this.TextFilterLine.Name = "TextFilterLine";
@@ -166,7 +185,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             // TreeFilterTextBox
             // 
-            this.TreeFilterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TreeFilterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TreeFilterTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.TreeFilterTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TreeFilterTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -180,8 +200,17 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.DatatreeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatatreeView.Location = new System.Drawing.Point(0, 0);
             this.DatatreeView.Name = "DatatreeView";
-            this.DatatreeView.Size = new System.Drawing.Size(243, 407);
+            this.DatatreeView.Size = new System.Drawing.Size(243, 303);
             this.DatatreeView.TabIndex = 2;
+            // 
+            // MinMaxButton
+            // 
+            this.MinMaxButton.BackColor = System.Drawing.Color.Transparent;
+            this.MinMaxButton.Location = new System.Drawing.Point(0, 13);
+            this.MinMaxButton.Name = "MinMaxButton";
+            this.MinMaxButton.Size = new System.Drawing.Size(16, 20);
+            this.MinMaxButton.TabIndex = 16;
+            this.MinMaxButton.UseVisualStyleBackColor = false;
             // 
             // ContainerPanel
             // 
@@ -192,7 +221,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.ContainerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ContainerPanel.Location = new System.Drawing.Point(16, 40);
             this.ContainerPanel.Name = "ContainerPanel";
-            this.ContainerPanel.Size = new System.Drawing.Size(927, 577);
+            this.ContainerPanel.Size = new System.Drawing.Size(931, 577);
             this.ContainerPanel.TabIndex = 2;
             // 
             // panel1
@@ -267,5 +296,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         private System.Windows.Forms.TreeView DatatreeView;
         private System.Windows.Forms.Panel FilterTextboxLine2;
         private System.Windows.Forms.Panel TextFilterLine;
+        private System.Windows.Forms.Button SidePanelCollapsebutton;
+        private System.Windows.Forms.Button MinMaxButton;
     }
 }
