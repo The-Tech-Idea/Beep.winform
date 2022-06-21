@@ -34,13 +34,13 @@
             // 
             // TitleLabel
             // 
-            this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Font = new System.Drawing.Font("qtquickcontrols", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.Location = new System.Drawing.Point(3, 7);
+            this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.Location = new System.Drawing.Point(0, 0);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(175, 25);
+            this.TitleLabel.Size = new System.Drawing.Size(650, 37);
             this.TitleLabel.TabIndex = 0;
-            this.TitleLabel.Text = "Container Control";
+            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Line1panel
             // 
@@ -61,7 +61,6 @@
             this.Name = "uc_Container";
             this.Size = new System.Drawing.Size(650, 515);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

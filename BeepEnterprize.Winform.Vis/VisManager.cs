@@ -341,8 +341,11 @@ namespace BeepEnterprize.Winform.Vis
                             }
                             e.Objects.AddRange(CreateArgsParameterForVisUtil());
                             addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
-                            control.Controls.Clear();
-                            control.Controls.Add(uc);
+                            uc_Container container = (uc_Container)control;
+                            container.AddControl(addin.AddinName, uc, ContainerTypeEnum.SinglePanel);
+                          //  control.Controls.Clear();
+                           // control.Controls.Add(uc);
+
                             uc.Dock = DockStyle.Fill;
 
                         }

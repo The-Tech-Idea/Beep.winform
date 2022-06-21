@@ -51,7 +51,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         TreeControl Apptree;
         bool IsTreeSideOpen = true;
         bool IsSidePanelsOpen = true;
-        int TreeSidePanelWidth;
+        bool IsLogPanelOpen = true;
+        int LogPanelHeight;
        // private System.Windows.Forms.Button MinMaxButton;
         Image CollapseLeft;
         Image Collapseright;
@@ -131,33 +132,45 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.Filterbutton.Click += Filterbutton_Click;
             this.SidePanelCollapsebutton.Click += SidePanelCollapsebutton_Click;
             this.MinMaxButton.Click += MinMaxButton_Click;
-
-            TreeSidePanelWidth = MainSplitContainer1.Panel1.Width;
+            this.LogPanelCollapsebutton.Click += LogPanelCollapsebutton_Click;
+            LogPanelHeight = LogPanel.Height;
+          
             MainSplitContainer1.Panel1MinSize = 40;
-
-
-
 
             ListSearch = (Bitmap)Properties.Resources.ResourceManager.GetObject("ListBoxSearch");
             CollapseLeft = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseLeft");
             Collapseright = (Bitmap)Properties.Resources.ResourceManager.GetObject("Collapseright");
             CollapseUp = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseUp");
             CollapseDown = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseDown");
+
             this.SidePanelCollapsebutton.Image = CollapseDown;
             this.MinMaxButton.Image= CollapseLeft;
+            this.LogPanelCollapsebutton.Image = CollapseDown;
             Filterbutton.Image = ListSearch;
            
         }
 
-      
-
+        private void LogPanelCollapsebutton_Click(object sender, EventArgs e)
+        {
+            //IsLogPanelOpen
+            if (IsLogPanelOpen)
+            {
+                MainViewsplitContainer.Panel2Collapsed = true;
+                LogPanelCollapsebutton.Image = CollapseUp;
+                IsLogPanelOpen = false;
+            }
+            else
+            {
+                LogPanelCollapsebutton.Image = CollapseDown;
+                MainViewsplitContainer.Panel2Collapsed = false;
+                IsLogPanelOpen = true;
+            }
+        }
         private void SidePanelCollapsebutton_Click(object sender, EventArgs e)
         {
             //IsSidePanelsOpen
             if (IsSidePanelsOpen)
             {
-
-
                 SidePanelContainer.Panel2Collapsed = true;
                 SidePanelCollapsebutton.Image = CollapseUp;
                 IsSidePanelsOpen = false;
@@ -166,21 +179,13 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             {
                 SidePanelContainer.Panel2Collapsed = false;
                 SidePanelCollapsebutton.Image = CollapseDown;
-               
                 IsSidePanelsOpen = true;
             }
         }
-
-     
-      
-
         private void MinMaxButton_Click(object sender, EventArgs e)
         {
             if (IsTreeSideOpen)
             {
-
-                //TreeSidePanelWidth = MainSplitContainer1.Panel1.Width;
-                //MainSplitContainer1.SplitterDistance = 25;
                 MainSplitContainer1.Panel1Collapsed = true;
                 MinMaxButton.Image = Collapseright;
                 IsTreeSideOpen =false;
@@ -192,20 +197,16 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 //MainSplitContainer1.SplitterDistance = TreeSidePanelWidth;
                 IsTreeSideOpen = true;
             }
-
         }
-
         private void Filterbutton_Click(object sender, EventArgs e)
         {
             Apptree.Filterstring=TreeFilterTextBox.Text;
         }
-
         private void Frm_Main_Shown(object sender, EventArgs e)
         {
            // this.WindowState = FormWindowState.Maximized;
             this.Text = "Beep - The Plugable Integrated Platform";
         }
-
         private void Logger_Onevent(object sender, string e)
         {
             if (startLoggin)
@@ -218,10 +219,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             }
 
         }
-
-        private void SidePanelContainer_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+     
     }
 }

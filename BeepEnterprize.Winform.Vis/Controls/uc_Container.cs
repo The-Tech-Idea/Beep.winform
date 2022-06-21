@@ -48,11 +48,18 @@ namespace BeepEnterprize.Winform.Vis.Controls
             if (!Controls.Contains(TabContainerPanel))
             {
                 TabContainerPanel = new TabControl();
+                TabContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+           | System.Windows.Forms.AnchorStyles.Left)
+           | System.Windows.Forms.AnchorStyles.Right)));
+                TabContainerPanel.Location = new System.Drawing.Point(0, 44);
+                TabContainerPanel.Name = "ControlPanel";
+                TabContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height-45);
                 TabContainerPanel.TabPages.Clear();
                 Controls.Add(TabContainerPanel);
             }
             TabContainerPanel.TabPages.Add(TitleText);
             TabContainerPanel.TabPages[TabContainerPanel.TabPages.Count-1].Controls.Add(control);
+            control.Dock = DockStyle.Fill;
             this.TitleLabel.Text = TitleText;
             return true;
         }
@@ -69,9 +76,16 @@ namespace BeepEnterprize.Winform.Vis.Controls
             if (!Controls.Contains(ContainerPanel))
             {
                 ContainerPanel = new Panel();
+                ContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+         | System.Windows.Forms.AnchorStyles.Left)
+         | System.Windows.Forms.AnchorStyles.Right)));
+                ContainerPanel.Location = new System.Drawing.Point(0, 44);
+                ContainerPanel.Name = "ControlPanel";
+                ContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height - 45);
                 Controls.Add(ContainerPanel);
             }
             ContainerPanel.Controls.Add(control);
+            control.Dock = DockStyle.Fill;
             this.TitleLabel.Text = TitleText;
             return true;
         }
