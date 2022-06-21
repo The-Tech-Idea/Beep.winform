@@ -86,17 +86,17 @@ namespace  BeepEnterprize.Vis.Module
         public  IVisManager  Visutil { get; set; }
         PassedArgs Passedarguments { get; set; } = new PassedArgs();
         public object TreeStrucure { get ; set ; }
+        public string ObjectType { get; set; } = "Beep";
+        // public event EventHandler<PassedArgs> BranchSelected;
+        // public event EventHandler<PassedArgs> BranchDragEnter;
+        // public event EventHandler<PassedArgs> BranchDragDrop;
+        // public event EventHandler<PassedArgs> BranchDragLeave;
+        // public event EventHandler<PassedArgs> BranchDragClick;
+        // public event EventHandler<PassedArgs> BranchDragDoubleClick;
+        // public event EventHandler<PassedArgs> ActionNeeded;
+        // public event EventHandler<PassedArgs> OnObjectSelected;
 
-       // public event EventHandler<PassedArgs> BranchSelected;
-       // public event EventHandler<PassedArgs> BranchDragEnter;
-       // public event EventHandler<PassedArgs> BranchDragDrop;
-       // public event EventHandler<PassedArgs> BranchDragLeave;
-       // public event EventHandler<PassedArgs> BranchDragClick;
-       // public event EventHandler<PassedArgs> BranchDragDoubleClick;
-       // public event EventHandler<PassedArgs> ActionNeeded;
-       // public event EventHandler<PassedArgs> OnObjectSelected;
 
-       
         public IErrorsInfo CreateChildNodes()
         {
 

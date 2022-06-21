@@ -51,14 +51,15 @@ namespace  BeepEnterprize.Vis.Module.Mapping
         public string BranchClass { get; set; } = "MAP";
         public object TreeStrucure { get; set; }
         public  IVisManager  Visutil { get; set; }
+        public string ObjectType { get; set; } 
 
-       // public event EventHandler<PassedArgs> BranchSelected;
-       // public event EventHandler<PassedArgs> BranchDragEnter;
-       // public event EventHandler<PassedArgs> BranchDragDrop;
-       // public event EventHandler<PassedArgs> BranchDragLeave;
-       // public event EventHandler<PassedArgs> BranchDragClick;
-       // public event EventHandler<PassedArgs> BranchDragDoubleClick;
-       // public event EventHandler<PassedArgs> ActionNeeded;
+        // public event EventHandler<PassedArgs> BranchSelected;
+        // public event EventHandler<PassedArgs> BranchDragEnter;
+        // public event EventHandler<PassedArgs> BranchDragDrop;
+        // public event EventHandler<PassedArgs> BranchDragLeave;
+        // public event EventHandler<PassedArgs> BranchDragClick;
+        // public event EventHandler<PassedArgs> BranchDragDoubleClick;
+        // public event EventHandler<PassedArgs> ActionNeeded;
 
         public IErrorsInfo CreateChildNodes()
         {

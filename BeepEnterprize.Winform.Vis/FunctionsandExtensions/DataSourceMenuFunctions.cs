@@ -52,11 +52,11 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             ExtensionsHelpers=new FunctionandExtensionsHelpers(DMEEditor, pvisManager, ptreeControl);
         }
      
-        [CommandAttribute(Name = "Copy Entities", Caption = "Copy Entities", Click = true, iconimage = "copyentities.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "Copy Entities", Caption = "Copy Entities", Click = true, iconimage = "copyentities.ico", PointType = EnumPointType.DataPoint,ObjectType ="Beep")]
         public IErrorsInfo CopyEntities(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
-            //   DMEEditor.Logger.WriteLog($"Filling Database Entites ) ");
+           
             try
             {
                 List<EntityStructure> ents = new List<EntityStructure>();
@@ -84,7 +84,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Name = "Paste Entities", Caption = "Paste Entities", Click = true, iconimage = "pasteentities.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "Paste Entities", Caption = "Paste Entities", Click = true, iconimage = "pasteentities.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public void PasteEntities(IPassedArgs Passedarguments)
         {
             try
@@ -192,7 +192,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             };
 
         }
-        [CommandAttribute(Name = "Refresh", Caption = "Refresh", Click = true, iconimage = "refresh.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "Refresh", Caption = "Refresh", Click = true, iconimage = "refresh.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public void Refresh(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -233,7 +233,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
 
         }
-        [CommandAttribute(Name = "CreateViewFromDataSource", Caption = "Create View From DataSource", Click = true, iconimage = "createnewentities.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "CreateViewFromDataSource", Caption = "Create View From DataSource", Click = true, iconimage = "createnewentities.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public void CreateViewFromDataSource(IPassedArgs Passedarguments)
         {
             try
@@ -285,7 +285,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             };
 
         }
-        [CommandAttribute(Caption = "Drop Entities", Name = "dropentities", Click = true, iconimage = "dropentities.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Caption = "Drop Entities", Name = "dropentities", Click = true, iconimage = "dropentities.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public IErrorsInfo DropEntities(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -344,7 +344,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Import Data", Name = "ImportData", Click = true, iconimage = "importdata.ico", PointType = EnumPointType.Entity)]
+        [CommandAttribute(Caption = "Import Data", Name = "ImportData", Click = true, iconimage = "importdata.ico", PointType = EnumPointType.Entity, ObjectType = "Beep")]
         public IErrorsInfo ImportData(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -369,7 +369,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Create Entity", Name = "CreateEntity", Click = true, iconimage = "createentity.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Caption = "Create Entity", Name = "CreateEntity", Click = true, iconimage = "createentity.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public IErrorsInfo CreateEntity(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -401,7 +401,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Create Report", Name = "CreateReportDefinition", Click = true, iconimage = "reportdesigner.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Caption = "Create Report", Name = "CreateReportDefinition", Click = true, iconimage = "reportdesigner.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public IErrorsInfo CreateReportDefinition(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;

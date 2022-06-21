@@ -35,6 +35,7 @@ namespace  BeepEnterprize.Vis.Module.Mapping
         }
 
         #region "Properties"
+        public string ObjectType { get; set; } = "Beep";
         public int ID { get; set; }
         public EntityStructure EntityStructure { get; set; }
         public int Order { get; set; } = 7;

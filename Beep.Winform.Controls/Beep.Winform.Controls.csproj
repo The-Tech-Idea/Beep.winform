@@ -35,8 +35,8 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagementModelsStandard, Version=1.0.0.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\fahadTheTechIdea\Dhub3\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.8\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\fahadTheTechIdea\Dhub3\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.9\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
     <Reference Include="DataManagmentEngineStandard, Version=1.0.0.17, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\fahadTheTechIdea\Dhub3\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.17\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>

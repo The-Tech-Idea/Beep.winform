@@ -32,6 +32,7 @@ namespace  BeepEnterprize.Vis.Module.Reports
                 BranchID = pID;
             }
         }
+        public string ObjectType { get; set; } = "Beep";
         public int ID { get ; set ; }
         public IDMEEditor DMEEditor { get ; set ; }
         public IDataSource DataSource { get ; set ; }

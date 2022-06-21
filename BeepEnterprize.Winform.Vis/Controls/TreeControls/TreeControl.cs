@@ -386,6 +386,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 }
                 if (methodsClass != null)
                 {
+                    if (!IsMethodApplicabletoNode(cls, (IBranch)branch)) return DMEEditor.ErrorObject;
                     method = methodsClass.Info;
                     if (method.GetParameters().Length > 0)
                     {
@@ -515,6 +516,19 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         #endregion
         #region "Method Calling"
+        private bool IsMethodApplicabletoNode(AssemblyClassDefinition cls, IBranch br)
+        {
+            if (cls.classProperties.ObjectType != null)
+            {
+                if (!cls.classProperties.ObjectType.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return false ;
+                }
+            }
+            return true;
+
+
+        }
         public void Nodemenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             ContextMenuStrip menu = (ContextMenuStrip)sender;
@@ -526,11 +540,13 @@ namespace BeepEnterprize.Winform.Vis.Controls
            
             if (cls != null)
             {
+                if (!IsMethodApplicabletoNode(cls, br)) return;
                 if (cls.RootName != "IFunctionExtension")
                 {
                     RunMethod(br, item.Text);
                 }else
                 {
+                    
                     RunFunction(br, item);
                 };
 
@@ -559,6 +575,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == br.Name && x.Methods.Where(y => y.DoubleClick == true || y.Click == true).Any()).FirstOrDefault();
                 if (cls != null)
                 {
+                    if (!IsMethodApplicabletoNode(cls, br)) return;
                     RunMethod(br, clicks);
                 }
             }

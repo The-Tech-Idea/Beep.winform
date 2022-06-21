@@ -61,7 +61,7 @@ namespace  BeepEnterprize.Vis.Module
             return DMEEditor.ErrorObject;
 
         }
-      
+        public string ObjectType { get; set; } = "Beep";
         public string Name { get; set; }
         public EntityStructure EntityStructure { get; set; }
         public string BranchText { get; set; } = "Composite Layer";

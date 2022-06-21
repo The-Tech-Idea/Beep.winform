@@ -63,6 +63,7 @@ namespace  BeepEnterprize.Vis.Module
         public List<string> BranchActions { get ; set ; }
         public object TreeStrucure { get ; set ; }
         public  IVisManager  Visutil  { get ; set ; }
+        public string ObjectType { get; set; } = "Beep";
         public int MiscID { get; set; }
        
         public IErrorsInfo CreateChildNodes()

@@ -30,6 +30,7 @@ namespace  BeepEnterprize.Vis.Module.WebAPI
                 BranchID = ID;
             }
         }
+        public string ObjectType { get; set; } = "Beep";
         public int ID { get ; set ; }
         public IDMEEditor DMEEditor { get ; set ; }
         public IDataSource DataSource { get ; set ; }

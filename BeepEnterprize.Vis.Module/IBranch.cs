@@ -19,6 +19,7 @@ namespace BeepEnterprize.Vis.Module
         IVisManager Visutil { get; set; }
         List<string> BranchActions { get; set; }
         EntityStructure EntityStructure { get; set; }
+         string ObjectType { get; set; } 
         int MiscID { get; set; }
         IErrorsInfo ExecuteBranchAction(string ActionName);
         IErrorsInfo SetConfig(ITree pTreeEditor, IDMEEditor pDMEEditor, IBranch pParentNode, string pBranchText, int pID, EnumPointType pBranchType, string pimagename);
