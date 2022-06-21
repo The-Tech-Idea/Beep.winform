@@ -239,6 +239,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             try
             {
                 ExtensionsHelpers.GetValues(Passedarguments);
+                if (ExtensionsHelpers.pbr == null)
+                {
+                    return;
+                }
                 if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
                 {
                     List<EntityStructure> ls = new List<EntityStructure>();
@@ -291,6 +295,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             EntityStructure ent = new EntityStructure();
             ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
             if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
             {
                 try
@@ -350,6 +358,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             EntityStructure ent = new EntityStructure();
             ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
             if (ExtensionsHelpers.pbr.BranchType == EnumPointType.Entity)
             {
                 try
@@ -375,7 +387,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             EntityStructure ent = new EntityStructure();
             ExtensionsHelpers.GetValues(Passedarguments);
-          
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
             if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint )
             {
                 try
@@ -407,6 +422,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             EntityStructure ent = new EntityStructure();
             ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
             if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
             {
                 try

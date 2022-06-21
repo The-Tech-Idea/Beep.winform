@@ -266,10 +266,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
             if (TreeV.SelectedNode != null)
             {
                 TreeNode n = TreeV.SelectedNode;
-                br =treeBranchHandler.GetBranch(Convert.ToInt32(n.Tag));
+                br =(IBranch)n.Tag;
             }
             if (br != null)
             {
+
                 DMEEditor.Passedarguments = new PassedArgs();
                 DMEEditor.Passedarguments.ObjectName = br.BranchText;
                 DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
@@ -280,6 +281,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 Type t = ((IFunctionExtension)fc).GetType();
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.className == t.Name).FirstOrDefault();
                 MethodInfo method = null;
+                if (!IsMethodApplicabletoNode(cls, br)) return;
                 MethodsClass methodsClass;
                 try
                 {
@@ -319,7 +321,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             if (TreeV.SelectedNode != null)
             {
                 TreeNode n = TreeV.SelectedNode;
-                br = treeBranchHandler.GetBranch(Convert.ToInt32(n.Tag));
+                br = (IBranch)n.Tag;
             }
             if (br != null)
             {
@@ -335,6 +337,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.className == t.Name).FirstOrDefault();
                 MethodInfo method = null;
                 MethodsClass methodsClass;
+                if (!IsMethodApplicabletoNode(cls, br)) return;
                 try
                 {
                     if (br.BranchType != EnumPointType.Global)

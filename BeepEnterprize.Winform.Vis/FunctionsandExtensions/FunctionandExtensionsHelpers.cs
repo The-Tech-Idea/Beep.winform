@@ -79,27 +79,38 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 Passedarguments.Objects.Remove(Passedarguments.Objects.Where(c => c.Name == "Branch").FirstOrDefault());
             }
             pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-            Passedarguments.Objects.Add(new ObjectItem() { Name = "Branch", obj = pbr });
+            if (pbr != null)
+            {
+                Passedarguments.DatasourceName = pbr.DataSourceName;
+                Passedarguments.CurrentEntity = pbr.BranchText;
+                if (pbr.ParentBranchID > 0)
+                {
+                    ParentBranch = TreeEditor.treeBranchHandler.GetBranch(pbr.ParentBranchID);
+                    Passedarguments.Objects.Add(new ObjectItem() { Name = "ParentBranch", obj = ParentBranch });
+                }
+                Passedarguments.Objects.Add(new ObjectItem() { Name = "Branch", obj = pbr });
+                RootBranch = TreeEditor.Branches[TreeEditor.Branches.FindIndex(x => x.BranchClass == pbr.BranchClass && x.BranchType == EnumPointType.Root)];
+                Passedarguments.Objects.Add(new ObjectItem() { Name = "RootBranch", obj = RootBranch });
+            }
+         
 
             if (Passedarguments.Objects.Where(i => i.Name == "RootBranch").Any())
             {
                 Passedarguments.Objects.Remove(Passedarguments.Objects.Where(c => c.Name == "RootBranch").FirstOrDefault());
             }
-            RootBranch = TreeEditor.Branches[TreeEditor.Branches.FindIndex(x => x.BranchClass == pbr.BranchClass && x.BranchType == EnumPointType.Root)];
-            Passedarguments.Objects.Add(new ObjectItem() { Name = "RootBranch", obj = RootBranch });
+         
             if (Passedarguments.Objects.Where(i => i.Name == "ParentBranch").Any())
             {
                 Passedarguments.Objects.Remove(Passedarguments.Objects.Where(c => c.Name == "ParentBranch").FirstOrDefault());
             }
-            if (pbr.ParentBranchID > 0)
+            if (Passedarguments.DatasourceName != null)
             {
-                ParentBranch = TreeEditor.treeBranchHandler.GetBranch(pbr.ParentBranchID);
-                Passedarguments.Objects.Add(new ObjectItem() { Name = "ParentBranch", obj = ParentBranch });
+                DataSource = DMEEditor.GetDataSource(Passedarguments.DatasourceName);
+                DMEEditor.OpenDataSource(Passedarguments.DatasourceName);
             }
-            DataSource = DMEEditor.GetDataSource(Passedarguments.DatasourceName);
-            DMEEditor.OpenDataSource(Passedarguments.DatasourceName);
-            Passedarguments.DatasourceName = pbr.DataSourceName;
-            Passedarguments.CurrentEntity = pbr.BranchText;
+           
+            
+          
             ViewRootBranch = TreeEditor.Branches[TreeEditor.Branches.FindIndex(x => x.BranchClass == "VIEW" && x.BranchType == EnumPointType.Root)];
         }
         public Errors CreateView(string viewname)
