@@ -34,7 +34,7 @@ namespace BeepEnterprize.Vis.Module
             BranchType = EnumPointType.Root;
 
         }
-
+        public string ObjectType { get; set; } = "Dhub";
         public int Order { get; set; } = 0;
         public object TreeStrucure { get; set; }
         public IVisManager Visutil { get; set; }
