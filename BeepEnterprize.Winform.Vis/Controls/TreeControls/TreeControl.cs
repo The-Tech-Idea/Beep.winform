@@ -528,7 +528,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             if (cls.classProperties.ObjectType != null)
             {
-                if (!cls.classProperties.ObjectType.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase))
+                if (!cls.classProperties.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase))
                 {
                     return false ;
                 }

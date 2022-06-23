@@ -9,9 +9,6 @@ using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
-
-using IronPython.Hosting;
-using TheTechIdea.Beep.ConfigUtil;
 using BeepEnterprize.Vis.Module;
 
 
