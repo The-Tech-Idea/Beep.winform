@@ -16,7 +16,7 @@ using BeepEnterprize.Vis.Module;
 
 namespace AI
 {
-    [AddinAttribute(Caption ="CPython",misc ="AI", FileType = "AI",iconimage = "python.ico",menu ="AI")]
+    [AddinAttribute(Caption ="CPython",misc ="AI", FileType = "AI",iconimage = "python.ico",menu ="AI",ObjectType ="Beep")]
     public class AICPythonNode : IBranch
     {
 
@@ -69,6 +69,7 @@ namespace AI
         public object TreeStrucure { get; set; }
         public IVisManager Visutil { get; set; }
         public int MiscID { get; set; }
+        public string ObjectType { get; set; } = "Beep";
         public AddinTreeStructure AddinTreeStructure { get; set; }
 
         #endregion "Properties"

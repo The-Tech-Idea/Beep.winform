@@ -34,7 +34,7 @@ namespace BeepEnterprize.Vis.Module
             BranchType = EnumPointType.Root;
 
         }
-        public string ObjectType { get; set; } = "Dhub";
+        public string ObjectType { get; set; } = "Beep";
         public int Order { get; set; } = 0;
         public object TreeStrucure { get; set; }
         public IVisManager Visutil { get; set; }
@@ -57,7 +57,7 @@ namespace BeepEnterprize.Vis.Module
         public int ParentBranchID { get; set; }
         public string BranchDescription { get; set; }
         public string BranchClass { get; set; } = "AI";
-        public static string RootName {get;set;}="AI";
+      
         #region "Interface Methods"
         public IErrorsInfo CreateChildNodes()
         {
@@ -139,16 +139,19 @@ namespace BeepEnterprize.Vis.Module
                 CreateFolders();
                 DMEEditor.ConfigEditor.LoadAIScriptsValues();
                 TreeEditor.treeBranchHandler.RemoveChildBranchs(this);
-                foreach (AssemblyClassDefinition item in DMEEditor.ConfigEditor.BranchesClasses.Where(o=>o.RootName=="AI" ))
+                List<AssemblyClassDefinition> ls = DMEEditor.ConfigEditor.BranchesClasses.Where(p => p.classProperties != null).ToList();
+                List<AssemblyClassDefinition> aibranchs = ls.Where(p => p.classProperties.menu.Equals("AI",StringComparison.InvariantCultureIgnoreCase) && p.PackageName!=this.Name).ToList();
+                foreach (AssemblyClassDefinition item in aibranchs)
                 {
-                    if (item.PackageName != this.Name)
-                    {
+                   
+                            
                         Type adc = DMEEditor.assemblyHandler.GetType(item.PackageName);
                        // ConstructorInfo ctor = adc.GetConstructors().First();
                         //  ObjectActivator<IBranch> createdActivator = GetActivator<IBranch>(ctor);
                         IBranch br = (IBranch)DMEEditor.assemblyHandler.GetInstance(item.PackageName);
                         int id = TreeEditor.SeqID;
                         br.Name = item.PackageName;
+                    
                         br.ID = id;
                         br.BranchID = id;
                         br.DMEEditor = DMEEditor;
@@ -162,7 +165,7 @@ namespace BeepEnterprize.Vis.Module
                         br.DMEEditor = DMEEditor;
 
                         ChildBranchs.Add(br);
-                    }
+                   
              
 
               

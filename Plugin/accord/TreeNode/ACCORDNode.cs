@@ -18,7 +18,7 @@ using TheTechIdea.Util;
 
 namespace AI
 {
-    [AddinAttribute(Caption = "Accord", misc = "AI", FileType = "AI", iconimage = "accord.ico", menu = "AI")]
+    [AddinAttribute(Caption = "Accord", misc = "AI", FileType = "AI", iconimage = "accord.ico", menu = "AI",ObjectType ="Beep")]
     public class ACCORDNode : IBranch
     {
       
@@ -50,6 +50,7 @@ namespace AI
         }
 
         #region "Properties"
+        public string ObjectType { get; set; } = "Beep";
         public int ID { get; set; }
         public EntityStructure EntityStructure { get; set; }
         public string Name { get; set; }

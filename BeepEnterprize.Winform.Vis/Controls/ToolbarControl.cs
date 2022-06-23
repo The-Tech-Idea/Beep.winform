@@ -66,6 +66,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
         #region "MEnu and Tool"
         private bool IsMethodApplicabletoNode(AssemblyClassDefinition cls, IBranch br)
         {
+            if (cls.classProperties == null)
+            {
+                return true;
+            }
             if (cls.classProperties.ObjectType != null)
             {
                 if (!cls.classProperties.ObjectType.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase))

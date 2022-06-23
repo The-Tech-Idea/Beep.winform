@@ -3331,10 +3331,6 @@
       <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.csproj">
-      <Project>{b4beda46-4d62-4709-92a1-9d5b39be8f31}</Project>
-      <Name>BeepEnterprizeTreeNodes</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
       <Project>{48aad630-7a91-49c9-9c02-619043a77ab7}</Project>
       <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>

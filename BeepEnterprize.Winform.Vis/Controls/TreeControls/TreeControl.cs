@@ -412,15 +412,16 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
-            throw new NotImplementedException();
+            return;
         }
         private void SetupTreeView()
         {
 
             Vismanager.Images = new ImageList();
-           // Vismanager.Images.ImageSize = new Size(24, 24);
+            Vismanager.Images.ImageSize = new Size(24, 24);
             Vismanager.Images.ColorDepth = ColorDepth.Depth32Bit;
-            foreach (string filename_w_path in Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories))
+            List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
+            foreach (string filename_w_path in paths)
             {
                 try
                 {
@@ -521,6 +522,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
         #region "Method Calling"
         private bool IsMethodApplicabletoNode(AssemblyClassDefinition cls, IBranch br)
         {
+            if (cls.classProperties == null)
+            {
+                return true;
+            }
             if (cls.classProperties.ObjectType != null)
             {
                 if (!cls.classProperties.ObjectType.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase))

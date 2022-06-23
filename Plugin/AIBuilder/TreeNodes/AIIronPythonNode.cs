@@ -22,7 +22,7 @@ using BeepEnterprize.Vis.Module;
 //import os 
 namespace AI
 {
-    [AddinAttribute(Caption = "Iron Python", misc = "AI", FileType = "AI", iconimage = "ironpython.ico", menu = "AI")]
+    [AddinAttribute(Caption = "Iron Python", misc = "AI", FileType = "AI", iconimage = "ironpython.ico", menu = "AI",ObjectType ="Beep")]
     public class AIIronPythonNode : IBranch
     {
       
@@ -75,6 +75,7 @@ namespace AI
         public object TreeStrucure { get; set; }
         public IVisManager Visutil { get; set; }
         public int MiscID { get; set; }
+        public string ObjectType { get; set; } = "Beep";
         public AddinTreeStructure AddinTreeStructure { get; set; }
 
         #endregion "Properties"

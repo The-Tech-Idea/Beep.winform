@@ -194,7 +194,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             {
                 MainSplitContainer1.Panel1Collapsed = false;
                 MinMaxButton.Image = CollapseLeft;
-                //MainSplitContainer1.SplitterDistance = TreeSidePanelWidth;
                 IsTreeSideOpen = true;
             }
         }

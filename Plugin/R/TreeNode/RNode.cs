@@ -19,7 +19,7 @@ using TheTechIdea.Util;
 namespace AI
 {
     
-    [AddinAttribute(Caption = "R", FileType = "AI", misc = "AI", iconimage = "rlogo.ico", menu = "AI")]
+    [AddinAttribute(Caption = "R", FileType = "AI", misc = "AI", iconimage = "rlogo.ico", menu = "AI",ObjectType ="Beep")]
     public class RNode : IBranch
     {
       
@@ -73,6 +73,7 @@ namespace AI
         public IVisManager Visutil { get; set; }
         public int MiscID { get; set; }
         public AddinTreeStructure AddinTreeStructure { get; set; }
+        public string ObjectType { get; set; } = "Beep";
 
         #endregion "Properties"
         #region "Interface Methods"
