@@ -26,15 +26,15 @@ namespace  BeepEnterprize.Vis.Module
         {
             TreeEditor = pTreeEditor;
             DMEEditor = pDMEEditor;
-            ParentBranchID = pParentNode.ID;
-            BranchText = pBranchText;
-            BranchType = pBranchType;
-            IconImageName = pimagename;
-            if (pID != 0)
-            {
-                ID = pID;
-                BranchID = ID;
-            }
+            //ParentBranchID = pParentNode.ID;
+            //BranchText = pBranchText;
+            //BranchType = pBranchType;
+            //IconImageName = pimagename;
+            //if (pID != 0)
+            //{
+            //    ID = pID;
+            //    BranchID = ID;
+            //}
             //.GetImageIndex(ParentTree, MainNode, "dataview.ico");
         }
         #region "Properties"
@@ -132,14 +132,14 @@ namespace  BeepEnterprize.Vis.Module
             {
                 TreeEditor = pTreeEditor;
                 DMEEditor = pDMEEditor;
-                ParentBranchID = pParentNode.ID;
-                BranchText = pBranchText;
-                BranchType = pBranchType;
-                IconImageName = pimagename;
-                if (pID != 0)
-                {
-                    ID = pID;
-                }
+                //ParentBranchID = pParentNode.ID;
+                //BranchText = pBranchText;
+                //BranchType = pBranchType;
+                //IconImageName = pimagename;
+                //if (pID != 0)
+                //{
+                //    ID = pID;
+                //}
 
             //    DMEEditor.AddLogMessage("Success", "Set Config OK", DateTime.Now, 0, null, Errors.Ok);
             }
