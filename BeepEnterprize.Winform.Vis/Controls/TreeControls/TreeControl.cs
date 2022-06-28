@@ -28,8 +28,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
             DMEEditor = pDMEEditor;
             Vismanager = pVismanager;
             VisManager = pVismanager;
+         
 
-           
+
         }
         #region "Addin Properties"
         public string ParentName { get; set; }
@@ -75,6 +76,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public List<int> SelectedBranchs { get; set; } = new List<int>();
         public TreeNodeDragandDropHandler treeNodeDragandDropHandler { get ; set ; }
         public ITreeBranchHandler treeBranchHandler { get ; set ; }
+        private Size _iconsize = new Size(20,20);
+        private bool IsNewSizeSet=false;
+        public Size IconSize { get { return _iconsize; } set { _iconsize = value; IsNewSizeSet = true;  } }
         public IErrorsInfo CreateFunctionExtensions(MethodsClass item)
         {
             ContextMenuStrip nodemenu = new ContextMenuStrip();
@@ -419,7 +423,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
 
             Vismanager.Images = new ImageList();
-            Vismanager.Images.ImageSize = new Size(24, 24);
+           
+                Vismanager.Images.ImageSize = IconSize;
+          
+            
             Vismanager.Images.ColorDepth = ColorDepth.Depth32Bit;
             List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
             foreach (string filename_w_path in paths)

@@ -120,6 +120,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             toolbar.vismanager = visManager;
 
             Datatree.CreateRootTree();
+            Apptree.IconSize = new Size(16, 16);
             Apptree.CreateRootTree();
 
             menu.menustrip = MainMenuStrip;
