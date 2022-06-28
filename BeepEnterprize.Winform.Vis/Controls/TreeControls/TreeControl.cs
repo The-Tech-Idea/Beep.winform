@@ -222,8 +222,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
             {
                 DMEEditor.ConfigEditor.objectTypes.Add(new TheTechIdea.Beep.Workflow.ObjectTypes { ObjectType = br.BranchClass, ObjectName = br.BranchType.ToString() + "_" + br.BranchClass });
             }
-            br.SetConfig(this, DMEEditor, null, br.BranchText, id, EnumPointType.Root, null);
-
             Branches.Add(br);
             br.CreateChildNodes();
         }

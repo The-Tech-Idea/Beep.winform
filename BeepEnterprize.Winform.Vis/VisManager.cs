@@ -116,6 +116,7 @@ namespace BeepEnterprize.Winform.Vis
 
             try
             {
+                PassedArgs E=null;
                 ErrorsandMesseges = new ErrorsInfo();
                 ErrorsandMesseges = (ErrorsInfo)CheckSystemEntryDataisSet();
 
@@ -123,11 +124,16 @@ namespace BeepEnterprize.Winform.Vis
                     if (ErrorsandMesseges.Flag == Errors.Ok)
                     {
                         string[] args = { null, null, null };
-
-                        PassedArgs E = CreateDefaultArgsForVisUtil();
-
-                         MainFormView = ShowForm(DMEEditor.ConfigEditor.Config.SystemEntryFormName, DMEEditor, args, E);
-
+                        if (DMEEditor.Passedarguments == null)
+                        {
+                            E = CreateDefaultArgsForVisUtil();
+                        }   
+                        else
+                        {
+                            DMEEditor.Passedarguments.Objects.AddRange(CreateArgsParameterForVisUtil());
+                            E = (PassedArgs)DMEEditor.Passedarguments;
+                        }
+                        MainFormView = ShowForm(DMEEditor.ConfigEditor.Config.SystemEntryFormName, DMEEditor, args, E);
                     }
 
                 
