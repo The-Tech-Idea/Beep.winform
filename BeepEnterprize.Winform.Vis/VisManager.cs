@@ -210,6 +210,7 @@ namespace BeepEnterprize.Winform.Vis
         #region "Misc"
         private List<ObjectItem> CreateArgsParameterForVisUtil()
         {
+            
             List<ObjectItem> objects = new List<ObjectItem>();
             ObjectItem v = new ObjectItem { Name = "VISUTIL", obj = (IVisManager)this };
             objects.Add(v);

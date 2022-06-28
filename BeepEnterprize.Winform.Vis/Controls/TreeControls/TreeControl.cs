@@ -139,20 +139,25 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 return DMEEditor.ErrorObject;
             }
         }
+        public T CreateInstance<T>(params object[] paramArray)
+        {
+            return (T)Activator.CreateInstance(typeof(T), args: paramArray);
+        }
         public IErrorsInfo CreateRootTree()
         {
            
             try
             {
+                //bool HasConstructor=false;
                 SetupTreeView();
                 treeNodeDragandDropHandler = new TreeNodeDragandDropHandler(DMEEditor, this);
                 treeBranchHandler = new TreeBranchHandler(DMEEditor, this);
                 Branches = new List<IBranch>();
                 foreach (AssemblyClassDefinition cls in DMEEditor.ConfigEditor.BranchesClasses.Where(p=>p.classProperties != null).OrderBy(x => x.Order))
                 {
-                 
                     Type adc = DMEEditor.assemblyHandler.GetType(cls.PackageName);
-                    ConstructorInfo ctor = adc.GetConstructors().Where(o => o.GetParameters().Length == 0).FirstOrDefault(); ;
+                    ConstructorInfo ctor = adc.GetConstructors().Where(o => o.GetParameters().Length == 0).FirstOrDefault();
+                  
                     if (ctor != null)
                     {
                         ObjectActivator<IBranch> createdActivator = GetActivator<IBranch>(ctor);
@@ -174,8 +179,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
                                     }
                                 }
                                 else CreateNode(id, br, TreeV);
-
-
                             }
                         }
                         catch (Exception ex)
@@ -184,7 +187,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         }
                      }
                 }
-
             }
             catch (Exception ex)
             {
@@ -213,7 +215,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 n.ImageKey = br.IconImageName;
                 n.SelectedImageKey = br.IconImageName;
             }
-
             n.ContextMenuStrip = CreateMenuMethods(br);
             CreateGlobalMenu(br, n);
             br.DMEEditor = DMEEditor;
@@ -221,6 +222,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
             {
                 DMEEditor.ConfigEditor.objectTypes.Add(new TheTechIdea.Beep.Workflow.ObjectTypes { ObjectType = br.BranchClass, ObjectName = br.BranchType.ToString() + "_" + br.BranchClass });
             }
+            br.SetConfig(this, DMEEditor, null, br.BranchText, id, EnumPointType.Root, null);
+
             Branches.Add(br);
             br.CreateChildNodes();
         }
