@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
+using BeepEnterprize.Winform.Vis.Controls.TreeControls;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -73,6 +74,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public TreeNode SelectedNode { get; set; }
         public int StartselectBranchID { get; set; }
         public Color SelectBackColor { get; set; }
+        public List<MenuList> Menus { get; set; } = new List<MenuList>();
         public List<int> SelectedBranchs { get; set; } = new List<int>();
         public TreeNodeDragandDropHandler treeNodeDragandDropHandler { get ; set ; }
         public ITreeBranchHandler treeBranchHandler { get ; set ; }
@@ -108,25 +110,52 @@ namespace BeepEnterprize.Winform.Vis.Controls
             return DMEEditor.ErrorObject;
 
         }
+        private bool IsMenuCreated(IBranch br)
+        {
+            if (br.ObjectType != null)
+            {
+                return Menus.Where(p => p.BranchClass.Equals(p.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+                && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
+                && p.PointType == br.BranchType).Any();
+            }return
+                false;
+            
+         
+            
+            
+        }
+        private MenuList GetMenuList(IBranch br)
+        {
+            return Menus.Where(p => p.BranchClass.Equals(p.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+                && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
+                && p.PointType == br.BranchType).FirstOrDefault();
+        }
         public IErrorsInfo CreateGlobalMenu(IBranch br, TreeNode n)
         {
             try
             {
-                ContextMenuStrip nodemenu = n.ContextMenuStrip;
-                if (nodemenu == null)
+                MenuList menuList =new MenuList();
+                if (!IsMenuCreated(br))
                 {
-                    nodemenu = new ContextMenuStrip();
-                    nodemenu.ItemClicked += Nodemenu_ItemClicked;
+                    menuList = new MenuList(br.ObjectType, br.BranchClass, br.BranchType);
+                    menuList.branchname = br.BranchText;
+                    Menus.Add(menuList);
+                    ContextMenuStrip nodemenu = new ContextMenuStrip();
+                    menuList.Menu = nodemenu;
+                    menuList.Menu.Items.Clear();
+                
                 }
-                List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.OrderBy(p => p.Order).ToList();
+                else
+                    menuList=GetMenuList(br);
+                List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.Where(o=>o.classProperties != null && o.classProperties.ObjectType!=null && o.classProperties.ObjectType.Equals(br.ObjectType,StringComparison.InvariantCultureIgnoreCase) ).OrderBy(p => p.Order ).ToList(); //&&  o.classProperties.menu.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
                 foreach (AssemblyClassDefinition cls in extentions)
                 {
                     foreach (var item in cls.Methods)
                     {
                         if (item.PointType == br.BranchType)
                         {
-                            ToolStripItem st = nodemenu.Items.Add(item.Caption);
-                            nodemenu.Name = br.ToString();
+                            ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
+                            menuList.Menu.Name = br.ToString();
                             if (item.iconimage != null)
                             {
                                 st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
@@ -135,6 +164,29 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         }
                     }
                 }
+                //ContextMenuStrip nodemenu = n.ContextMenuStrip;
+                //if (nodemenu == null)
+                //{
+                //    nodemenu = new ContextMenuStrip();
+                //    nodemenu.ItemClicked += Nodemenu_ItemClicked;
+                //}
+                //List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.OrderBy(p => p.Order).ToList();
+                //foreach (AssemblyClassDefinition cls in extentions)
+                //{
+                //    foreach (var item in cls.Methods)
+                //    {
+                //        if (item.PointType == br.BranchType)
+                //        {
+                //            ToolStripItem st = nodemenu.Items.Add(item.Caption);
+                //            nodemenu.Name = br.ToString();
+                //            if (item.iconimage != null)
+                //            {
+                //                st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                //            }
+                //            st.Tag = cls;
+                //        }
+                //    }
+                //}
 
                 return DMEEditor.ErrorObject;
             }
@@ -220,7 +272,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 n.SelectedImageKey = br.IconImageName;
             }
             n.ContextMenuStrip = CreateMenuMethods(br);
-            CreateGlobalMenu(br, n);
+            if( br.ObjectType!=null && br.BranchClass != null)
+            {
+                CreateGlobalMenu(br, n);
+            }
+           
             br.DMEEditor = DMEEditor;
             if (!DMEEditor.ConfigEditor.objectTypes.Any(i => i.ObjectType == br.BranchClass && i.ObjectName == br.BranchType.ToString() + "_" + br.BranchClass))
             {
@@ -249,8 +305,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
                 }
                 nodemenu.ItemClicked += Nodemenu_ItemClicked;
-              
-                
 
             }
             catch (Exception ex)
@@ -576,24 +630,36 @@ namespace BeepEnterprize.Winform.Vis.Controls
             if(br != null)
             {
                 string clicks = "";
-                switch (e.Clicks)
+                if(e.Button== MouseButtons.Right)
                 {
-                    case 1:
-                        clicks = "SingleClick";
-                        break;
-                    case 2:
-                        clicks = "DoubleClick";
-                        break;
+                    if (IsMenuCreated(br))
+                    {
+                        MenuList menuList = GetMenuList(br);
+                        menuList.Menu.Show(e.X, e.Y);
+                    }
+                }
+                else
+                {
+                    switch (e.Clicks)
+                    {
+                        case 1:
+                            clicks = "SingleClick";
+                            break;
+                        case 2:
+                            clicks = "DoubleClick";
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
+                    AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == br.Name && x.Methods.Where(y => y.DoubleClick == true || y.Click == true).Any()).FirstOrDefault();
+                    if (cls != null)
+                    {
+                        if (!IsMethodApplicabletoNode(cls, br)) return;
+                        RunMethod(br, clicks);
+                    }
                 }
-                AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == br.Name && x.Methods.Where(y => y.DoubleClick == true || y.Click == true).Any()).FirstOrDefault();
-                if (cls != null)
-                {
-                    if (!IsMethodApplicabletoNode(cls, br)) return;
-                    RunMethod(br, clicks);
-                }
+              
             }
             
         }

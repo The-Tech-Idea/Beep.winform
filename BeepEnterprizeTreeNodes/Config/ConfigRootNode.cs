@@ -66,7 +66,7 @@ namespace  BeepEnterprize.Vis.Module
         public object TreeStrucure { get; set; }
         public  IVisManager  Visutil { get; set; }
         public int MiscID { get; set; }
-        public string ObjectType { get; set; } 
+        public string ObjectType { get; set; } = "Beep";
 
         #endregion "Properties"
         #region "Interface Methods"

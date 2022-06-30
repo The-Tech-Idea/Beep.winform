@@ -166,6 +166,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ToolbarControl.cs" />
+    <Compile Include="Controls\TreeControls\MenuList.cs" />
     <Compile Include="Controls\TreeControls\TreeBranchHandler.cs" />
     <Compile Include="Controls\TreeControls\TreeControl.cs" />
     <Compile Include="Controls\TreeControls\TreeNodeDragandDropHandler.cs" />

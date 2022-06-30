@@ -16,7 +16,7 @@ using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
-    [AddinAttribute(Caption = "File", Name = "FileMenuFunctions", misc = "FileMenuFunctions", addinType = AddinType.Class,iconimage ="File.ico",order =1)]
+    [AddinAttribute(Caption = "File", Name = "FileMenuFunctions", menu = "Beep", misc = "FileMenuFunctions", addinType = AddinType.Class,iconimage ="File.ico",order =1)]
     public class FileMenuFunctions : IFunctionExtension
     {
         public IDMEEditor DMEEditor { get ; set ; }

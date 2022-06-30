@@ -22,7 +22,7 @@ using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
-    [AddinAttribute(Caption = "DataSource", Name = "DataSourceMenuFunctions", misc = "DataSourceMenuFunctions", addinType = AddinType.Class, iconimage = "datasource.ico",order =3)]
+    [AddinAttribute(Caption = "DataSource", Name = "DataSourceMenuFunctions", misc = "DataSourceMenuFunctions",menu ="Beep", addinType = AddinType.Class, iconimage = "datasource.ico",order =3)]
     public class DataSourceMenuFunctions : IFunctionExtension
     {
         public IDMEEditor DMEEditor { get; set; }
