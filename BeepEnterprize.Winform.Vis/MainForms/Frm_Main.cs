@@ -100,7 +100,10 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             Passedarg.Objects.Add(new ObjectItem() { Name = "ControlManager", obj = visManager._controlManager });
             Passedarg.Objects.Add(new ObjectItem() { Name = "MenuControl", obj = menu });
             Passedarg.Objects.Add(new ObjectItem() { Name = "ToolbarControl", obj = toolbar });
-
+            if (!visManager.WaitFormShown)
+            {
+                visManager.ShowWaitForm((PassedArgs)Passedarg);
+            }
             DMEEditor.Passedarguments = Passedarg;
             visManager.Container = ContainerPanel;
 
@@ -118,18 +121,25 @@ namespace BeepEnterprize.Winform.Vis.MainForms
 
             menu.vismanager = visManager;
             toolbar.vismanager = visManager;
-
-            Datatree.CreateRootTree();
+            Passedarg.ParameterString1 = "Loading Beep Data Management Functions and Tree";
+            visManager.PasstoWaitForm((PassedArgs)Passedarg);
+           Datatree.CreateRootTree();
             Apptree.IconSize = new Size(16, 16);
+            Passedarg.ParameterString1 = "Loading DHUB Functions and Tree";
+            visManager.PasstoWaitForm((PassedArgs)Passedarg);
             Apptree.CreateRootTree();
 
             menu.menustrip = MainMenuStrip;
+            Passedarg.ParameterString1 = "Loading Function Extensions and Menu ";
+            visManager.PasstoWaitForm((PassedArgs)Passedarg);
             menu.CreateGlobalMenu();
             toolbar.toolbarstrip = MaintoolStrip1;
+            Passedarg.ParameterString1 = "Loading Toobar Functions ";
+            visManager.PasstoWaitForm((PassedArgs)Passedarg);
             toolbar.CreateToolbar();
             this.Shown += Frm_Main_Shown;
             startLoggin = true;
-           
+            visManager.CloseWaitForm();
             this.Filterbutton.Click += Filterbutton_Click;
             this.SidePanelCollapsebutton.Click += SidePanelCollapsebutton_Click;
             this.MinMaxButton.Click += MinMaxButton_Click;

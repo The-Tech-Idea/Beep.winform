@@ -689,13 +689,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             {
                 foreach (TreeNode _parentNode in TreeCache.Nodes)
                 {
-                    foreach (TreeNode _childNode in _parentNode.Nodes)
-                    {
-                        if (_childNode.Text.StartsWith(value))
-                        {
-                            this.TreeV.Nodes.Add((TreeNode)_childNode.Clone());
-                        }
-                    }
+                    ScanNodes(_parentNode, value);
                 }
             }
             else
@@ -708,6 +702,21 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             //enables redrawing tree after all objects have been added
             this.TreeV.EndUpdate();
+        }
+        private void ScanNodes(TreeNode _parentNode, string value)
+        {
+            foreach (TreeNode _childNode in _parentNode.Nodes)
+            {
+                if (_childNode.Text.StartsWith(value, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    this.TreeV.Nodes.Add((TreeNode)_childNode.Clone());
+                }
+                if(_childNode.Nodes.Count > 0)
+                {
+                    ScanNodes(_childNode, value);
+                }
+            }
+
         }
         #endregion
     }

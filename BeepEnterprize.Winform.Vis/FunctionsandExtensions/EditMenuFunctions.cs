@@ -15,7 +15,7 @@ using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
-    [AddinAttribute(Caption = "Edit", Name = "EditMenuFunctions", misc = "EditMenuFunctions", menu = "Beep", addinType = AddinType.Class, iconimage = "edit.ico", order = 2)]
+    [AddinAttribute(Caption = "Edit", Name = "EditMenuFunctions", ObjectType = "Beep", misc = "EditMenuFunctions", menu = "Beep", addinType = AddinType.Class, iconimage = "edit.ico", order = 2)]
     public class EditMenuFunctions : IFunctionExtension
     {
         public IDMEEditor DMEEditor { get; set; }

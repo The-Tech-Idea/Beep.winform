@@ -10,6 +10,9 @@ using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis;
 using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.Tools;
+using System.Threading;
+using TheTechIdea;
+using System;
 
 namespace BeepEnterprize.Winform
 
@@ -37,6 +40,8 @@ namespace BeepEnterprize.Winform
         public IRulesEditor rulesEditor { get; set; }
 
         #endregion
+        IProgress<PassedArgs> progress;
+        CancellationToken token;
         public static IContainer Configure() //ContainerBuilder builder
         {
             Builder = new ContainerBuilder();
@@ -93,7 +98,7 @@ namespace BeepEnterprize.Winform
 
                 vis = scope.Resolve<IVisManager>();
                
-                LLoader.LoadAllAssembly();
+                LLoader.LoadAllAssembly( progress,token);
                 Config_editor.LoadedAssemblies = LLoader.Assemblies.Select(c => c.DllLib).ToList();
 
                 // Setup the Entry Screen 

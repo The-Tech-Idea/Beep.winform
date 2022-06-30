@@ -30,6 +30,7 @@ namespace BeepEnterprize.Winform.Vis
         public IDMEEditor DMEEditor { get; set; }
         public IDM_Addin ToolStrip { get; set; }
         public IDM_Addin Tree { get; set; }
+        public bool WaitFormShown { get; set;}=false;
         public IDM_Addin SecondaryTree { get; set; }
         public IDM_Addin MenuStrip { get; set; }
         public IVisHelper visHelper { get; set; }
@@ -529,7 +530,6 @@ namespace BeepEnterprize.Winform.Vis
    
             }).ConfigureAwait(true);
         }
-
         public IErrorsInfo ShowWaitForm(PassedArgs Passedarguments)
         {
             try
@@ -537,6 +537,7 @@ namespace BeepEnterprize.Winform.Vis
                 
                 ErrorsandMesseges = new ErrorsInfo();
                 startwait(Passedarguments);
+                WaitFormShown=true;
                 while ((BeepWait)Application.OpenForms["BeepWait"] == null) Application.DoEvents();
                 form = (BeepWait)Application.OpenForms["BeepWait"];
 
@@ -560,6 +561,7 @@ namespace BeepEnterprize.Winform.Vis
                 if (form != null)
                 {
                     SetText(form, form.messege, Passedarguments.ParameterString1);
+                    WaitFormShown = true;
                 }
 
             }
@@ -582,10 +584,12 @@ namespace BeepEnterprize.Winform.Vis
                     if (form.InvokeRequired)
                     {
                         form.BeginInvoke((MethodInvoker)delegate () { form.CloseForm(); });
+                        WaitFormShown = false;
                     }
                     else
                     {
                         form.Close();//Fault tolerance this code should never be executed
+                        WaitFormShown = false;
                     }
 
                 }
