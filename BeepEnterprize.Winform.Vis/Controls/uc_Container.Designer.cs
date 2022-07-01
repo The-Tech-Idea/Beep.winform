@@ -34,6 +34,7 @@
             // 
             // TitleLabel
             // 
+            this.TitleLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleLabel.Location = new System.Drawing.Point(0, 0);
@@ -56,8 +57,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Line1panel);
             this.Controls.Add(this.TitleLabel);
+            this.Controls.Add(this.Line1panel);
             this.Name = "uc_Container";
             this.Size = new System.Drawing.Size(650, 515);
             this.ResumeLayout(false);

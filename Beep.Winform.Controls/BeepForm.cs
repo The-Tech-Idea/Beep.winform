@@ -54,7 +54,7 @@ namespace Beep.Winform.Controls
                 Insidepanel.Controls.Add(control);
                 control.Dock = DockStyle.Fill;
 
-
+                
                 // this.FormBorderStyle = FormBorderStyle.None;
                 //  this.ControlBox = false;
                 Loadimages();
