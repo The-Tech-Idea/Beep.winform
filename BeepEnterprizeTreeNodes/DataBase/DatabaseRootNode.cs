@@ -60,7 +60,7 @@ namespace  BeepEnterprize.Vis.Module
             return DMEEditor.ErrorObject;
 
         }
-      
+        public object ParentBranch { get; set; }
         public string Name { get; set; }
         public EntityStructure EntityStructure { get; set; }
         public string BranchText { get; set; } = "RDBMS";

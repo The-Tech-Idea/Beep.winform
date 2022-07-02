@@ -42,11 +42,11 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.Filterbutton = new System.Windows.Forms.Button();
             this.TreeFilterTextBox = new System.Windows.Forms.TextBox();
             this.DatatreeView = new System.Windows.Forms.TreeView();
+            this.MainViewsplitContainer = new System.Windows.Forms.SplitContainer();
             this.MinMaxButton = new System.Windows.Forms.Button();
             this.LogPanelCollapsebutton = new System.Windows.Forms.Button();
-            this.LogPanel = new System.Windows.Forms.TextBox();
-            this.MainViewsplitContainer = new System.Windows.Forms.SplitContainer();
             this.ContainerPanel = new BeepEnterprize.Winform.Vis.Controls.uc_Container();
+            this.LogPanel = new System.Windows.Forms.TextBox();
             this.Toppanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer1)).BeginInit();
             this.MainSplitContainer1.Panel1.SuspendLayout();
@@ -124,7 +124,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.SidePanelContainer.Panel1.Controls.Add(this.TextFilterLine);
             this.SidePanelContainer.Panel1.Controls.Add(this.Filterbutton);
             this.SidePanelContainer.Panel1.Controls.Add(this.TreeFilterTextBox);
-           
             // 
             // SidePanelContainer.Panel2
             // 
@@ -205,39 +204,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.DatatreeView.Size = new System.Drawing.Size(243, 303);
             this.DatatreeView.TabIndex = 2;
             // 
-            // MinMaxButton
-            // 
-            this.MinMaxButton.BackColor = System.Drawing.Color.Transparent;
-            this.MinMaxButton.Location = new System.Drawing.Point(1, 12);
-            this.MinMaxButton.Name = "MinMaxButton";
-            this.MinMaxButton.Size = new System.Drawing.Size(16, 20);
-            this.MinMaxButton.TabIndex = 16;
-            this.MinMaxButton.UseVisualStyleBackColor = false;
-            // 
-            // LogPanelCollapsebutton
-            // 
-            this.LogPanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.LogPanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(916, 587);
-            this.LogPanelCollapsebutton.Name = "LogPanelCollapsebutton";
-            this.LogPanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
-            this.LogPanelCollapsebutton.TabIndex = 16;
-            this.LogPanelCollapsebutton.UseVisualStyleBackColor = false;
-            // 
-            // LogPanel
-            // 
-            this.LogPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LogPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LogPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LogPanel.ForeColor = System.Drawing.Color.White;
-            this.LogPanel.Location = new System.Drawing.Point(0, 0);
-            this.LogPanel.Multiline = true;
-            this.LogPanel.Name = "LogPanel";
-            this.LogPanel.ReadOnly = true;
-            this.LogPanel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LogPanel.Size = new System.Drawing.Size(939, 80);
-            this.LogPanel.TabIndex = 0;
-            // 
             // MainViewsplitContainer
             // 
             this.MainViewsplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -258,6 +224,25 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MainViewsplitContainer.SplitterDistance = 607;
             this.MainViewsplitContainer.TabIndex = 17;
             // 
+            // MinMaxButton
+            // 
+            this.MinMaxButton.BackColor = System.Drawing.Color.Transparent;
+            this.MinMaxButton.Location = new System.Drawing.Point(1, 12);
+            this.MinMaxButton.Name = "MinMaxButton";
+            this.MinMaxButton.Size = new System.Drawing.Size(16, 20);
+            this.MinMaxButton.TabIndex = 16;
+            this.MinMaxButton.UseVisualStyleBackColor = false;
+            // 
+            // LogPanelCollapsebutton
+            // 
+            this.LogPanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LogPanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
+            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(916, 587);
+            this.LogPanelCollapsebutton.Name = "LogPanelCollapsebutton";
+            this.LogPanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
+            this.LogPanelCollapsebutton.TabIndex = 16;
+            this.LogPanelCollapsebutton.UseVisualStyleBackColor = false;
+            // 
             // ContainerPanel
             // 
             this.ContainerPanel.ContainerType = BeepEnterprize.Winform.Vis.Controls.ContainerTypeEnum.SinglePanel;
@@ -266,6 +251,20 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.ContainerPanel.Name = "ContainerPanel";
             this.ContainerPanel.Size = new System.Drawing.Size(939, 607);
             this.ContainerPanel.TabIndex = 17;
+            // 
+            // LogPanel
+            // 
+            this.LogPanel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LogPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LogPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogPanel.ForeColor = System.Drawing.Color.White;
+            this.LogPanel.Location = new System.Drawing.Point(0, 0);
+            this.LogPanel.Multiline = true;
+            this.LogPanel.Name = "LogPanel";
+            this.LogPanel.ReadOnly = true;
+            this.LogPanel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.LogPanel.Size = new System.Drawing.Size(939, 80);
+            this.LogPanel.TabIndex = 0;
             // 
             // Frm_Main
             // 

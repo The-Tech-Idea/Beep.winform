@@ -199,6 +199,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             return (T)Activator.CreateInstance(typeof(T), args: paramArray);
         }
+        public TreeNode CurrentNode { get; set; }
+        public TreeNode ParentNode { get; set; }
         public IErrorsInfo CreateRootTree()
         {
            
@@ -256,11 +258,15 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             TreeNode n = TreeV.Nodes.Add(br.BranchText);
             n.Tag = br;
-
+         
             br.TreeEditor = this;
             br.Visutil = VisManager;
             br.BranchID = id;
             br.ID = id;
+            n.Name = br.ID.ToString();
+            ParentNode = null;
+            CurrentNode = n;
+            //br.ParentBranch = n;
             if (Vismanager.visHelper.GetImageIndex(br.IconImageName) == -1)
             {
                 n.ImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText);
@@ -532,23 +538,24 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             try
             {
-                foreach (TreeNode node in p_Nodes)
-                {
-                    IBranch br = (IBranch)node.Tag;
-                    if (br.ID == id)
-                    {
-                        return node;
-                    }
+            //    foreach (TreeNode node in p_Nodes)
+            //    {
+            //        IBranch br = (IBranch)node.Tag;
+            //        if (br.ID == id)
+            //        {
+            //            return node;
+            //        }
 
-                    if (node.Nodes.Count > 0)
-                    {
-                        var result = GetTreeNodeByID(id, node.Nodes);
-                        if (result != null)
-                        {
-                            return result;
-                        }
-                    }
-                }
+            //        if (node.Nodes.Count > 0)
+            //        {
+            //            var result = GetTreeNodeByID(id, node.Nodes);
+            //            if (result != null)
+            //            {
+            //                return result;
+            //            }
+            //        }
+            //    }
+            return p_Nodes.Find(id.ToString(), true).FirstOrDefault();
             }
             catch (Exception ex)
             {

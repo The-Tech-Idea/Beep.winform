@@ -61,6 +61,7 @@ namespace  BeepEnterprize.Vis.Module
             return DMEEditor.ErrorObject;
 
         }
+        public object ParentBranch { get; set; }
         public string ObjectType { get; set; } = "Beep";
         public string Name { get; set; }
         public EntityStructure EntityStructure { get; set; }

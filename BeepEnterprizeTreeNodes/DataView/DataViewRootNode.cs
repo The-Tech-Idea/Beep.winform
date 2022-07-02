@@ -38,6 +38,7 @@ namespace  BeepEnterprize.Vis.Module
             //.GetImageIndex(ParentTree, MainNode, "dataview.ico");
         }
         #region "Properties"
+        public object ParentBranch { get; set; }
         public string ObjectType { get; set; } = "Beep";
         public int ID { get; set; }
         public EntityStructure EntityStructure { get; set; }

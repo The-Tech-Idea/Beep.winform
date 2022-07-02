@@ -29,7 +29,7 @@ namespace  BeepEnterprize.Vis.Module.Mapping
             }
 
         }
-
+        public object ParentBranch { get; set; }
         public int ID { get; set; }
         public IDMEEditor DMEEditor { get; set; }
         public IDataSource DataSource { get; set; }

@@ -15,6 +15,7 @@ namespace BeepEnterprize.Vis.Module
         IDataSource DataSource { get; set; }
         string DataSourceName { get; set; }
         List<IBranch> ChildBranchs { get; set; }
+        object ParentBranch { get;set; }
         ITree TreeEditor { get; set; }
         IVisManager Visutil { get; set; }
         List<string> BranchActions { get; set; }

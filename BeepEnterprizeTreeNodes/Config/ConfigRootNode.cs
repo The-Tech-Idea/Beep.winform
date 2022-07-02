@@ -44,6 +44,7 @@ namespace  BeepEnterprize.Vis.Module
         }
 
         #region "Properties"
+        public object ParentBranch { get; set; }
         public int ID { get; set; }
         public EntityStructure EntityStructure { get; set; }
         public int Order { get; set; } = 999;

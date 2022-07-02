@@ -59,6 +59,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         Image CollapseUp;
         Image CollapseDown;
         Image ListSearch;
+        bool IsDevModeOn = true;
        // bool IsAddingControl = false;
         
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
@@ -72,12 +73,20 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 visManager = (VisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
             }
             Logger.Onevent += Logger_Onevent;
-          
-             toolbar = (ToolbarControl)visManager.ToolStrip;
+            if (Passedarg.ParameterInt1 > 0)
+            {
+                if(Passedarg.ParameterInt1 > 1)
+                {
+                    IsDevModeOn=true;
+                }
+                
+               
+            }
+            DevModeOn();
+            toolbar = (ToolbarControl)visManager.ToolStrip;
              menu = (MenuControl)visManager.MenuStrip;
              Datatree = (TreeControl)visManager.Tree;
              Apptree = (TreeControl)visManager.SecondaryTree;
-
 
             if (Passedarg.Objects.Where(i => i.Name == "TreeControl").Any())
             {
@@ -160,7 +169,24 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             Filterbutton.Image = ListSearch;
            
         }
+        public void DevModeOn()
+        {
 
+            if (!IsDevModeOn)
+            {
+                LogPanelCollapsebutton.Visible = false;
+                MainViewsplitContainer.Panel2Collapsed = true;
+                SidePanelCollapsebutton.Visible = false;
+                SidePanelContainer.Panel2Collapsed = true;
+            }
+            else
+            {
+                LogPanelCollapsebutton.Visible = true;
+                MainViewsplitContainer.Panel2Collapsed = false;
+                SidePanelCollapsebutton.Visible = true;
+                SidePanelContainer.Panel2Collapsed = false;
+            }
+        }
         private void LogPanelCollapsebutton_Click(object sender, EventArgs e)
         {
             //IsLogPanelOpen

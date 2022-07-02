@@ -41,7 +41,7 @@ namespace  BeepEnterprize.Vis.Module
                 BranchID = pID;
             }
         }
-
+        public object ParentBranch { get; set; }
         #region "Properties"
         public string ObjectType { get; set; } = "Beep";
         public int ID { get; set; }

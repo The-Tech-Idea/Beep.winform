@@ -40,7 +40,7 @@ namespace BeepEnterprize.Winform
         public IRulesEditor rulesEditor { get; set; }
 
         #endregion
-        IProgress<PassedArgs> progress;
+        CancellationTokenSource tokenSource;
         CancellationToken token;
         public static IContainer Configure() //ContainerBuilder builder
         {
@@ -65,6 +65,7 @@ namespace BeepEnterprize.Winform
         }
         public MainApp()
         {
+
             Container = Configure();
             using (var scope = Container.BeginLifetimeScope())
             {
@@ -78,6 +79,7 @@ namespace BeepEnterprize.Winform
                 DMEEditor = scope.Resolve<IDMEEditor>();
                 typesHelper = scope.Resolve<IDataTypesHelper>();
                 classCreator = scope.Resolve<IClassCreator>();
+
                 typesHelper.DMEEditor = DMEEditor;
                 DMEEditor.typesHelper = typesHelper;
                 DMEEditor.ETL = eTL;
@@ -93,24 +95,46 @@ namespace BeepEnterprize.Winform
                 ruleparser.DMEEditor = DMEEditor;
                 rulesEditor.DMEEditor = DMEEditor;
                 rulesEditor.Parser = ruleparser;
-                
-                DMEEditor.ETL.RulesEditor = rulesEditor;
 
+                DMEEditor.ETL.RulesEditor = rulesEditor;
+                PassedArgs p = new PassedArgs();
                 vis = scope.Resolve<IVisManager>();
-               
-                LLoader.LoadAllAssembly( progress,token);
+                vis.ShowWaitForm(p);
+                DMEEditor.AddLogMessage("Started Assembly Loader");
+                p.ParameterString1 = "Loading DLL's";
+                vis.PasstoWaitForm(p);
+                tokenSource = new CancellationTokenSource();
+                token = tokenSource.Token;
+                var progress = new Progress<PassedArgs>(percent => {
+
+                    p.ParameterString1 = percent.ParameterString1;
+                    vis.PasstoWaitForm(p);
+                });
+                LLoader.LoadAllAssembly(progress, token);
                 Config_editor.LoadedAssemblies = LLoader.Assemblies.Select(c => c.DllLib).ToList();
 
-                // Setup the Entry Screen 
-                // the screen has to be in one the Addin DLL's loaded by the Assembly loader
-                Config_editor.Config.SystemEntryFormName = @"Frm_main";
-                //AppDomain.CurrentDomain.FirstChanceException += (sender, eventArgs) =>
-                //{
-                //    DMEEditor.AddLogMessage("Beep",eventArgs.Exception.ToString(),DateTime.Now,0,null,Errors.Failed);
-                //};
-                vis.ShowMainPage();
+              //  dhubMain = scope.Resolve<IDhubMainConfig>();
 
-              
+
+
+
+                //-------------------------------------------------------
+            
+                        // Setup the Entry Screen 
+                        // the screen has to be in one the Addin DLL's loaded by the Assembly loader
+                        // Config_editor.Config.SystemEntryFormName = @"MainForm";
+                        Config_editor.Config.SystemEntryFormName = @"Frm_Main";
+                        //AppDomain.CurrentDomain.FirstChanceException += (sender, eventArgs) =>
+                        //{
+                        //    DMEEditor.AddLogMessage("Beep",eventArgs.Exception.ToString(),DateTime.Now,0,null,Errors.Failed);
+                        //};
+                        //DMEEditor.Passedarguments = new PassedArgs();
+                        //DMEEditor.Passedarguments.Objects = new System.Collections.Generic.List<ObjectItem>();
+                        //DMEEditor.Passedarguments.Objects.Add(new TheTechIdea.ObjectItem() { Name = "DHUB", obj = dhubMain });
+                        DMEEditor.AddLogMessage("Show Main Page");
+                        vis.ShowMainPage();
+               
+
             }
         }
     }

@@ -44,9 +44,23 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             try
             {
+                Treecontrol.TreeV.BeginUpdate();
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == Branch.ToString()).FirstOrDefault();
                 Branch.Name = cls.PackageName;
-                TreeNode p = Treecontrol.GetTreeNodeByID(ParentBranch.BranchID, TreeV.Nodes);
+                if (Treecontrol.ParentNode == null)
+                {
+                    Treecontrol.ParentNode = Treecontrol.CurrentNode;
+                }
+                else
+                {
+                    IBranch v = (IBranch)Treecontrol.ParentNode.Tag;
+                    if (ParentBranch.ID!=v.ID)
+                    {
+                        Treecontrol.ParentNode = Treecontrol.GetTreeNodeByID(ParentBranch.BranchID, TreeV.Nodes);
+                    }
+                   
+                }
+                TreeNode p = Treecontrol.ParentNode; 
                 TreeNode n = p.Nodes.Add(Branch.BranchText);
                 if (visManager.visHelper.GetImageIndex(Branch.IconImageName) == -1)
                 {
@@ -62,11 +76,13 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 Branch.TreeEditor = Tree;
                 Branch.Visutil = visManager;
                 n.Tag = Branch;
+                n.Name = Branch.ID.ToString();
                 n.ContextMenuStrip = Treecontrol.CreateMenuMethods(Branch);
                 Treecontrol.CreateGlobalMenu(Branch, n);
                 Branch.DMEEditor = DMEEditor;
                 // ITreeView treeView = (ITreeView)Branch;
                 //  treeView.Visutil = Visutil;
+             //   Branch.ParentBranch = ParentBranch;
                 Tree.Branches.Add(Branch);
                 if (!DMEEditor.ConfigEditor.objectTypes.Any(i => i.ObjectType == Branch.BranchClass && i.ObjectName == Branch.BranchType.ToString() + "_" + Branch.BranchClass))
                 {
@@ -137,7 +153,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     }
 
                 }
-
+                Treecontrol.TreeV.EndUpdate();
             }
             catch (Exception ex)
             {
@@ -147,6 +163,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             return DMEEditor.ErrorObject;
 
         }
+      
         public string CheckifBranchExistinCategory(string BranchName, string pRootName)
         {
             //bool retval = false;
@@ -230,13 +247,22 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         }
 
                         branch.ChildBranchs.Clear();
-                        TreeNode n = Treecontrol.GetTreeNodeByID(branch.BranchID, TreeV.Nodes);
-                        if (n != null)
-                        {
-                            n.Nodes.Clear();
-
-                        }
+                     
                     }
+              
+                }
+                TreeNode curnode = Treecontrol.CurrentNode;
+                IBranch br = (IBranch)curnode.Tag;
+                if (br.ID != branch.ID)
+                {
+                    curnode = Treecontrol.GetTreeNodeByID(branch.BranchID, TreeV.Nodes);
+                }
+
+
+                if (curnode != null)
+                {
+                    curnode.Nodes.Clear();
+
                 }
 
 
