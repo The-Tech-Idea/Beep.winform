@@ -114,8 +114,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             if (br.ObjectType != null)
             {
-                return Menus.Where(p => p.BranchClass.Equals(p.BranchClass, StringComparison.InvariantCultureIgnoreCase)
-                && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
+                return Menus.Where(p =>  p.ObjectType!=null && p.BranchClass.Equals(p.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+                && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase) 
                 && p.PointType == br.BranchType).Any();
             }return
                 false;
@@ -126,7 +126,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         private MenuList GetMenuList(IBranch br)
         {
-            return Menus.Where(p => p.BranchClass.Equals(p.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+            return Menus.Where(p => p.ObjectType != null &&  p.BranchClass.Equals(p.BranchClass, StringComparison.InvariantCultureIgnoreCase)
                 && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
                 && p.PointType == br.BranchType).FirstOrDefault();
         }

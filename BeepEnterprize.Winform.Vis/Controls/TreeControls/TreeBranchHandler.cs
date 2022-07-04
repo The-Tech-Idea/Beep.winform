@@ -153,6 +153,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     }
 
                 }
+                n.ExpandAll();
                 Treecontrol.TreeV.EndUpdate();
             }
             catch (Exception ex)
