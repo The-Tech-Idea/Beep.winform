@@ -130,7 +130,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
                 && p.PointType == br.BranchType).FirstOrDefault();
         }
-      
         public T CreateInstance<T>(params object[] paramArray)
         {
             return (T)Activator.CreateInstance(typeof(T), args: paramArray);
@@ -164,9 +163,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
                                 br.Name = cls.PackageName;
                                 if (TreeType != null)
                                 {
-                                    if (cls.classProperties.misc != null)
+                                    if (cls.classProperties.ObjectType != null)
                                     {
-                                        if (cls.classProperties.misc.Equals(TreeType, StringComparison.InvariantCultureIgnoreCase))
+                                        if (cls.classProperties.ObjectType.Equals(TreeType, StringComparison.InvariantCultureIgnoreCase))
                                         {
                                             CreateNode(id, br, TreeV);
                                         }
@@ -243,6 +242,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     menuList.ObjectType = br.ObjectType;
                     menuList.BranchClass = br.BranchClass;
                     menuList.Menu.ImageList = Vismanager.Images;
+                    menuList.Menu.ItemClicked -= Nodemenu_ItemClicked;
+                    menuList.Menu.ItemClicked += Nodemenu_ItemClicked;
                     menuList.Menu.Items.Clear();
 
                 }
@@ -267,6 +268,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                                 st.Tag = cls;
                             }
                         }
+                      
                     }
                     
                 }
@@ -292,6 +294,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 menuList.BranchClass = branch.BranchClass;
                 menuList.Menu.Items.Clear();
                 menuList.Menu.ImageList = Vismanager.Images;
+                menuList.Menu.ItemClicked -= Nodemenu_ItemClicked;
+                menuList.Menu.ItemClicked += Nodemenu_ItemClicked;
 
             }
             else
@@ -316,7 +320,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         st.Tag = cls;
 
                     }
-                    menuList.Menu.ItemClicked += Nodemenu_ItemClicked;
+                  
                 }
                
 

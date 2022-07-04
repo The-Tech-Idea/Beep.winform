@@ -65,7 +65,7 @@ namespace AI
         public string BranchStatus { get; set; }
         public int ParentBranchID { get; set; }
         public string BranchDescription { get; set; }
-        public string BranchClass { get; set; } = "AI";
+        public string BranchClass { get; set; } = "AI.IronPython";
         public List<IBranch> ChildBranchs { get; set; } = new List<IBranch>();
         public ITree TreeEditor { get; set; }
         public List<string> BranchActions { get; set; }
@@ -74,6 +74,7 @@ namespace AI
         public int MiscID { get; set; }
         public string ObjectType { get; set; } = "Beep";
         public AddinTreeStructure AddinTreeStructure { get; set; }
+        public object ParentBranch { get; set; }
 
         #endregion "Properties"
         #region "Interface Methods"

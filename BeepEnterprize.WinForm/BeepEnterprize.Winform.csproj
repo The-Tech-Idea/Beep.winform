@@ -134,11 +134,17 @@
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="..\..\Plugins\AINodes\bin\Debug\netstandard2.1\AINodes.dll">
+      <Link>ProjectClasses\AINodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\ModuleExtensions\outputdll\AIModule\AIModule.dll">
-      <Link>LoadingExtensions\AIModule.dll</Link>
+      <Link>LoadingExtensions\AssemblyLoader_AIandApps\AIModule.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\ModuleExtensions\outputdll\AppModule\AppModule.dll">
-      <Link>LoadingExtensions\AppModule.dll</Link>
+      <Link>LoadingExtensions\AssemblyLoader_AIandApps\AppModule.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\outputdll\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.dll">
       <Link>ProjectClasses\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.dll</Link>
@@ -162,9 +168,11 @@
     </Content>
     <Content Include="..\Plugin\OutputDLL\AssemblyLoaderExtension\AssemblyLoaderExtension.dll">
       <Link>LoadingExtensions\AssemblyLoaderExtension\AssemblyLoaderExtension.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Plugin\OutputDLL\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll">
       <Link>LoadingExtensions\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Plugin\OutputDLL\DxBeepCommn\DxBeepCommn.dll">
       <Link>ProjectClasses\DxBeepCommn\DxBeepCommn.dll</Link>
@@ -3308,7 +3316,6 @@
     <Content Include="ProjectData\Dhub3Lite.s3db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="ProjectClasses\DataConnections.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

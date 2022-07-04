@@ -119,7 +119,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             Datatree.TreeType = "Beep";
             Datatree.TreeV = DatatreeView;
 
-            Apptree.TreeType = "app";
+            Apptree.TreeType = "dhub";
             Apptree.TreeV = PlugintreeView;
 
             toolbar.TreeV = Datatree.TreeV;
