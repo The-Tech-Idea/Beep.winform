@@ -12,7 +12,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
-    [AddinAttribute(Caption = "Composite Layer", Name = "CompositeLayer.Beep", misc = "Beep", iconimage = "clayerroot.ico", menu = "Beep")]
+    [AddinAttribute(Caption = "Composite Layer", Name = "CompositeLayerRootNode.Beep", misc = "Beep", iconimage = "clayerroot.ico", menu = "Beep", ObjectType = "Beep")]
     public class CompositeLayerRootNode : IBranch ,IOrder,IBranchRootCategory
     {
 

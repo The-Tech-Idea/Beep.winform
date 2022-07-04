@@ -98,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\" />
-    <Folder Include="Tree\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

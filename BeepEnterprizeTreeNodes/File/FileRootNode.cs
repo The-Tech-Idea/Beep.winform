@@ -14,7 +14,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
-    [AddinAttribute(Caption = "Files", Name = "Files.Beep", misc = "Beep", iconimage = "file.ico", menu = "Beep")]
+    [AddinAttribute(Caption = "Files", Name = "FileRootNode.Beep", misc = "Beep", iconimage = "file.ico", menu = "Beep",ObjectType ="Beep")]
     public class FileRootNode  : IBranch ,IOrder,IBranchRootCategory
     {
         public FileRootNode()

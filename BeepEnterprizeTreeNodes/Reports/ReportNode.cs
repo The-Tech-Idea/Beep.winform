@@ -13,6 +13,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module.Reports
 {
+    [AddinAttribute(Caption = "Reports", Name = "ReportNode.Beep", misc = "Beep", iconimage = "report.ico", menu = "Beep", ObjectType = "Beep")]
     public class ReportNode : IBranch 
     {
         public ReportNode(ITree pTreeEditor, IDMEEditor pDMEEditor, IBranch pParentNode, string pBranchText, int pID, EnumPointType pBranchType, string pimagename)

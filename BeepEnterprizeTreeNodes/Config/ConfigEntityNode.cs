@@ -13,6 +13,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
+    [AddinAttribute(Caption = "Configuration", Name = "ConfigEntityNode.Beep", misc = "Beep", iconimage = "settings.ico", menu = "Beep", ObjectType = "Beep")]
     public class ConfigEntityNode  : IBranch 
     {
         public ConfigEntityNode()

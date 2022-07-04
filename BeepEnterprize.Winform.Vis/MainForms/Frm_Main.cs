@@ -132,8 +132,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             toolbar.vismanager = visManager;
             Passedarg.ParameterString1 = "Loading Beep Data Management Functions and Tree";
             visManager.PasstoWaitForm((PassedArgs)Passedarg);
-           Datatree.CreateRootTree();
-            Apptree.IconSize = new Size(16, 16);
+            Datatree.CreateRootTree();
+          //  Apptree.IconSize = new Size(24, 24);
             Passedarg.ParameterString1 = "Loading DHUB Functions and Tree";
             visManager.PasstoWaitForm((PassedArgs)Passedarg);
             Apptree.CreateRootTree();

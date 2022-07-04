@@ -15,7 +15,8 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
-   public class WorkFlowCategoryNode  : IBranch , IOrder
+    [AddinAttribute(Caption = "WorkFlows", Name = "WorkFlowCategoryNode.Beep", misc = "Beep", iconimage = "workflow.ico", menu = "Beep", ObjectType = "Beep")]
+    public class WorkFlowCategoryNode  : IBranch , IOrder
     {
         public WorkFlowCategoryNode()
         {

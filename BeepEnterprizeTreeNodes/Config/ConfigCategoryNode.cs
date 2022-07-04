@@ -12,6 +12,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
+    [AddinAttribute(Caption = "Configuration", Name = "ConfigCategoryNode.Beep", misc = "Beep", iconimage = "settings.ico", menu = "Beep", ObjectType = "Beep")]
     public class ConfigCategoryNode  : IBranch 
     {
         public ConfigCategoryNode()

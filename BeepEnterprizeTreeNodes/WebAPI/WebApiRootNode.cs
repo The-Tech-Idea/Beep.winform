@@ -13,7 +13,7 @@ using TheTechIdea;
 
 namespace  BeepEnterprize.Vis.Module
 {
-    [AddinAttribute(Caption = "Web API", Name = "WebAPI.Beep", misc = "Beep", iconimage = "webapi.ico", menu = "Beep")]
+    [AddinAttribute(Caption = "Web API", Name = "WebApiRootNode.Beep", misc = "Beep", iconimage = "webapi.ico", menu = "Beep",ObjectType ="Beep")]
     public class WebApiRootNode  : IBranch ,IOrder
     {
         public WebApiRootNode()

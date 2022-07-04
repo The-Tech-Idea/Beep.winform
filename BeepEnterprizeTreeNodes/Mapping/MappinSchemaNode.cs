@@ -12,6 +12,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module.Mapping
 {
+    [AddinAttribute(Caption = "Mapping", Name = "Mapping.Beep", misc = "Beep", iconimage = "mapping.ico", menu = "Beep", ObjectType = "Beep")]
     public class MappinSchemaNode : IBranch , IOrder
     {
         public MappinSchemaNode(ITree pTreeEditor, IDMEEditor pDMEEditor, IBranch pParentNode, string pBranchText, int pID, EnumPointType pBranchType, string pimagename)

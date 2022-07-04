@@ -80,9 +80,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 ContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
          | System.Windows.Forms.AnchorStyles.Left)
          | System.Windows.Forms.AnchorStyles.Right)));
-                ContainerPanel.Location = new System.Drawing.Point(0, Line1panel.Height + 2);
+                ContainerPanel.Location = new System.Drawing.Point(20, Line1panel.Height + 2);
                 ContainerPanel.Name = "ControlPanel";
-                ContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height - Line1panel.Height + 2);
+                ContainerPanel.Dock = DockStyle.None;
+                ContainerPanel.Size = new System.Drawing.Size(this.Width-20, this.Height - Line1panel.Height + 2);
                 Controls.Add(ContainerPanel);
             }
             ContainerPanel.Controls.Add(control);

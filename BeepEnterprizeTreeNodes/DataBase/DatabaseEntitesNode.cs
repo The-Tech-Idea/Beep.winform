@@ -14,6 +14,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
+    [AddinAttribute(Caption = "RDBMS", Name = "DatabaseEntitesNode.Beep", misc = "Beep", iconimage = "database.ico", menu = "Beep", ObjectType = "Beep")]
     public class DatabaseEntitesNode  : IBranch 
     {
         public DatabaseEntitesNode()

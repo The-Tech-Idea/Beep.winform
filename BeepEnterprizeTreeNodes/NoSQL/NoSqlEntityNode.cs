@@ -13,7 +13,8 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
-   public class NoSqlEntityNode  : IBranch 
+    [AddinAttribute(Caption = "NoSQL", Name = "NoSQL.Beep", misc = "Beep", iconimage = "nosql.ico", menu = "Beep", ObjectType = "Beep")]
+    public class NoSqlEntityNode  : IBranch 
     {
         public NoSqlEntityNode()
         {

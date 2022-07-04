@@ -15,7 +15,7 @@ using TheTechIdea.Beep.AppManager;
 
 namespace  BeepEnterprize.Vis.Module
 {
-    [AddinAttribute(Caption = "Reports", Name = "Reports.Beep", misc = "Beep", iconimage = "report.ico", menu = "Beep")]
+    [AddinAttribute(Caption = "Reports", Name = "ReportRootNode.Beep", misc = "Beep", iconimage = "report.ico", menu = "Beep",ObjectType ="Beep")]
     public class ReportRootNode  : IBranch , IOrder, IBranchRootCategory
     {
         public ReportRootNode()

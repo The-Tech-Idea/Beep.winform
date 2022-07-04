@@ -39,6 +39,7 @@ namespace BeepProject.Branchs
         public string BranchDescription { get; set; }
         public string BranchClass { get; set; }
         public string ObjectType { get; set; } = "Beep";
+        public object ParentBranch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public IErrorsInfo CreateChildNodes()
         {

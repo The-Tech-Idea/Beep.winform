@@ -12,6 +12,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
+    [AddinAttribute(Caption = "Files", Name = "FileEntitySheetNode.Beep", misc = "Beep", iconimage = "file.ico", menu = "Beep", ObjectType = "Beep")]
     public class FileEntitySheetNode : IBranch 
     {
         public FileEntitySheetNode()

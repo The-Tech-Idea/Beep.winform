@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheTechIdea.Beep.Vis;
+using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.Controls.TreeControls
 {
@@ -26,6 +27,6 @@ namespace BeepEnterprize.Winform.Vis.Controls.TreeControls
         public string ObjectType { get; set; }
         public string BranchClass { get; set; } 
         public string branchname { get; set; }
-
+        public List<AssemblyClassDefinition> classDefinitions { get; set; } = new List<AssemblyClassDefinition>();
     }
 }

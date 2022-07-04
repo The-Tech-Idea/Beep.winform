@@ -114,7 +114,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             if (br.ObjectType != null)
             {
-                return Menus.Where(p =>  p.ObjectType!=null && p.BranchClass.Equals(p.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+                return Menus.Where(p =>  p.ObjectType!=null && p.BranchClass.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
                 && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase) 
                 && p.PointType == br.BranchType).Any();
             }return
@@ -126,75 +126,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         private MenuList GetMenuList(IBranch br)
         {
-            return Menus.Where(p => p.ObjectType != null &&  p.BranchClass.Equals(p.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+            return Menus.Where(p => p.ObjectType != null &&  p.BranchClass.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
                 && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
                 && p.PointType == br.BranchType).FirstOrDefault();
         }
-        public IErrorsInfo CreateGlobalMenu(IBranch br, TreeNode n)
-        {
-            try
-            {
-                MenuList menuList =new MenuList();
-                if (!IsMenuCreated(br))
-                {
-                    menuList = new MenuList(br.ObjectType, br.BranchClass, br.BranchType);
-                    menuList.branchname = br.BranchText;
-                    Menus.Add(menuList);
-                    ContextMenuStrip nodemenu = new ContextMenuStrip();
-                    menuList.Menu = nodemenu;
-                    menuList.Menu.Items.Clear();
-                
-                }
-                else
-                    menuList=GetMenuList(br);
-                List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.Where(o=>o.classProperties != null && o.classProperties.ObjectType!=null && o.classProperties.ObjectType.Equals(br.ObjectType,StringComparison.InvariantCultureIgnoreCase) ).OrderBy(p => p.Order ).ToList(); //&&  o.classProperties.menu.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
-                foreach (AssemblyClassDefinition cls in extentions)
-                {
-                    foreach (var item in cls.Methods)
-                    {
-                        if (item.PointType == br.BranchType)
-                        {
-                            ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
-                            menuList.Menu.Name = br.ToString();
-                            if (item.iconimage != null)
-                            {
-                                st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
-                            }
-                            st.Tag = cls;
-                        }
-                    }
-                }
-                //ContextMenuStrip nodemenu = n.ContextMenuStrip;
-                //if (nodemenu == null)
-                //{
-                //    nodemenu = new ContextMenuStrip();
-                //    nodemenu.ItemClicked += Nodemenu_ItemClicked;
-                //}
-                //List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.OrderBy(p => p.Order).ToList();
-                //foreach (AssemblyClassDefinition cls in extentions)
-                //{
-                //    foreach (var item in cls.Methods)
-                //    {
-                //        if (item.PointType == br.BranchType)
-                //        {
-                //            ToolStripItem st = nodemenu.Items.Add(item.Caption);
-                //            nodemenu.Name = br.ToString();
-                //            if (item.iconimage != null)
-                //            {
-                //                st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
-                //            }
-                //            st.Tag = cls;
-                //        }
-                //    }
-                //}
-
-                return DMEEditor.ErrorObject;
-            }
-            catch (Exception ex)
-            {
-                return DMEEditor.ErrorObject;
-            }
-        }
+      
         public T CreateInstance<T>(params object[] paramArray)
         {
             return (T)Activator.CreateInstance(typeof(T), args: paramArray);
@@ -277,8 +213,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 n.ImageKey = br.IconImageName;
                 n.SelectedImageKey = br.IconImageName;
             }
-            n.ContextMenuStrip = CreateMenuMethods(br);
-            if( br.ObjectType!=null && br.BranchClass != null)
+            //n.ContextMenuStrip = 
+            CreateMenuMethods(br);
+            if ( br.ObjectType!=null && br.BranchClass != null)
             {
                 CreateGlobalMenu(br, n);
             }
@@ -291,26 +228,97 @@ namespace BeepEnterprize.Winform.Vis.Controls
             Branches.Add(br);
             br.CreateChildNodes();
         }
-        public ContextMenuStrip CreateMenuMethods(IBranch branch)
+        public IErrorsInfo CreateGlobalMenu(IBranch br, TreeNode n)
         {
-
-            ContextMenuStrip nodemenu = new ContextMenuStrip();
             try
             {
-                nodemenu.ImageList = Vismanager.Images;
-                AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == branch.ToString()).FirstOrDefault();
-                foreach (var item in cls.Methods.Where(y => y.Hidden == false))
+                MenuList menuList = new MenuList();
+                if (!IsMenuCreated(br))
                 {
-                    ToolStripItem st = nodemenu.Items.Add(item.Caption);
-                    nodemenu.Name = branch.ToString();
-                    if (item.iconimage != null)
-                    {
-                        st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
-                    }
-                    st.Tag = cls;
+                    menuList = new MenuList(br.ObjectType, br.BranchClass, br.BranchType);
+                    menuList.branchname = br.BranchText;
+                    Menus.Add(menuList);
+                    ContextMenuStrip nodemenu = new ContextMenuStrip();
+                    menuList.Menu = nodemenu;
+                    menuList.ObjectType = br.ObjectType;
+                    menuList.BranchClass = br.BranchClass;
+                    menuList.Menu.ImageList = Vismanager.Images;
+                    menuList.Menu.Items.Clear();
 
                 }
-                nodemenu.ItemClicked += Nodemenu_ItemClicked;
+                else
+                    menuList = GetMenuList(br);
+                List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.Where(o => o.classProperties != null && o.classProperties.ObjectType != null && o.classProperties.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)).OrderBy(p => p.Order).ToList(); //&&  o.classProperties.menu.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+                foreach (AssemblyClassDefinition cls in extentions)
+                {
+                    if (!menuList.classDefinitions.Any(p => p.PackageName.Equals(cls.PackageName, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        menuList.classDefinitions.Add(cls);
+                        foreach (var item in cls.Methods)
+                        {
+                            if (item.PointType == br.BranchType)
+                            {
+                                ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
+                                menuList.Menu.Name = br.ToString();
+                                if (item.iconimage != null)
+                                {
+                                    st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                                }
+                                st.Tag = cls;
+                            }
+                        }
+                    }
+                    
+                }
+
+                return DMEEditor.ErrorObject;
+            }
+            catch (Exception ex)
+            {
+                return DMEEditor.ErrorObject;
+            }
+        }
+        public ContextMenuStrip CreateMenuMethods(IBranch branch)
+        {
+            MenuList menuList = new MenuList();
+            if (!IsMenuCreated(branch))
+            {
+                menuList = new MenuList(branch.ObjectType, branch.BranchClass, branch.BranchType);
+                menuList.branchname = branch.BranchText;
+                Menus.Add(menuList);
+                ContextMenuStrip nodemenu = new ContextMenuStrip();
+                menuList.Menu = nodemenu;
+                menuList.ObjectType = branch.ObjectType;
+                menuList.BranchClass = branch.BranchClass;
+                menuList.Menu.Items.Clear();
+                menuList.Menu.ImageList = Vismanager.Images;
+
+            }
+            else
+                menuList = GetMenuList(branch);
+          //  ContextMenuStrip nodemenu = new ContextMenuStrip();
+            try
+            {
+               
+                AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == branch.ToString() ).FirstOrDefault();
+                if (!menuList.classDefinitions.Any(p => p.PackageName.Equals(cls.PackageName, StringComparison.CurrentCultureIgnoreCase)))
+                {
+                    menuList.classDefinitions.Add(cls);
+                    foreach (var item in cls.Methods.Where(y => y.Hidden == false))
+                    {
+
+                        ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
+                        menuList.Menu.Name = branch.ToString();
+                        if (item.iconimage != null)
+                        {
+                            st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                        }
+                        st.Tag = cls;
+
+                    }
+                    menuList.Menu.ItemClicked += Nodemenu_ItemClicked;
+                }
+               
 
             }
             catch (Exception ex)
@@ -318,7 +326,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 string mes = "Could not add method to menu " + branch.BranchText;
                 DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
             };
-            return nodemenu;
+            return menuList.Menu;
         }
         public void Run(IPassedArgs pPassedarg)
         {
@@ -642,7 +650,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     if (IsMenuCreated(br))
                     {
                         MenuList menuList = GetMenuList(br);
-                        menuList.Menu.Show(e.X, e.Y);
+                        menuList.Menu.Show(Cursor.Position);
                     }
                 }
                 else

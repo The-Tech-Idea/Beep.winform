@@ -13,6 +13,7 @@ using TheTechIdea.Util;
 
 namespace  BeepEnterprize.Vis.Module
 {
+    [AddinAttribute(Caption = "DataView", Name = "DataViewCategoryNode.Beep", misc = "Beep", iconimage = "dataview.ico", menu = "Beep", ObjectType = "Beep")]
     public class DataViewCategoryNode  : IBranch 
     {
         public DataViewCategoryNode()

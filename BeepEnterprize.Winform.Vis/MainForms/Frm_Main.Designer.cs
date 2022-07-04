@@ -137,7 +137,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.SidePanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SidePanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(222, 363);
+            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(205, 365);
             this.SidePanelCollapsebutton.Name = "SidePanelCollapsebutton";
             this.SidePanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
             this.SidePanelCollapsebutton.TabIndex = 15;
@@ -148,8 +148,13 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.PlugintreeView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlugintreeView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PlugintreeView.FullRowSelect = true;
+            this.PlugintreeView.HideSelection = false;
+            this.PlugintreeView.HotTracking = true;
             this.PlugintreeView.Location = new System.Drawing.Point(0, 38);
             this.PlugintreeView.Name = "PlugintreeView";
+            this.PlugintreeView.ShowNodeToolTips = true;
             this.PlugintreeView.Size = new System.Drawing.Size(243, 346);
             this.PlugintreeView.TabIndex = 14;
             // 

@@ -134,8 +134,56 @@
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="..\ModuleExtensions\outputdll\AIModule\AIModule.dll">
+      <Link>LoadingExtensions\AIModule.dll</Link>
+    </Content>
+    <Content Include="..\ModuleExtensions\outputdll\AppModule\AppModule.dll">
+      <Link>LoadingExtensions\AppModule.dll</Link>
+    </Content>
     <Content Include="..\outputdll\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.dll">
       <Link>ProjectClasses\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Plugin\accord\bin\Debug\Accord.dll">
+      <Link>ProjectClasses\Accord\Accord.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Plugin\AIBuilder\bin\Debug\AIBuilder.dll">
+      <Link>ProjectClasses\AIBuilder\AIBuilder.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Plugin\OutputDLL\AppBuilder\AppBuilder.dll">
+      <Link>ProjectClasses\AppBuilder\AppBuilder.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Plugin\OutputDLL\AppBuilder\AppModule.dll">
+      <Link>ProjectClasses\AppBuilder\AppModule.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Plugin\OutputDLL\AssemblyLoaderExtension\AssemblyLoaderExtension.dll">
+      <Link>LoadingExtensions\AssemblyLoaderExtension\AssemblyLoaderExtension.dll</Link>
+    </Content>
+    <Content Include="..\Plugin\OutputDLL\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll">
+      <Link>LoadingExtensions\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll</Link>
+    </Content>
+    <Content Include="..\Plugin\OutputDLL\DxBeepCommn\DxBeepCommn.dll">
+      <Link>ProjectClasses\DxBeepCommn\DxBeepCommn.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Plugin\OutputDLL\DxDashboard\DxDashboard.dll">
+      <Link>ProjectClasses\DxDashboard\DxDashboard.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Plugin\OutputDLL\DXReportBuilder\DXReportBuilder.dll">
+      <Link>ProjectClasses\DXReportBuilder\DXReportBuilder.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Plugin\OutputDLL\DxSimpleReporting\DxSimpleReporting.dll">
+      <Link>ProjectClasses\DxSimpleReporting\DxSimpleReporting.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Plugin\OutputDLL\R\R.dll">
+      <Link>ProjectClasses\R\R.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Addin\HereweAddAllVisualAddin.txt">
@@ -831,18 +879,6 @@
     <Content Include="GFX\zip.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LoadingExtensions\AssemblyLoaderExtension\AssemblyLoaderExtension.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AIModule.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AppModule.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -909,9 +945,6 @@
     <Content Include="ProjectClasses\Accord\Accord.Controls.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Accord\Accord.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ProjectClasses\Accord\Accord.Fuzzy.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -939,16 +972,10 @@
     <Content Include="ProjectClasses\Accord\Accord.Statistics.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Accord\AIModule.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ProjectClasses\Accord\ICSharpCode.SharpZipLib.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\Accord\ZedGraph.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\AIBuilder\AIBuilder.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\AIBuilder\IronPython.dll">
@@ -2601,12 +2628,6 @@
     <Content Include="ProjectClasses\AIBuilder\System.CodeDom.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AppBuilder\AppBuilder.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\AppBuilder\AppModule.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ProjectClasses\BeepDeveloperAssistant\BeepDeveloperAssistant.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2715,75 +2736,10 @@
     <Content Include="ProjectClasses\DataSources\YamlDataSource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\dhubLogic\DhubLogicStandard.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Charts.Designer.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Charts.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.CodeParser.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Dashboard.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Dashboard.v16.2.Win.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Data.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.DataAccess.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.DataAccess.v16.2.UI.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Diagram.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Images.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Map.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Office.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Pdf.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.PivotGrid.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Printing.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.RichEdit.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Snap.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Snap.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Snap.v16.2.Extensions.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Sparkline.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.TreeMap.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Utils.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Utils.v16.2.UI.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.Xpo.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraBars.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraCharts.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraCharts.v16.2.Extensions.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraCharts.v16.2.UI.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraCharts.v16.2.Wizard.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraDiagram.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraEditors.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraGauges.v16.2.Core.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraGauges.v16.2.Presets.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraGauges.v16.2.Win - Copy.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraGauges.v16.2.Win.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraGrid.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraLayout.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraMap.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraNavBar.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraPivotGrid.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraPrinting.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraReports.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraReports.v16.2.Extensions.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraRichEdit.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraRichEdit.v16.2.Extensions.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraTreeList.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraTreeMap.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\DevExpress.XtraVerticalGrid.v16.2.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DevExpress\System.Windows.Interactivity.dll" />
-    <Content Include="ProjectClasses\DxBeepCommn\DxBeepCommn.dll" />
-    <Content Include="ProjectClasses\DxDashboard\DxDashboard.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DXReportBuilder\DXReportBuilder.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DxSimpleReporting\DxSimpleReporting.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ProjectClasses\HereweputClasses.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\PrintManager\PrintManager.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\R\AIModule.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\R\DynamicInterop.dll">
@@ -2793,9 +2749,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\R\Microsoft.Win32.Registry.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\R\R.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\R\RDotNet.dll">
@@ -2929,9 +2882,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DataFiles\SampleDB_Sqlite.s3db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LoadingExtensions\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DataFiles\Sqlite_PPDM39.s3db">
@@ -3356,9 +3306,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectData\Dhub3Lite.s3db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\AIBuilder\AIBuilder.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="ProjectClasses\DataConnections.json" />
