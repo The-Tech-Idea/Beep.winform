@@ -242,7 +242,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.LogPanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LogPanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(916, 587);
+            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(895, 588);
             this.LogPanelCollapsebutton.Name = "LogPanelCollapsebutton";
             this.LogPanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
             this.LogPanelCollapsebutton.TabIndex = 16;
