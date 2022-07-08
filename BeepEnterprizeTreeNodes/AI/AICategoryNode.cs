@@ -13,7 +13,7 @@ using TheTechIdea.Util;
 
 namespace BeepEnterprize.Vis.Module
 {
-    [AddinAttribute(Caption = "AI Category", misc = "AICategoryNode", FileType = "AICategoryNode", iconimage = "category.ico", menu = "AICategoryNode ")]
+    [AddinAttribute(Caption = "AI Category", misc = "AICategoryNode", FileType = "AICategoryNode", iconimage = "category.ico", menu = "AICategoryNode ",ObjectType ="Beep")]
     public class AICategoryNode : IBranch 
     {
         public AICategoryNode()
@@ -65,6 +65,8 @@ namespace BeepEnterprize.Vis.Module
         public object TreeStrucure { get; set; }
         public IVisManager Visutil { get; set; }
         public int MiscID { get; set; }
+        public object ParentBranch { get; set; }
+
         //public AddinTreeStructure AddinTreeStructure { get; set; }
 
         // public event EventHandler<PassedArgs> BranchSelected;

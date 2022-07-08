@@ -18,7 +18,7 @@ using TheTechIdea.Util;
 
 namespace BeepEnterprize.Vis.Module
 {
-    [AddinAttribute(Caption = "AI", misc = "Beep", FileType = "Beep", iconimage = "ai.ico", menu = "AI")]
+    [AddinAttribute(Caption = "AI", misc = "Beep", FileType = "Beep", iconimage = "ai.ico", menu = "AI", ObjectType = "Beep")]
     public class AIBuilder : IBranch, IOrder, IBranchRootCategory
     {
         public AIBuilder()
@@ -34,6 +34,7 @@ namespace BeepEnterprize.Vis.Module
             BranchType = EnumPointType.Root;
 
         }
+
         public string ObjectType { get; set; } = "Beep";
         public int Order { get; set; } = 0;
         public object TreeStrucure { get; set; }
@@ -57,7 +58,8 @@ namespace BeepEnterprize.Vis.Module
         public int ParentBranchID { get; set; }
         public string BranchDescription { get; set; }
         public string BranchClass { get; set; } = "AI";
-      
+        public object ParentBranch { get; set; }
+
         #region "Interface Methods"
         public IErrorsInfo CreateChildNodes()
         {

@@ -45,8 +45,10 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         {
            
         }
-        ToolbarControl toolbar;
-        MenuControl menu;
+        ToolbarControl Beeptoolbar;
+        ToolbarControl Apptoolbar;
+        MenuControl Beepmenu;
+        MenuControl Appmenu;
         TreeControl Datatree;
         TreeControl Apptree;
         bool IsTreeSideOpen = true;
@@ -83,9 +85,11 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                
             }
             DevModeOn();
-            toolbar = (ToolbarControl)visManager.ToolStrip;
-             menu = (MenuControl)visManager.MenuStrip;
-             Datatree = (TreeControl)visManager.Tree;
+            Beeptoolbar = (ToolbarControl)visManager.ToolStrip;
+            Apptoolbar = (ToolbarControl)visManager.SecondaryToolStrip;
+            Beepmenu = (MenuControl)visManager.MenuStrip;
+            Appmenu = (MenuControl)visManager.SecondaryMenuStrip;
+            Datatree = (TreeControl)visManager.Tree;
              Apptree = (TreeControl)visManager.SecondaryTree;
 
             if (Passedarg.Objects.Where(i => i.Name == "TreeControl").Any())
@@ -96,19 +100,23 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             {
                 Passedarg.Objects.Remove(Passedarg.Objects.Where(i => i.Name == "ControlManager").FirstOrDefault());
             }
-            if (Passedarg.Objects.Where(i => i.Name == "MenuControl").Any())
-            {
-                Passedarg.Objects.Remove(Passedarg.Objects.Where(i => i.Name == "MenuControl").FirstOrDefault());
-            }
-            if (Passedarg.Objects.Where(i => i.Name == "ToolbarControl").Any())
-            {
-                Passedarg.Objects.Remove(Passedarg.Objects.Where(i => i.Name == "ToolbarControl").FirstOrDefault());
-            }
-            Passedarg.Objects.Add(new ObjectItem() { Name = "TreeControl", obj = Datatree });
-            Passedarg.Objects.Add(new ObjectItem() { Name = "AppTreeControl", obj = Apptree });
+            //if (Passedarg.Objects.Where(i => i.Name == "MenuControl").Any())
+            //{
+            //    Passedarg.Objects.Remove(Passedarg.Objects.Where(i => i.Name == "MenuControl").FirstOrDefault());
+            //}
+            //if (Passedarg.Objects.Where(i => i.Name == "ToolbarControl").Any())
+            //{
+            //    Passedarg.Objects.Remove(Passedarg.Objects.Where(i => i.Name == "ToolbarControl").FirstOrDefault());
+            //}
             Passedarg.Objects.Add(new ObjectItem() { Name = "ControlManager", obj = visManager._controlManager });
-            Passedarg.Objects.Add(new ObjectItem() { Name = "MenuControl", obj = menu });
-            Passedarg.Objects.Add(new ObjectItem() { Name = "ToolbarControl", obj = toolbar });
+
+            Passedarg.Objects.Add(new ObjectItem() { Name = "TreeControl", obj = Datatree });           
+            Passedarg.Objects.Add(new ObjectItem() { Name = "MenuControl", obj = Beepmenu });
+            Passedarg.Objects.Add(new ObjectItem() { Name = "ToolbarControl", obj = Beeptoolbar });
+
+            Passedarg.Objects.Add(new ObjectItem() { Name = "AppTreeControl", obj = Apptree });
+            Passedarg.Objects.Add(new ObjectItem() { Name = "AppMenuControl", obj = Appmenu });
+            Passedarg.Objects.Add(new ObjectItem() { Name = "AppToolbarControl", obj = Apptoolbar });
             if (!visManager.WaitFormShown)
             {
                 visManager.ShowWaitForm((PassedArgs)Passedarg);
@@ -122,14 +130,19 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             Apptree.TreeType = "dhub";
             Apptree.TreeV = PlugintreeView;
 
-            toolbar.TreeV = Datatree.TreeV;
-            menu.TreeV = Datatree.TreeV;
+            Beeptoolbar.TreeV = Datatree.TreeV;
+            Beepmenu.TreeV = Datatree.TreeV;
+            
 
-            toolbar.TreeV = Apptree.TreeV;
-            menu.TreeV = Apptree.TreeV;
+            Apptoolbar.TreeV = Apptree.TreeV;
+            Appmenu.TreeV = Apptree.TreeV;
 
-            menu.vismanager = visManager;
-            toolbar.vismanager = visManager;
+            Beepmenu.vismanager = visManager;
+            Beeptoolbar.vismanager = visManager;
+
+            Appmenu.vismanager = visManager;
+            Apptoolbar.vismanager = visManager;
+
             Passedarg.ParameterString1 = "Loading Beep Data Management Functions and Tree";
             visManager.PasstoWaitForm((PassedArgs)Passedarg);
             Datatree.CreateRootTree();
@@ -138,14 +151,30 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             visManager.PasstoWaitForm((PassedArgs)Passedarg);
             Apptree.CreateRootTree();
 
-            menu.menustrip = MainMenuStrip;
+         
             Passedarg.ParameterString1 = "Loading Function Extensions and Menu ";
             visManager.PasstoWaitForm((PassedArgs)Passedarg);
-            menu.CreateGlobalMenu();
-            toolbar.toolbarstrip = MaintoolStrip1;
+
+            Beepmenu.menustrip = MainMenuStrip;
+            Beepmenu.CreateGlobalMenu();
+
+
+            //Appmenu.menustrip = appme;
+            //Appmenu.CreateGlobalMenu();
+
             Passedarg.ParameterString1 = "Loading Toobar Functions ";
             visManager.PasstoWaitForm((PassedArgs)Passedarg);
-            toolbar.CreateToolbar();
+            Beeptoolbar.toolbarstrip = MaintoolStrip1;
+            Beeptoolbar.CreateToolbar();
+
+
+            Passedarg.ParameterString1 = "Loading App Toobar Functions ";
+            visManager.PasstoWaitForm((PassedArgs)Passedarg);
+            Apptoolbar.ObjectType = "dhub";
+            Apptoolbar.toolbarstrip = ApptoolStrip;
+            Apptoolbar.CreateToolbar();
+
+
             this.Shown += Frm_Main_Shown;
             startLoggin = true;
             visManager.CloseWaitForm();

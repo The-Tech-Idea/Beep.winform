@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\AICategoryNode.cs" />
+    <Compile Include="AI\AIRootNode.cs" />
     <Compile Include="Cloud\CloudServiceRootNode.cs" />
     <Compile Include="CompositeLayer\CompositeLayerCategoryNode.cs" />
     <Compile Include="CompositeLayer\CompositeLayerEntitesNode.cs" />

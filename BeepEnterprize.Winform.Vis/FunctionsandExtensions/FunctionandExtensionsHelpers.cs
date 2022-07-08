@@ -70,10 +70,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             {
                 Toolbarcontrol = (ToolbarControl)Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").FirstOrDefault().obj;
             }
-            if (Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").Any())
-            {
-                Toolbarcontrol = (ToolbarControl)Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").FirstOrDefault().obj;
-            }
+           
             if (Passedarguments.Objects.Where(i => i.Name == "Branch").Any())
             {
                 Passedarguments.Objects.Remove(Passedarguments.Objects.Where(c => c.Name == "Branch").FirstOrDefault());

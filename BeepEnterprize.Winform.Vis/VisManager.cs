@@ -29,9 +29,13 @@ namespace BeepEnterprize.Winform.Vis
         
         public IDMEEditor DMEEditor { get; set; }
         public IDM_Addin ToolStrip { get; set; }
+
         public IDM_Addin Tree { get; set; }
         public bool WaitFormShown { get; set;}=false;
         public IDM_Addin SecondaryTree { get; set; }
+        public IDM_Addin SecondaryToolStrip { get ; set ; }
+        public IDM_Addin SecondaryMenuStrip { get; set ; }
+
         public IDM_Addin MenuStrip { get; set; }
         public IVisHelper visHelper { get; set; }
         public IControlManager Controlmanager { get; set; }
@@ -45,6 +49,10 @@ namespace BeepEnterprize.Winform.Vis
             SecondaryTree = new TreeControl(DMEEditor, this);
             ToolStrip = new ToolbarControl(DMEEditor, (TreeControl)Tree);
             MenuStrip = new MenuControl(DMEEditor, (TreeControl)Tree);
+
+            SecondaryToolStrip = new ToolbarControl(DMEEditor, (TreeControl)Tree);
+            SecondaryMenuStrip = new MenuControl(DMEEditor, (TreeControl)Tree);
+
             Controlmanager = new ControlManager(DMEEditor, this);
             wizardManager = new WizardManager(DMEEditor,this);
         }
@@ -54,6 +62,7 @@ namespace BeepEnterprize.Winform.Vis
         public Control Container { get { return _container; } set { _container =value; _controlManager.DisplayPanel = value; } }
         #endregion
         public WizardManager wizardManager { get; set; }
+      
         IDM_Addin MainFormView;
         public IErrorsInfo loadpalette()
         {
