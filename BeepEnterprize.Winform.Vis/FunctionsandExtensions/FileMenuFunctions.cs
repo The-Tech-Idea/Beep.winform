@@ -31,7 +31,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             ExtensionsHelpers = new FunctionandExtensionsHelpers(DMEEditor, pvisManager, ptreeControl);
         }
       
-        [CommandAttribute(Caption = "Data Connection", Name = "dataconnection", Click = true, iconimage = "dataconnection.ico", PointType = EnumPointType.Global)]
+        [CommandAttribute(Caption = "Data Connection", Name = "dataconnection", Click = true, iconimage = "dataconnection.ico", ObjectType = "Beep", PointType = EnumPointType.Global)]
         public IErrorsInfo dataconnection(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -49,7 +49,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return DMEEditor.ErrorObject;
 
         }
-        [CommandAttribute(Caption = "New Project", Name = "NewProject", Click = true, iconimage = "newproject.ico", PointType = EnumPointType.Global)]
+        [CommandAttribute(Caption = "New Project", Name = "NewProject", Click = true, iconimage = "newproject.ico", ObjectType = "Beep", PointType = EnumPointType.Global)]
         public IErrorsInfo NewProject(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -67,7 +67,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return DMEEditor.ErrorObject;
 
         }
-        [CommandAttribute(Caption = "Save Project", Name = "SaveProject", Click = true, iconimage = "saveproject.ico", PointType = EnumPointType.Global)]
+        [CommandAttribute(Caption = "Save Project", Name = "SaveProject", Click = true, iconimage = "saveproject.ico", ObjectType = "Beep", PointType = EnumPointType.Global)]
         public IErrorsInfo SaveProject(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;

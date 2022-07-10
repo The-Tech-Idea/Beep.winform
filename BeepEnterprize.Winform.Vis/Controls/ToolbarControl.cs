@@ -38,7 +38,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         private TreeControl SecondaryTreecontrol { get; set; }
         public string ParentName { get ; set ; }
         public string ObjectName { get ; set ; }
-        public string ObjectType { get ; set ; }
+        public string ObjectType { get; set; } 
         public string AddinName { get ; set ; }
         public string Description { get ; set ; }
         public bool DefaultCreate { get ; set ; }
@@ -102,7 +102,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 
                 //toolbarstrip.TextDirection = System.Windows.Forms.ToolStripTextDirection.;
                 toolbarstrip.ImageList = vismanager.Images;
-                foreach (AssemblyClassDefinition cls in DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.componentType == "IFunctionExtension" && x.classProperties!=null && x.classProperties.ObjectType.Equals(ObjectType,StringComparison.InvariantCultureIgnoreCase)))
+                foreach (AssemblyClassDefinition cls in DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.componentType == "IFunctionExtension" && x.classProperties!=null && x.classProperties.ObjectType  !=null && x.classProperties.ObjectType.Equals(ObjectType,StringComparison.InvariantCultureIgnoreCase)))
                 {
                   
                     foreach (var item in cls.Methods)

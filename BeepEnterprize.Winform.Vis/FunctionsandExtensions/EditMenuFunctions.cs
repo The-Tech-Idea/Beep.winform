@@ -43,7 +43,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
       
 
 
-        [CommandAttribute(Caption = "Turnon/Off CheckBox's", Name = "Turnon/Off CheckBox", Click = true, iconimage = "checkbox.ico", PointType = EnumPointType.Global)]
+        [CommandAttribute(Caption = "Turnon/Off CheckBox's", Name = "Turnon/Off CheckBox", Click = true, iconimage = "checkbox.ico", ObjectType = "Beep", PointType = EnumPointType.Global)]
         public IErrorsInfo TurnonOffCheckBox(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -61,7 +61,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return DMEEditor.ErrorObject;
 
         }
-        [CommandAttribute(Name = "EditDefaults", Caption = "Edit Default", Click = true, iconimage = "editdefaults.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "EditDefaults", Caption = "Edit Default", Click = true, iconimage = "editdefaults.ico", ObjectType = "Beep", PointType = EnumPointType.DataPoint)]
         public IErrorsInfo EditDefault(IPassedArgs Passedarguments)
         {
 
@@ -112,7 +112,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Name = "CopyDefaults", Caption = "Copy Default", Click = true, iconimage = "copydefaults.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "CopyDefaults", Caption = "Copy Default", Click = true, iconimage = "copydefaults.ico", ObjectType = "Beep", PointType = EnumPointType.DataPoint)]
         public IErrorsInfo CopyDefault(IPassedArgs Passedarguments)
         {
 
@@ -162,7 +162,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Name = "PasteDefaults", Caption = "Paste Default", Click = true, iconimage = "pastedefaults.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "PasteDefaults", Caption = "Paste Default", Click = true, iconimage = "pastedefaults.ico", ObjectType = "Beep", PointType = EnumPointType.DataPoint)]
         public IErrorsInfo PasteDefault(IPassedArgs Passedarguments)
         {
             ExtensionsHelpers.GetValues(Passedarguments);
@@ -196,7 +196,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return DMEEditor.ErrorObject;
 
         }
-        [CommandAttribute(Name = "WorkFlowEditor", Caption = "WorkFlow Editor", Click = true, iconimage = "workflow.ico", PointType = EnumPointType.Global)]
+        [CommandAttribute(Name = "WorkFlowEditor", Caption = "WorkFlow Editor", Click = true, iconimage = "workflow.ico", ObjectType = "Beep", PointType = EnumPointType.Global)]
         public IErrorsInfo WorkFlowEditor(IPassedArgs Passedarguments)
         {
 

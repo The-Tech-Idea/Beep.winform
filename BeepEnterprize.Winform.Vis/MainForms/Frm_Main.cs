@@ -126,22 +126,21 @@ namespace BeepEnterprize.Winform.Vis.MainForms
 
             Datatree.TreeType = "Beep";
             Datatree.TreeV = DatatreeView;
+            Beepmenu.TreeV = Datatree.TreeV;
+            Beeptoolbar.TreeV = Datatree.TreeV;
+            Beeptoolbar.vismanager = visManager;
+            Beepmenu.vismanager = visManager;
+            Beeptoolbar.ObjectType = "Beep";
+
 
             Apptree.TreeType = "dhub";
             Apptree.TreeV = PlugintreeView;
-
-            Beeptoolbar.TreeV = Datatree.TreeV;
-            Beepmenu.TreeV = Datatree.TreeV;
-            
-
-            Apptoolbar.TreeV = Apptree.TreeV;
             Appmenu.TreeV = Apptree.TreeV;
-
-            Beepmenu.vismanager = visManager;
-            Beeptoolbar.vismanager = visManager;
-
             Appmenu.vismanager = visManager;
             Apptoolbar.vismanager = visManager;
+            Apptoolbar.TreeV = Apptree.TreeV;
+            Apptoolbar.ObjectType = "dhub";
+
 
             Passedarg.ParameterString1 = "Loading Beep Data Management Functions and Tree";
             visManager.PasstoWaitForm((PassedArgs)Passedarg);

@@ -292,6 +292,43 @@ namespace AssemblyLoaderExtension
             return null;
 
         }
+        public IErrorsInfo Scan(assemblies_rep assembly)
+        {
+            ErrorsInfo er = new ErrorsInfo();
+            try
+            {
+
+                ScanAssembly(assembly.DllLib);
+                er.Flag = Errors.Ok;
+            }
+            catch (Exception ex)
+            {
+                er.Ex = ex;
+                er.Flag = Errors.Failed;
+                er.Message = ex.Message;
+
+            }
+            return er;
+        }
+        public IErrorsInfo Scan(Assembly assembly)
+        {
+            ErrorsInfo er = new ErrorsInfo();
+            try
+            {
+
+                ScanAssembly(assembly);
+                er.Flag = Errors.Ok;
+            }
+            catch (Exception ex)
+            {
+                er.Ex = ex;
+                er.Flag = Errors.Failed;
+                er.Message = ex.Message;
+
+            }
+            return er;
+        }
+   
         public IErrorsInfo Scan()
         {
             ErrorsInfo er = new ErrorsInfo();
