@@ -61,7 +61,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         Image CollapseUp;
         Image CollapseDown;
         Image ListSearch;
-        bool IsDevModeOn = true;
+        bool _IsDevModeOn = true;
+        bool IsDevModeOn { get { return _IsDevModeOn; } set { _IsDevModeOn = value; DevModeOn(); } }
        // bool IsAddingControl = false;
         
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
@@ -84,13 +85,13 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 
                
             }
-            DevModeOn();
+            
             Beeptoolbar = (ToolbarControl)visManager.ToolStrip;
             Apptoolbar = (ToolbarControl)visManager.SecondaryToolStrip;
             Beepmenu = (MenuControl)visManager.MenuStrip;
             Appmenu = (MenuControl)visManager.SecondaryMenuStrip;
             Datatree = (TreeControl)visManager.Tree;
-             Apptree = (TreeControl)visManager.SecondaryTree;
+            Apptree = (TreeControl)visManager.SecondaryTree;
 
             if (Passedarg.Objects.Where(i => i.Name == "TreeControl").Any())
             {
@@ -125,27 +126,34 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             visManager.Container = ContainerPanel;
 
             Datatree.TreeType = "Beep";
+            Beeptoolbar.ObjectType = "Beep";
             Datatree.TreeV = DatatreeView;
             Beepmenu.TreeV = Datatree.TreeV;
             Beeptoolbar.TreeV = Datatree.TreeV;
+          
             Beeptoolbar.vismanager = visManager;
             Beepmenu.vismanager = visManager;
-            Beeptoolbar.ObjectType = "Beep";
+           
 
 
             Apptree.TreeType = "dhub";
+            Apptoolbar.ObjectType = "dhub";
+
             Apptree.TreeV = PlugintreeView;
+            Apptoolbar.TreeV = Apptree.TreeV;
             Appmenu.TreeV = Apptree.TreeV;
+
             Appmenu.vismanager = visManager;
             Apptoolbar.vismanager = visManager;
-            Apptoolbar.TreeV = Apptree.TreeV;
-            Apptoolbar.ObjectType = "dhub";
+           
+         
 
 
             Passedarg.ParameterString1 = "Loading Beep Data Management Functions and Tree";
             visManager.PasstoWaitForm((PassedArgs)Passedarg);
             Datatree.CreateRootTree();
           //  Apptree.IconSize = new Size(24, 24);
+
             Passedarg.ParameterString1 = "Loading DHUB Functions and Tree";
             visManager.PasstoWaitForm((PassedArgs)Passedarg);
             Apptree.CreateRootTree();
@@ -163,17 +171,23 @@ namespace BeepEnterprize.Winform.Vis.MainForms
 
             Passedarg.ParameterString1 = "Loading Toobar Functions ";
             visManager.PasstoWaitForm((PassedArgs)Passedarg);
+          
             Beeptoolbar.toolbarstrip = MaintoolStrip1;
             Beeptoolbar.CreateToolbar();
 
 
             Passedarg.ParameterString1 = "Loading App Toobar Functions ";
             visManager.PasstoWaitForm((PassedArgs)Passedarg);
-            Apptoolbar.ObjectType = "dhub";
+         
             Apptoolbar.toolbarstrip = ApptoolStrip;
             Apptoolbar.CreateToolbar();
 
-
+            if (Apptree.TreeV.Nodes.Count == 0)
+            {
+                IsDevModeOn = false;
+            }
+            else
+                IsDevModeOn = true;
             this.Shown += Frm_Main_Shown;
             startLoggin = true;
             visManager.CloseWaitForm();
@@ -200,7 +214,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         public void DevModeOn()
         {
 
-            if (!IsDevModeOn)
+            if (_IsDevModeOn)
             {
                 LogPanelCollapsebutton.Visible = false;
                 MainViewsplitContainer.Panel2Collapsed = true;

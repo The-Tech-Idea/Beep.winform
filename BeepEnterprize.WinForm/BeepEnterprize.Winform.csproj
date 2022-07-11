@@ -69,12 +69,27 @@
     <ApplicationIcon>SimpleODM.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Assembly_helpersStandard, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.AssemblyHelper2.0.1.0.0.11\lib\netstandard2.0\Assembly_helpersStandard.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac, Version=6.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.6.4.0\lib\netstandard2.0\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.13, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.13\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.20\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="DMLoggerStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DMLogger2.0.1.0.0.7\lib\netstandard2.0\DMLoggerStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFileLoaderStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.JsonLoader2.0.1.0.0.7\lib\netstandard2.0\JsonFileLoaderStandard.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -129,6 +144,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.12\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -3326,26 +3344,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BeepDM\Assembly_helpersStandard\Assembly_helpersStandard.csproj">
-      <Project>{9a51a9e5-bcda-4c20-b3e5-e90c24a625f8}</Project>
-      <Name>Assembly_helpersStandard</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj">
-      <Project>{282db559-9dca-4486-8830-cd18be56418b}</Project>
-      <Name>DataManagementEngineStandard</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj">
-      <Project>{3b8d3f1b-6fa6-4cba-a256-02ceea3cc774}</Project>
-      <Name>DataManagementModelsStandard</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\BeepDM\DMLoggerStandard\DMLoggerStandard.csproj">
-      <Project>{990b4c7c-5007-4d1f-984e-bd8b5154c2c6}</Project>
-      <Name>DMLoggerStandard</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\BeepDM\JsonFileLoaderStandard\JsonFileLoaderStandard.csproj">
-      <Project>{2e2288fc-f860-4936-b889-4f92ac821a06}</Project>
-      <Name>JsonFileLoaderStandard</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Beep.Winform.Controls\Beep.Winform.Controls.csproj">
       <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
       <Name>Beep.Winform.Controls</Name>
@@ -3353,10 +3351,6 @@
     <ProjectReference Include="..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
       <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
-      <Project>{48aad630-7a91-49c9-9c02-619043a77ab7}</Project>
-      <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

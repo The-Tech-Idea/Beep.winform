@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine2.0" Version="1.0.0.20" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.12" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.13" />
   </ItemGroup>
 
   <ItemGroup>
