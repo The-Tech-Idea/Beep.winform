@@ -38,19 +38,22 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         public EntityStructure EntityStructure { get ; set ; }
         public string EntityName { get ; set ; }
         public IPassedArgs Passedarg { get ; set ; }
-     
+        public bool IsBeepDataOn { get; set; } = true;
+        public bool IsAppOn { get; set; } = true;
         public VisManager visManager { get; set; }
         public bool startLoggin { get; set; } = false;
         public void Run(IPassedArgs pPassedarg)
         {
            
         }
-        ToolbarControl Beeptoolbar;
-        ToolbarControl Apptoolbar;
-        MenuControl Beepmenu;
-        MenuControl Appmenu;
-        TreeControl Datatree;
         TreeControl Apptree;
+        MenuControl Appmenu;
+        ToolbarControl Apptoolbar;
+
+        ToolbarControl Beeptoolbar;
+        MenuControl Beepmenu;
+        TreeControl Datatree;
+        
         bool IsTreeSideOpen = true;
         bool IsSidePanelsOpen = true;
         bool IsLogPanelOpen = true;
@@ -85,13 +88,15 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 
                
             }
-            
-            Beeptoolbar = (ToolbarControl)visManager.ToolStrip;
-            Apptoolbar = (ToolbarControl)visManager.SecondaryToolStrip;
-            Beepmenu = (MenuControl)visManager.MenuStrip;
-            Appmenu = (MenuControl)visManager.SecondaryMenuStrip;
+            //---------- Init Controls --------------
             Datatree = (TreeControl)visManager.Tree;
+            Beeptoolbar = (ToolbarControl)visManager.ToolStrip;
+            Beepmenu = (MenuControl)visManager.MenuStrip;
+
             Apptree = (TreeControl)visManager.SecondaryTree;
+            Appmenu = (MenuControl)visManager.SecondaryMenuStrip;
+            Apptoolbar = (ToolbarControl)visManager.SecondaryToolStrip;
+            //----------------------------------------
 
             if (Passedarg.Objects.Where(i => i.Name == "TreeControl").Any())
             {
@@ -101,14 +106,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             {
                 Passedarg.Objects.Remove(Passedarg.Objects.Where(i => i.Name == "ControlManager").FirstOrDefault());
             }
-            //if (Passedarg.Objects.Where(i => i.Name == "MenuControl").Any())
-            //{
-            //    Passedarg.Objects.Remove(Passedarg.Objects.Where(i => i.Name == "MenuControl").FirstOrDefault());
-            //}
-            //if (Passedarg.Objects.Where(i => i.Name == "ToolbarControl").Any())
-            //{
-            //    Passedarg.Objects.Remove(Passedarg.Objects.Where(i => i.Name == "ToolbarControl").FirstOrDefault());
-            //}
+            //--------- Save Controls and Objects in PassedArgs
             Passedarg.Objects.Add(new ObjectItem() { Name = "ControlManager", obj = visManager._controlManager });
 
             Passedarg.Objects.Add(new ObjectItem() { Name = "TreeControl", obj = Datatree });           
@@ -118,76 +116,110 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             Passedarg.Objects.Add(new ObjectItem() { Name = "AppTreeControl", obj = Apptree });
             Passedarg.Objects.Add(new ObjectItem() { Name = "AppMenuControl", obj = Appmenu });
             Passedarg.Objects.Add(new ObjectItem() { Name = "AppToolbarControl", obj = Apptoolbar });
+            DMEEditor.Passedarguments = Passedarg;
+
+            //-------------------------------------------------
             if (!visManager.WaitFormShown)
             {
                 visManager.ShowWaitForm((PassedArgs)Passedarg);
             }
-            DMEEditor.Passedarguments = Passedarg;
+
+            
+            //------------- Setup Control Container to Display controls and addons
             visManager.Container = ContainerPanel;
-
-            Datatree.TreeType = "Beep";
-            Beeptoolbar.ObjectType = "Beep";
-            Datatree.TreeV = DatatreeView;
-            Beepmenu.TreeV = Datatree.TreeV;
-            Beeptoolbar.TreeV = Datatree.TreeV;
+            //--------------------------------------------------------------------
+            
           
-            Beeptoolbar.vismanager = visManager;
-            Beepmenu.vismanager = visManager;
+            if (IsBeepDataOn)
+            {
+                ///------------ Setup Beep Data Management 
+
+                Datatree.TreeType = "Beep";
+                Beeptoolbar.ObjectType = "Beep";
+                Beepmenu.ObjectType = "Beep";
+
+                Datatree.TreeV = DatatreeView;
+                Beepmenu.TreeV = Datatree.TreeV;
+                Beeptoolbar.TreeV = Datatree.TreeV;
+
+                Beeptoolbar.vismanager = visManager;
+                Beepmenu.vismanager = visManager;
+                //  you can change icon size in Tree controls  ex. Apptree.IconSize = new Size(24, 24);
+
+                Passedarg.ParameterString1 = "Loading Beep Data Management Functions and Tree";
+                visManager.PasstoWaitForm((PassedArgs)Passedarg);
+                Datatree.CreateRootTree();
+
+                Passedarg.ParameterString1 = "Loading Function Extensions ToolBar for Beep  Data Management";
+                visManager.PasstoWaitForm((PassedArgs)Passedarg);
+
+                Beeptoolbar.toolbarstrip = MaintoolStrip1;
+                Beeptoolbar.CreateToolbar();
+
+                Passedarg.ParameterString1 = "Loading Function Extensions Menu for Beep  Data Management";
+                visManager.PasstoWaitForm((PassedArgs)Passedarg);
+
+                Beepmenu.menustrip = MainmenuStrip;
+                Beepmenu.CreateGlobalMenu();
+                if (MainmenuStrip.Items.Count == 0)
+                {
+                    MainmenuStrip.Visible = false;
+                }
+                Beepmenu.IsBeepDataOn = true;
+              
+            }
+            else
+             Beepmenu.IsBeepDataOn = false;
+              
+            ///----------------------------------------
+            if (IsAppOn)
+            {
+                ///------------ Setup App  
+                Apptree.TreeType = "dhub";
+                Apptoolbar.ObjectType = "dhub";
+                Appmenu.ObjectType = "dhub";
+                Apptree.TreeV = PlugintreeView;
+                Apptoolbar.TreeV = Apptree.TreeV;
+                Appmenu.TreeV = Apptree.TreeV;
+
+                Appmenu.vismanager = visManager;
+                Apptoolbar.vismanager = visManager;
+
+                Passedarg.ParameterString1 = "Loading DHUB Functions and Tree";
+                visManager.PasstoWaitForm((PassedArgs)Passedarg);
+                Apptree.CreateRootTree();
+
+                Passedarg.ParameterString1 = "Loading App Toobar Functions ";
+                visManager.PasstoWaitForm((PassedArgs)Passedarg);
+                
+                Passedarg.ParameterString1 = "Loading Function Extensions ToolBar for App ";
+                visManager.PasstoWaitForm((PassedArgs)Passedarg);
+                
+                Apptoolbar.toolbarstrip = ApptoolStrip;
+                Apptoolbar.CreateToolbar();
+
+                Passedarg.ParameterString1 = "Loading Function Extensions Menu for App ";
+                visManager.PasstoWaitForm((PassedArgs)Passedarg);
+                Appmenu.menustrip = AppmenuStrip;
+               
+                Appmenu.CreateGlobalMenu();
+                if (AppmenuStrip.Items.Count == 0)
+                {
+                    AppmenuStrip.Visible = false;
+                }
+                Beepmenu.IsAppOn = true;
+              
+            }else
+                Beepmenu.IsAppOn = false;
+            ///----------------------------------------
+        
+
            
-
-
-            Apptree.TreeType = "dhub";
-            Apptoolbar.ObjectType = "dhub";
-
-            Apptree.TreeV = PlugintreeView;
-            Apptoolbar.TreeV = Apptree.TreeV;
-            Appmenu.TreeV = Apptree.TreeV;
-
-            Appmenu.vismanager = visManager;
-            Apptoolbar.vismanager = visManager;
-           
-         
-
-
-            Passedarg.ParameterString1 = "Loading Beep Data Management Functions and Tree";
-            visManager.PasstoWaitForm((PassedArgs)Passedarg);
-            Datatree.CreateRootTree();
-          //  Apptree.IconSize = new Size(24, 24);
-
-            Passedarg.ParameterString1 = "Loading DHUB Functions and Tree";
-            visManager.PasstoWaitForm((PassedArgs)Passedarg);
-            Apptree.CreateRootTree();
-
-         
-            Passedarg.ParameterString1 = "Loading Function Extensions and Menu ";
-            visManager.PasstoWaitForm((PassedArgs)Passedarg);
-
-            Beepmenu.menustrip = MainMenuStrip;
-            Beepmenu.CreateGlobalMenu();
 
 
             //Appmenu.menustrip = appme;
             //Appmenu.CreateGlobalMenu();
 
-            Passedarg.ParameterString1 = "Loading Toobar Functions ";
-            visManager.PasstoWaitForm((PassedArgs)Passedarg);
-          
-            Beeptoolbar.toolbarstrip = MaintoolStrip1;
-            Beeptoolbar.CreateToolbar();
-
-
-            Passedarg.ParameterString1 = "Loading App Toobar Functions ";
-            visManager.PasstoWaitForm((PassedArgs)Passedarg);
-         
-            Apptoolbar.toolbarstrip = ApptoolStrip;
-            Apptoolbar.CreateToolbar();
-
-            if (Apptree.TreeV.Nodes.Count == 0)
-            {
-                IsDevModeOn = false;
-            }
-            else
-                IsDevModeOn = true;
             this.Shown += Frm_Main_Shown;
             startLoggin = true;
             visManager.CloseWaitForm();

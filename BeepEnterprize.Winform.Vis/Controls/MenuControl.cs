@@ -48,6 +48,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public IDMLogger Logger { get ; set ; }
         public IDMEEditor DMEEditor { get ; set ; }
         public EntityStructure EntityStructure { get ; set ; }
+        public bool IsBeepDataOn { get; set; } = true;
+        public bool IsAppOn { get; set; } = true;
         public string EntityName { get ; set ; }
         public IPassedArgs Passedarg { get ; set ; }
         public MenuStrip menustrip { get; set; }
@@ -73,7 +75,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 Configmenu.Text = "Configuration";
                 Configmenu.Tag = "Config";
                 Configmenu.ImageIndex = vismanager.visHelper.GetImageIndex("configuration.ico");
-                List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.OrderBy(p => p.Order).ToList();
+                List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.Where(o=>o.classProperties!=null && o.classProperties.ObjectType!=null && o.classProperties.ObjectType.Equals(ObjectType,StringComparison.CurrentCultureIgnoreCase)).OrderBy(p => p.Order).ToList();
                 foreach (AssemblyClassDefinition cls in extentions)
                 {
                     Type type = cls.type;
@@ -144,7 +146,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 return DMEEditor.ErrorObject;
             }
         }
-        //   Visutil.ShowUserControlPopUp( AddinTreeStructure.className, DMEEditor, args, Passedarguments);
+     
+        
         private void RunToolStripFunction(object sender, EventArgs e)
         {
             

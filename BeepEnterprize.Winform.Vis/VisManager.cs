@@ -28,15 +28,16 @@ namespace BeepEnterprize.Winform.Vis
     {
         
         public IDMEEditor DMEEditor { get; set; }
+        public IDM_Addin MenuStrip { get; set; }
         public IDM_Addin ToolStrip { get; set; }
-
         public IDM_Addin Tree { get; set; }
         public bool WaitFormShown { get; set;}=false;
         public IDM_Addin SecondaryTree { get; set; }
         public IDM_Addin SecondaryToolStrip { get ; set ; }
         public IDM_Addin SecondaryMenuStrip { get; set ; }
 
-        public IDM_Addin MenuStrip { get; set; }
+        public List<ObjectItem> objects { get; set; } = new List<ObjectItem>();
+       
         public IVisHelper visHelper { get; set; }
         public IControlManager Controlmanager { get; set; }
         public ControlManager _controlManager { get { return (ControlManager)Controlmanager; } }
@@ -45,11 +46,12 @@ namespace BeepEnterprize.Winform.Vis
         {
             DMEEditor = pdmeeditor;
             visHelper = new VisHelper(DMEEditor,this);
+
             Tree = new TreeControl(DMEEditor, this);
-            SecondaryTree = new TreeControl(DMEEditor, this);
             ToolStrip = new ToolbarControl(DMEEditor, (TreeControl)Tree);
             MenuStrip = new MenuControl(DMEEditor, (TreeControl)Tree);
 
+            SecondaryTree = new TreeControl(DMEEditor, this);
             SecondaryToolStrip = new ToolbarControl(DMEEditor, (TreeControl)Tree);
             SecondaryMenuStrip = new MenuControl(DMEEditor, (TreeControl)Tree);
 
@@ -140,7 +142,7 @@ namespace BeepEnterprize.Winform.Vis
                         }   
                         else
                         {
-                            DMEEditor.Passedarguments.Objects.AddRange(CreateArgsParameterForVisUtil());
+                            DMEEditor.Passedarguments.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
                             E = (PassedArgs)DMEEditor.Passedarguments;
                         }
                         MainFormView = ShowForm(DMEEditor.ConfigEditor.Config.SystemEntryFormName, DMEEditor, args, E);
@@ -224,18 +226,36 @@ namespace BeepEnterprize.Winform.Vis
             return ErrorsandMesseges;
         }
         #region "Misc"
-        private List<ObjectItem> CreateArgsParameterForVisUtil()
+        private List<ObjectItem> CreateArgsParameterForVisUtil(List<ObjectItem> e)
         {
             
-            List<ObjectItem> objects = new List<ObjectItem>();
-            ObjectItem v = new ObjectItem { Name = "VISUTIL", obj = (IVisManager)this };
-            objects.Add(v);
-            return objects;
+            if (!e.Where(c => c.Name == "VISUTIL").Any())
+            {
+                ObjectItem v = new ObjectItem { Name = "VISUTIL", obj = (IVisManager)this };
+                e.Add(v);
+            }
+          
+            if (objects.Count > 0)
+            {
+                IEnumerable<ObjectItem> diff = objects.Except<ObjectItem>(e);
+                if (diff.Any())
+                {
+                    foreach (ObjectItem item in diff)
+                    {
+                        e.Add(item);
+                    }
+                   
+                }
+            }
+           
+            return e;
         }
         private PassedArgs CreateDefaultArgsForVisUtil()
         {
+            List<ObjectItem> items = new List<ObjectItem>(); ;
+            items=CreateArgsParameterForVisUtil(items);
 
-            PassedArgs E = new PassedArgs { Objects = CreateArgsParameterForVisUtil() };
+            PassedArgs E = new PassedArgs { Objects = items };
             return E;
         }
         #endregion
@@ -291,7 +311,7 @@ namespace BeepEnterprize.Winform.Vis
                     {
                         e.Objects = new List<ObjectItem>();
                     }
-                    e.Objects.AddRange(CreateArgsParameterForVisUtil());
+                    e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
 
 
                     form.Text = addin.AddinName;
@@ -356,7 +376,7 @@ namespace BeepEnterprize.Winform.Vis
                             {
                                 e.Objects = new List<ObjectItem>();
                             }
-                            e.Objects.AddRange(CreateArgsParameterForVisUtil());
+                            e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
                             addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                             uc_Container container = (uc_Container)control;
                             container.AddControl(addin.AddinName, uc, ContainerTypeEnum.SinglePanel);
@@ -379,7 +399,7 @@ namespace BeepEnterprize.Winform.Vis
                         {
                             e.Objects = new List<ObjectItem>();
                         }
-                        e.Objects.AddRange(CreateArgsParameterForVisUtil());
+                        e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
                         addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                         addin.Run(e);
                     }
@@ -428,7 +448,7 @@ namespace BeepEnterprize.Winform.Vis
                     {
                         e.Objects = new List<ObjectItem>();
                     }
-                    e.Objects.AddRange(CreateArgsParameterForVisUtil());
+                    e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
                     addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                     form.Text = addin.AddinName;
                     form.ShowDialog();
@@ -473,7 +493,7 @@ namespace BeepEnterprize.Winform.Vis
                         {
                             e.Objects = new List<ObjectItem>();
                         }
-                        e.Objects.AddRange(CreateArgsParameterForVisUtil());
+                        e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
                         addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                         addin.Run(e);
                         addin = null;

@@ -15,12 +15,11 @@ using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Vis;
-using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
-    [AddinAttribute(Caption = "Developer Assistant", Name = "DeveloperAssistantMenuFunctions", misc = "DeveloperAssistantMenuFunctions", addinType = AddinType.Class, iconimage = "dev.ico",order =4)]
+    [AddinAttribute(Caption = "Developer Assistant", Name = "DeveloperAssistantMenuFunctions", misc = "DeveloperAssistantMenuFunctions", ObjectType ="Beep",addinType = AddinType.Class, iconimage = "dev.ico",order =4)]
     public class DeveloperAssistantMenuFunctions : IFunctionExtension
     {
         public IDMEEditor DMEEditor { get; set; }
@@ -78,7 +77,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             RootBranch = TreeEditor.Branches[TreeEditor.Branches.FindIndex(x => x.BranchClass == pbr.BranchClass && x.BranchType == EnumPointType.Root)];
         }
 
-         [CommandAttribute(Caption = "Create POCO Classes", Name = "createpoco", Click = true, iconimage = "createpoco.ico", PointType = EnumPointType.DataPoint)]
+         [CommandAttribute(Caption = "Create POCO Classes", Name = "createpoco", Click = true, iconimage = "createpoco.ico", ObjectType = "Beep", PointType = EnumPointType.DataPoint)]
         public IErrorsInfo CreatePOCOlasses(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -155,7 +154,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return DMEEditor.ErrorObject;
 
         }
-        [CommandAttribute(Caption = "Create DLL Classes", Name = "createdll", Click = true, iconimage = "dllgen.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Caption = "Create DLL Classes", Name = "createdll", Click = true, ObjectType = "Beep", iconimage = "dllgen.ico", PointType = EnumPointType.DataPoint)]
         public IErrorsInfo CreateDLLclasses(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;

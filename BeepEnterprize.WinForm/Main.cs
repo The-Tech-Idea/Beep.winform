@@ -113,26 +113,18 @@ namespace BeepEnterprize.Winform
                 LLoader.LoadAllAssembly(progress, token);
                 Config_editor.LoadedAssemblies = LLoader.Assemblies.Select(c => c.DllLib).ToList();
 
-              //  dhubMain = scope.Resolve<IDhubMainConfig>();
-
-
-
-
-                //-------------------------------------------------------
-            
-                        // Setup the Entry Screen 
-                        // the screen has to be in one the Addin DLL's loaded by the Assembly loader
-                        // Config_editor.Config.SystemEntryFormName = @"MainForm";
-                        Config_editor.Config.SystemEntryFormName = @"Frm_Main";
-                        //AppDomain.CurrentDomain.FirstChanceException += (sender, eventArgs) =>
-                        //{
-                        //    DMEEditor.AddLogMessage("Beep",eventArgs.Exception.ToString(),DateTime.Now,0,null,Errors.Failed);
-                        //};
-                        //DMEEditor.Passedarguments = new PassedArgs();
-                        //DMEEditor.Passedarguments.Objects = new System.Collections.Generic.List<ObjectItem>();
-                        //DMEEditor.Passedarguments.Objects.Add(new TheTechIdea.ObjectItem() { Name = "DHUB", obj = dhubMain });
-                        DMEEditor.AddLogMessage("Show Main Page");
-                        vis.ShowMainPage();
+                DMEEditor.Passedarguments = new PassedArgs();
+                DMEEditor.Passedarguments.Objects = new System.Collections.Generic.List<ObjectItem>();
+                // Setup the Entry Screen 
+                // the screen has to be in one the Addin DLL's loaded by the Assembly loader
+                // Config_editor.Config.SystemEntryFormName = @"MainForm";
+                Config_editor.Config.SystemEntryFormName = @"Frm_Main";
+                //AppDomain.CurrentDomain.FirstChanceException += (sender, eventArgs) =>
+                //{
+                //    DMEEditor.AddLogMessage("Beep",eventArgs.Exception.ToString(),DateTime.Now,0,null,Errors.Failed);
+                //};
+                DMEEditor.AddLogMessage("Show Main Page");
+                vis.ShowMainPage();
                
 
             }
