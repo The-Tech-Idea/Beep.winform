@@ -367,7 +367,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
             try
             {
-                DMEEditor.Passedarguments = new PassedArgs();
+
+                if (DMEEditor.Passedarguments == null)
+                {
+                    DMEEditor.Passedarguments = new PassedArgs();
+                }
                 string foldername = "";
                 // Visutil.controlEditor.InputBox("Enter Category Name", "What Category you want to Add", ref foldername);
                 if (foldername != null)

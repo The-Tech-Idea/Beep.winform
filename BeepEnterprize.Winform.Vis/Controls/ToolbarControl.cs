@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.DataBase;
-using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
@@ -31,11 +27,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
            
 
         }
-        public System.Windows.Forms.TreeView TreeV { get; set; }
-        public System.Windows.Forms.TreeView SecondaryTreeV { get; set; }
+        public TreeView TreeV { get; set; }
+       
      
         private TreeControl Treecontrol { get; set; }
-        private TreeControl SecondaryTreecontrol { get; set; }
+      
         public string ParentName { get ; set ; }
         public string ObjectName { get ; set ; }
         public string ObjectType { get; set; } 
@@ -93,10 +89,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
                 toolbarstrip.ImageScalingSize = new Size(20, 20);
                 toolbarstrip.Dock = System.Windows.Forms.DockStyle.Fill;
-                toolbarstrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-                toolbarstrip.Location = new System.Drawing.Point(342, 0);
+              //  toolbarstrip.Location = new System.Drawing.Point(342, 0);
                 toolbarstrip.Name = "TreetoolStrip";
-                toolbarstrip.Size = new System.Drawing.Size(32, 580);
+               // toolbarstrip.Size = new System.Drawing.Size(32, 580);
                 toolbarstrip.Text = "toolStrip1";
                 toolbarstrip.Stretch = true;
                 
@@ -144,15 +139,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         private void RunFunction(object sender, EventArgs e)
         {
-            //IBranch br = null;
-            //ToolStripItem item = (ToolStripItem)sender;
-         
-            //if (TreeV.SelectedNode != null)
-            //{
-            //    TreeNode n = TreeV.SelectedNode;
-
-            //    br = Treecontrol.treeBranchHandler.GetBranch(Convert.ToInt32(n.Tag));
-            //}
+            
             Treecontrol.RunFunction(sender, e);
         }
         #endregion

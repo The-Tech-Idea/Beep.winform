@@ -57,6 +57,14 @@ namespace BeepEnterprize.Winform.Vis
 
             Controlmanager = new ControlManager(DMEEditor, this);
             wizardManager = new WizardManager(DMEEditor,this);
+            if (DMEEditor.Passedarguments == null)
+            {
+
+                DMEEditor.Passedarguments = new PassedArgs();
+                DMEEditor.Passedarguments.Objects = new List<ObjectItem>();
+
+            }
+            DMEEditor.Passedarguments.Objects = CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects);
         }
         #region "Winform Implemetation Properties"
         public ImageList Images { get; set; } = new ImageList();
@@ -64,7 +72,6 @@ namespace BeepEnterprize.Winform.Vis
         public Control Container { get { return _container; } set { _container =value; _controlManager.DisplayPanel = value; } }
         #endregion
         public WizardManager wizardManager { get; set; }
-      
         IDM_Addin MainFormView;
         public IErrorsInfo loadpalette()
         {

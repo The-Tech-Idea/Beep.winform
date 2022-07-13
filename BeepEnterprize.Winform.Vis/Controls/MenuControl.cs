@@ -31,10 +31,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
            // CreateToolbar();
 
         }
-        public System.Windows.Forms.TreeView TreeV { get; set; }
-        public System.Windows.Forms.TreeView SecondaryTreeV { get; set; }
+        public TreeView TreeV { get; set; }
+     
         private TreeControl Treecontrol { get; set; }
-        private TreeControl SecondaryTreecontrol { get; set; }
+      
         public string ParentName { get ; set ; }
         public string ObjectName { get ; set ; }
         public string ObjectType { get ; set ; }
@@ -69,12 +69,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             try
             {
-                ToolStripMenuItem Configmenu = new ToolStripMenuItem();
-                Configmenu.Name = "Config";
-                Configmenu.Size = new System.Drawing.Size(37, 20);
-                Configmenu.Text = "Configuration";
-                Configmenu.Tag = "Config";
-                Configmenu.ImageIndex = vismanager.visHelper.GetImageIndex("configuration.ico");
+              
+              
                 List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.Where(o=>o.classProperties!=null && o.classProperties.ObjectType!=null && o.classProperties.ObjectType.Equals(ObjectType,StringComparison.CurrentCultureIgnoreCase)).OrderBy(p => p.Order).ToList();
                 foreach (AssemblyClassDefinition cls in extentions)
                 {
@@ -86,9 +82,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         ToolStripMenuItem Extensionsmenu = new ToolStripMenuItem();
 
                         Extensionsmenu.Name = attrib.Name;
-                        Extensionsmenu.Size = new System.Drawing.Size(37, 20);
+                      //  Extensionsmenu.Size = new System.Drawing.Size(37, 20);
                         Extensionsmenu.Text = attrib.Caption;
                         Extensionsmenu.Tag = attrib.TypeId;
+                        Extensionsmenu.ImageScaling = ToolStripItemImageScaling.SizeToFit;
                         Extensionsmenu.ImageIndex = vismanager.visHelper.GetImageIndex(attrib.iconimage);
                         menuitems.Add(Extensionsmenu);
                         menustrip.Items.Add(Extensionsmenu);
@@ -96,7 +93,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         {
                             ToolStripMenuItem menuItem = new ToolStripMenuItem();
                             menuItem.Name = item.Name;
-                            menuItem.Size = new System.Drawing.Size(37, 20);
+                       //     menuItem.Size = new System.Drawing.Size(24, 24);
                             menuItem.Text = item.Caption;
                             menuItem.Tag = cls;
                             menuItem.Click += RunToolStripFunction;
@@ -115,15 +112,19 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 {
               
                 }
-                //foreach (AssemblyClassDefinition cls in extentions)
-                //{
-                   
-                //}
+
+                ToolStripMenuItem Configmenu = new ToolStripMenuItem();
+                Configmenu.Name = "Config";
+                // Configmenu.Size = new System.Drawing.Size(37, 20);
+                Configmenu.Text = "Configuration";
+                Configmenu.Tag = "Config";
+                Configmenu.ImageScaling = ToolStripItemImageScaling.SizeToFit;
+                Configmenu.ImageIndex = vismanager.visHelper.GetImageIndex("configuration.ico");
                 foreach (AddinTreeStructure item in DMEEditor.ConfigEditor.AddinTreeStructure)
                 {
                     ToolStripMenuItem menuItem = new ToolStripMenuItem();
                     menuItem.Name = item.NodeName;
-                    menuItem.Size = new System.Drawing.Size(37, 20);
+                  //  menuItem.Size = new System.Drawing.Size(37, 20);
                     menuItem.Text = item.NodeName;
                     menuItem.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
                     menuItem.ImageScaling = ToolStripItemImageScaling.SizeToFit;

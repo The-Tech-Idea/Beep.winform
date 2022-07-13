@@ -347,8 +347,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             if (br != null)
             {
-
-                DMEEditor.Passedarguments = new PassedArgs();
+                if (DMEEditor.Passedarguments == null)
+                {
+                    DMEEditor.Passedarguments = new PassedArgs();
+                }
+             //  
                 DMEEditor.Passedarguments.ObjectName = br.BranchText;
                 DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
                 DMEEditor.Passedarguments.Id = br.BranchID;
@@ -402,7 +405,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             if (br != null)
             {
-                DMEEditor.Passedarguments = new PassedArgs();
+                if (DMEEditor.Passedarguments == null)
+                {
+                    DMEEditor.Passedarguments = new PassedArgs();
+                }
                 DMEEditor.Passedarguments.ObjectName = br.BranchText;
                 DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
                 DMEEditor.Passedarguments.Id = br.BranchID;
