@@ -108,37 +108,35 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     }
 
                 }
-                for (int i = 0; i < extentions.Count; i++)
+                if (ObjectType == "Beep")
                 {
-              
+                    ToolStripMenuItem Configmenu = new ToolStripMenuItem();
+                    Configmenu.Name = "Config";
+                    // Configmenu.Size = new System.Drawing.Size(37, 20);
+                    Configmenu.Text = "Configuration";
+                    Configmenu.Tag = "Config";
+                    Configmenu.ImageScaling = ToolStripItemImageScaling.SizeToFit;
+                    Configmenu.ImageIndex = vismanager.visHelper.GetImageIndex("configuration.ico");
+                    foreach (AddinTreeStructure item in DMEEditor.ConfigEditor.AddinTreeStructure)
+                    {
+                        ToolStripMenuItem menuItem = new ToolStripMenuItem();
+                        menuItem.Name = item.NodeName;
+                        //  menuItem.Size = new System.Drawing.Size(37, 20);
+                        menuItem.Text = item.NodeName;
+                        menuItem.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
+                        menuItem.ImageScaling = ToolStripItemImageScaling.SizeToFit;
+                        menuItem.Tag = item.className;
+                        menuItem.Click += RunConfigFunction;
+                        menuItem.Image = visHelper.GetImage(item.Imagename);
+                        // menuItem.ImageIndex = vismanager.visHelper.GetImageIndex(item.Imagename);
+                        Configmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem });
+                    }
+                    menustrip.Items.Add(Configmenu);
                 }
-
-                ToolStripMenuItem Configmenu = new ToolStripMenuItem();
-                Configmenu.Name = "Config";
-                // Configmenu.Size = new System.Drawing.Size(37, 20);
-                Configmenu.Text = "Configuration";
-                Configmenu.Tag = "Config";
-                Configmenu.ImageScaling = ToolStripItemImageScaling.SizeToFit;
-                Configmenu.ImageIndex = vismanager.visHelper.GetImageIndex("configuration.ico");
-                foreach (AddinTreeStructure item in DMEEditor.ConfigEditor.AddinTreeStructure)
-                {
-                    ToolStripMenuItem menuItem = new ToolStripMenuItem();
-                    menuItem.Name = item.NodeName;
-                  //  menuItem.Size = new System.Drawing.Size(37, 20);
-                    menuItem.Text = item.NodeName;
-                    menuItem.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
-                    menuItem.ImageScaling = ToolStripItemImageScaling.SizeToFit;
-                    menuItem.Tag = item.className;
-                    menuItem.Click += RunConfigFunction;
-                    menuItem.Image= visHelper.GetImage(item.Imagename);
-                   // menuItem.ImageIndex = vismanager.visHelper.GetImageIndex(item.Imagename);
-                    Configmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem });
-                   
-
-                }
+             
                 ////-------------------------------------------------------------------------------------------
                 
-                menustrip.Items.Add(Configmenu);
+                
                 return DMEEditor.ErrorObject;
             }
             catch (Exception ex)

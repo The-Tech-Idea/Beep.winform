@@ -132,7 +132,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.SidePanelContainer.Panel2.Controls.Add(this.BeepTreeView);
             this.SidePanelContainer.Size = new System.Drawing.Size(484, 1397);
-            this.SidePanelContainer.SplitterDistance = 773;
+            this.SidePanelContainer.SplitterDistance = 500;
             this.SidePanelContainer.SplitterWidth = 5;
             this.SidePanelContainer.TabIndex = 0;
             // 
@@ -140,7 +140,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.SidePanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SidePanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(461, 751);
+            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(461, 478);
             this.SidePanelCollapsebutton.Name = "SidePanelCollapsebutton";
             this.SidePanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
             this.SidePanelCollapsebutton.TabIndex = 15;
@@ -156,7 +156,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.AppTreeView.Location = new System.Drawing.Point(0, 0);
             this.AppTreeView.Name = "AppTreeView";
             this.AppTreeView.ShowNodeToolTips = true;
-            this.AppTreeView.Size = new System.Drawing.Size(484, 773);
+            this.AppTreeView.Size = new System.Drawing.Size(484, 500);
             this.AppTreeView.TabIndex = 14;
             // 
             // BeepTreeView
@@ -164,7 +164,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.BeepTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BeepTreeView.Location = new System.Drawing.Point(0, 0);
             this.BeepTreeView.Name = "BeepTreeView";
-            this.BeepTreeView.Size = new System.Drawing.Size(484, 619);
+            this.BeepTreeView.Size = new System.Drawing.Size(484, 892);
             this.BeepTreeView.TabIndex = 2;
             // 
             // TreeFilterTextBox

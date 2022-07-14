@@ -212,10 +212,10 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 {
                     AppmenuStrip.Visible = false;
                 }
-                BeepmenuControl.IsAppOn = true;
+                AppmenuControl.IsAppOn = true;
               
             }else
-                BeepmenuControl.IsAppOn = false;
+                AppmenuControl.IsAppOn = false;
             ///----------------------------------------
         
 

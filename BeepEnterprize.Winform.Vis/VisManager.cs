@@ -52,8 +52,8 @@ namespace BeepEnterprize.Winform.Vis
             MenuStrip = new MenuControl(DMEEditor, (TreeControl)Tree);
 
             SecondaryTree = new TreeControl(DMEEditor, this);
-            SecondaryToolStrip = new ToolbarControl(DMEEditor, (TreeControl)Tree);
-            SecondaryMenuStrip = new MenuControl(DMEEditor, (TreeControl)Tree);
+            SecondaryToolStrip = new ToolbarControl(DMEEditor, (TreeControl)SecondaryTree);
+            SecondaryMenuStrip = new MenuControl(DMEEditor, (TreeControl)SecondaryTree);
 
             Controlmanager = new ControlManager(DMEEditor, this);
             wizardManager = new WizardManager(DMEEditor,this);
