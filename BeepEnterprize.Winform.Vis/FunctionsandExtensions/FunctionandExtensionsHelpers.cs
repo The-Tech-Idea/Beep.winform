@@ -75,7 +75,12 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             {
                 Passedarguments.Objects.Remove(Passedarguments.Objects.Where(c => c.Name == "Branch").FirstOrDefault());
             }
-            pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
+            if (Passedarguments.Id > 0)
+            {
+                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
+            }
+
+           
             if (pbr != null)
             {
                 Passedarguments.DatasourceName = pbr.DataSourceName;
