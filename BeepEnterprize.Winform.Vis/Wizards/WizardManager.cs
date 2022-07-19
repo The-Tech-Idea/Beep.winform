@@ -18,12 +18,12 @@ namespace BeepEnterprize.Winform.Vis.Wizards
         public event EventHandler<NodeChangeEventHandler> WizardNextNodeEvent;
         public event EventHandler<NodeChangeEventHandler> WizardPreviousNodeEvent;
         public event EventHandler<NodeChangeEventHandler> WizardNodeChangeEvent;
-        public WizardManager(IDMEEditor pDMEEditor, VisManager pvisManager)
+        public WizardManager(IDMEEditor pDMEEditor, IVisManager pvisManager)
         {
             State = new WizardState(this);
             Nodes = new LinkedList<IWizardNode>();
             DMEEditor = pDMEEditor;
-            visManager = pvisManager;
+            visManager = (VisManager)pvisManager;
             WizardParentForm = new BeepForm();
             ColorsTemplate=new ColorTemplate();
             ColorsTemplate.ForColor = Color.White;

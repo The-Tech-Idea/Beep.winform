@@ -153,7 +153,10 @@ namespace BeepEnterprize.Winform.Vis
             //    DMEEditor.ConfigEditor.DataConnections.Add(x);
 
             //}
-
+            if (ds == null)
+            {
+                ds = new List<ConnectionProperties>();
+            }
             dataConnectionsBindingSource.DataSource = ds;
         //    headersBindingSource.DataSource = ds;
             // dataConnectionsBindingSource.ResetBindings(true);
@@ -281,14 +284,17 @@ namespace BeepEnterprize.Winform.Vis
         {
             ConnectionProperties x = new ConnectionProperties();
             x.Category = DatasourceCategory.RDBMS;
-            x.ID = DMEEditor.ConfigEditor.DataConnections.Max(y=>y.ID) + 1;
+            if (DMEEditor.ConfigEditor.DataConnections.Count > 0)
+            {
+                x.ID =  DMEEditor.ConfigEditor.DataConnections.Max(y => y.ID) + 1;
+            }
+            else
+                x.ID = 1;
+          
             e.NewObject = x;
         }
 
-        private void DataConnectionsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-           
-        }
+       
 
     }
 }

@@ -40,8 +40,8 @@
     <Reference Include="DataManagementModelsStandard, Version=1.0.0.14, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\fahadTheTechIdea\Dhub3\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.14\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.20, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\fahadTheTechIdea\Dhub3\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.20\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\fahadTheTechIdea\Dhub3\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.22\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

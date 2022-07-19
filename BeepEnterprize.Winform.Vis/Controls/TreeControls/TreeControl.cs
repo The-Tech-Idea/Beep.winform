@@ -24,10 +24,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
     [AddinAttribute(Caption = "Beep", Name = "TreeControl", misc = "Control")]
     public class TreeControl : IDM_Addin,ITree
     {
-        public TreeControl(IDMEEditor pDMEEditor,VisManager pVismanager)
+        public TreeControl(IDMEEditor pDMEEditor,IVisManager pVismanager)
         {
             DMEEditor = pDMEEditor;
-            Vismanager = pVismanager;
+            Vismanager = (VisManager)pVismanager;
             VisManager = pVismanager;
          
 

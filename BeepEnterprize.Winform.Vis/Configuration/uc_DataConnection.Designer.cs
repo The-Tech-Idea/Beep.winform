@@ -534,6 +534,7 @@ namespace BeepEnterprize.Winform.Vis
             this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataConnectionsBindingSource, "Password", true));
             this.passwordTextBox.Location = new System.Drawing.Point(168, 206);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(121, 20);
             this.passwordTextBox.TabIndex = 8;
             // 
