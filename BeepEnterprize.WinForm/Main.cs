@@ -123,6 +123,7 @@ namespace BeepEnterprize.Winform
                 //{
                 //    DMEEditor.AddLogMessage("Beep",eventArgs.Exception.ToString(),DateTime.Now,0,null,Errors.Failed);
                 //};
+                DMEEditor.Passedarguments.ParameterString1 = "NoApp";
                 DMEEditor.AddLogMessage("Show Main Page");
                 vis.ShowMainPage();
                
