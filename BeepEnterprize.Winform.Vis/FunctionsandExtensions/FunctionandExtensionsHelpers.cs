@@ -91,8 +91,12 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                     Passedarguments.Objects.Add(new ObjectItem() { Name = "ParentBranch", obj = ParentBranch });
                 }
                 Passedarguments.Objects.Add(new ObjectItem() { Name = "Branch", obj = pbr });
-                RootBranch = TreeEditor.Branches[TreeEditor.Branches.FindIndex(x => x.BranchClass == pbr.BranchClass && x.BranchType == EnumPointType.Root)];
-                Passedarguments.Objects.Add(new ObjectItem() { Name = "RootBranch", obj = RootBranch });
+                int idx = TreeEditor.Branches.FindIndex(x => x.BranchClass == pbr.BranchClass && x.BranchType == EnumPointType.Root);
+                if (idx > 0)
+                {
+                    RootBranch = TreeEditor.Branches[idx];
+                    Passedarguments.Objects.Add(new ObjectItem() { Name = "AppRootBranch", obj = RootBranch });
+                }
             }
          
 

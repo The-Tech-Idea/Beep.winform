@@ -324,8 +324,8 @@ namespace BeepEnterprize.Winform.Vis
                     form.Text = addin.AddinName;
                     addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                     form.AddControl(uc,addin.AddinName);
-                    form.Width = uc.Width + 50;
-                    form.Height = uc.Height + 50;
+                    form.Width = uc.Width + 70;
+                    form.Height = uc.Height + 70;
                     uc.Dock = DockStyle.Fill;
                    // form.FormBorderStyle = FormBorderStyle.None;
                     form.Title = addin.AddinName;
