@@ -286,7 +286,7 @@ namespace  BeepEnterprize.Vis.Module
                         ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext) && o.Favourite==true).FirstOrDefault();
                         if(c is null)
                         {
-                            c = clss.Where(o => o.extensionstoHandle.Contains(ext) ).FirstOrDefault();
+                            c = clss.Where(o => o.classHandler.Equals("CSVDataSource",StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
                         }
                         if (c != null) 
                         {
