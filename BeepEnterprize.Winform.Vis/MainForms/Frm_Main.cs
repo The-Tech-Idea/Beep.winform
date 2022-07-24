@@ -130,7 +130,13 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             visManager.Container = ContainerPanel;
             //--------------------------------------------------------------------
             
-          
+            if(DMEEditor.Passedarguments.ParameterString1 != null)
+            {
+                if (DMEEditor.Passedarguments.ParameterString1.Equals("NoApp", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    IsAppOn = false;
+                }
+            }
             if (IsBeepDataOn)
             {
                 ///------------ Setup Beep Data Management 

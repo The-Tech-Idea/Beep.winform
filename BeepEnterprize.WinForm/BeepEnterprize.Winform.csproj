@@ -82,8 +82,13 @@
     <Reference Include="DataManagementModelsStandard, Version=1.0.0.14, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\fahadTheTechIdea\Dhub3\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.14\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="DataManagmentEngineStandard, Version=1.0.0.24, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\fahadTheTechIdea\Dhub3\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.24\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+=======
+    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.27, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.27\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+>>>>>>> 5e1b915b2ab1ca335567d2a9650cd54a41e0e1cd
     </Reference>
     <Reference Include="DMLoggerStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TheTechIdea.Beep.DMLogger2.0.1.0.0.7\lib\netstandard2.0\DMLoggerStandard.dll</HintPath>
@@ -152,12 +157,32 @@
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="..\ModuleExtensions\outputdll\AIModule\AIModule.dll">
-      <Link>LoadingExtensions\AssemblyLoader_AIandApps\AIModule.dll</Link>
+    <Content Include="..\..\Beep.Winform.AppDesigner\Beep.Winform.ScreenDesigner\bin\Debug\AppModule.dll">
+      <Link>LoadingExtensions\AppBuilderExtensions\AppModule.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\ModuleExtensions\outputdll\AppModule\AppModule.dll">
-      <Link>LoadingExtensions\AssemblyLoader_AIandApps\AppModule.dll</Link>
+    <Content Include="..\..\Beep.Winform.AppDesigner\Beep.Winform.ScreenDesigner\bin\Debug\ReaLTaiizor.dll">
+      <Link>ProjectClasses\AppBuilder\ReaLTaiizor.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\Beep.Winform.AppDesigner\Beep.Winform.ScreenDesigner\bin\Debug\ScreenDesigner.dll">
+      <Link>ProjectClasses\AppBuilder\ScreenDesigner.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\Beep.Winform.AppDesigner\outputdll\AppbuilderExtensions\AppbuilderExtensions.dll">
+      <Link>ProjectClasses\AppBuilder\AppbuilderExtensions.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\Beep.Winform.AppDesigner\outputdll\AppExtensionsLoaderNet\AppExtensionsLoaderNet.dll">
+      <Link>LoadingExtensions\AppBuilderExtensions\AppExtensionsLoaderNet.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\Beep.Winform.AppDesigner\WinformScreenControls\bin\Debug\WinformScreenControls.dll">
+      <Link>ProjectClasses\AppBuilder\WinformScreenControls.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\ModuleExtensions\outputdll\AIModule\AIModule.dll">
+      <Link>LoadingExtensions\AssemblyLoader_AIandApps\AIModule.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\outputdll\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.dll">
@@ -172,20 +197,16 @@
       <Link>ProjectClasses\AIBuilder\AIBuilder.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Plugin\OutputDLL\AppBuilder\AppBuilder.dll">
-      <Link>ProjectClasses\AppBuilder\AppBuilder.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Plugin\OutputDLL\AppBuilder\AppModule.dll">
-      <Link>ProjectClasses\AppBuilder\AppModule.dll</Link>
+    <Content Include="..\Plugin\OutputDLL\AssemblyLoaderAI\AssemblyLoaderAI.dll">
+      <Link>LoadingExtensions\AssemblyLoaderAI\AssemblyLoaderAI.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Plugin\OutputDLL\AssemblyLoaderExtension\AssemblyLoaderExtension.dll">
       <Link>LoadingExtensions\AssemblyLoaderExtension\AssemblyLoaderExtension.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Plugin\OutputDLL\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll">
-      <Link>LoadingExtensions\AssemblyLoader_AIandApps\AssemblyLoader_AIandApps.dll</Link>
+    <Content Include="..\Plugin\OutputDLL\BeepDeveloperAssistant\BeepDeveloperAssistant.dll">
+      <Link>ProjectClasses\BeepDeveloperAssistant\BeepDeveloperAssistant.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Plugin\OutputDLL\DxBeepCommn\DxBeepCommn.dll">
@@ -2650,9 +2671,6 @@
     <Content Include="ProjectClasses\AIBuilder\System.CodeDom.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\BeepDeveloperAssistant\BeepDeveloperAssistant.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ProjectClasses\CommunityToolkit.Mvvm.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2826,9 +2844,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="config\Apps.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="config\CategoryFolders.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="config\CompositeLayers.json">
