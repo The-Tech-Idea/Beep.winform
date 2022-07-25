@@ -66,15 +66,17 @@ namespace  BeepEnterprize.Vis.Module
         public object TreeStrucure { get; set; }
         public  IVisManager  Visutil { get; set; }
         public int MiscID { get; set; }
+        public object ParentBranch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ObjectType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
 
-       // public event EventHandler<PassedArgs> BranchSelected;
-       // public event EventHandler<PassedArgs> BranchDragEnter;
-       // public event EventHandler<PassedArgs> BranchDragDrop;
-       // public event EventHandler<PassedArgs> BranchDragLeave;
-       // public event EventHandler<PassedArgs> BranchDragClick;
-       // public event EventHandler<PassedArgs> BranchDragDoubleClick;
-       // public event EventHandler<PassedArgs> ActionNeeded;
+        // public event EventHandler<PassedArgs> BranchSelected;
+        // public event EventHandler<PassedArgs> BranchDragEnter;
+        // public event EventHandler<PassedArgs> BranchDragDrop;
+        // public event EventHandler<PassedArgs> BranchDragLeave;
+        // public event EventHandler<PassedArgs> BranchDragClick;
+        // public event EventHandler<PassedArgs> BranchDragDoubleClick;
+        // public event EventHandler<PassedArgs> ActionNeeded;
         #endregion "Properties"
         #region "Interface Methods"
         public IErrorsInfo CreateChildNodes()
