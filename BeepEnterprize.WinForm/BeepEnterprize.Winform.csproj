@@ -152,24 +152,20 @@
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="..\..\Beep.Winform.AppDesigner\Beep.Winform.ScreenDesigner\bin\Debug\AppModule.dll">
-      <Link>LoadingExtensions\AppBuilderExtensions\AppModule.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\Beep.Winform.AppDesigner\Beep.Winform.ScreenDesigner\bin\Debug\ReaLTaiizor.dll">
-      <Link>ProjectClasses\AppBuilder\ReaLTaiizor.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\Beep.Winform.AppDesigner\Beep.Winform.ScreenDesigner\bin\Debug\ScreenDesigner.dll">
-      <Link>ProjectClasses\AppBuilder\ScreenDesigner.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\Beep.Winform.AppDesigner\outputdll\AppbuilderExtensions\AppbuilderExtensions.dll">
       <Link>ProjectClasses\AppBuilder\AppbuilderExtensions.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\Beep.Winform.AppDesigner\outputdll\AppExtensionsLoaderNet\AppExtensionsLoaderNet.dll">
       <Link>LoadingExtensions\AppBuilderExtensions\AppExtensionsLoaderNet.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\Beep.Winform.AppDesigner\outputdll\AppModule\AppModule.dll">
+      <Link>LoadingExtensions\AppBuilderExtensions\AppModule.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\Beep.Winform.AppDesigner\WinformDesigner\bin\Debug\WinformDesigner.dll">
+      <Link>ProjectClasses\AppBuilder\WinformDesigner.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\Beep.Winform.AppDesigner\WinformScreenControls\bin\Debug\WinformScreenControls.dll">
@@ -3346,9 +3342,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="WorkFlow\DataWorkFlow.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -46,9 +46,9 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
         }
         public void GetValues(IPassedArgs Passedarguments)
         {
-            if (Passedarguments.Objects.Where(c => c.Name == "Vismanager").Any())
+            if (Passedarguments.Objects.Where(c => c.Name == "VISUTIL").Any())
             {
-                Vismanager = (VisManager)Passedarguments.Objects.Where(c => c.Name == "Vismanager").FirstOrDefault().obj;
+                Vismanager = (VisManager)Passedarguments.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
             }
             if (Passedarguments.Objects.Where(c => c.Name == "TreeControl").Any())
             {
