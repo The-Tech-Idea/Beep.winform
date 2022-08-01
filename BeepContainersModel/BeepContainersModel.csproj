@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine2.0" Version="1.0.0.27" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine2.0" Version="1.0.0.28" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.14" />
   </ItemGroup>
 
