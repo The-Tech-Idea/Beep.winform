@@ -42,8 +42,12 @@ namespace BeepEnterprize.Winform.Vis
         public IControlManager Controlmanager { get; set; }
         public ControlManager _controlManager { get { return (ControlManager)Controlmanager; } }
         public ErrorsInfo ErrorsandMesseges { get; set; }
+        public IDM_Addin CurrentDisplayedAddin { get; set; }
+        public bool IsDataModified { get; set; }
         public VisManager(IDMEEditor pdmeeditor)
         {
+            IsDataModified = false;
+            CurrentDisplayedAddin = null;
             DMEEditor = pdmeeditor;
             visHelper = new VisHelper(DMEEditor,this);
 
@@ -474,6 +478,8 @@ namespace BeepEnterprize.Winform.Vis
                     }
                     addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                     form.Text = addin.AddinName;
+                    IsDataModified = false;
+                    CurrentDisplayedAddin = addin;
                     form.ShowDialog();
 
                 }

@@ -20,11 +20,14 @@ namespace BeepEnterprize.Vis.Module
         IDM_Addin SecondaryTree { get; set; }
         IDM_Addin MenuStrip { get; set; }
         IDM_Addin SecondaryMenuStrip { get; set; }
-
+        IDM_Addin CurrentDisplayedAddin { get; set; }
+        bool IsDataModified { get; set; }
         IErrorsInfo loadpalette();
         IErrorsInfo savepalette();
         IVisHelper visHelper { get; set; }
         IErrorsInfo ShowMainPage();
+        IErrorsInfo CallAddinRun();
+        IErrorsInfo CloseAddin();
         IErrorsInfo PrintGrid(IPassedArgs passedArgs);
         IErrorsInfo ShowPage(string pagename,  PassedArgs Passedarguments,  DisplayType displayType = DisplayType.InControl);
         IErrorsInfo ShowWaitForm(PassedArgs Passedarguments);
