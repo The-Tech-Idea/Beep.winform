@@ -54,7 +54,7 @@
             this.Toppanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Toppanel.Location = new System.Drawing.Point(0, 0);
             this.Toppanel.Name = "Toppanel";
-            this.Toppanel.Size = new System.Drawing.Size(732, 22);
+            this.Toppanel.Size = new System.Drawing.Size(735, 22);
             this.Toppanel.TabIndex = 0;
             // 
             // Titlelabel
@@ -63,7 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Titlelabel.Location = new System.Drawing.Point(3, 1);
             this.Titlelabel.Name = "Titlelabel";
-            this.Titlelabel.Size = new System.Drawing.Size(637, 20);
+            this.Titlelabel.Size = new System.Drawing.Size(640, 20);
             this.Titlelabel.TabIndex = 9;
             this.Titlelabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -71,7 +71,7 @@
             // 
             this.Sharebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Sharebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Sharebutton.Location = new System.Drawing.Point(660, 1);
+            this.Sharebutton.Location = new System.Drawing.Point(663, 1);
             this.Sharebutton.Name = "Sharebutton";
             this.Sharebutton.Size = new System.Drawing.Size(20, 20);
             this.Sharebutton.TabIndex = 2;
@@ -81,7 +81,7 @@
             // 
             this.Printbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Printbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Printbutton.Location = new System.Drawing.Point(685, 1);
+            this.Printbutton.Location = new System.Drawing.Point(688, 1);
             this.Printbutton.Name = "Printbutton";
             this.Printbutton.Size = new System.Drawing.Size(20, 20);
             this.Printbutton.TabIndex = 1;
@@ -91,7 +91,7 @@
             // 
             this.Filterbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Filterbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Filterbutton.Location = new System.Drawing.Point(709, 1);
+            this.Filterbutton.Location = new System.Drawing.Point(712, 1);
             this.Filterbutton.Name = "Filterbutton";
             this.Filterbutton.Size = new System.Drawing.Size(20, 20);
             this.Filterbutton.TabIndex = 0;
@@ -107,16 +107,16 @@
             this.Bottompanel.Controls.Add(this.NextButton);
             this.Bottompanel.Controls.Add(this.Newbutton);
             this.Bottompanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Bottompanel.Location = new System.Drawing.Point(0, 326);
+            this.Bottompanel.Location = new System.Drawing.Point(0, 324);
             this.Bottompanel.Name = "Bottompanel";
-            this.Bottompanel.Size = new System.Drawing.Size(732, 20);
+            this.Bottompanel.Size = new System.Drawing.Size(735, 24);
             this.Bottompanel.TabIndex = 1;
             // 
             // SaveButton
             // 
             this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.SaveButton.Location = new System.Drawing.Point(709, 1);
+            this.SaveButton.Location = new System.Drawing.Point(712, 3);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(20, 20);
             this.SaveButton.TabIndex = 9;
@@ -126,9 +126,9 @@
             // 
             this.MessageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MessageLabel.Location = new System.Drawing.Point(86, 2);
+            this.MessageLabel.Location = new System.Drawing.Point(86, 4);
             this.MessageLabel.Name = "MessageLabel";
-            this.MessageLabel.Size = new System.Drawing.Size(523, 20);
+            this.MessageLabel.Size = new System.Drawing.Size(526, 20);
             this.MessageLabel.TabIndex = 8;
             this.MessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -136,7 +136,7 @@
             // 
             this.Cancelbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Cancelbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Cancelbutton.Location = new System.Drawing.Point(685, 1);
+            this.Cancelbutton.Location = new System.Drawing.Point(688, 3);
             this.Cancelbutton.Name = "Cancelbutton";
             this.Cancelbutton.Size = new System.Drawing.Size(20, 20);
             this.Cancelbutton.TabIndex = 7;
@@ -146,7 +146,7 @@
             // 
             this.Deletebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Deletebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Deletebutton.Location = new System.Drawing.Point(660, 1);
+            this.Deletebutton.Location = new System.Drawing.Point(663, 3);
             this.Deletebutton.Name = "Deletebutton";
             this.Deletebutton.Size = new System.Drawing.Size(20, 20);
             this.Deletebutton.TabIndex = 6;
@@ -156,7 +156,7 @@
             // 
             this.Previousbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Previousbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Previousbutton.Location = new System.Drawing.Point(5, 0);
+            this.Previousbutton.Location = new System.Drawing.Point(5, 2);
             this.Previousbutton.Name = "Previousbutton";
             this.Previousbutton.Size = new System.Drawing.Size(20, 20);
             this.Previousbutton.TabIndex = 5;
@@ -166,7 +166,7 @@
             // 
             this.NextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.NextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.NextButton.Location = new System.Drawing.Point(30, 0);
+            this.NextButton.Location = new System.Drawing.Point(30, 2);
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(20, 20);
             this.NextButton.TabIndex = 4;
@@ -176,7 +176,7 @@
             // 
             this.Newbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Newbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Newbutton.Location = new System.Drawing.Point(54, 0);
+            this.Newbutton.Location = new System.Drawing.Point(54, 2);
             this.Newbutton.Name = "Newbutton";
             this.Newbutton.Size = new System.Drawing.Size(20, 20);
             this.Newbutton.TabIndex = 3;
@@ -191,7 +191,7 @@
             this.Controls.Add(this.Bottompanel);
             this.Controls.Add(this.Toppanel);
             this.Name = "uc_BeepGrid";
-            this.Size = new System.Drawing.Size(732, 346);
+            this.Size = new System.Drawing.Size(735, 348);
             this.Toppanel.ResumeLayout(false);
             this.Bottompanel.ResumeLayout(false);
             this.ResumeLayout(false);

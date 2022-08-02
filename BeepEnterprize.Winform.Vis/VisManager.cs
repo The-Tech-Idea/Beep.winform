@@ -77,7 +77,7 @@ namespace BeepEnterprize.Winform.Vis
         #endregion
         public WizardManager wizardManager { get; set; }
         IDM_Addin MainFormView;
-        public IErrorsInfo loadpalette()
+        public IErrorsInfo LoadSetting()
         {
             try
             {
@@ -96,7 +96,7 @@ namespace BeepEnterprize.Winform.Vis
             }
             return ErrorsandMesseges;
         }
-        public IErrorsInfo savepalette()
+        public IErrorsInfo SaveSetting()
         {
             try
             {
@@ -179,10 +179,21 @@ namespace BeepEnterprize.Winform.Vis
             {
                 ErrorsandMesseges = new ErrorsInfo();
                 AddinAttribute attrib = new AddinAttribute();
+               
+                if (IsDataModified)
+                {
+                    if(Controlmanager.InputBoxYesNo("Beep","Module/Data not Saved, Do you want to continue?")== BeepEnterprize.Vis.Module.DialogResult.No)
+                    {
+                        return ErrorsandMesseges;
+                    }
+                 
+                }
+                CurrentDisplayedAddin = null;
+                IsDataModified = false;
                 if (DMEEditor.assemblyHandler.AddIns.Where(c => c.ObjectName.Equals(pagename, StringComparison.OrdinalIgnoreCase)).Any())
                 {
                     Type type = DMEEditor.assemblyHandler.AddIns.Where(c => c.ObjectName.Equals(pagename, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().GetType();
-                     attrib = (AddinAttribute)type.GetCustomAttribute(typeof(AddinAttribute), false);
+                    attrib = (AddinAttribute)type.GetCustomAttribute(typeof(AddinAttribute), false);
                     if (attrib != null)
                     {
                         if (attrib.displayType == DisplayType.Popup)
@@ -220,10 +231,6 @@ namespace BeepEnterprize.Winform.Vis
                 }
                 else
                     DMEEditor.AddLogMessage("Beep Vis", $"Could Find  Addin {pagename}", DateTime.Now, 0, pagename, Errors.Failed);
-
-
-
-
                 ErrorsandMesseges.Flag = Errors.Ok;
                 ErrorsandMesseges.Message = $"Function Executed";
             }
@@ -338,7 +345,8 @@ namespace BeepEnterprize.Winform.Vis
                     form.Width = uc.Width + 70;
                     form.Height = uc.Height + 70;
                     uc.Dock = DockStyle.Fill;
-                   // form.FormBorderStyle = FormBorderStyle.None;
+                    CurrentDisplayedAddin = addin;
+                    IsDataModified = false;
                     form.Title = addin.AddinName;
                     form.PreClose -= Form_PreClose;
                     form.PreClose += Form_PreClose;
@@ -401,11 +409,10 @@ namespace BeepEnterprize.Winform.Vis
                             }
                            
                             addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
+                            CurrentDisplayedAddin = addin;
+                            IsDataModified = false;
                             uc_Container container = (uc_Container)control;
                             container.AddControl(addin.AddinName, uc, ContainerTypeEnum.SinglePanel);
-                          //  control.Controls.Clear();
-                           // control.Controls.Add(uc);
-
                             uc.Dock = DockStyle.Fill;
 
                         }
@@ -421,9 +428,16 @@ namespace BeepEnterprize.Winform.Vis
                         if (e.Objects == null)
                         {
                             e.Objects = new List<ObjectItem>();
+                            e.Objects = CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects);
                         }
-                        e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
+                        else
+                        {
+                            e.Objects = CreateArgsParameterForVisUtil(e.Objects);
+                        }
+
                         addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
+                        CurrentDisplayedAddin = addin;
+                        IsDataModified = false;
                         addin.Run(e);
                     }
                 }
@@ -529,15 +543,18 @@ namespace BeepEnterprize.Winform.Vis
                             e.Objects = CreateArgsParameterForVisUtil(e.Objects);
                         }
                         addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
+                        CurrentDisplayedAddin = addin;
+                        IsDataModified = false;
                         addin.Run(e);
-                        addin = null;
+                     
                     }
                 }
 
             }
             catch (Exception ex)
             {
-
+                CurrentDisplayedAddin = null;
+                IsDataModified = false;
                 DMEEditor.AddLogMessage("Fail", $"Error While Loading Assembly ({ex.Message})", DateTime.Now, 0, "", Errors.Failed);
             }
 
@@ -550,28 +567,33 @@ namespace BeepEnterprize.Winform.Vis
         #region "Wait Forms"
         BeepWait form;
         
-        delegate void SetTextCallback(Form f, Control ctrl, string text);
+        delegate void SetTextCallback(Form f, TextBox ctrl, string text);
         /// <summary>
         /// Set text property of various controls
         /// </summary>
         /// <param name="form">The calling form</param>
         /// <param name="ctrl"></param>
         /// <param name="text"></param>
-        public static void SetText(Form form, Control ctrl, string text)
+        public static void SetText(Form form, TextBox ctrl, string text)
         {
             // InvokeRequired required compares the thread ID of the 
             // calling thread to the thread ID of the creating thread. 
             // If these threads are different, it returns true. 
 
-            if (ctrl.InvokeRequired)
-            {
-                SetTextCallback d = new SetTextCallback(SetText);
-                form.Invoke(d, new object[] { form, ctrl, text });
-            }
-            else
-            {
-                ctrl.Text = text;
-            }
+            //if (ctrl.InvokeRequired)
+            //{
+            //    SetTextCallback d = new SetTextCallback(SetText);
+            //    form.Invoke(d, new object[] { form, ctrl, text });
+            //}
+            //else
+            //{
+              //  ctrl.Text = text;
+                ctrl.BeginInvoke(new Action(() => {
+                    ctrl.AppendText(text + Environment.NewLine);
+                    ctrl.SelectionStart = ctrl.Text.Length;
+                    ctrl.ScrollToCaret();
+                }));
+            //}
         }
         private async void startwait(PassedArgs Passedarguments)
         {
@@ -754,8 +776,42 @@ namespace BeepEnterprize.Winform.Vis
             return ErrorsandMesseges;
            
         }
+        public IErrorsInfo CallAddinRun()
+        {
+            try
+            {
+                if (CurrentDisplayedAddin != null)
+                {
+                    CurrentDisplayedAddin.Run(DMEEditor.Passedarguments);
+                }
+            }
+            catch (Exception ex)
+            {
+                DMEEditor.ErrorObject.Ex = ex;
+                DMEEditor.ErrorObject.Message = ex.Message;
+                DMEEditor.ErrorObject.Flag = Errors.Failed;
+            }
 
-       
+            return DMEEditor.ErrorObject;
+        }
+        public IErrorsInfo CloseAddin()
+        {
+            try
+            {
+                if (CurrentDisplayedAddin != null)
+                {
+                    Form frm = (Form)CurrentDisplayedAddin;
+                    frm.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                DMEEditor.ErrorObject.Ex = ex;
+                DMEEditor.ErrorObject.Message = ex.Message;
+                DMEEditor.ErrorObject.Flag = Errors.Failed;
+            }
 
+            return DMEEditor.ErrorObject;
+        }
     }
 }

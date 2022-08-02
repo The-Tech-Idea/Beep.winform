@@ -22,8 +22,8 @@ namespace BeepEnterprize.Vis.Module
         IDM_Addin SecondaryMenuStrip { get; set; }
         IDM_Addin CurrentDisplayedAddin { get; set; }
         bool IsDataModified { get; set; }
-        IErrorsInfo loadpalette();
-        IErrorsInfo savepalette();
+        IErrorsInfo LoadSetting();
+        IErrorsInfo SaveSetting();
         IVisHelper visHelper { get; set; }
         IErrorsInfo ShowMainPage();
         IErrorsInfo CallAddinRun();

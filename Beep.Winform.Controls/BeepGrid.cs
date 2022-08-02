@@ -168,6 +168,7 @@ namespace Beep.Winform.Controls
             Toppanel.SendToBack();
 
         }
+       
         public event EventHandler<BindingSource> CallPrinter;
         public event EventHandler<BindingSource> SendMessage;
         public event EventHandler<BindingSource> ShowSearch;
