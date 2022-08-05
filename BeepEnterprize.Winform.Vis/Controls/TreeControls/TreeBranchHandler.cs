@@ -45,22 +45,12 @@ namespace BeepEnterprize.Winform.Vis.Controls
             try
             {
                 Treecontrol.TreeV.BeginUpdate();
+              
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == Branch.ToString()).FirstOrDefault();
                 Branch.Name = cls.PackageName;
-                if (Treecontrol.ParentNode == null)
-                {
-                    Treecontrol.ParentNode = Treecontrol.CurrentNode;
-                }
-                else
-                {
-                    IBranch v = (IBranch)Treecontrol.ParentNode.Tag;
-                    if (ParentBranch.ID!=v.ID)
-                    {
-                        Treecontrol.ParentNode = Treecontrol.GetTreeNodeByID(ParentBranch.BranchID, TreeV.Nodes);
-                    }
-                   
-                }
-                TreeNode p = Treecontrol.ParentNode; 
+
+                TreeNode p = Treecontrol.GetTreeNodeByID(ParentBranch.BranchID, TreeV.Nodes);
+               
                 TreeNode n = p.Nodes.Add(Branch.BranchText);
                 if (visManager.visHelper.GetImageIndex(Branch.IconImageName) == -1)
                 {

@@ -339,48 +339,52 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public void RunFunction(object sender, EventArgs e)
         {
             IBranch br = null;
-            ToolStripItem item = (ToolStripItem)sender;
-            if (TreeV.SelectedNode != null)
+            AssemblyClassDefinition assemblydef = new AssemblyClassDefinition();
+            MethodInfo method = null;
+            MethodsClass methodsClass;
+            string MethodName = "";
+            if ( sender == null) { return; }
+            if(sender.GetType()==typeof(ToolStripButton))
             {
-                TreeNode n = TreeV.SelectedNode;
-                br =(IBranch)n.Tag;
+                ToolStripButton item = (ToolStripButton)sender;
+                 assemblydef = (AssemblyClassDefinition)item.Tag;
+                MethodName = item.Text;
             }
-            if (br != null)
+            if (sender.GetType() == typeof(ToolStripMenuItem))
             {
-                if (DMEEditor.Passedarguments == null)
+                ToolStripMenuItem item = (ToolStripMenuItem)sender;
+                 assemblydef = (AssemblyClassDefinition)item.Tag;
+                MethodName = item.Text;
+            }
+          
+            dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
+            Type t = ((IFunctionExtension)fc).GetType();
+            AssemblyClassDefinition cls = DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.className == t.Name).FirstOrDefault();
+            if (cls != null)
+            {
+                if (TreeV.SelectedNode != null)
+                {
+                    TreeNode n = TreeV.SelectedNode;
+                    br = (IBranch)n.Tag;
+                }
+
+            }
+            methodsClass = cls.Methods.Where(x => x.Caption == MethodName).FirstOrDefault();
+
+            if (DMEEditor.Passedarguments == null)
                 {
                     DMEEditor.Passedarguments = new PassedArgs();
                 }
-             //  
-                DMEEditor.Passedarguments.ObjectName = br.BranchText;
-                DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
-                DMEEditor.Passedarguments.Id = br.BranchID;
-                DMEEditor.Passedarguments.ParameterInt1 = br.BranchID;
-                AssemblyClassDefinition assemblydef = (AssemblyClassDefinition)item.Tag;
-                dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
-                Type t = ((IFunctionExtension)fc).GetType();
-                AssemblyClassDefinition cls = DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.className == t.Name).FirstOrDefault();
-                MethodInfo method = null;
-                if (!IsMethodApplicabletoNode(cls, br)) return;
-                MethodsClass methodsClass;
-                try
-                {
-                    if (br.BranchType != EnumPointType.Global)
-                    {
-                        methodsClass = cls.Methods.Where(x => x.Caption == item.Text).FirstOrDefault();
-                    }
-                    else
-                    {
-                        methodsClass = cls.Methods.Where(x => x.Caption == item.Text && x.PointType == br.BranchType).FirstOrDefault();
-                    }
-
-                }
-                catch (Exception)
-                {
-
-                    methodsClass = null;
-                }
-                if (methodsClass != null)
+            DMEEditor.Passedarguments.ObjectName = br.BranchText;
+            DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
+            DMEEditor.Passedarguments.Id = br.BranchID;
+            DMEEditor.Passedarguments.ParameterInt1 = br.BranchID;
+              
+               
+            if (!IsMethodApplicabletoNode(cls, br)) return;
+              
+         
+            if (methodsClass != null)
                 {
                     method = methodsClass.Info;
                     if (method.GetParameters().Length > 0)
@@ -390,7 +394,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     else
                         method.Invoke(fc, null);
                 }
-            }
+           
 
 
         }
@@ -556,24 +560,24 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             try
             {
-            //    foreach (TreeNode node in p_Nodes)
-            //    {
-            //        IBranch br = (IBranch)node.Tag;
-            //        if (br.ID == id)
-            //        {
-            //            return node;
-            //        }
+                foreach (TreeNode node in p_Nodes)
+                {
+                    IBranch br = (IBranch)node.Tag;
+                    if (br.ID == id)
+                    {
+                        return node;
+                    }
 
-            //        if (node.Nodes.Count > 0)
-            //        {
-            //            var result = GetTreeNodeByID(id, node.Nodes);
-            //            if (result != null)
-            //            {
-            //                return result;
-            //            }
-            //        }
-            //    }
-            return p_Nodes.Find(id.ToString(), true).FirstOrDefault();
+                    if (node.Nodes.Count > 0)
+                    {
+                        var result = GetTreeNodeByID(id, node.Nodes);
+                        if (result != null)
+                        {
+                            return result;
+                        }
+                    }
+                }
+           //     return p_Nodes.Find(id.ToString(), true).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -682,6 +686,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     {
                         if (!IsMethodApplicabletoNode(cls, br)) return;
                         RunMethod(br, clicks);
+                        
                     }
                 }
               

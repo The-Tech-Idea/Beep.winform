@@ -26,15 +26,16 @@ namespace  BeepEnterprize.Vis.Module
         {
             TreeEditor = pTreeEditor;
             DMEEditor = pDMEEditor;
-            //ParentBranchID = pParentNode.ID;
+            ParentBranchID = pParentNode.ID;
             //BranchText = pBranchText;
             //BranchType = pBranchType;
             //IconImageName = pimagename;
-            //if (pID != 0)
-            //{
-            //    ID = pID;
-            //    BranchID = ID;
-            //}
+            ID=pID;
+            if (pID != 0)
+            {
+                ID = pID;
+                BranchID = ID;
+            }
             //.GetImageIndex(ParentTree, MainNode, "dataview.ico");
         }
         #region "Properties"
@@ -369,11 +370,8 @@ namespace  BeepEnterprize.Vis.Module
             
                // viewbr.DataSource = DataSource;
                 viewbr.DataSourceName = Connectionname;
-                viewbr.ID = id;
-
                 TreeEditor.treeBranchHandler.AddBranch(this, viewbr);
-              
-                ChildBranchs.Add(viewbr);
+               // ChildBranchs.Add(viewbr);
 
                 DMEEditor.AddLogMessage("Success", "Added DataView Connection", DateTime.Now, 0, null, Errors.Ok);
             }

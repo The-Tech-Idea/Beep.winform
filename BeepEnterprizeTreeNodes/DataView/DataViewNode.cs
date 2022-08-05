@@ -26,7 +26,9 @@ namespace  BeepEnterprize.Vis.Module
         public DataViewNode(ITree pTreeEditor, IDMEEditor pDMEEditor, IBranch pParentNode, string pBranchText, int pID, EnumPointType pBranchType, string pimagename,string ConnectionName)
         {
 
-           
+            DataSourceName = ConnectionName;
+            ID = pID;
+            BranchID = pID;
 
             TreeEditor = pTreeEditor;
             DMEEditor = pDMEEditor;
@@ -42,9 +44,7 @@ namespace  BeepEnterprize.Vis.Module
             //    DMEEditor.ConfigEditor.SaveDataconnectionsValues();
             //}
             if (ds != null) MiscID = ds.ViewID ; 
-            DataSourceName = ConnectionName;
-            ID = pID;
-            BranchID = pID;
+          
        
         }
         #region "Properties"
@@ -132,6 +132,7 @@ namespace  BeepEnterprize.Vis.Module
                 TreeEditor = pTreeEditor;
                 DMEEditor = pDMEEditor;
                 ParentBranchID = pParentNode.ID;
+                ID = pID;
                 BranchText = pBranchText;
                 BranchType = pBranchType;
                 IconImageName = pimagename;
