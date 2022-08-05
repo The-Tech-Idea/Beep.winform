@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Controls;
 using BeepEnterprize.Winform.Vis.CRUD;
@@ -20,19 +21,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
     {
         public IDMEEditor DMEEditor { get; set; }
         public IPassedArgs Passedargs { get; set; }
-        //private VisManager Vismanager { get; set; }
-        //private ControlManager Controlmanager { get; set; }
-        //private CrudManager Crudmanager { get; set; }
-        //private MenuControl Menucontrol { get; set; }
-        //private ToolbarControl Toolbarcontrol { get; set; }
-        //private TreeControl TreeEditor { get; set; }
-        //private FunctionandExtensionsHelpers ExtensionsHelpers;
-        //CancellationTokenSource tokenSource;
-        //CancellationToken token;
-        //IDataSource DataSource;
-        //IBranch pbr;
-        //IBranch RootBranch;
-        //IBranch ParentBranch;
+      
         private FunctionandExtensionsHelpers ExtensionsHelpers;
         public EditMenuFunctions(IDMEEditor pdMEEditor, VisManager pvisManager, TreeControl ptreeControl)
         {
@@ -219,7 +208,81 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
             return DMEEditor.ErrorObject;
         }
+        [CommandAttribute(Name = "AddCategory", Caption = "Add Category", Click = true, iconimage = "category.ico", ObjectType = "Beep", PointType = EnumPointType.Root)]
+        public IErrorsInfo AddCategory(IPassedArgs Passedarguments)
+        {
 
+            try
+            {
+                ExtensionsHelpers.GetValues(Passedarguments);
+                if (ExtensionsHelpers.pbr.BranchType != EnumPointType.Root)
+                {
+                    return DMEEditor.ErrorObject;
+                }
+                IBranch Rootbr = ExtensionsHelpers.RootBranch;
+                string foldername = "";
+                ExtensionsHelpers.Vismanager._controlManager.InputBox("Enter Category Name", "What Category you want to Add", ref foldername);
+                if (foldername != null)
+                {
+                    if (foldername.Length > 0)
+                    {
+                        CategoryFolder x = DMEEditor.ConfigEditor.AddFolderCategory(foldername, Rootbr.BranchClass, foldername);
+                        IBranchRootCategory f = (IBranchRootCategory)Rootbr;
+                        f.CreateCategoryNode(x);
+                        DMEEditor.ConfigEditor.SaveCategoryFoldersValues();
+
+                    }
+                }
+                DMEEditor.AddLogMessage("Success", "Added Category", DateTime.Now, 0, null, Errors.Failed);
+            }
+            catch (Exception ex)
+            {
+                string mes = "Could not Add Category";
+                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
+            };
+            return DMEEditor.ErrorObject;
+        }
+        [CommandAttribute(Name = "RemoveCategory", Caption = "Remove Category", Click = true, iconimage = "remove.ico", ObjectType = "Beep", PointType = EnumPointType.Category)]
+        public IErrorsInfo RemoveCategoryBranch(IPassedArgs Passedarguments)
+        {
+
+            try
+            {
+                ExtensionsHelpers.GetValues(Passedarguments);
+                if (ExtensionsHelpers.pbr.BranchType!= EnumPointType.Category)
+                {
+                    return DMEEditor.ErrorObject;
+                }
+                int id = ExtensionsHelpers.pbr.ID;
+                IBranch CategoryBranch = ExtensionsHelpers.pbr;
+                IBranch RootBranch = ExtensionsHelpers.RootBranch;
+                TreeNode CategoryBranchNode = ExtensionsHelpers.TreeEditor.GetTreeNodeByID(CategoryBranch.BranchID, ExtensionsHelpers.TreeEditor.TreeV.Nodes);
+                var ls = ExtensionsHelpers.TreeEditor.Branches.Where(x => x.ParentBranchID == id).ToList();
+                if (ls.Count() > 0)
+                {
+                    foreach (IBranch f in ls)
+                    {
+                        ExtensionsHelpers.TreeEditor.treeBranchHandler.MoveBranchToParent(RootBranch, f);
+                    }
+                }
+
+                ExtensionsHelpers.TreeEditor.TreeV.Nodes.Remove(CategoryBranchNode);
+                CategoryFolder Folder = DMEEditor.ConfigEditor.CategoryFolders.Where(y => y.FolderName == CategoryBranch.BranchText && y.RootName == CategoryBranch.BranchClass).FirstOrDefault();
+                DMEEditor.ConfigEditor.CategoryFolders.Remove(Folder);
+
+                DMEEditor.ConfigEditor.SaveCategoryFoldersValues();
+                DMEEditor.AddLogMessage("Success", "Removed Branch successfully", DateTime.Now, 0, null, Errors.Ok);
+
+            }
+            catch (Exception ex)
+            {
+                string mes = "";
+                DMEEditor.AddLogMessage(ex.Message, "Could not remove category" + mes, DateTime.Now, -1, mes, Errors.Failed);
+
+            };
+            return DMEEditor.ErrorObject;
+
+        }
     }
 }
 

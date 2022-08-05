@@ -142,21 +142,7 @@ namespace  BeepEnterprize.Vis.Module
         }
         #endregion "Interface Methods"
         #region "Exposed Interface"
-        [CommandAttribute(Caption = "Remove")]
-        public IErrorsInfo RemoveCategory()
-        {
-
-            try
-            {
-                TreeEditor.treeBranchHandler.RemoveCategoryBranch(BranchID);
-            }
-            catch (Exception ex)
-            {
-                string mes = "Could not Added View ";
-                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
-            };
-            return DMEEditor.ErrorObject;
-        }
+      
         #endregion Exposed Interface"
         #region "Other Methods"
         private IErrorsInfo CreateViewNode(int id, string ViewName, string Connectionname)

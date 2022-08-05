@@ -19,7 +19,7 @@ using TheTechIdea.Util;
 namespace BeepEnterprize.Vis.Module
 {
     [AddinAttribute(Caption = "AI", misc = "Beep", FileType = "Beep", iconimage = "ai.ico", menu = "AI", ObjectType = "Beep")]
-    public class AIBuilder : IBranch, IOrder, IBranchRootCategory
+    public class AIBuilder : IBranch, IOrder
     {
         public AIBuilder()
         {
@@ -252,10 +252,7 @@ namespace BeepEnterprize.Vis.Module
             return DMEEditor.ErrorObject;
         }
 
-        IErrorsInfo IBranchRootCategory.CreateCategoryNode(CategoryFolder p)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         #endregion
     }

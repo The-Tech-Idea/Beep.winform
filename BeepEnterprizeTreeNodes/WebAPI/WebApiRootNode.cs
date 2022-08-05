@@ -135,34 +135,7 @@ namespace  BeepEnterprize.Vis.Module
         }
         #endregion "Interface Methods"
         #region "Exposed Interface"
-        [CommandAttribute(Caption = "Add Category")]
-        public IErrorsInfo AddCategory()
-        {
-
-            try
-            {
-                PassedArgs Passedarguments = new PassedArgs();
-                string foldername = "";
-                Visutil.Controlmanager.InputBox("Enter Category Name", "What Category you want to Add", ref foldername);
-                if (foldername != null)
-                {
-                    if (foldername.Length > 0)
-                    {
-                        CategoryFolder x = DMEEditor.ConfigEditor.AddFolderCategory(foldername, "WEBAPI", foldername);
-                        CreateCategoryNode(x);
-                        DMEEditor.ConfigEditor.SaveCategoryFoldersValues();
-
-                    }
-                }
-                DMEEditor.AddLogMessage("Success", "Added Category", DateTime.Now, 0, null, Errors.Failed);
-            }
-            catch (Exception ex)
-            {
-                string mes = "Could not Add Category";
-                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
-            };
-            return DMEEditor.ErrorObject;
-        }
+        
         #endregion Exposed Interface"
         #region "Other Methods"
         public IErrorsInfo CreateNodes()

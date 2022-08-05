@@ -168,32 +168,7 @@ namespace  BeepEnterprize.Vis.Module
             };
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Remove Category(files will not removed)", Hidden = false)]
-        public IErrorsInfo Remove()
-        {
-
-            try
-            {
-                if (Visutil.Controlmanager.InputBoxYesNo("Remove", "Area you Sure  you want to remove Category???") == BeepEnterprize.Vis.Module.DialogResult.Yes)
-                {
-
-                     
-                        TreeEditor.treeBranchHandler.RemoveEntityFromCategory("FILE", TreeEditor.treeBranchHandler.GetBranch(ParentBranchID).BranchText, BranchText);
-                        TreeEditor.treeBranchHandler.RemoveBranch(this);
-                       
-                        DMEEditor.ConfigEditor.SaveCategoryFoldersValues();
-                   
-                  
-                }
-                DMEEditor.AddLogMessage("Success", "Remove Category", DateTime.Now, 0, null, Errors.Ok);
-            }
-            catch (Exception ex)
-            {
-                string mes = "Could not Remove Category";
-                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
-            };
-            return DMEEditor.ErrorObject;
-        }
+       
         #endregion Exposed Interface"
         #region "Other Methods"
         public IErrorsInfo CreateNodes()

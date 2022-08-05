@@ -272,21 +272,7 @@ namespace  BeepEnterprize.Vis.Module
             };
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Add Category", iconimage = "category.ico")]
-        public  IErrorsInfo AddCategory()
-        {
-
-            try
-            {
-                TreeEditor.treeBranchHandler.AddCategory(this);
-            }
-            catch (Exception ex)
-            {
-                string mes = "Could not Add Category";
-                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
-            };
-            return DMEEditor.ErrorObject;
-        }
+      
         //[BranchDelegate(Caption = "Add Layer",Hidden =true)]
         //public IErrorsInfo AddLayer()
         //{

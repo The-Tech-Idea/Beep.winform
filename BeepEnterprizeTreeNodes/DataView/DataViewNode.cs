@@ -388,7 +388,7 @@ namespace  BeepEnterprize.Vis.Module
             };
             return DMEEditor.ErrorObject;
         }
-      //  [CommandAttribute(Caption = "Create Entity", iconimage = "add.ico")]
+        //  [CommandAttribute(Caption = "Create Entity", iconimage = "add.ico")]
         //public IErrorsInfo CreateEntity()
         //{
 
@@ -400,7 +400,7 @@ namespace  BeepEnterprize.Vis.Module
         //        it.obj = this;
         //        it.Name = "Branch";
         //        ob.Add(it);
-                
+
         //        PassedArgs Passedarguments = new PassedArgs
         //        {
         //            Addin = null,
@@ -412,9 +412,9 @@ namespace  BeepEnterprize.Vis.Module
         //            ObjectType = "NEWENTITY",
         //            DataSource = ds,
         //            ObjectName = DataView.ViewName,
-                    
+
         //            Objects = ob,
-                   
+
         //            DatasourceName = ds.DatasourceName,
         //            EventType = "NEWENTITY"
 
@@ -432,6 +432,7 @@ namespace  BeepEnterprize.Vis.Module
         //    return DMEEditor.ErrorObject;
         //}
         //[CommandAttribute(Caption = "Create Composed Layer", iconimage = "localdb.ico")]
+        [CommandAttribute(Caption = "Create Composed Layer", iconimage = "create.ico")]
         public IErrorsInfo CreateComposedLayer()
         {
 
