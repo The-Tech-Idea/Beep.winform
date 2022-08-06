@@ -183,6 +183,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                         }
                     }
                 }
+                ExtensionsHelpers.Vismanager.CloseWaitForm();
                 DMEEditor.AddLogMessage("Success", $"Paste entities", DateTime.Now, 0, null, Errors.Ok);
             }
             catch (Exception ex)

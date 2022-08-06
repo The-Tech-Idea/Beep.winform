@@ -140,19 +140,27 @@ namespace BeepEnterprize.Winform.Vis
         private void ToClassComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             toMethodComboBox.Items.Clear();
-            foreach (var item in DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.className == toClassComboBox.Text).FirstOrDefault().Methods)
+            if (!string.IsNullOrEmpty(toClassComboBox.Text))
             {
-                toMethodComboBox.Items.Add(item.Caption);
+                foreach (var item in DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.className == toClassComboBox.Text).FirstOrDefault().Methods)
+                {
+                    toMethodComboBox.Items.Add(item.Caption);
+                }
             }
+         
         }
 
         private void FromClassComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             fromMethodComboBox.Items.Clear();
-            foreach (var item in DMEEditor.ConfigEditor.BranchesClasses.Where(x=>x.className==fromClassComboBox.Text).FirstOrDefault().Methods)
+            if (!string.IsNullOrEmpty(fromClassComboBox.Text))
             {
-                fromMethodComboBox.Items.Add(item.Caption);
+                foreach (var item in DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.className == fromClassComboBox.Text).FirstOrDefault().Methods)
+                {
+                    fromMethodComboBox.Items.Add(item.Caption);
+                }
             }
+           
         }
 
         private void Function2FunctionsBindingNavigatorSaveItem_Click(object sender, EventArgs e)

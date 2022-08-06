@@ -632,7 +632,7 @@ namespace  BeepEnterprize.Vis.Module
         private IErrorsInfo CreateDataViewMethod()
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
-            //     DMEEditor.Logger.WriteLog($"Filling Database Entites ) ");
+            TreeEditor.treeBranchHandler.RemoveChildBranchs(this);
             PassedArgs passedArgs = new PassedArgs { DatasourceName = BranchText };
             try
             {

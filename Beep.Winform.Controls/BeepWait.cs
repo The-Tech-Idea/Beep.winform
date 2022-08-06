@@ -23,7 +23,7 @@ namespace Beep.Winform.Controls
         public void CloseForm()
         {
 
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(4000);
             if (this.IsHandleCreated)
             {
                 Close();
