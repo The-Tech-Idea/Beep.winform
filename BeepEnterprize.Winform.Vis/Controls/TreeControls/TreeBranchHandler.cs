@@ -282,7 +282,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
             try
             {
-                TreeNode ParentBranchNode = Treecontrol.GetTreeNodeByID(CurrentBranch.BranchID, TreeV.Nodes);
+                TreeNode ParentBranchNode = Treecontrol.GetTreeNodeByID(ParentBranch.BranchID, TreeV.Nodes);
                 TreeNode CurrentBranchNode = Treecontrol.GetTreeNodeByID(CurrentBranch.BranchID, TreeV.Nodes);
                 string foldername = CheckifBranchExistinCategory(CurrentBranch.BranchText, CurrentBranch.BranchClass);
                 if (foldername != null)
