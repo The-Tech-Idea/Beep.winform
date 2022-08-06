@@ -16,6 +16,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         IBranch GetBranch(int pID);
         IBranch GetBranchByMiscID(int pID);
         IErrorsInfo MoveBranchToParent(IBranch ParentBranch, IBranch CurrentBranch);
+        IErrorsInfo MoveBranchToCategory(IBranch CategoryBranch, IBranch CurrentBranch);
         IErrorsInfo RemoveBranch(IBranch Branch);
         IErrorsInfo RemoveBranch(int id);
         IErrorsInfo RemoveCategoryBranch(int id);

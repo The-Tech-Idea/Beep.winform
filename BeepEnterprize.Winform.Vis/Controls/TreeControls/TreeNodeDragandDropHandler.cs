@@ -69,16 +69,18 @@ namespace BeepEnterprize.Winform.Vis.Controls
            
             // Retrieve the node at the drop location.
             TreeNode targetNode = TreeV.GetNodeAt(targetPoint);
+            TreeNode draggedNode = (TreeNode)e.Data.GetData(typeof(TreeNode));
+            IBranch dragedBranch = (IBranch)draggedNode.Tag;
             if (targetNode != null)
             {
-                if (!e.Data.GetDataPresent(typeof(IBranch)))
+                if (!e.Data.GetDataPresent(typeof(TreeNode)))
                 {
                     return;
                 }
                 IBranch targetBranch = (IBranch)targetNode.Tag;
                 // Retrieve the node that was dragged.
-                IBranch dragedBranch = (IBranch)e.Data.GetData(e.Data.GetFormats()[0]);
-                TreeNode dragedNode = treeControl.GetTreeNodeByID(dragedBranch.BranchID, TreeV.Nodes);
+             
+               
                 string targetBranchClass = targetBranch.GetType().Name;
                 string dragedBranchClass = dragedBranch.GetType().Name;
                 Function2FunctionAction functionAction = DMEEditor.ConfigEditor.Function2Functions.Where(x => x.FromClass == dragedBranchClass && x.ToClass == targetBranchClass && x.Event == "DragandDrop").FirstOrDefault();
@@ -104,7 +106,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                            // {
                                 if (dragedBranch.BranchType == EnumPointType.DataPoint)
                                 {
-                                    treeControl.treeBranchHandler.MoveBranchToParent(targetBranch, dragedBranch);
+                                    treeControl.treeBranchHandler.MoveBranchToCategory(targetBranch, dragedBranch);
                                 };
                            // };
                             break;
@@ -254,12 +256,12 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     case EnumPointType.Root:
                         break;
                     case EnumPointType.DataPoint:
-                      //  TreeV.DoDragDrop(x, System.Windows.Forms.DragDropEffects.Move);
+                       TreeV.DoDragDrop(e.Item, System.Windows.Forms.DragDropEffects.Move);
                         break;
                     case EnumPointType.Category:
                         break;
                     case EnumPointType.Entity:
-                        TreeV.DoDragDrop(x, System.Windows.Forms.DragDropEffects.Move);
+                        TreeV.DoDragDrop(e.Item, System.Windows.Forms.DragDropEffects.Move);
                         break;
                     default:
                         break;

@@ -888,7 +888,69 @@ namespace BeepEnterprize.Winform.Vis.Controls
             Treecontrol.SelectedBranchID =br.ID;
             NodeEvent(e);
         }
+
+        public IErrorsInfo MoveBranchToCategory(IBranch CategoryBranch, IBranch CurrentBranch)
+        {
+            try
+            {
+                TreeNode CategoryBranchNode= Treecontrol.GetTreeNodeByID(CategoryBranch.BranchID, TreeV.Nodes);
+                TreeNode ParentBranchNode = Treecontrol.GetTreeNodeByID(CurrentBranch.ParentBranchID, TreeV.Nodes);
+                TreeNode CurrentBranchNode = Treecontrol.GetTreeNodeByID(CurrentBranch.BranchID, TreeV.Nodes);
+                string currentParentFoelder = CheckifBranchExistinCategory(CurrentBranch.BranchText, CurrentBranch.BranchClass);
+                IBranch ParentBranch = (IBranch)ParentBranchNode.Tag;
+                if (currentParentFoelder != null)
+                {
+
+                    RemoveEntityFromCategory(ParentBranch.BranchClass, currentParentFoelder, CurrentBranch.BranchText);
+                }
+                TreeV.Nodes.Remove(CurrentBranchNode);
+                CategoryFolder CurFodler = DMEEditor.ConfigEditor.CategoryFolders.Where(y => y.RootName == CategoryBranch.BranchClass).FirstOrDefault();
+                if (CurFodler != null)
+                {
+                    if (CurFodler.items.Contains(CurrentBranch.BranchText) == false)
+                    {
+                        CurFodler.items.Remove(CurrentBranch.BranchText);
+                    }
+                }
+
+                CategoryFolder NewFolder = DMEEditor.ConfigEditor.CategoryFolders.Where(y => y.FolderName == CategoryBranch.BranchText && y.RootName == CategoryBranch.BranchClass).FirstOrDefault();
+                if (NewFolder != null)
+                {
+                    if (NewFolder.items.Contains(CurrentBranch.BranchText) == false)
+                    {
+                        NewFolder.items.Add(CurrentBranch.BranchText);
+                    }
+                }
+                if ((CategoryBranch.BranchType == EnumPointType.Entity) && (CategoryBranch.BranchClass == "VIEW" && CurrentBranch.BranchClass == "VIEW") && (CategoryBranch.DataSourceName == CurrentBranch.DataSourceName))
+                {
+                    DataViewDataSource vds = (DataViewDataSource)DMEEditor.GetDataSource(CurrentBranch.DataSourceName);
+                    if (vds.Entities[vds.EntityListIndex(CategoryBranch.MiscID)].Id == vds.Entities[vds.EntityListIndex(CurrentBranch.MiscID)].ParentId)
+                    {
+
+                    }
+                    else
+                    {
+                        vds.Entities[vds.EntityListIndex(CurrentBranch.MiscID)].ParentId = vds.Entities[vds.EntityListIndex(CategoryBranch.MiscID)].Id;
+                    }
+
+
+                }
+
+                CategoryBranchNode.Nodes.Add(CurrentBranchNode);
+
+                DMEEditor.ConfigEditor.SaveCategoryFoldersValues();
+            
+
+                DMEEditor.AddLogMessage("Success", "Moved Branch successfully", DateTime.Now, 0, null, Errors.Ok);
+            }
+            catch (Exception ex)
+            {
+                string mes = "Could not Moved Branch";
+                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
+            };
+            return DMEEditor.ErrorObject;
+        }
         #endregion
-      
+
     }
 }
