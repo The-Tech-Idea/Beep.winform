@@ -14,7 +14,6 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 using Microsoft.Scripting.Hosting;
-using IronPython.Hosting;
 using System.IO;
 using AI;
 using System.Text.RegularExpressions;
@@ -22,7 +21,6 @@ using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Threading;
 using BeepEnterprize.Vis.Module;
-using TheTechIdea.Beep.Vis;
 
 namespace AIBuilder.Cpython
 {
@@ -146,10 +144,14 @@ namespace AIBuilder.Cpython
 
             Python.SetupPipMenu(packagesToolStripMenuItem);
 
-				
-				this.Disposed += Uc_cpythonscriptrunner_Disposed;
-				//CreateFileWatcher(DMEEditor.ConfigEditor.Config.Folders.Where(c => c.FolderFilesType == FolderFileTypes.Scripts && c.FolderPath.Contains("AI")).FirstOrDefault().FolderPath);
+            if (Python.checkifpackageinstalled("pythonnet"))
+            {
+				Python.InstallPythonNet();
+
 			}
+			this.Disposed += Uc_cpythonscriptrunner_Disposed;
+				//CreateFileWatcher(DMEEditor.ConfigEditor.Config.Folders.Where(c => c.FolderFilesType == FolderFileTypes.Scripts && c.FolderPath.Contains("AI")).FirstOrDefault().FolderPath);
+		}
 
         private void Clearoutputbutton_Click(object sender, EventArgs e)
         {
@@ -222,6 +224,12 @@ namespace AIBuilder.Cpython
 	  
 			try
 			{
+				this.scripttextBox.Text = this.scripttextBox.Text.Replace("BeepPath",DMEEditor.ConfigEditor.ExePath);
+				this.scripttextBox.Text = this.scripttextBox.Text.Replace("BeepLib", $"{Path.Combine(DMEEditor.ConfigEditor.ExePath, "lib")}");
+				this.scripttextBox.Text = this.scripttextBox.Text.Replace("BeepClasses",$"{Path.Combine(DMEEditor.ConfigEditor.ExePath, "ProjectClasses")}");
+				this.scripttextBox.Text = this.scripttextBox.Text.Replace("BeepDrivers", $"{Path.Combine(DMEEditor.ConfigEditor.ExePath, "ConnectionDrivers")}");
+				this.scripttextBox.Text = this.scripttextBox.Text.Replace("BeepOtherDLL", $"{Path.Combine(DMEEditor.ConfigEditor.ExePath, "OtherDLL")}");
+
 				Python.RunScript();
 			}
 			catch (Exception ex)

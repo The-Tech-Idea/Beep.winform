@@ -194,7 +194,7 @@ namespace AIBuilder.Cpython
             }
            
         }
-        private bool checkifpackageinstalled(string packagename)
+        public bool checkifpackageinstalled(string packagename)
         {
             if (packagename.Contains("-"))
             {
@@ -230,7 +230,7 @@ namespace AIBuilder.Cpython
             //}
 
         }
-        public void InstallPythonNetbutton_Click(object sender, EventArgs e)
+        public void InstallPythonNet()
         {
             runPythonScriptscommandlineAsync("pip install pythonnet", $@"{binpath}\scripts\");
         }
@@ -282,7 +282,7 @@ namespace AIBuilder.Cpython
             Process.BeginOutputReadLine();
             outputdata = new List<string>();
             Process.StandardInput.WriteLine($@"set PATH={binpath};%PATH%");
-            Process.StandardInput.WriteLine($@"set PYTHONPATH={Path.Combine(binpath, "lib")}");
+            Process.StandardInput.WriteLine($@"set PYTHONPATH={Path.Combine(binpath, "lib")};{Path.Combine(DMEEditor.ConfigEditor.ExePath,"ProjectClasses")};{Path.Combine(DMEEditor.ConfigEditor.ExePath, "OtherDLL")};{Path.Combine(DMEEditor.ConfigEditor.ExePath, "ConnectionDrivers")};{DMEEditor.ConfigEditor.ExePath}");
             Process.StandardInput.WriteLine($@"set PATH={Path.Combine(binpath, "scripts")};%PATH%");
             //      Process.StandardInput.WriteLine("exit");
             numOutputLines = 0;
@@ -326,7 +326,7 @@ namespace AIBuilder.Cpython
             Process.BeginOutputReadLine();
             outputdata = new List<string>();
             Process.StandardInput.WriteLine($"set PATH={binpath};%PATH%");
-            Process.StandardInput.WriteLine($@"set PYTHONPATH={Path.Combine(binpath, "lib")}");
+            Process.StandardInput.WriteLine($@"set PYTHONPATH={Path.Combine(binpath, "lib")};{Path.Combine(DMEEditor.ConfigEditor.ExePath, "ProjectClasses")};{Path.Combine(DMEEditor.ConfigEditor.ExePath, "OtherDLL")};{Path.Combine(DMEEditor.ConfigEditor.ExePath, "ConnectionDrivers")};{DMEEditor.ConfigEditor.ExePath}");
             Process.StandardInput.WriteLine($@"set PATH={Path.Combine(binpath, "scripts")};%PATH%");
             Process.StandardInput.WriteLine($@"cd {Commandpath} ");
 
