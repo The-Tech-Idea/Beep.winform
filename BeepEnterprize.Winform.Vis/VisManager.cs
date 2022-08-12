@@ -619,7 +619,12 @@ namespace BeepEnterprize.Winform.Vis
         {
             try
             {
-                
+                form = (BeepWait)Application.OpenForms["BeepWait"];
+                if (form != null)
+                {
+                    CloseWaitForm();
+                }
+
                 ErrorsandMesseges = new ErrorsInfo();
                 startwait(Passedarguments);
                 WaitFormShown=true;
