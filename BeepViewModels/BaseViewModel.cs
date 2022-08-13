@@ -3,12 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace TheTechIdea.Beep.ViewModels
 {
     public partial class BaseViewModel : ObservableObject
     {
         [ObservableProperty]
         bool isBusy;
+        [ObservableProperty]
+        bool isModified;
+        [ObservableProperty]
+        bool isCreated;
+        [ObservableProperty]
+        bool isDeleted;
         [ObservableProperty]
         DateTime dateCreated;
         [ObservableProperty]
