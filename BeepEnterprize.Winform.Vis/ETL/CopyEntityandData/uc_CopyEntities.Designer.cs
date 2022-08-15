@@ -45,21 +45,21 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.progressBar1 = new TextProgressBar();
             this.StopButton = new System.Windows.Forms.Button();
             this.loadDataLogsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Failed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.destinationentityname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Failed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.IsCreated = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.IsModified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.scriptTypeComboBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourcedatasourcename = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.destinationdatasourcename = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.scriptTypeComboBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ddlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errormessageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ddlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.progressBar1 = new BeepEnterprize.Winform.Vis.Controls.TextProgressBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scriptDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).BeginInit();
@@ -94,23 +94,25 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.scriptDataGridView.AutoGenerateColumns = false;
+            this.scriptDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.scriptDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.scriptDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Failed,
             this.destinationentityname,
+            this.Failed,
             this.IsCreated,
             this.IsModified,
+            this.scriptTypeComboBox,
             this.sourcedatasourcename,
             this.destinationdatasourcename,
-            this.scriptTypeComboBox,
-            this.ddlDataGridViewTextBoxColumn,
-            this.errormessageDataGridViewTextBoxColumn});
+            this.errormessageDataGridViewTextBoxColumn,
+            this.ddlDataGridViewTextBoxColumn});
             this.scriptDataGridView.DataSource = this.scriptBindingSource;
-            this.scriptDataGridView.Location = new System.Drawing.Point(3, 56);
+            this.scriptDataGridView.Enabled = false;
+            this.scriptDataGridView.Location = new System.Drawing.Point(8, 56);
+            this.scriptDataGridView.MultiSelect = false;
             this.scriptDataGridView.Name = "scriptDataGridView";
-            this.scriptDataGridView.ReadOnly = true;
             this.scriptDataGridView.ShowCellErrors = false;
-            this.scriptDataGridView.Size = new System.Drawing.Size(1254, 264);
+            this.scriptDataGridView.Size = new System.Drawing.Size(1254, 376);
             this.scriptDataGridView.TabIndex = 33;
             // 
             // dataConnectionsBindingSource
@@ -125,11 +127,11 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             // 
             this.LogtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LogtextBox.Location = new System.Drawing.Point(3, 326);
+            this.LogtextBox.Location = new System.Drawing.Point(3, 438);
             this.LogtextBox.Multiline = true;
             this.LogtextBox.Name = "LogtextBox";
             this.LogtextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LogtextBox.Size = new System.Drawing.Size(1254, 182);
+            this.LogtextBox.Size = new System.Drawing.Size(1254, 70);
             this.LogtextBox.TabIndex = 31;
             // 
             // label2
@@ -218,19 +220,6 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.panel3.Size = new System.Drawing.Size(1262, 39);
             this.panel3.TabIndex = 27;
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.progressBar1.CustomText = "";
-            this.progressBar1.Location = new System.Drawing.Point(254, 6);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.ProgressColor = System.Drawing.Color.LightGreen;
-            this.progressBar1.Size = new System.Drawing.Size(734, 23);
-            this.progressBar1.TabIndex = 25;
-            this.progressBar1.TextColor = System.Drawing.Color.Black;
-            this.progressBar1.TextFont = new System.Drawing.Font("Times New Roman", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.progressBar1.VisualMode = ProgressBarDisplayMode.CurrProgress;
-            // 
             // StopButton
             // 
             this.StopButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -273,33 +262,40 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // Failed
-            // 
-            this.Failed.DataPropertyName = "Failed";
-            this.Failed.HeaderText = "Failed";
-            this.Failed.Name = "Failed";
-            this.Failed.ReadOnly = true;
-            // 
             // destinationentityname
             // 
             this.destinationentityname.DataPropertyName = "destinationentityname";
             this.destinationentityname.HeaderText = "Entity";
             this.destinationentityname.Name = "destinationentityname";
-            this.destinationentityname.ReadOnly = true;
+            // 
+            // Failed
+            // 
+            this.Failed.DataPropertyName = "Failed";
+            this.Failed.HeaderText = "Failed";
+            this.Failed.Name = "Failed";
             // 
             // IsCreated
             // 
             this.IsCreated.DataPropertyName = "IsCreated";
-            this.IsCreated.HeaderText = "IsCreated";
+            this.IsCreated.HeaderText = "Created";
             this.IsCreated.Name = "IsCreated";
-            this.IsCreated.ReadOnly = true;
             // 
             // IsModified
             // 
             this.IsModified.DataPropertyName = "IsModified";
-            this.IsModified.HeaderText = "IsModified";
+            this.IsModified.HeaderText = "Modified";
             this.IsModified.Name = "IsModified";
-            this.IsModified.ReadOnly = true;
+            // 
+            // scriptTypeComboBox
+            // 
+            this.scriptTypeComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.scriptTypeComboBox.DataPropertyName = "scriptType";
+            this.scriptTypeComboBox.HeaderText = "Type";
+            this.scriptTypeComboBox.Name = "scriptTypeComboBox";
+            this.scriptTypeComboBox.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.scriptTypeComboBox.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.scriptTypeComboBox.Visible = false;
+            this.scriptTypeComboBox.Width = 37;
             // 
             // sourcedatasourcename
             // 
@@ -308,7 +304,6 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.sourcedatasourcename.DisplayMember = "ConnectionName";
             this.sourcedatasourcename.HeaderText = "Source";
             this.sourcedatasourcename.Name = "sourcedatasourcename";
-            this.sourcedatasourcename.ReadOnly = true;
             this.sourcedatasourcename.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.sourcedatasourcename.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.sourcedatasourcename.ValueMember = "ConnectionName";
@@ -320,20 +315,14 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.destinationdatasourcename.DisplayMember = "ConnectionName";
             this.destinationdatasourcename.HeaderText = "Destination";
             this.destinationdatasourcename.Name = "destinationdatasourcename";
-            this.destinationdatasourcename.ReadOnly = true;
             this.destinationdatasourcename.ValueMember = "ConnectionName";
             // 
-            // scriptTypeComboBox
+            // errormessageDataGridViewTextBoxColumn
             // 
-            this.scriptTypeComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.scriptTypeComboBox.DataPropertyName = "scriptType";
-            this.scriptTypeComboBox.HeaderText = "scriptType";
-            this.scriptTypeComboBox.Name = "scriptTypeComboBox";
-            this.scriptTypeComboBox.ReadOnly = true;
-            this.scriptTypeComboBox.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.scriptTypeComboBox.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.scriptTypeComboBox.Visible = false;
-            this.scriptTypeComboBox.Width = 62;
+            this.errormessageDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.errormessageDataGridViewTextBoxColumn.DataPropertyName = "errormessage";
+            this.errormessageDataGridViewTextBoxColumn.HeaderText = "Messege";
+            this.errormessageDataGridViewTextBoxColumn.Name = "errormessageDataGridViewTextBoxColumn";
             // 
             // ddlDataGridViewTextBoxColumn
             // 
@@ -341,19 +330,20 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.ddlDataGridViewTextBoxColumn.DataPropertyName = "ddl";
             this.ddlDataGridViewTextBoxColumn.HeaderText = "Script";
             this.ddlDataGridViewTextBoxColumn.Name = "ddlDataGridViewTextBoxColumn";
-            this.ddlDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ddlDataGridViewTextBoxColumn.Visible = false;
             this.ddlDataGridViewTextBoxColumn.Width = 59;
             // 
-            // errormessageDataGridViewTextBoxColumn
+            // progressBar1
             // 
-            this.errormessageDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.errormessageDataGridViewTextBoxColumn.DataPropertyName = "errormessage";
-            this.errormessageDataGridViewTextBoxColumn.HeaderText = "Messege";
-            this.errormessageDataGridViewTextBoxColumn.Name = "errormessageDataGridViewTextBoxColumn";
-            this.errormessageDataGridViewTextBoxColumn.ReadOnly = true;
-            this.errormessageDataGridViewTextBoxColumn.Visible = false;
-            this.errormessageDataGridViewTextBoxColumn.Width = 75;
+            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.progressBar1.CustomText = "";
+            this.progressBar1.Location = new System.Drawing.Point(254, 6);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.ProgressColor = System.Drawing.Color.LightGreen;
+            this.progressBar1.Size = new System.Drawing.Size(734, 23);
+            this.progressBar1.TabIndex = 25;
+            this.progressBar1.TextColor = System.Drawing.Color.Black;
+            this.progressBar1.TextFont = new System.Drawing.Font("Times New Roman", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.progressBar1.VisualMode = BeepEnterprize.Winform.Vis.Controls.ProgressBarDisplayMode.CurrProgress;
             // 
             // uc_CopyEntities
             // 
@@ -400,14 +390,14 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
         private System.Windows.Forms.DataGridView scriptDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Failed;
         private System.Windows.Forms.DataGridViewTextBoxColumn destinationentityname;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Failed;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsCreated;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsModified;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scriptTypeComboBox;
         private System.Windows.Forms.DataGridViewComboBoxColumn sourcedatasourcename;
         private System.Windows.Forms.DataGridViewComboBoxColumn destinationdatasourcename;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scriptTypeComboBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ddlDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn errormessageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ddlDataGridViewTextBoxColumn;
     }
 }

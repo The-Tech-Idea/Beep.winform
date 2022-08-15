@@ -127,9 +127,9 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
                         progressBar1.Maximum = percent.ParameterInt1;
                     }
                     progressBar1.Value = percent.ParameterInt1;
-                    if (percent.EventType == "Update")
+                    if (percent.EventType == "Update" && DMEEditor.ErrorObject.Flag == Errors.Failed)
                     {
-                        update();
+                     //   update();
                     }
                     if (!string.IsNullOrEmpty(percent.EventType))
                     {
