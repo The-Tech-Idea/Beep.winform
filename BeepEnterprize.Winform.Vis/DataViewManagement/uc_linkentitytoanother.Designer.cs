@@ -51,10 +51,10 @@ namespace TheTechIdea.ETL
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.RelationbindingNavigator = new uc_bindingNavigator();
-            this.MainbindingNavigator = new uc_bindingNavigator();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.MainbindingNavigator = new uc_bindingNavigator();
+            this.RelationbindingNavigator = new uc_bindingNavigator();
             entityNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.entitiesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relationsBindingSource)).BeginInit();
@@ -70,10 +70,9 @@ namespace TheTechIdea.ETL
             // 
             entityNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             entityNameLabel.AutoSize = true;
-            entityNameLabel.Location = new System.Drawing.Point(262, 68);
-            entityNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            entityNameLabel.Location = new System.Drawing.Point(174, 44);
             entityNameLabel.Name = "entityNameLabel";
-            entityNameLabel.Size = new System.Drawing.Size(99, 20);
+            entityNameLabel.Size = new System.Drawing.Size(67, 13);
             entityNameLabel.TabIndex = 1;
             entityNameLabel.Text = "Entity Name:";
             // 
@@ -85,10 +84,9 @@ namespace TheTechIdea.ETL
             // 
             this.entityNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.entityNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.entitiesBindingSource, "EntityName", true));
-            this.entityNameTextBox.Location = new System.Drawing.Point(377, 63);
-            this.entityNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.entityNameTextBox.Location = new System.Drawing.Point(250, 41);
             this.entityNameTextBox.Name = "entityNameTextBox";
-            this.entityNameTextBox.Size = new System.Drawing.Size(307, 26);
+            this.entityNameTextBox.Size = new System.Drawing.Size(206, 20);
             this.entityNameTextBox.TabIndex = 2;
             // 
             // relationsBindingSource
@@ -107,12 +105,11 @@ namespace TheTechIdea.ETL
             this.RelatedEntityColumnID,
             this.dataGridViewTextBoxColumn4});
             this.relationsDataGridView.DataSource = this.relationsBindingSource;
-            this.relationsDataGridView.Location = new System.Drawing.Point(5, 158);
-            this.relationsDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.relationsDataGridView.Location = new System.Drawing.Point(2, 108);
             this.relationsDataGridView.Name = "relationsDataGridView";
             this.relationsDataGridView.ReadOnly = true;
             this.relationsDataGridView.RowHeadersWidth = 62;
-            this.relationsDataGridView.Size = new System.Drawing.Size(1028, 442);
+            this.relationsDataGridView.Size = new System.Drawing.Size(685, 289);
             this.relationsDataGridView.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn1
@@ -150,7 +147,7 @@ namespace TheTechIdea.ETL
             this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 156;
+            this.dataGridViewTextBoxColumn4.Width = 104;
             // 
             // FieldscomboBox
             // 
@@ -159,10 +156,9 @@ namespace TheTechIdea.ETL
             this.FieldscomboBox.DataSource = this.fieldsBindingSource;
             this.FieldscomboBox.DisplayMember = "fieldname";
             this.FieldscomboBox.FormattingEnabled = true;
-            this.FieldscomboBox.Location = new System.Drawing.Point(135, 106);
-            this.FieldscomboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FieldscomboBox.Location = new System.Drawing.Point(89, 69);
             this.FieldscomboBox.Name = "FieldscomboBox";
-            this.FieldscomboBox.Size = new System.Drawing.Size(180, 28);
+            this.FieldscomboBox.Size = new System.Drawing.Size(121, 21);
             this.FieldscomboBox.TabIndex = 4;
             this.FieldscomboBox.ValueMember = "fieldname";
             // 
@@ -178,10 +174,9 @@ namespace TheTechIdea.ETL
             this.ParentEntitycomboBox.DataSource = this.otherentitiesbindingSource;
             this.ParentEntitycomboBox.DisplayMember = "DatasourceEntityName";
             this.ParentEntitycomboBox.FormattingEnabled = true;
-            this.ParentEntitycomboBox.Location = new System.Drawing.Point(445, 106);
-            this.ParentEntitycomboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ParentEntitycomboBox.Location = new System.Drawing.Point(296, 69);
             this.ParentEntitycomboBox.Name = "ParentEntitycomboBox";
-            this.ParentEntitycomboBox.Size = new System.Drawing.Size(180, 28);
+            this.ParentEntitycomboBox.Size = new System.Drawing.Size(121, 21);
             this.ParentEntitycomboBox.TabIndex = 5;
             this.ParentEntitycomboBox.ValueMember = "DatasourceEntityName";
             // 
@@ -194,20 +189,18 @@ namespace TheTechIdea.ETL
             this.ParentFieldcomboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ParentFieldcomboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.relationsBindingSource, "ParentEntityColumnID", true));
             this.ParentFieldcomboBox.FormattingEnabled = true;
-            this.ParentFieldcomboBox.Location = new System.Drawing.Point(755, 106);
-            this.ParentFieldcomboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ParentFieldcomboBox.Location = new System.Drawing.Point(502, 69);
             this.ParentFieldcomboBox.Name = "ParentFieldcomboBox";
-            this.ParentFieldcomboBox.Size = new System.Drawing.Size(180, 28);
+            this.ParentFieldcomboBox.Size = new System.Drawing.Size(121, 21);
             this.ParentFieldcomboBox.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 112);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(45, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 20);
+            this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Field:";
             // 
@@ -220,10 +213,9 @@ namespace TheTechIdea.ETL
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(325, 112);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(216, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 20);
+            this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Parent Entity:";
             // 
@@ -231,10 +223,9 @@ namespace TheTechIdea.ETL
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(641, 112);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(426, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 20);
+            this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Parent Field:";
             // 
@@ -253,44 +244,33 @@ namespace TheTechIdea.ETL
             this.panel1.Controls.Add(this.ParentEntitycomboBox);
             this.panel1.Controls.Add(this.FieldscomboBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 78);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(0, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1040, 664);
+            this.panel1.Size = new System.Drawing.Size(693, 431);
             this.panel1.TabIndex = 10;
             // 
-            // RelationbindingNavigator
+            // label4
             // 
-            this.RelationbindingNavigator.AddinName = null;
-            this.RelationbindingNavigator.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.RelationbindingNavigator.BackColor = System.Drawing.Color.White;
-            this.RelationbindingNavigator.bindingSource = null;
-            this.RelationbindingNavigator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RelationbindingNavigator.ButtonBorderSize = 0;
-            this.RelationbindingNavigator.CausesValidation = false;
-            this.RelationbindingNavigator.ControlHeight = 30;
-            this.RelationbindingNavigator.DefaultCreate = false;
-            this.RelationbindingNavigator.Description = null;
-            this.RelationbindingNavigator.DllName = null;
-            this.RelationbindingNavigator.DllPath = null;
-            this.RelationbindingNavigator.DMEEditor = null;
-            this.RelationbindingNavigator.EntityName = null;
-            this.RelationbindingNavigator.EntityStructure = null;
-            this.RelationbindingNavigator.ErrorObject = null;
-            this.RelationbindingNavigator.HightlightColor = System.Drawing.Color.Empty;
-            this.RelationbindingNavigator.Location = new System.Drawing.Point(9, 607);
-            this.RelationbindingNavigator.Logger = null;
-            this.RelationbindingNavigator.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.RelationbindingNavigator.Name = "RelationbindingNavigator";
-            this.RelationbindingNavigator.NameSpace = null;
-            this.RelationbindingNavigator.ObjectName = null;
-            this.RelationbindingNavigator.ObjectType = null;
-            this.RelationbindingNavigator.ParentName = null;
-            this.RelationbindingNavigator.Passedarg = null;
-            this.RelationbindingNavigator.SelectedColor = System.Drawing.Color.Empty;
-            this.RelationbindingNavigator.Size = new System.Drawing.Size(1025, 49);
-            this.RelationbindingNavigator.TabIndex = 11;
-            this.RelationbindingNavigator.VerifyDelete = true;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Gold;
+            this.label4.Location = new System.Drawing.Point(234, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(153, 32);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Select Fields";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(693, 51);
+            this.panel2.TabIndex = 11;
             // 
             // MainbindingNavigator
             // 
@@ -313,7 +293,6 @@ namespace TheTechIdea.ETL
             this.MainbindingNavigator.HightlightColor = System.Drawing.Color.Empty;
             this.MainbindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.MainbindingNavigator.Logger = null;
-            this.MainbindingNavigator.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.MainbindingNavigator.Name = "MainbindingNavigator";
             this.MainbindingNavigator.NameSpace = null;
             this.MainbindingNavigator.ObjectName = null;
@@ -321,44 +300,50 @@ namespace TheTechIdea.ETL
             this.MainbindingNavigator.ParentName = null;
             this.MainbindingNavigator.Passedarg = null;
             this.MainbindingNavigator.SelectedColor = System.Drawing.Color.Empty;
-            this.MainbindingNavigator.Size = new System.Drawing.Size(1038, 50);
+            this.MainbindingNavigator.Size = new System.Drawing.Size(691, 31);
             this.MainbindingNavigator.TabIndex = 10;
             this.MainbindingNavigator.VerifyDelete = true;
             // 
-            // label4
+            // RelationbindingNavigator
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gold;
-            this.label4.Location = new System.Drawing.Point(352, 26);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(225, 48);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Select Fields";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1040, 78);
-            this.panel2.TabIndex = 11;
+            this.RelationbindingNavigator.AddinName = null;
+            this.RelationbindingNavigator.BackColor = System.Drawing.Color.White;
+            this.RelationbindingNavigator.bindingSource = null;
+            this.RelationbindingNavigator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RelationbindingNavigator.ButtonBorderSize = 0;
+            this.RelationbindingNavigator.CausesValidation = false;
+            this.RelationbindingNavigator.ControlHeight = 30;
+            this.RelationbindingNavigator.DefaultCreate = false;
+            this.RelationbindingNavigator.Description = null;
+            this.RelationbindingNavigator.DllName = null;
+            this.RelationbindingNavigator.DllPath = null;
+            this.RelationbindingNavigator.DMEEditor = null;
+            this.RelationbindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.RelationbindingNavigator.EntityName = null;
+            this.RelationbindingNavigator.EntityStructure = null;
+            this.RelationbindingNavigator.ErrorObject = null;
+            this.RelationbindingNavigator.HightlightColor = System.Drawing.Color.Empty;
+            this.RelationbindingNavigator.Location = new System.Drawing.Point(0, 398);
+            this.RelationbindingNavigator.Logger = null;
+            this.RelationbindingNavigator.Name = "RelationbindingNavigator";
+            this.RelationbindingNavigator.NameSpace = null;
+            this.RelationbindingNavigator.ObjectName = null;
+            this.RelationbindingNavigator.ObjectType = null;
+            this.RelationbindingNavigator.ParentName = null;
+            this.RelationbindingNavigator.Passedarg = null;
+            this.RelationbindingNavigator.SelectedColor = System.Drawing.Color.Empty;
+            this.RelationbindingNavigator.Size = new System.Drawing.Size(691, 31);
+            this.RelationbindingNavigator.TabIndex = 11;
+            this.RelationbindingNavigator.VerifyDelete = true;
             // 
             // uc_linkentitytoanother
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "uc_linkentitytoanother";
-            this.Size = new System.Drawing.Size(1040, 742);
+            this.Size = new System.Drawing.Size(693, 482);
             ((System.ComponentModel.ISupportInitialize)(this.entitiesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relationsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relationsDataGridView)).EndInit();
@@ -393,11 +378,11 @@ namespace TheTechIdea.ETL
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
-        private uc_bindingNavigator RelationbindingNavigator;
-        private uc_bindingNavigator MainbindingNavigator;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn RelatedEntityID;
         private System.Windows.Forms.DataGridViewTextBoxColumn RelatedEntityColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private uc_bindingNavigator MainbindingNavigator;
+        private uc_bindingNavigator RelationbindingNavigator;
     }
 }

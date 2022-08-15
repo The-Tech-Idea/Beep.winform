@@ -60,11 +60,12 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // EntityNameLabel
             // 
+            this.EntityNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.EntityNameLabel.BackColor = System.Drawing.Color.Orange;
             this.EntityNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EntityNameLabel.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Bold);
             this.EntityNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.EntityNameLabel.Location = new System.Drawing.Point(14, 23);
+            this.EntityNameLabel.Location = new System.Drawing.Point(185, 9);
             this.EntityNameLabel.Name = "EntityNameLabel";
             this.EntityNameLabel.Size = new System.Drawing.Size(225, 23);
             this.EntityNameLabel.TabIndex = 18;
@@ -73,8 +74,9 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // SaveButton
             // 
+            this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SaveButton.ForeColor = System.Drawing.Color.Gold;
-            this.SaveButton.Location = new System.Drawing.Point(500, 23);
+            this.SaveButton.Location = new System.Drawing.Point(251, 35);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(90, 25);
             this.SaveButton.TabIndex = 1;
