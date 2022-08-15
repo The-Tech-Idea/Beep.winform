@@ -188,7 +188,11 @@ namespace BeepEnterprize.Winform.Vis
                 dataConnectionsBindingSource.EndEdit();
 
                 ds = (List<ConnectionProperties>)dataConnectionsBindingSource.DataSource;
-                DMEEditor.ConfigEditor.UpdateDataConnection(ds, DataSourceCategoryType);
+                foreach (var item in ds)
+                {
+                    DMEEditor.ConfigEditor.UpdateDataConnection(item, DataSourceCategoryType);
+                }
+                
                 DMEEditor.ConfigEditor.SaveDataconnectionsValues();
                 if (branch != null)
                 {
@@ -262,7 +266,11 @@ namespace BeepEnterprize.Winform.Vis
         private void DatasourceCategorycomboBox_SelectedValueChanged(object sender, EventArgs e)
 
         {
-            DMEEditor.ConfigEditor.UpdateDataConnection(ds, DataSourceCategoryType);
+            foreach (var item in ds)
+            {
+                DMEEditor.ConfigEditor.UpdateDataConnection(item, DataSourceCategoryType);
+            }
+          
             DataSourceCategoryType = DatasourceCategorycomboBox.Text;
             ds = DMEEditor.ConfigEditor.DataConnections.Where(x => x.Category.ToString() == DataSourceCategoryType).ToList();
             dataConnectionsBindingSource.DataSource = ds;
