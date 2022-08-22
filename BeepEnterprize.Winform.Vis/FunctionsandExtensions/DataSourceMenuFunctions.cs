@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Controls;
 using BeepEnterprize.Winform.Vis.CRUD;
+using Microsoft.Win32;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -382,6 +383,64 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
+        [CommandAttribute(Caption = "Export Data", Name = "ImportData", Click = true, iconimage = "exportdata.ico", PointType = EnumPointType.Entity, ObjectType = "Beep")]
+        public IErrorsInfo ExportData(IPassedArgs Passedarguments)
+        {
+            DMEEditor.ErrorObject.Flag = Errors.Ok;
+            EntityStructure ent = new EntityStructure();
+            ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
+            if (ExtensionsHelpers.pbr.BranchType == EnumPointType.Entity)
+            {
+                try
+                {
+                    ExtensionsHelpers.GetValues(Passedarguments);
+                    if (ExtensionsHelpers.pbr != null)
+                    {
+                        if(ExtensionsHelpers.pbr.BranchType == EnumPointType.Entity)
+                        {
+                            if (!string.IsNullOrEmpty(ExtensionsHelpers.pbr.DataSourceName))
+                            {
+                                IDataSource ds = DMEEditor.GetDataSource(ExtensionsHelpers.pbr.DataSourceName);
+                                if (ds != null)
+                                {
+                                    if(ds.Openconnection()== System.Data.ConnectionState.Open)
+                                    {
+                                        EntityStructure entstruc = ds.GetEntityStructure(ExtensionsHelpers.pbr.BranchText,true);
+                                        Type enttype = ds.GetEntityType(ExtensionsHelpers.pbr.BranchText);
+                                        object ls = ds.GetEntity(ExtensionsHelpers.pbr.BranchText,null);
+                                        SaveFileDialog fileDialog = new SaveFileDialog();
+                                        fileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                                        fileDialog.RestoreDirectory = true;
+                                        fileDialog.ShowDialog();
+                                        if (!string.IsNullOrEmpty(fileDialog.FileName))
+                                        {
+                                            DMEEditor.Utilfunction.ToCSVFile((System.Collections.IList)ls, enttype, fileDialog.FileName);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                    ExtensionsHelpers.Vismanager.ShowPage("ImportDataManager", (PassedArgs)Passedarguments);
+
+                }
+                catch (Exception ex)
+                {
+                    DMEEditor.ErrorObject.Flag = Errors.Failed;
+                    DMEEditor.ErrorObject.Ex = ex;
+                    DMEEditor.AddLogMessage("Fail", $"Error running Import {ent.EntityName} - {ex.Message}", DateTime.Now, -1, null, Errors.Failed);
+                }
+            }
+
+            return DMEEditor.ErrorObject;
+        }
+
         [CommandAttribute(Caption = "Create Entity", Name = "CreateEntity", Click = true, iconimage = "createentity.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public IErrorsInfo CreateEntity(IPassedArgs Passedarguments)
         {
