@@ -46,13 +46,30 @@ namespace TheTechIdea.ETL
             System.Windows.Forms.Label captionLabel;
             System.Windows.Forms.Label label4;
             this.primaryKeysBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataHierarchyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.relationShipsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fieldsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ValidateFieldsbutton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.fieldsDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fieldnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fieldtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.size1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fieldCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isAutoIncrementDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.allowDBNullDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.isCheckDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.isUniqueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.isKeyDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fieldIndexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entityNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.relationShipsDataGridView = new System.Windows.Forms.DataGridView();
+            this.RelatedEntityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RelatedEntityColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RelatedColumnSequenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValidateFKbutton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.customBuildQueryTextBox = new System.Windows.Forms.TextBox();
@@ -73,23 +90,12 @@ namespace TheTechIdea.ETL
             this.EntityNameLabel = new System.Windows.Forms.Label();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dataHierarchyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fieldnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fieldtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.size1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fieldCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isAutoIncrementDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.allowDBNullDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.isCheckDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.isUniqueDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.isKeyDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.fieldIndexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entityNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RelatedEntityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RelatedEntityColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RelatedColumnSequenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ralationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relatedEntityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relatedEntityColumnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relatedColumnSequenceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entityColumnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entityColumnSequenceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             customBuildQueryLabel = new System.Windows.Forms.Label();
@@ -104,6 +110,7 @@ namespace TheTechIdea.ETL
             captionLabel = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.primaryKeysBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataHierarchyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relationShipsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fieldsBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
@@ -113,7 +120,6 @@ namespace TheTechIdea.ETL
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataHierarchyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -258,6 +264,10 @@ namespace TheTechIdea.ETL
             this.primaryKeysBindingSource.DataMember = "PrimaryKeys";
             this.primaryKeysBindingSource.DataSource = this.dataHierarchyBindingSource;
             // 
+            // dataHierarchyBindingSource
+            // 
+            this.dataHierarchyBindingSource.DataSource = typeof(TheTechIdea.Beep.DataBase.EntityStructure);
+            // 
             // relationShipsBindingSource
             // 
             this.relationShipsBindingSource.DataMember = "Relations";
@@ -321,6 +331,117 @@ namespace TheTechIdea.ETL
             this.fieldsDataGridView.Size = new System.Drawing.Size(985, 220);
             this.fieldsDataGridView.TabIndex = 9;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // fieldnameDataGridViewTextBoxColumn
+            // 
+            this.fieldnameDataGridViewTextBoxColumn.DataPropertyName = "fieldname";
+            this.fieldnameDataGridViewTextBoxColumn.HeaderText = "fieldname";
+            this.fieldnameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.fieldnameDataGridViewTextBoxColumn.Name = "fieldnameDataGridViewTextBoxColumn";
+            this.fieldnameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // fieldtypeDataGridViewTextBoxColumn
+            // 
+            this.fieldtypeDataGridViewTextBoxColumn.DataPropertyName = "fieldtype";
+            this.fieldtypeDataGridViewTextBoxColumn.HeaderText = "fieldtype";
+            this.fieldtypeDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.fieldtypeDataGridViewTextBoxColumn.Name = "fieldtypeDataGridViewTextBoxColumn";
+            this.fieldtypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.fieldtypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.fieldtypeDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // size1DataGridViewTextBoxColumn
+            // 
+            this.size1DataGridViewTextBoxColumn.DataPropertyName = "Size1";
+            this.size1DataGridViewTextBoxColumn.HeaderText = "Size1";
+            this.size1DataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.size1DataGridViewTextBoxColumn.Name = "size1DataGridViewTextBoxColumn";
+            this.size1DataGridViewTextBoxColumn.Width = 150;
+            // 
+            // size2DataGridViewTextBoxColumn
+            // 
+            this.size2DataGridViewTextBoxColumn.DataPropertyName = "Size2";
+            this.size2DataGridViewTextBoxColumn.HeaderText = "Size2";
+            this.size2DataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.size2DataGridViewTextBoxColumn.Name = "size2DataGridViewTextBoxColumn";
+            this.size2DataGridViewTextBoxColumn.Width = 150;
+            // 
+            // fieldCategoryDataGridViewTextBoxColumn
+            // 
+            this.fieldCategoryDataGridViewTextBoxColumn.DataPropertyName = "fieldCategory";
+            this.fieldCategoryDataGridViewTextBoxColumn.HeaderText = "fieldCategory";
+            this.fieldCategoryDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.fieldCategoryDataGridViewTextBoxColumn.Name = "fieldCategoryDataGridViewTextBoxColumn";
+            this.fieldCategoryDataGridViewTextBoxColumn.Visible = false;
+            this.fieldCategoryDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // isAutoIncrementDataGridViewCheckBoxColumn
+            // 
+            this.isAutoIncrementDataGridViewCheckBoxColumn.DataPropertyName = "IsAutoIncrement";
+            this.isAutoIncrementDataGridViewCheckBoxColumn.HeaderText = "IsAutoIncrement";
+            this.isAutoIncrementDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.isAutoIncrementDataGridViewCheckBoxColumn.Name = "isAutoIncrementDataGridViewCheckBoxColumn";
+            this.isAutoIncrementDataGridViewCheckBoxColumn.Width = 150;
+            // 
+            // allowDBNullDataGridViewCheckBoxColumn
+            // 
+            this.allowDBNullDataGridViewCheckBoxColumn.DataPropertyName = "AllowDBNull";
+            this.allowDBNullDataGridViewCheckBoxColumn.HeaderText = "AllowDBNull";
+            this.allowDBNullDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.allowDBNullDataGridViewCheckBoxColumn.Name = "allowDBNullDataGridViewCheckBoxColumn";
+            this.allowDBNullDataGridViewCheckBoxColumn.Width = 150;
+            // 
+            // isCheckDataGridViewCheckBoxColumn
+            // 
+            this.isCheckDataGridViewCheckBoxColumn.DataPropertyName = "IsCheck";
+            this.isCheckDataGridViewCheckBoxColumn.HeaderText = "IsCheck";
+            this.isCheckDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.isCheckDataGridViewCheckBoxColumn.Name = "isCheckDataGridViewCheckBoxColumn";
+            this.isCheckDataGridViewCheckBoxColumn.Visible = false;
+            this.isCheckDataGridViewCheckBoxColumn.Width = 150;
+            // 
+            // isUniqueDataGridViewCheckBoxColumn
+            // 
+            this.isUniqueDataGridViewCheckBoxColumn.DataPropertyName = "IsUnique";
+            this.isUniqueDataGridViewCheckBoxColumn.HeaderText = "IsUnique";
+            this.isUniqueDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.isUniqueDataGridViewCheckBoxColumn.Name = "isUniqueDataGridViewCheckBoxColumn";
+            this.isUniqueDataGridViewCheckBoxColumn.Width = 150;
+            // 
+            // isKeyDataGridViewCheckBoxColumn
+            // 
+            this.isKeyDataGridViewCheckBoxColumn.DataPropertyName = "IsKey";
+            this.isKeyDataGridViewCheckBoxColumn.HeaderText = "IsKey";
+            this.isKeyDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.isKeyDataGridViewCheckBoxColumn.Name = "isKeyDataGridViewCheckBoxColumn";
+            this.isKeyDataGridViewCheckBoxColumn.Width = 150;
+            // 
+            // fieldIndexDataGridViewTextBoxColumn
+            // 
+            this.fieldIndexDataGridViewTextBoxColumn.DataPropertyName = "FieldIndex";
+            this.fieldIndexDataGridViewTextBoxColumn.HeaderText = "FieldIndex";
+            this.fieldIndexDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.fieldIndexDataGridViewTextBoxColumn.Name = "fieldIndexDataGridViewTextBoxColumn";
+            this.fieldIndexDataGridViewTextBoxColumn.Visible = false;
+            this.fieldIndexDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // entityNameDataGridViewTextBoxColumn
+            // 
+            this.entityNameDataGridViewTextBoxColumn.DataPropertyName = "EntityName";
+            this.entityNameDataGridViewTextBoxColumn.HeaderText = "EntityName";
+            this.entityNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.entityNameDataGridViewTextBoxColumn.Name = "entityNameDataGridViewTextBoxColumn";
+            this.entityNameDataGridViewTextBoxColumn.Visible = false;
+            this.entityNameDataGridViewTextBoxColumn.Width = 150;
+            // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -343,7 +464,13 @@ namespace TheTechIdea.ETL
             this.relationShipsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RelatedEntityID,
             this.RelatedEntityColumnID,
-            this.RelatedColumnSequenceID});
+            this.RelatedColumnSequenceID,
+            this.ralationNameDataGridViewTextBoxColumn,
+            this.relatedEntityIDDataGridViewTextBoxColumn,
+            this.relatedEntityColumnIDDataGridViewTextBoxColumn,
+            this.relatedColumnSequenceIDDataGridViewTextBoxColumn,
+            this.entityColumnIDDataGridViewTextBoxColumn,
+            this.entityColumnSequenceIDDataGridViewTextBoxColumn});
             this.relationShipsDataGridView.DataSource = this.relationShipsBindingSource;
             this.relationShipsDataGridView.Location = new System.Drawing.Point(2, 37);
             this.relationShipsDataGridView.Margin = new System.Windows.Forms.Padding(2);
@@ -352,6 +479,24 @@ namespace TheTechIdea.ETL
             this.relationShipsDataGridView.RowTemplate.Height = 28;
             this.relationShipsDataGridView.Size = new System.Drawing.Size(512, 210);
             this.relationShipsDataGridView.TabIndex = 10;
+            // 
+            // RelatedEntityID
+            // 
+            this.RelatedEntityID.DataPropertyName = "RelatedEntityID";
+            this.RelatedEntityID.HeaderText = "Entity";
+            this.RelatedEntityID.Name = "RelatedEntityID";
+            // 
+            // RelatedEntityColumnID
+            // 
+            this.RelatedEntityColumnID.DataPropertyName = "RelatedEntityColumnID";
+            this.RelatedEntityColumnID.HeaderText = "Column";
+            this.RelatedEntityColumnID.Name = "RelatedEntityColumnID";
+            // 
+            // RelatedColumnSequenceID
+            // 
+            this.RelatedColumnSequenceID.DataPropertyName = "RelatedColumnSequenceID";
+            this.RelatedColumnSequenceID.HeaderText = "Sequence";
+            this.RelatedColumnSequenceID.Name = "RelatedColumnSequenceID";
             // 
             // ValidateFKbutton
             // 
@@ -541,10 +686,11 @@ namespace TheTechIdea.ETL
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.BackColor = System.Drawing.Color.Gold;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(14, 36);
+            this.label5.Location = new System.Drawing.Point(359, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 23);
             this.label5.TabIndex = 30;
@@ -553,11 +699,12 @@ namespace TheTechIdea.ETL
             // 
             // EntityNameLabel
             // 
+            this.EntityNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.EntityNameLabel.BackColor = System.Drawing.Color.Orange;
             this.EntityNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EntityNameLabel.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Bold);
             this.EntityNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.EntityNameLabel.Location = new System.Drawing.Point(120, 36);
+            this.EntityNameLabel.Location = new System.Drawing.Point(465, 34);
             this.EntityNameLabel.Name = "EntityNameLabel";
             this.EntityNameLabel.Size = new System.Drawing.Size(191, 23);
             this.EntityNameLabel.TabIndex = 29;
@@ -566,10 +713,11 @@ namespace TheTechIdea.ETL
             // 
             // TitleLabel
             // 
+            this.TitleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleLabel.ForeColor = System.Drawing.Color.Gold;
-            this.TitleLabel.Location = new System.Drawing.Point(12, 0);
+            this.TitleLabel.Location = new System.Drawing.Point(361, -1);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(271, 32);
             this.TitleLabel.TabIndex = 0;
@@ -607,138 +755,41 @@ namespace TheTechIdea.ETL
             this.panel5.TabIndex = 46;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
-            // dataHierarchyBindingSource
+            // ralationNameDataGridViewTextBoxColumn
             // 
-            this.dataHierarchyBindingSource.DataSource = typeof(TheTechIdea.Beep.DataBase.EntityStructure);
+            this.ralationNameDataGridViewTextBoxColumn.DataPropertyName = "RalationName";
+            this.ralationNameDataGridViewTextBoxColumn.HeaderText = "RalationName";
+            this.ralationNameDataGridViewTextBoxColumn.Name = "ralationNameDataGridViewTextBoxColumn";
             // 
-            // idDataGridViewTextBoxColumn
+            // relatedEntityIDDataGridViewTextBoxColumn
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 150;
+            this.relatedEntityIDDataGridViewTextBoxColumn.DataPropertyName = "RelatedEntityID";
+            this.relatedEntityIDDataGridViewTextBoxColumn.HeaderText = "RelatedEntityID";
+            this.relatedEntityIDDataGridViewTextBoxColumn.Name = "relatedEntityIDDataGridViewTextBoxColumn";
             // 
-            // fieldnameDataGridViewTextBoxColumn
+            // relatedEntityColumnIDDataGridViewTextBoxColumn
             // 
-            this.fieldnameDataGridViewTextBoxColumn.DataPropertyName = "fieldname";
-            this.fieldnameDataGridViewTextBoxColumn.HeaderText = "fieldname";
-            this.fieldnameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fieldnameDataGridViewTextBoxColumn.Name = "fieldnameDataGridViewTextBoxColumn";
-            this.fieldnameDataGridViewTextBoxColumn.Width = 150;
+            this.relatedEntityColumnIDDataGridViewTextBoxColumn.DataPropertyName = "RelatedEntityColumnID";
+            this.relatedEntityColumnIDDataGridViewTextBoxColumn.HeaderText = "RelatedEntityColumnID";
+            this.relatedEntityColumnIDDataGridViewTextBoxColumn.Name = "relatedEntityColumnIDDataGridViewTextBoxColumn";
             // 
-            // fieldtypeDataGridViewTextBoxColumn
+            // relatedColumnSequenceIDDataGridViewTextBoxColumn
             // 
-            this.fieldtypeDataGridViewTextBoxColumn.DataPropertyName = "fieldtype";
-            this.fieldtypeDataGridViewTextBoxColumn.HeaderText = "fieldtype";
-            this.fieldtypeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fieldtypeDataGridViewTextBoxColumn.Name = "fieldtypeDataGridViewTextBoxColumn";
-            this.fieldtypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.fieldtypeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.fieldtypeDataGridViewTextBoxColumn.Width = 150;
+            this.relatedColumnSequenceIDDataGridViewTextBoxColumn.DataPropertyName = "RelatedColumnSequenceID";
+            this.relatedColumnSequenceIDDataGridViewTextBoxColumn.HeaderText = "RelatedColumnSequenceID";
+            this.relatedColumnSequenceIDDataGridViewTextBoxColumn.Name = "relatedColumnSequenceIDDataGridViewTextBoxColumn";
             // 
-            // size1DataGridViewTextBoxColumn
+            // entityColumnIDDataGridViewTextBoxColumn
             // 
-            this.size1DataGridViewTextBoxColumn.DataPropertyName = "Size1";
-            this.size1DataGridViewTextBoxColumn.HeaderText = "Size1";
-            this.size1DataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.size1DataGridViewTextBoxColumn.Name = "size1DataGridViewTextBoxColumn";
-            this.size1DataGridViewTextBoxColumn.Width = 150;
+            this.entityColumnIDDataGridViewTextBoxColumn.DataPropertyName = "EntityColumnID";
+            this.entityColumnIDDataGridViewTextBoxColumn.HeaderText = "EntityColumnID";
+            this.entityColumnIDDataGridViewTextBoxColumn.Name = "entityColumnIDDataGridViewTextBoxColumn";
             // 
-            // size2DataGridViewTextBoxColumn
+            // entityColumnSequenceIDDataGridViewTextBoxColumn
             // 
-            this.size2DataGridViewTextBoxColumn.DataPropertyName = "Size2";
-            this.size2DataGridViewTextBoxColumn.HeaderText = "Size2";
-            this.size2DataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.size2DataGridViewTextBoxColumn.Name = "size2DataGridViewTextBoxColumn";
-            this.size2DataGridViewTextBoxColumn.Width = 150;
-            // 
-            // fieldCategoryDataGridViewTextBoxColumn
-            // 
-            this.fieldCategoryDataGridViewTextBoxColumn.DataPropertyName = "fieldCategory";
-            this.fieldCategoryDataGridViewTextBoxColumn.HeaderText = "fieldCategory";
-            this.fieldCategoryDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fieldCategoryDataGridViewTextBoxColumn.Name = "fieldCategoryDataGridViewTextBoxColumn";
-            this.fieldCategoryDataGridViewTextBoxColumn.Visible = false;
-            this.fieldCategoryDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // isAutoIncrementDataGridViewCheckBoxColumn
-            // 
-            this.isAutoIncrementDataGridViewCheckBoxColumn.DataPropertyName = "IsAutoIncrement";
-            this.isAutoIncrementDataGridViewCheckBoxColumn.HeaderText = "IsAutoIncrement";
-            this.isAutoIncrementDataGridViewCheckBoxColumn.MinimumWidth = 8;
-            this.isAutoIncrementDataGridViewCheckBoxColumn.Name = "isAutoIncrementDataGridViewCheckBoxColumn";
-            this.isAutoIncrementDataGridViewCheckBoxColumn.Width = 150;
-            // 
-            // allowDBNullDataGridViewCheckBoxColumn
-            // 
-            this.allowDBNullDataGridViewCheckBoxColumn.DataPropertyName = "AllowDBNull";
-            this.allowDBNullDataGridViewCheckBoxColumn.HeaderText = "AllowDBNull";
-            this.allowDBNullDataGridViewCheckBoxColumn.MinimumWidth = 8;
-            this.allowDBNullDataGridViewCheckBoxColumn.Name = "allowDBNullDataGridViewCheckBoxColumn";
-            this.allowDBNullDataGridViewCheckBoxColumn.Width = 150;
-            // 
-            // isCheckDataGridViewCheckBoxColumn
-            // 
-            this.isCheckDataGridViewCheckBoxColumn.DataPropertyName = "IsCheck";
-            this.isCheckDataGridViewCheckBoxColumn.HeaderText = "IsCheck";
-            this.isCheckDataGridViewCheckBoxColumn.MinimumWidth = 8;
-            this.isCheckDataGridViewCheckBoxColumn.Name = "isCheckDataGridViewCheckBoxColumn";
-            this.isCheckDataGridViewCheckBoxColumn.Visible = false;
-            this.isCheckDataGridViewCheckBoxColumn.Width = 150;
-            // 
-            // isUniqueDataGridViewCheckBoxColumn
-            // 
-            this.isUniqueDataGridViewCheckBoxColumn.DataPropertyName = "IsUnique";
-            this.isUniqueDataGridViewCheckBoxColumn.HeaderText = "IsUnique";
-            this.isUniqueDataGridViewCheckBoxColumn.MinimumWidth = 8;
-            this.isUniqueDataGridViewCheckBoxColumn.Name = "isUniqueDataGridViewCheckBoxColumn";
-            this.isUniqueDataGridViewCheckBoxColumn.Width = 150;
-            // 
-            // isKeyDataGridViewCheckBoxColumn
-            // 
-            this.isKeyDataGridViewCheckBoxColumn.DataPropertyName = "IsKey";
-            this.isKeyDataGridViewCheckBoxColumn.HeaderText = "IsKey";
-            this.isKeyDataGridViewCheckBoxColumn.MinimumWidth = 8;
-            this.isKeyDataGridViewCheckBoxColumn.Name = "isKeyDataGridViewCheckBoxColumn";
-            this.isKeyDataGridViewCheckBoxColumn.Width = 150;
-            // 
-            // fieldIndexDataGridViewTextBoxColumn
-            // 
-            this.fieldIndexDataGridViewTextBoxColumn.DataPropertyName = "FieldIndex";
-            this.fieldIndexDataGridViewTextBoxColumn.HeaderText = "FieldIndex";
-            this.fieldIndexDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.fieldIndexDataGridViewTextBoxColumn.Name = "fieldIndexDataGridViewTextBoxColumn";
-            this.fieldIndexDataGridViewTextBoxColumn.Visible = false;
-            this.fieldIndexDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // entityNameDataGridViewTextBoxColumn
-            // 
-            this.entityNameDataGridViewTextBoxColumn.DataPropertyName = "EntityName";
-            this.entityNameDataGridViewTextBoxColumn.HeaderText = "EntityName";
-            this.entityNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.entityNameDataGridViewTextBoxColumn.Name = "entityNameDataGridViewTextBoxColumn";
-            this.entityNameDataGridViewTextBoxColumn.Visible = false;
-            this.entityNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // RelatedEntityID
-            // 
-            this.RelatedEntityID.DataPropertyName = "RelatedEntityID";
-            this.RelatedEntityID.HeaderText = "Entity";
-            this.RelatedEntityID.Name = "RelatedEntityID";
-            // 
-            // RelatedEntityColumnID
-            // 
-            this.RelatedEntityColumnID.DataPropertyName = "RelatedEntityColumnID";
-            this.RelatedEntityColumnID.HeaderText = "Column";
-            this.RelatedEntityColumnID.Name = "RelatedEntityColumnID";
-            // 
-            // RelatedColumnSequenceID
-            // 
-            this.RelatedColumnSequenceID.DataPropertyName = "RelatedColumnSequenceID";
-            this.RelatedColumnSequenceID.HeaderText = "Sequence";
-            this.RelatedColumnSequenceID.Name = "RelatedColumnSequenceID";
+            this.entityColumnSequenceIDDataGridViewTextBoxColumn.DataPropertyName = "EntityColumnSequenceID";
+            this.entityColumnSequenceIDDataGridViewTextBoxColumn.HeaderText = "EntityColumnSequenceID";
+            this.entityColumnSequenceIDDataGridViewTextBoxColumn.Name = "entityColumnSequenceIDDataGridViewTextBoxColumn";
             // 
             // uc_DataEntityStructureViewer
             // 
@@ -749,6 +800,7 @@ namespace TheTechIdea.ETL
             this.Name = "uc_DataEntityStructureViewer";
             this.Size = new System.Drawing.Size(1017, 735);
             ((System.ComponentModel.ISupportInitialize)(this.primaryKeysBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataHierarchyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relationShipsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fieldsBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -763,7 +815,6 @@ namespace TheTechIdea.ETL
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataHierarchyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -815,5 +866,11 @@ namespace TheTechIdea.ETL
         private DataGridViewTextBoxColumn RelatedEntityID;
         private DataGridViewTextBoxColumn RelatedEntityColumnID;
         private DataGridViewTextBoxColumn RelatedColumnSequenceID;
+        private DataGridViewTextBoxColumn ralationNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn relatedEntityIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn relatedEntityColumnIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn relatedColumnSequenceIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn entityColumnIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn entityColumnSequenceIDDataGridViewTextBoxColumn;
     }
 }

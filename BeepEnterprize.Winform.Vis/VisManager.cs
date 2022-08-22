@@ -613,7 +613,7 @@ namespace BeepEnterprize.Winform.Vis
                // form.Parent = frm;
                 form.ShowDialog();
    
-            }).ConfigureAwait(true);
+            });
         }
         public IErrorsInfo ShowWaitForm(PassedArgs Passedarguments)
         {
@@ -663,7 +663,6 @@ namespace BeepEnterprize.Winform.Vis
             }
             return ErrorsandMesseges;
         }
-      
         public IErrorsInfo CloseWaitForm()
         {
             try

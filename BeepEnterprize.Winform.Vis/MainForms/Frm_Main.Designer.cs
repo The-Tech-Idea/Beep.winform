@@ -140,7 +140,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.SidePanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SidePanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(461, 478);
+            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(443, 480);
             this.SidePanelCollapsebutton.Name = "SidePanelCollapsebutton";
             this.SidePanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
             this.SidePanelCollapsebutton.TabIndex = 15;
@@ -285,7 +285,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.LogPanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LogPanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(944, 905);
+            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(935, 905);
             this.LogPanelCollapsebutton.Name = "LogPanelCollapsebutton";
             this.LogPanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
             this.LogPanelCollapsebutton.TabIndex = 16;

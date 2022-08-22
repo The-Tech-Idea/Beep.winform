@@ -572,7 +572,7 @@ namespace TheTechIdea.ETL
             // 
             // dMEEditorBindingSource
             // 
-            this.dMEEditorBindingSource.DataSource = typeof(TheTechIdea.Beep.DMEEditor);
+//            this.dMEEditorBindingSource.DataSource = typeof(TheTechIdea.Beep.DMEEditor);
             // 
             // progressBar1
             // 

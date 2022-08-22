@@ -35,12 +35,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.entityDataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entityNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mappedEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uc_bindingNavigator1 = new Beep.Winform.Controls.uc_bindingNavigator();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mappedEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.entityDataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entityNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mappedEntitiesBindingSource)).BeginInit();
@@ -59,10 +59,11 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(42, 16);
+            this.label1.Location = new System.Drawing.Point(314, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(219, 32);
             this.label1.TabIndex = 0;
@@ -93,6 +94,24 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(607, 631);
             this.dataGridView1.TabIndex = 32;
+            // 
+            // entityDataSourceDataGridViewTextBoxColumn
+            // 
+            this.entityDataSourceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.entityDataSourceDataGridViewTextBoxColumn.DataPropertyName = "EntityDataSource";
+            this.entityDataSourceDataGridViewTextBoxColumn.HeaderText = "EntityDataSource";
+            this.entityDataSourceDataGridViewTextBoxColumn.Name = "entityDataSourceDataGridViewTextBoxColumn";
+            // 
+            // entityNameDataGridViewTextBoxColumn
+            // 
+            this.entityNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.entityNameDataGridViewTextBoxColumn.DataPropertyName = "EntityName";
+            this.entityNameDataGridViewTextBoxColumn.HeaderText = "EntityName";
+            this.entityNameDataGridViewTextBoxColumn.Name = "entityNameDataGridViewTextBoxColumn";
+            // 
+            // mappedEntitiesBindingSource
+            // 
+            this.mappedEntitiesBindingSource.DataSource = typeof(TheTechIdea.Beep.Workflow.Mapping.EntityDataMap_DTL);
             // 
             // uc_bindingNavigator1
             // 
@@ -143,24 +162,6 @@
             this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn2.HeaderText = "EntityName";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // mappedEntitiesBindingSource
-            // 
-            this.mappedEntitiesBindingSource.DataSource = typeof(TheTechIdea.Beep.Workflow.Mapping.EntityDataMap_DTL);
-            // 
-            // entityDataSourceDataGridViewTextBoxColumn
-            // 
-            this.entityDataSourceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.entityDataSourceDataGridViewTextBoxColumn.DataPropertyName = "EntityDataSource";
-            this.entityDataSourceDataGridViewTextBoxColumn.HeaderText = "EntityDataSource";
-            this.entityDataSourceDataGridViewTextBoxColumn.Name = "entityDataSourceDataGridViewTextBoxColumn";
-            // 
-            // entityNameDataGridViewTextBoxColumn
-            // 
-            this.entityNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.entityNameDataGridViewTextBoxColumn.DataPropertyName = "EntityName";
-            this.entityNameDataGridViewTextBoxColumn.HeaderText = "EntityName";
-            this.entityNameDataGridViewTextBoxColumn.Name = "entityNameDataGridViewTextBoxColumn";
             // 
             // uc_SelectMapping
             // 

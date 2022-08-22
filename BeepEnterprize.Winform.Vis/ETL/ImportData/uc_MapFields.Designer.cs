@@ -34,16 +34,16 @@ namespace BeepEnterprize.Winform.Vis.ETL.ImportData
             this.DestFieldName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.SourceFieldName = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.FieldMappingGridView = new System.Windows.Forms.DataGridView();
-            this.mappedEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.fieldMappingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.entityDataMapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fromFieldNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.toFieldNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.rulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fieldMappingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mappedEntitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.entityDataMapBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uc_bindingNavigator1 = new Beep.Winform.Controls.uc_bindingNavigator();
-            this.rulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,10 +51,10 @@ namespace BeepEnterprize.Winform.Vis.ETL.ImportData
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.FieldMappingGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mappedEntitiesBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fieldMappingBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mappedEntitiesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.entityDataMapBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DestFieldName
@@ -108,42 +108,6 @@ namespace BeepEnterprize.Winform.Vis.ETL.ImportData
             this.FieldMappingGridView.Size = new System.Drawing.Size(870, 443);
             this.FieldMappingGridView.TabIndex = 2;
             // 
-            // mappedEntitiesBindingSource
-            // 
-            this.mappedEntitiesBindingSource.DataMember = "MappedEntities";
-            this.mappedEntitiesBindingSource.DataSource = this.entityDataMapBindingSource;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(42, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Map Fields";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(920, 72);
-            this.panel1.TabIndex = 6;
-            // 
-            // fieldMappingBindingSource
-            // 
-            this.fieldMappingBindingSource.DataMember = "FieldMapping";
-            this.fieldMappingBindingSource.DataSource = this.mappedEntitiesBindingSource;
-            // 
-            // entityDataMapBindingSource
-            // 
-            this.entityDataMapBindingSource.DataSource = typeof(TheTechIdea.Beep.Workflow.Mapping.EntityDataMap);
-            // 
             // fromFieldNameDataGridViewTextBoxColumn
             // 
             this.fromFieldNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -164,6 +128,50 @@ namespace BeepEnterprize.Winform.Vis.ETL.ImportData
             this.toFieldNameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.toFieldNameDataGridViewTextBoxColumn.Width = 90;
             // 
+            // rulesDataGridViewTextBoxColumn
+            // 
+            this.rulesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.rulesDataGridViewTextBoxColumn.DataPropertyName = "Rules";
+            this.rulesDataGridViewTextBoxColumn.HeaderText = "Rules";
+            this.rulesDataGridViewTextBoxColumn.Name = "rulesDataGridViewTextBoxColumn";
+            // 
+            // fieldMappingBindingSource
+            // 
+            this.fieldMappingBindingSource.DataMember = "FieldMapping";
+            this.fieldMappingBindingSource.DataSource = this.mappedEntitiesBindingSource;
+            // 
+            // mappedEntitiesBindingSource
+            // 
+            this.mappedEntitiesBindingSource.DataMember = "MappedEntities";
+            this.mappedEntitiesBindingSource.DataSource = this.entityDataMapBindingSource;
+            // 
+            // entityDataMapBindingSource
+            // 
+            this.entityDataMapBindingSource.DataSource = typeof(TheTechIdea.Beep.Workflow.Mapping.EntityDataMap);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gold;
+            this.label1.Location = new System.Drawing.Point(366, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Map Fields";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(920, 72);
+            this.panel1.TabIndex = 6;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -171,7 +179,6 @@ namespace BeepEnterprize.Winform.Vis.ETL.ImportData
             this.dataGridViewTextBoxColumn1.HeaderText = "Type";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 638;
             // 
             // uc_bindingNavigator1
             // 
@@ -204,13 +211,6 @@ namespace BeepEnterprize.Winform.Vis.ETL.ImportData
             this.uc_bindingNavigator1.Size = new System.Drawing.Size(870, 31);
             this.uc_bindingNavigator1.TabIndex = 7;
             this.uc_bindingNavigator1.VerifyDelete = true;
-            // 
-            // rulesDataGridViewTextBoxColumn
-            // 
-            this.rulesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rulesDataGridViewTextBoxColumn.DataPropertyName = "Rules";
-            this.rulesDataGridViewTextBoxColumn.HeaderText = "Rules";
-            this.rulesDataGridViewTextBoxColumn.Name = "rulesDataGridViewTextBoxColumn";
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -265,11 +265,11 @@ namespace BeepEnterprize.Winform.Vis.ETL.ImportData
             this.Name = "uc_MapFields";
             this.Size = new System.Drawing.Size(920, 570);
             ((System.ComponentModel.ISupportInitialize)(this.FieldMappingGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldMappingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mappedEntitiesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entityDataMapBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fieldMappingBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.entityDataMapBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
