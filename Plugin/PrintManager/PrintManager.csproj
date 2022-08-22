@@ -34,11 +34,11 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagementModelsStandard, Version=1.0.0.17, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.17\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.18, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.18\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.36, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.36\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.39, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.39\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
     </Reference>
     <Reference Include="Print, Version=1.0.1.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Grumsom.cSharp.Print.1.0.1.2\lib\net461\Print.dll</HintPath>

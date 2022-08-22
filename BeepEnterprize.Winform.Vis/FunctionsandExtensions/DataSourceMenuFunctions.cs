@@ -383,7 +383,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Export Data", Name = "ImportData", Click = true, iconimage = "exportdata.ico", PointType = EnumPointType.Entity, ObjectType = "Beep")]
+        [CommandAttribute(Caption = "Export Data", Name = "exportdata", Click = true, iconimage = "exportdata.ico", PointType = EnumPointType.Entity, ObjectType = "Beep")]
         public IErrorsInfo ExportData(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -409,8 +409,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                 {
                                     if(ds.Openconnection()== System.Data.ConnectionState.Open)
                                     {
-                                        EntityStructure entstruc = ds.GetEntityStructure(ExtensionsHelpers.pbr.BranchText,true);
-                                        Type enttype = ds.GetEntityType(ExtensionsHelpers.pbr.BranchText);
+                                        EntityStructure entstruc = (EntityStructure)ds.GetEntityStructure(ExtensionsHelpers.pbr.BranchText,true).Clone();
+                                      //  Type enttype = ds.GetEntityType(ExtensionsHelpers.pbr.BranchText);
                                         object ls = ds.GetEntity(ExtensionsHelpers.pbr.BranchText,null);
                                         SaveFileDialog fileDialog = new SaveFileDialog();
                                         fileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
@@ -418,7 +418,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                         fileDialog.ShowDialog();
                                         if (!string.IsNullOrEmpty(fileDialog.FileName))
                                         {
-                                            DMEEditor.Utilfunction.ToCSVFile((System.Collections.IList)ls, enttype, fileDialog.FileName);
+                                            DMEEditor.Utilfunction.ToCSVFile((System.Collections.IList)ls,  fileDialog.FileName);
                                         }
                                     }
                                 }
@@ -427,7 +427,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                         
                     }
                     
-                    ExtensionsHelpers.Vismanager.ShowPage("ImportDataManager", (PassedArgs)Passedarguments);
+                  //  ExtensionsHelpers.Vismanager.ShowPage("ImportDataManager", (PassedArgs)Passedarguments);
 
                 }
                 catch (Exception ex)
