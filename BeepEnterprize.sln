@@ -116,23 +116,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.Vis.Module
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepEnterprize.Vis.Module.net6", "..\BeepWinformAppNet6\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.csproj", "{FA70A4FE-07A4-4289-9F6B-8009864332A1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppExtensionsLoaderStandard", "..\Beep.Winform.AppDesigner\AppExtensionsLoader\AppExtensionsLoaderStandard.csproj", "{C051FC51-8422-4ECC-B549-38E5AF19B334}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppExtensionsLoaderStandard", "..\Beep.Winfom.AppBuilders\AppExtensionsLoader\AppExtensionsLoaderStandard.csproj", "{C051FC51-8422-4ECC-B549-38E5AF19B334}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppModule", "..\Beep.Winform.AppDesigner\AppModule\AppModule.csproj", "{728C3656-D039-4F7B-8796-ACB59F9BF446}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppModule", "..\Beep.Winfom.AppBuilders\AppModule\AppModule.csproj", "{728C3656-D039-4F7B-8796-ACB59F9BF446}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformScreenControls", "..\Beep.Winform.AppDesigner\WinformScreenControls\WinformScreenControls.csproj", "{A2A31854-3FB5-4979-A39E-13EA954B253E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformScreenControls", "..\Beep.Winfom.AppBuilders\WinformScreenControls\WinformScreenControls.csproj", "{A2A31854-3FB5-4979-A39E-13EA954B253E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AINodes", "..\Plugins\AINodes\AINodes.csproj", "{89BA5EEA-D36D-47F7-9286-132DA8BD5FA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppExtensionsLoaderNet", "..\Beep.Winform.AppDesigner\AppExtensionsLoaderNet\AppExtensionsLoaderNet.csproj", "{F73548E6-810F-4C8E-B4C8-B13575F98B69}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppExtensionsLoaderNet", "..\Beep.Winfom.AppBuilders\AppExtensionsLoaderNet\AppExtensionsLoaderNet.csproj", "{F73548E6-810F-4C8E-B4C8-B13575F98B69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppbuilderExtensions", "..\Beep.Winform.AppDesigner\Extensions\AppbuilderExtensions.csproj", "{6689AC74-0442-419B-95A6-9DF7DBE99D5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppbuilderExtensions", "..\Beep.Winfom.AppBuilders\Extensions\AppbuilderExtensions.csproj", "{6689AC74-0442-419B-95A6-9DF7DBE99D5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformDesigner", "..\Beep.Winform.AppDesigner\WinformDesigner\WinformDesigner.csproj", "{6A9D6090-244A-48D1-B509-64AFEE7B569D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformDesigner", "..\Beep.Winfom.AppBuilders\WinformDesigner\WinformDesigner.csproj", "{6A9D6090-244A-48D1-B509-64AFEE7B569D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModels", "ViewModels", "{C9B2A1FB-7131-4E00-91FD-144D6DF7ECF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "BeepViewModels\ViewModels.csproj", "{533BD5A1-302E-40FB-8408-75F2D668FCF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModels", "BeepViewModels\ViewModels.csproj", "{533BD5A1-302E-40FB-8408-75F2D668FCF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
