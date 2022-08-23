@@ -23,29 +23,29 @@ namespace Beep.Winform.Controls
             InitializeComponent();
             Loadimages();
             InitPanels();
-            foreach (Control c in this.Controls)
-            {
-                c.Click += (sender, e) => { this.InvokeOnClick(this, e); };
-                c.MouseUp += (sender, e) => { this.OnMouseUp(e); };
-                c.MouseDown += (sender, e) => { this.OnMouseDown(e); };
-                c.MouseMove += (sender, e) => { this.OnMouseMove(e); };
-            }
-            dataGridView1 = new System.Windows.Forms.DataGridView();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            //foreach (Control c in this.Controls)
+            //{
+            //    c.Click += (sender, e) => { this.InvokeOnClick(this, e); };
+            //    c.MouseUp += (sender, e) => { this.OnMouseUp(e); };
+            //    c.MouseDown += (sender, e) => { this.OnMouseDown(e); };
+            //    c.MouseMove += (sender, e) => { this.OnMouseMove(e); };
+            //}
+         //   dataGridView1 = new System.Windows.Forms.DataGridView();
+         //   // 
+         //   // dataGridView1
+         //   // 
+         //   dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+         //   dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
            
-            dataGridView1.Location = new System.Drawing.Point(0, 22);
-            dataGridView1.Name = "dataGridView1";
+         //   dataGridView1.Location = new System.Drawing.Point(0, 25);
+         //   dataGridView1.Name = "dataGridView1";
             
-            dataGridView1.TabIndex = 2;
-            Controls.Add(this.dataGridView1);
-         //   this.Size = new System.Drawing.Size(250, 200);
-            dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            dataGridView1.BringToFront();
-            WireAllControls(this);
+         //   dataGridView1.TabIndex = 2;
+         //   Controls.Add(this.dataGridView1);
+         ////   this.Size = new System.Drawing.Size(250, 200);
+         //   dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+         //   dataGridView1.BringToFront();
+        //    WireAllControls(this);
         }
         public DataGridViewColumnCollection ColumnCollection { get { return dataGridView1.Columns; }  }
 
@@ -84,7 +84,7 @@ namespace Beep.Winform.Controls
         public EntityStructure EntityStructure { get ; set ; }
         public string EntityName { get ; set ; }
         public IPassedArgs Passedarg { get ; set ; }
-        public System.Windows.Forms.DataGridView dataGridView1 { get; set; }
+     //   public System.Windows.Forms.DataGridView dataGridView1 { get; set; }
         IVisManager visManager;
         BindingSource _bindingSource;
         public BindingSource bindingSource { get { return _bindingSource; } set { dataGridView1.DataSource = value; _bindingSource = value; dataGridView1.Refresh(); } }

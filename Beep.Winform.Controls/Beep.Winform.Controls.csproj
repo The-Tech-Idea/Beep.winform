@@ -77,9 +77,6 @@
     <Compile Include="BeepForm.Designer.cs">
       <DependentUpon>BeepForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BeepGrid.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="BeepWait.cs">
       <SubType>Form</SubType>
     </Compile>
