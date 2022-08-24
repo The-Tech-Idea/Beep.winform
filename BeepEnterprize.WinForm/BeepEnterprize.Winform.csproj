@@ -152,23 +152,23 @@
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="..\..\Beep.Winform.AppDesigner\outputdll\AppbuilderExtensions\AppbuilderExtensions.dll">
+    <Content Include="..\..\Beep.Winfom.AppBuilders\outputdll\AppbuilderExtensions\AppbuilderExtensions.dll">
       <Link>ProjectClasses\AppBuilder\AppbuilderExtensions.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\Beep.Winform.AppDesigner\outputdll\AppExtensionsLoaderNet\AppExtensionsLoaderNet.dll">
+    <Content Include="..\..\Beep.Winfom.AppBuilders\outputdll\AppExtensionsLoaderNet\AppExtensionsLoaderNet.dll">
       <Link>LoadingExtensions\AppBuilderExtensions\AppExtensionsLoaderNet.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\Beep.Winform.AppDesigner\outputdll\AppModule\AppModule.dll">
+    <Content Include="..\..\Beep.Winfom.AppBuilders\outputdll\AppModule\AppModule.dll">
       <Link>LoadingExtensions\AppBuilderExtensions\AppModule.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\Beep.Winform.AppDesigner\WinformDesigner\bin\Debug\WinformDesigner.dll">
+    <Content Include="..\..\Beep.Winfom.AppBuilders\WinformDesigner\bin\Debug\WinformDesigner.dll">
       <Link>ProjectClasses\AppBuilder\WinformDesigner.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\Beep.Winform.AppDesigner\WinformScreenControls\bin\Debug\WinformScreenControls.dll">
+    <Content Include="..\..\Beep.Winfom.AppBuilders\WinformScreenControls\bin\Debug\WinformScreenControls.dll">
       <Link>ProjectClasses\AppBuilder\WinformScreenControls.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -570,10 +570,6 @@
     <None Include="Resources\minimize_window_26px.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Beep.Winfom.AppBuilders\WinformScreenControls\WinformScreenControls.csproj">
-      <Project>{a2a31854-3fb5-4979-a39e-13ea954b253e}</Project>
-      <Name>WinformScreenControls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Beep.Winform.Controls\Beep.Winform.Controls.csproj">
       <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
       <Name>Beep.Winform.Controls</Name>
