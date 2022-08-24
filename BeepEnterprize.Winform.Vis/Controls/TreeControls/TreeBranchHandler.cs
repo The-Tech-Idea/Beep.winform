@@ -199,6 +199,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
             {
 
                 TreeNode n = Treecontrol.GetTreeNodeByID(Branch.BranchID, TreeV.Nodes);
+                string foldername = CheckifBranchExistinCategory(Branch.BranchText, Branch.BranchClass);
+                if (foldername!=null)
+                {
+                    RemoveEntityFromCategory(Branch.BranchClass, foldername, Branch.BranchText);
+                }
                 RemoveChildBranchs(Branch);
                 Tree.Branches.Remove(Branch);
                 if (n != null)
@@ -793,7 +798,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             {
                 IBranch br = (IBranch)e.Node.Tag;
 
-                if (br.BranchType == EnumPointType.Entity)
+                if (br.BranchType == EnumPointType.Entity || br.BranchType == EnumPointType.Category)
                 {
 
                     if (e.Node.Checked)
@@ -859,12 +864,13 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
                     // int vitem = Convert.ToInt32(item.Tag.ToString().Substring(item.Tag.ToString().IndexOf('-') + 1));
                     item.Checked = checkedState;
-                    //if (item.Checked)
-                    //{
-                    //    Treecontrol.SelectedBranchs.Add(Convert.ToInt32(item.Tag));
-                    //}
-                    //else
-                    //    Treecontrol.SelectedBranchs.Remove(Convert.ToInt32(item.Tag));
+                    IBranch br = (IBranch)item.Tag;
+                if (item.Checked)
+                    {
+                        Treecontrol.SelectedBranchs.Add(Convert.ToInt32(br.ID));
+                    }
+                    else
+                        Treecontrol.SelectedBranchs.Remove(Convert.ToInt32(br.ID));
                 //}
                 SetChildrenChecked(item, item.Checked);
             }

@@ -354,6 +354,80 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
+        [CommandAttribute(Caption = "Drop Connections", Name = "dropfiles", Click = true, iconimage = "dropentities.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
+        public IErrorsInfo DropConnections(IPassedArgs Passedarguments)
+        {
+            DMEEditor.ErrorObject.Flag = Errors.Ok;
+            EntityStructure ent = new EntityStructure();
+            ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
+          
+            try
+            {
+
+            if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, you want to delete all selected  connections ?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
+                {
+                    if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
+                    {
+                        Passedarguments.ParameterString1 = $"Droping {ExtensionsHelpers.TreeEditor.SelectedBranchs.Count} Connections ...";
+                        ExtensionsHelpers.Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
+                        foreach (int item in ExtensionsHelpers.TreeEditor.SelectedBranchs)
+                        {
+                           
+                            IBranch br = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(item);
+                            if (br != null)
+                            {
+                                ExtensionsHelpers.TreeEditor.treeBranchHandler.RemoveBranch(br);
+                                bool retval = DMEEditor.ConfigEditor.DataConnectionExist(br.DataSourceName);
+                                if (retval)
+                                {
+                                    Passedargs.ParameterString1 = $"Droping {br.DataSourceName} Connection ...";
+                                    ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                    DMEEditor.RemoveDataDource(br.DataSourceName);
+                                    DMEEditor.ErrorObject.Flag = Errors.Ok;
+                                    DMEEditor.ConfigEditor.RemoveDataConnection(br.DataSourceName);
+                                    if (DMEEditor.ErrorObject.Flag == Errors.Ok)
+                                    {
+                                        Passedargs.ParameterString1 = $"Droping {br.DataSourceName} Connection Branch...";
+                                        ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                       
+                                        DMEEditor.AddLogMessage("Success", $"Droped Data Connection {br.DataSourceName}", DateTime.Now, -1, null, Errors.Ok);
+                                    }
+                                    else
+                                    {
+                                        Passedargs.ParameterString1 = $"Failed Droping {br.DataSourceName} Connection ...";
+                                        ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                        DMEEditor.AddLogMessage("Fail", $"Error Drpping Connection {br.DataSourceName} - {DMEEditor.ErrorObject.Message}", DateTime.Now, -1, null, Errors.Failed);
+                                    }
+
+                                }
+
+                            }
+                        }
+
+                    }
+                    Passedarguments.ParameterString1 = $"Finished Dropping Connections ";
+                    ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+
+                    ExtensionsHelpers.Vismanager.CloseWaitForm();
+                    DMEEditor.AddLogMessage("Success", $"Deleted Connection", DateTime.Now, 0, null, Errors.Ok);
+                    ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Deleted Connection Successfully");
+                }
+            }
+            catch (Exception ex)
+            {
+                ExtensionsHelpers.Vismanager.CloseWaitForm();
+                DMEEditor.ErrorObject.Flag = Errors.Failed;
+                    DMEEditor.ErrorObject.Ex = ex;
+                    DMEEditor.AddLogMessage("Fail", $"Error Drpping Connection {ent.EntityName} - {ex.Message}", DateTime.Now, -1, null, Errors.Failed);
+            }
+          
+
+            return DMEEditor.ErrorObject;
+        }
         [CommandAttribute(Caption = "Import Data", Name = "ImportData", Click = true, iconimage = "importdata.ico", PointType = EnumPointType.Entity, ObjectType = "Beep")]
         public IErrorsInfo ImportData(IPassedArgs Passedarguments)
         {

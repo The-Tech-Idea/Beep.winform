@@ -82,9 +82,6 @@
     <Reference Include="DataManagementModelsStandard, Version=1.0.0.18, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.18\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.40, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.40\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
-    </Reference>
     <Reference Include="DMLoggerStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TheTechIdea.Beep.DMLogger2.0.1.0.0.7\lib\netstandard2.0\DMLoggerStandard.dll</HintPath>
     </Reference>
@@ -3347,6 +3344,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj">
+      <Project>{282db559-9dca-4486-8830-cd18be56418b}</Project>
+      <Name>DataManagementEngineStandard</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Beep.Winform.Controls\Beep.Winform.Controls.csproj">
       <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
       <Name>Beep.Winform.Controls</Name>
