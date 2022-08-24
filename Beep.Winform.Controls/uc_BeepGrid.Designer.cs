@@ -41,8 +41,10 @@
             this.Previousbutton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
             this.Newbutton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Toppanel.SuspendLayout();
             this.Bottompanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // Toppanel
@@ -128,7 +130,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MessageLabel.Location = new System.Drawing.Point(86, 4);
             this.MessageLabel.Name = "MessageLabel";
-            this.MessageLabel.Size = new System.Drawing.Size(526, 20);
+            this.MessageLabel.Size = new System.Drawing.Size(571, 20);
             this.MessageLabel.TabIndex = 8;
             this.MessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -182,18 +184,29 @@
             this.Newbutton.TabIndex = 3;
             this.Newbutton.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 22);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(735, 302);
+            this.dataGridView1.TabIndex = 2;
+            // 
             // uc_BeepGrid
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Bottompanel);
             this.Controls.Add(this.Toppanel);
             this.Name = "uc_BeepGrid";
             this.Size = new System.Drawing.Size(735, 348);
             this.Toppanel.ResumeLayout(false);
             this.Bottompanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,5 +227,6 @@
         public System.Windows.Forms.Label MessageLabel;
         public System.Windows.Forms.Label Titlelabel;
         public System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

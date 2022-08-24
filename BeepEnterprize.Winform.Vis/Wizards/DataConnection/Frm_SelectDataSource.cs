@@ -51,7 +51,20 @@ namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
 
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
-            throw new NotImplementedException();
+            this.dataConnectionsDataGridView.CellContentClick += DataConnectionsDataGridView_CellContentClick;
+        }
+
+        private void DataConnectionsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string connnectioname = Convert.ToString(dataConnectionsDataGridView.Rows[e.RowIndex].Cells["ConnectionName"].Value);
+            if (e.ColumnIndex == 2)
+            {
+
+            }
+            if (e.ColumnIndex == 3)
+            {
+
+            }
         }
     }
 }

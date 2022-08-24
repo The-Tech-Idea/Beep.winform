@@ -383,7 +383,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Export Data", Name = "exportdata", Click = true, iconimage = "exportdata.ico", PointType = EnumPointType.Entity, ObjectType = "Beep")]
+        [CommandAttribute(Caption = "Export Data", Name = "exportdata", Click = true, iconimage = "csv.ico", PointType = EnumPointType.Entity, ObjectType = "Beep")]
         public IErrorsInfo ExportData(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
