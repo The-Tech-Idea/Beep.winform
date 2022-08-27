@@ -254,6 +254,9 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             Filterbutton.Image = ListSearch;
             if (IsBeepDataOn == false) RemoveBeepGui();
             if (IsAppOn == false) RemoveAppGui();
+            
+            this.StartPosition = FormStartPosition.CenterScreen; this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true; 
         }
 
         private void RemoveAppGui()

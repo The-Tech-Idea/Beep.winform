@@ -25,28 +25,17 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
     {
         public IDMEEditor DMEEditor { get; set; }
         public IPassedArgs Passedargs { get; set; }
-        //private VisManager Vismanager { get; set; }
-        //private ControlManager Controlmanager { get; set; }
-        //private CrudManager Crudmanager { get; set; }
-        //private MenuControl Menucontrol { get; set; }
-        //private ToolbarControl Toolbarcontrol { get; set; }
-        //private TreeControl TreeEditor { get; set; }
-
+       
         CancellationTokenSource tokenSource;
 
         CancellationToken token;
         
-        //IDataSource DataSource;
-        //IBranch pbr;
-        //IBranch RootBranch;
-        //IBranch ParentBranch;
-
+      
         private FunctionandExtensionsHelpers ExtensionsHelpers;
         public DataSourceMenuFunctions(IDMEEditor pdMEEditor,VisManager pvisManager,TreeControl ptreeControl)
         {
             DMEEditor = pdMEEditor;
-            //Vismanager = pvisManager;
-            //TreeEditor = ptreeControl;
+        
             ExtensionsHelpers=new FunctionandExtensionsHelpers(DMEEditor, pvisManager, ptreeControl);
         }
      
@@ -422,6 +411,55 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                     DMEEditor.AddLogMessage("Fail", $"Error Drpping Connection {ent.EntityName} - {ex.Message}", DateTime.Now, -1, null, Errors.Failed);
             }
           
+
+            return DMEEditor.ErrorObject;
+        }
+        [CommandAttribute(Caption = "Delete Connection", Name = "DeleteConnection", Click = true, iconimage = "remove.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
+        public IErrorsInfo DdeleteConnection(IPassedArgs Passedarguments)
+        {
+            DMEEditor.ErrorObject.Flag = Errors.Ok;
+            EntityStructure ent = new EntityStructure();
+            ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
+            try
+            {
+                if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, you want to delete  connection ?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
+                {
+                    IBranch br = ExtensionsHelpers.pbr;
+                    if (br != null )
+                    {
+                         ExtensionsHelpers.TreeEditor.treeBranchHandler.RemoveBranch(br);
+                         bool retval = DMEEditor.ConfigEditor.DataConnectionExist(br.DataSourceName);
+                         if (retval)
+                                {
+                                    DMEEditor.RemoveDataDource(br.DataSourceName);
+                                    DMEEditor.ErrorObject.Flag = Errors.Ok;
+                                    DMEEditor.ConfigEditor.RemoveDataConnection(br.DataSourceName);
+                                    if (DMEEditor.ErrorObject.Flag == Errors.Ok)
+                                    {
+                                        DMEEditor.AddLogMessage("Success", $"Droped Data Connection {br.DataSourceName}", DateTime.Now, -1, null, Errors.Ok);
+                                    }
+                                    else
+                                    {
+                                        DMEEditor.AddLogMessage("Fail", $"Error Drpping Connection {br.DataSourceName} - {DMEEditor.ErrorObject.Message}", DateTime.Now, -1, null, Errors.Failed);
+                                    }
+                                }
+                    }
+                    DMEEditor.AddLogMessage("Success", $"Deleted Connection", DateTime.Now, 0, null, Errors.Ok);
+                    ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Deleted Connection Successfully");
+                }
+            }
+            catch (Exception ex)
+            {
+               
+                DMEEditor.ErrorObject.Flag = Errors.Failed;
+                DMEEditor.ErrorObject.Ex = ex;
+                DMEEditor.AddLogMessage("Fail", $"Error Drpping Connection {ent.EntityName} - {ex.Message}", DateTime.Now, -1, null, Errors.Failed);
+            }
+
 
             return DMEEditor.ErrorObject;
         }

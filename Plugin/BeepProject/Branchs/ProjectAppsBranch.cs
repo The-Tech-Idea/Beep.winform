@@ -42,6 +42,11 @@ namespace BeepProject.Branchs
         public string BranchClass { get; set; }
         public object ParentBranch { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
+        public IBranch CreateCategoryNode(CategoryFolder p)
+        {
+            throw new NotImplementedException();
+        }
+
         public IErrorsInfo CreateChildNodes()
         {
             throw new NotImplementedException();
