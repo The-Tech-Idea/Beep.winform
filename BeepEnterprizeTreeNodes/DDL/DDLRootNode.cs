@@ -138,21 +138,7 @@ namespace  BeepEnterprize.Vis.Module
         }
         #endregion "Interface Methods"
         #region "Exposed Interface"
-        [CommandAttribute(Caption = "Add Category")]
-        public IErrorsInfo AddCategory()
-        {
-
-            try
-            {
-                TreeEditor.treeBranchHandler.AddCategory(this);
-            }
-            catch (Exception ex)
-            {
-                string mes = "Could not Add Category";
-                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
-            };
-            return DMEEditor.ErrorObject;
-        }
+      
         #endregion Exposed Interface"
         #region "Other Methods"
         public IErrorsInfo CreateNodes()
@@ -180,6 +166,11 @@ namespace  BeepEnterprize.Vis.Module
             };
             return DMEEditor.ErrorObject;
 
+        }
+
+        public IBranch CreateCategoryNode(CategoryFolder p)
+        {
+            throw new NotImplementedException();
         }
         #endregion"Other Methods"
     }
