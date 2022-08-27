@@ -7,8 +7,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine2.0" Version="1.0.0.40" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.18" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine2.0" Version="1.0.0.41" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.21" />
   </ItemGroup>
 
 </Project>

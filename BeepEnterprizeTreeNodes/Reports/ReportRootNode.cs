@@ -16,7 +16,7 @@ using TheTechIdea.Beep.AppManager;
 namespace  BeepEnterprize.Vis.Module
 {
     [AddinAttribute(Caption = "Reports", Name = "ReportRootNode.Beep", misc = "Beep", iconimage = "report.ico", menu = "Beep",ObjectType ="Beep")]
-    public class ReportRootNode  : IBranch , IOrder, IBranchRootCategory
+    public class ReportRootNode  : IBranch , IOrder
     {
         public ReportRootNode()
         {
@@ -77,11 +77,12 @@ namespace  BeepEnterprize.Vis.Module
         // public event EventHandler<PassedArgs> ActionNeeded;
         #endregion "Properties"
         #region "Interface Methods"
-        public IErrorsInfo CreateCategoryNode( CategoryFolder p)
+        public IBranch CreateCategoryNode( CategoryFolder p)
         {
+            ReportCategoryNode Category = null;
             try
             {
-                ReportCategoryNode Category = new ReportCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
+                Category = new ReportCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
                 TreeEditor.treeBranchHandler.AddBranch(this, Category);
                 this.ChildBranchs.Add(Category);
                 Category.CreateChildNodes();
@@ -93,7 +94,7 @@ namespace  BeepEnterprize.Vis.Module
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }
-            return DMEEditor.ErrorObject;
+            return Category;
 
         }
         public IErrorsInfo CreateChildNodes()

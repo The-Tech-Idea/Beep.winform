@@ -69,8 +69,8 @@
     <ApplicationIcon>SimpleODM.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly_helpersStandard, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.AssemblyHelper2.0.1.0.0.11\lib\netstandard2.0\Assembly_helpersStandard.dll</HintPath>
+    <Reference Include="Assembly_helpersStandard, Version=1.0.0.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.AssemblyHelper2.0.1.0.0.12\lib\netstandard2.0\Assembly_helpersStandard.dll</HintPath>
     </Reference>
     <Reference Include="Autofac, Version=6.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.6.4.0\lib\netstandard2.0\Autofac.dll</HintPath>
@@ -79,8 +79,8 @@
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataManagementModelsStandard, Version=1.0.0.18, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.18\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.21, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.21\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
     <Reference Include="DMLoggerStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TheTechIdea.Beep.DMLogger2.0.1.0.0.7\lib\netstandard2.0\DMLoggerStandard.dll</HintPath>
@@ -141,8 +141,8 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.19, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.19\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
+    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.22\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -185,7 +185,12 @@ namespace  BeepEnterprize.Vis.Module
                     {
                         foreach (string item in i.items)
                         {
-                            CreateFileNode(item);
+                            if (!TreeEditor.Branches.Any(p => p.BranchText.Equals(item, StringComparison.InvariantCultureIgnoreCase) && p.BranchClass == BranchClass))
+                            {
+                               
+                                CreateFileNode(item);
+                            }
+                           
                         }
 
 
@@ -302,6 +307,11 @@ namespace  BeepEnterprize.Vis.Module
                 return null;
             };
 
+        }
+
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
+        {
+            throw new NotImplementedException();
         }
         #endregion"Other Methods"
 

@@ -1,15 +1,12 @@
-﻿using System;
+﻿using BeepEnterprize.Vis.Module;
+using BeepEnterprize.Winform.Vis.Controls;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
-using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Controls;
-using BeepEnterprize.Winform.Vis.CRUD;
-using Microsoft.Win32;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -564,10 +561,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             {
                 try
                 {
-                    
+
                     Passedarguments.DatasourceName = ExtensionsHelpers.pbr.BranchText;
                     IDataSource ds = DMEEditor.GetDataSource(Passedarguments.DatasourceName);
-                    AppTemplate app= CreateReportDefinitionFromView(ds);
+                    AppTemplate app = ExtensionsHelpers.CreateReportDefinitionFromView(ds);
                     //if (!pbr.BranchClass.Equals("View", StringComparison.InvariantCultureIgnoreCase))
                     //{
                     //    Vismanager.ShowPage("uc_CreateEntity", (PassedArgs)Passedarguments, DisplayType.InControl);
@@ -576,8 +573,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                     //    Vismanager.ShowPage("CreateEditEntityManager", (PassedArgs)Passedarguments, DisplayType.InControl);
                     DMEEditor.ConfigEditor.ReportsDefinition.Add(app);
                     DMEEditor.ConfigEditor.SaveReportDefinitionsValues();
-                    IBranch reports = ExtensionsHelpers.TreeEditor.Branches.FirstOrDefault(p=>p.BranchClass== "REPORT" && p.BranchType== EnumPointType.Root);
-                    if(reports != null)
+                    IBranch reports = ExtensionsHelpers.TreeEditor.Branches.FirstOrDefault(p => p.BranchClass == "REPORT" && p.BranchType == EnumPointType.Root);
+                    if (reports != null)
                     {
                         reports.CreateChildNodes();
                     }
@@ -592,31 +589,67 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
-        private AppTemplate CreateReportDefinitionFromView(IDataSource src)
+        [CommandAttribute(Caption = "Add File(s)", Hidden = false, iconimage = "add.ico" ,Click = true, PointType = EnumPointType.Root, ObjectType = "Beep" ,ClassType ="FILE")]
+        public IErrorsInfo AddFile(IPassedArgs Passedarguments)
         {
-            AppTemplate app = new AppTemplate();
-            app.DataSourceName = src.DatasourceName;
-            app.Name = src.DatasourceName;
-            app.ID = Guid.NewGuid().ToString();
-            foreach (EntityStructure item in src.Entities)
-            {
-                AppBlock blk = new AppBlock();
-                blk.filters = item.Filters;
-                blk.Paramenters = item.Paramenters;
-                blk.Fields = item.Fields;
-                blk.Relations = item.Relations;
-                blk.ViewID = src.DatasourceName;
-                blk.CustomBuildQuery = item.CustomBuildQuery;
-                
-                foreach (EntityField flds in item.Fields)
-                {
-                    blk.BlockColumns.Add(new AppBlockColumns() { ColumnName = flds.fieldname, DisplayName = flds.fieldname, ColumnSeq = flds.FieldIndex });
 
+            try
+            {
+                DMEEditor.ErrorObject.Flag = Errors.Ok;
+               
+                ExtensionsHelpers.GetValues(Passedarguments);
+                if (ExtensionsHelpers.pbr == null)
+                {
+                    return DMEEditor.ErrorObject;
                 }
-                app.Blocks.Add(blk);
+                List<ConnectionProperties> files = new List<ConnectionProperties>();
+                files = ExtensionsHelpers.LoadFiles();
+                foreach (ConnectionProperties f in files)
+                {
+                    DMEEditor.ConfigEditor.AddDataConnection(f);
+                    DMEEditor.GetDataSource(f.FileName);
+                    ExtensionsHelpers.pbr.CreateChildNodes();
+                }
+                DMEEditor.ConfigEditor.SaveDataconnectionsValues();
+                DMEEditor.AddLogMessage("Success", "Added Database Connection", DateTime.Now, 0, null, Errors.Ok);
             }
-            return app;
+            catch (Exception ex)
+            {
+                string mes = "Could not Add Database Connection";
+                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
+            };
+            return DMEEditor.ErrorObject;
         }
+        [CommandAttribute(Caption = "Scan Beep Folders for File(s)", Hidden = false, iconimage = "add.ico", Click = true, PointType = EnumPointType.Root, ObjectType = "Beep", ClassType = "FILE")]
+        public IErrorsInfo ScanFolderFile(IPassedArgs Passedarguments)
+        {
+            try
+            {
+                DMEEditor.ErrorObject.Flag = Errors.Ok; 
+                ExtensionsHelpers.GetValues(Passedarguments);
+                if (ExtensionsHelpers.pbr == null)
+                {
+                    return DMEEditor.ErrorObject;
+                }
+                List<ConnectionProperties> files = new List<ConnectionProperties>();
+                files = ExtensionsHelpers.LoadFiles();
+                foreach (ConnectionProperties f in files)
+                {
+                    DMEEditor.ConfigEditor.AddDataConnection(f);
+                    DMEEditor.GetDataSource(f.FileName);
+                    ExtensionsHelpers.pbr.CreateChildNodes();
+                }
+                DMEEditor.ConfigEditor.SaveDataconnectionsValues();
+                DMEEditor.AddLogMessage("Success", "Added Database Connection", DateTime.Now, 0, null, Errors.Ok);
+            }
+            catch (Exception ex)
+            {
+                string mes = "Could not Add Database Connection";
+                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
+            };
+            return DMEEditor.ErrorObject;
+        }
+      
 
     }
 }

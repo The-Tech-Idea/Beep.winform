@@ -303,6 +303,11 @@ namespace  BeepEnterprize.Vis.Module.Reports
             return DMEEditor.ErrorObject;
 
         }
+
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
+        {
+            throw new NotImplementedException();
+        }
         #endregion"Other Methods"
     }
 }

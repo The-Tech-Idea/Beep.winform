@@ -252,11 +252,12 @@ namespace  BeepEnterprize.Vis.Module
             return DMEEditor.ErrorObject;
 
         }
-        private IErrorsInfo CreateCategoryNode(CategoryFolder p)
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
         {
+            WorkFlowCategoryNode categoryBranch = null;
             try
             {
-                WorkFlowCategoryNode categoryBranch = new WorkFlowCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, "category.ico");
+                 categoryBranch = new WorkFlowCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, "category.ico");
                 TreeEditor.treeBranchHandler.AddBranch(this, categoryBranch);
                 ChildBranchs.Add(categoryBranch);
                 categoryBranch.CreateChildNodes();
@@ -269,9 +270,11 @@ namespace  BeepEnterprize.Vis.Module
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }
-            return DMEEditor.ErrorObject;
+            return categoryBranch;
 
         }
+
+       
         #endregion"Other Methods"
     }
 }

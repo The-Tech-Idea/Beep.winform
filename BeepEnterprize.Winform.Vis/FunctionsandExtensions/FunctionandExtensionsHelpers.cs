@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheTechIdea;
 using TheTechIdea.Beep;
+using TheTechIdea.Beep.AppManager;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.DataView;
 using TheTechIdea.Beep.Editor;
@@ -320,6 +321,213 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return ls;
 
         }
-      
+        public virtual List<ConnectionProperties> LoadFiles(string Directoryname = null)
+        {
+            List<ConnectionProperties> retval = new List<ConnectionProperties>();
+            try
+            {
+                string extens = DMEEditor.ConfigEditor.CreateFileExtensionString();
+                List<string> filenames = new List<string>();
+                if (Directoryname == null)
+                {
+                    filenames = Vismanager.Controlmanager.LoadFilesDialog("*", DMEEditor.ConfigEditor.Config.Folders.Where(c => c.FolderFilesType == FolderFileTypes.DataFiles).FirstOrDefault().FolderPath, extens);
+                }
+                else
+                {
+                    DirectorySearch(Directoryname);
+                }
+                retval = CreateFileConnections(filenames);
+                return retval;
+            }
+            catch (Exception ex)
+            {
+                string mes = ex.Message;
+                DMEEditor.AddLogMessage(ex.Message, "Could not Load Files ", DateTime.Now, -1, mes, Errors.Failed);
+                return null;
+            };
+        }
+        public void DirectorySearch(string dir)
+        {
+            try
+            {
+                foreach (string f in Directory.GetFiles(dir))
+                {
+                    // Console.WriteLine(Path.GetFileName(f));
+                    CreateFileDataConnection(f);
+                    //  ExtensionsHelpers.TreeEditor.treeBranchHandler.MoveBranchToCategory
+                }
+                foreach (string d in Directory.GetDirectories(dir))
+                {
+                    TreeEditor.treeBranchHandler.AddCategory(pbr, d);
+                    // Console.WriteLine(Path.GetFileName(d));
+                    DirectorySearch(d);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public List<ConnectionProperties> CreateFileConnections(List<string> filenames)
+        {
+            List<ConnectionProperties> retval = new List<ConnectionProperties>();
+            try
+            {
+                foreach (String file in filenames)
+                {
+                    {
+                        ConnectionProperties c = CreateFileDataConnection(file);
+                        if (c != null)
+                        {
+                            retval.Add(c);
+                        }
+                    }
+                }
+                return retval;
+            }
+            catch (Exception ex)
+            {
+                string mes = ex.Message;
+                DMEEditor.AddLogMessage(ex.Message, "Could not Load Files ", DateTime.Now, -1, mes, Errors.Failed);
+                return null;
+            };
+        }
+        public ConnectionProperties CreateFileDataConnection(string file)
+        {
+            try
+            {
+                ConnectionProperties f = new ConnectionProperties
+                {
+                    FileName = Path.GetFileName(file),
+                    FilePath = Path.GetDirectoryName(file),
+                    Ext = Path.GetExtension(file).Replace(".", "").ToLower(),
+                    ConnectionName = Path.GetFileName(file)
+
+
+                };
+                if (f.FilePath.Contains(DMEEditor.ConfigEditor.ExePath))
+                {
+                    f.FilePath.Replace(DMEEditor.ConfigEditor.ExePath, ".");
+                }
+                if (f.FilePath.Contains(DMEEditor.ConfigEditor.Config.DataFilePath))
+                {
+                    f.FilePath.Replace(DMEEditor.ConfigEditor.Config.DataFilePath, ".");
+                }
+                if (f.FilePath.Contains(DMEEditor.ConfigEditor.Config.ProjectDataPath))
+                {
+                    f.FilePath.Replace(DMEEditor.ConfigEditor.Config.ProjectDataPath, ".");
+                }
+                string ext = Path.GetExtension(file).Replace(".", "").ToLower();
+                List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null).ToList();
+                ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext) && o.Favourite == true).FirstOrDefault();
+                if (c is null)
+                {
+                    c = clss.Where(o => o.classHandler.Equals("CSVDataSource", StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+                }
+                if (c != null)
+                {
+                    f.DriverName = c.PackageName;
+                    f.DriverVersion = c.version;
+                    f.Category = c.DatasourceCategory;
+
+                    switch (f.Ext.ToLower())
+                    {
+                        case "txt":
+                            f.DatabaseType = DataSourceType.Text;
+                            break;
+                        case "csv":
+                            f.DatabaseType = DataSourceType.CSV;
+                            break;
+                        case "xml":
+                            f.DatabaseType = DataSourceType.xml;
+                            break;
+                        case "json":
+                            f.DatabaseType = DataSourceType.Json;
+                            break;
+                        case "xls":
+                        case "xlsx":
+                            f.DatabaseType = DataSourceType.Xls;
+                            break;
+                        default:
+                            f.DatabaseType = DataSourceType.Text;
+                            break;
+                    }
+                    f.Category = DatasourceCategory.FILE;
+                    return f;
+
+                }
+                else
+                {
+                    DMEEditor.AddLogMessage("Beep", $"Could not Load File {f.ConnectionName}", DateTime.Now, -1, null, Errors.Failed);
+                }
+                return f;
+            }
+            catch (Exception ex)
+            {
+                string mes = ex.Message;
+                DMEEditor.AddLogMessage(ex.Message, "Could not Load Files ", DateTime.Now, -1, mes, Errors.Failed);
+                return null;
+            };
+        }
+        public AppTemplate CreateReportDefinitionFromView(IDataSource src)
+        {
+            AppTemplate app = new AppTemplate();
+            app.DataSourceName = src.DatasourceName;
+            app.Name = src.DatasourceName;
+            app.ID = Guid.NewGuid().ToString();
+            foreach (EntityStructure item in src.Entities)
+            {
+                AppBlock blk = new AppBlock();
+                blk.filters = item.Filters;
+                blk.Paramenters = item.Paramenters;
+                blk.Fields = item.Fields;
+                blk.Relations = item.Relations;
+                blk.ViewID = src.DatasourceName;
+                blk.CustomBuildQuery = item.CustomBuildQuery;
+
+                foreach (EntityField flds in item.Fields)
+                {
+                    blk.BlockColumns.Add(new AppBlockColumns() { ColumnName = flds.fieldname, DisplayName = flds.fieldname, ColumnSeq = flds.FieldIndex });
+
+                }
+                app.Blocks.Add(blk);
+            }
+            return app;
+        }
+        public CategoryFolder AddtoFolder(string foldername)
+        {
+            CategoryFolder retval = null;
+            try
+            {
+                IBranch Rootbr = RootBranch;
+                if (!string.IsNullOrEmpty(foldername))
+                {
+                    if (DMEEditor.Passedarguments == null)
+                    {
+                        DMEEditor.Passedarguments = new PassedArgs();
+                    }
+                    if (foldername != null)
+                    {
+                        if (foldername.Length > 0)
+                        {
+                            if (!DMEEditor.ConfigEditor.CategoryFolders.Where(p => p.RootName.Equals(Rootbr.BranchClass, StringComparison.InvariantCultureIgnoreCase) && p.ParentName.Equals(Rootbr.BranchText, StringComparison.InvariantCultureIgnoreCase) && p.FolderName.Equals(foldername, StringComparison.InvariantCultureIgnoreCase)).Any())
+                            {
+                                retval = DMEEditor.ConfigEditor.AddFolderCategory(foldername, Rootbr.BranchClass, Rootbr.BranchText);
+                                Rootbr.CreateCategoryNode(retval);
+                                DMEEditor.ConfigEditor.SaveCategoryFoldersValues();
+                            }
+                        }
+                    }
+                }
+                DMEEditor.AddLogMessage("Success", "Added Category", DateTime.Now, 0, null, Errors.Failed);
+            }
+            catch (Exception ex)
+            {
+                string mes = "Could not Add Category";
+                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
+            };
+            return retval;
+        }
+
     }
 }

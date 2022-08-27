@@ -61,6 +61,7 @@ namespace BeepEnterprize.Vis.Module
         public object ParentBranch { get; set; }
 
         #region "Interface Methods"
+
         public IErrorsInfo CreateChildNodes()
         {
 
@@ -184,11 +185,12 @@ namespace BeepEnterprize.Vis.Module
             return DMEEditor.ErrorObject;
 
         }
-        private IErrorsInfo CreateCategoryNode(CategoryFolder p)
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
         {
+            AICategoryNode categoryBranch = null;
             try
             {
-                AICategoryNode categoryBranch = new AICategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, "category.ico");
+                 categoryBranch = new AICategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, "category.ico");
                 TreeEditor.treeBranchHandler.AddBranch(this, categoryBranch);
                 ChildBranchs.Add(categoryBranch);
                 categoryBranch.CreateChildNodes();
@@ -201,7 +203,7 @@ namespace BeepEnterprize.Vis.Module
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }
-            return DMEEditor.ErrorObject;
+            return categoryBranch;
 
         }
         #endregion"Other Methods"
@@ -253,6 +255,7 @@ namespace BeepEnterprize.Vis.Module
         }
 
       
+
 
         #endregion
     }

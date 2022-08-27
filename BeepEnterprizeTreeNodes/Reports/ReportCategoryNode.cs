@@ -15,7 +15,7 @@ using TheTechIdea.Util;
 namespace  BeepEnterprize.Vis.Module.Reports
 {
     [AddinAttribute(Caption = "Reports", Name = "ReportCategoryNode.Beep", misc = "Beep", iconimage = "report.ico", menu = "Beep", ObjectType = "Beep")]
-    class ReportCategoryNode : IBranch 
+    public class ReportCategoryNode : IBranch 
     {
         public ReportCategoryNode(ITree pTreeEditor, IDMEEditor pDMEEditor, IBranch pParentNode, string pBranchText, int pID, EnumPointType pBranchType, string pimagename)
         {
@@ -57,13 +57,18 @@ namespace  BeepEnterprize.Vis.Module.Reports
         public object TreeStrucure { get ; set ; }
         public  IVisManager  Visutil  { get ; set ; }
 
-       // public event EventHandler<PassedArgs> BranchSelected;
-       // public event EventHandler<PassedArgs> BranchDragEnter;
-       // public event EventHandler<PassedArgs> BranchDragDrop;
-       // public event EventHandler<PassedArgs> BranchDragLeave;
-       // public event EventHandler<PassedArgs> BranchDragClick;
-       // public event EventHandler<PassedArgs> BranchDragDoubleClick;
-       // public event EventHandler<PassedArgs> ActionNeeded;
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
+        {
+            throw new NotImplementedException();
+        }
+
+        // public event EventHandler<PassedArgs> BranchSelected;
+        // public event EventHandler<PassedArgs> BranchDragEnter;
+        // public event EventHandler<PassedArgs> BranchDragDrop;
+        // public event EventHandler<PassedArgs> BranchDragLeave;
+        // public event EventHandler<PassedArgs> BranchDragClick;
+        // public event EventHandler<PassedArgs> BranchDragDoubleClick;
+        // public event EventHandler<PassedArgs> ActionNeeded;
 
         #region "Interface Methods"
         public IErrorsInfo CreateChildNodes()

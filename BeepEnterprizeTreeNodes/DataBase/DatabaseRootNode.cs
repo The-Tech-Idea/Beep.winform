@@ -12,7 +12,7 @@ using TheTechIdea.Util;
 namespace  BeepEnterprize.Vis.Module
 {
     [AddinAttribute(Caption = "RDBMS", Name = "DatabaseRootNode.Beep", misc = "Beep", iconimage = "database.ico", menu = "Beep", ObjectType = "Beep")]
-    public class DatabaseRootNode : IBranch ,IOrder,IBranchRootCategory
+    public class DatabaseRootNode : IBranch ,IOrder 
     {
 
         public DatabaseRootNode()
@@ -161,11 +161,12 @@ namespace  BeepEnterprize.Vis.Module
            
             return DMEEditor.ErrorObject;
         }
-        public IErrorsInfo CreateCategoryNode(CategoryFolder p)
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
         {
+            DatabaseCategoryNode Category = null;
             try
             {
-                DatabaseCategoryNode Category = new DatabaseCategoryNode(TreeEditor, DMEEditor, this,p.FolderName, TreeEditor.SeqID, EnumPointType.Category,TreeEditor.CategoryIcon);
+                 Category = new DatabaseCategoryNode(TreeEditor, DMEEditor, this,p.FolderName, TreeEditor.SeqID, EnumPointType.Category,TreeEditor.CategoryIcon);
                 TreeEditor.treeBranchHandler.AddBranch(this, Category);
                 ChildBranchs.Add(Category);
                 Category.CreateChildNodes();
@@ -177,7 +178,7 @@ namespace  BeepEnterprize.Vis.Module
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }
-            return DMEEditor.ErrorObject;
+            return Category;
 
         }
     

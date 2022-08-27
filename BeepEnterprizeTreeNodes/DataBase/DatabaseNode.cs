@@ -499,6 +499,10 @@ namespace  BeepEnterprize.Vis.Module
         {
 
         }
-       
+
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

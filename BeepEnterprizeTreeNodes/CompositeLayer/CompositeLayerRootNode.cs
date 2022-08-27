@@ -13,7 +13,7 @@ using TheTechIdea.Util;
 namespace  BeepEnterprize.Vis.Module
 {
     [AddinAttribute(Caption = "Composite Layer", Name = "CompositeLayerRootNode.Beep", misc = "Beep", iconimage = "clayerroot.ico", menu = "Beep", ObjectType = "Beep")]
-    public class CompositeLayerRootNode : IBranch ,IOrder,IBranchRootCategory
+    public class CompositeLayerRootNode : IBranch ,IOrder 
     {
 
         public CompositeLayerRootNode()
@@ -106,7 +106,7 @@ namespace  BeepEnterprize.Vis.Module
                 TreeEditor.treeBranchHandler.RemoveChildBranchs(this);
                 foreach (CompositeLayer i in DMEEditor.ConfigEditor.CompositeQueryLayers)
                 {
-                    if (TreeEditor.treeBranchHandler.CheckifBranchExistinCategory(i.LayerName, "CLAYER") ==null)
+                    if (TreeEditor.treeBranchHandler.CheckifBranchExistinCategory(i.LayerName, BranchClass) ==null)
                     {
                          clayer = i;
                         CreateLayerNode(i.ID, i.LayerName);
@@ -115,7 +115,7 @@ namespace  BeepEnterprize.Vis.Module
 
 
                 }
-                foreach (CategoryFolder i in DMEEditor.ConfigEditor.CategoryFolders.Where(x => x.RootName == "CLAYER"))
+                foreach (CategoryFolder i in DMEEditor.ConfigEditor.CategoryFolders.Where(x => x.RootName == BranchClass))
                 {
 
                     CreateCategoryNode(i);
@@ -161,13 +161,14 @@ namespace  BeepEnterprize.Vis.Module
            
             return DMEEditor.ErrorObject;
         }
-        public IErrorsInfo CreateCategoryNode(CategoryFolder p)
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
         {
+            CompositeLayerCategoryNode Category = null;
             try
             {
                 if (!ChildBranchs.Any(x => x.BranchText == p.FolderName))
                 {
-                    CompositeLayerCategoryNode Category = new CompositeLayerCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
+                     Category = new CompositeLayerCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
                     TreeEditor.treeBranchHandler.AddBranch(this, Category);
                     ChildBranchs.Add(Category);
                     Category.CreateChildNodes();
@@ -182,7 +183,7 @@ namespace  BeepEnterprize.Vis.Module
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }
-            return DMEEditor.ErrorObject;
+            return Category;
 
         }
         public IErrorsInfo ExecuteBranchAction(string ActionName)

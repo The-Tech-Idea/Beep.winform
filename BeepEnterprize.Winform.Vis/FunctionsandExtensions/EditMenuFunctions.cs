@@ -226,9 +226,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 {
                     if (foldername.Length > 0)
                     {
-                        CategoryFolder x = DMEEditor.ConfigEditor.AddFolderCategory(foldername, Rootbr.BranchClass, foldername);
-                        IBranchRootCategory f = (IBranchRootCategory)Rootbr;
-                        f.CreateCategoryNode(x);
+                        CategoryFolder x = DMEEditor.ConfigEditor.AddFolderCategory(foldername, Rootbr.BranchClass, Rootbr.BranchText);
+                        Rootbr.CreateCategoryNode(x);
                         DMEEditor.ConfigEditor.SaveCategoryFoldersValues();
 
                     }

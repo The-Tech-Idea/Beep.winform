@@ -15,7 +15,7 @@ using TheTechIdea.Util;
 namespace  BeepEnterprize.Vis.Module
 {
     [AddinAttribute(Caption = "Files", Name = "FileRootNode.Beep", misc = "Beep", iconimage = "file.ico", menu = "Beep",ObjectType ="Beep")]
-    public class FileRootNode  : IBranch ,IOrder,IBranchRootCategory
+    public class FileRootNode  : IBranch ,IOrder 
     {
         public FileRootNode()
         {
@@ -174,8 +174,12 @@ namespace  BeepEnterprize.Vis.Module
                 {
                     if (TreeEditor.treeBranchHandler.CheckifBranchExistinCategory(i.ConnectionName, "FILE") == null)
                     {
-                        CreateFileNode(i.ID,i.FileName,i.ConnectionName);
-                        i.Drawn = true;
+                        if (!TreeEditor.Branches.Any(p=>p.BranchText.Equals(i.ConnectionName,StringComparison.InvariantCultureIgnoreCase) && p.BranchClass== BranchClass))
+                        {
+                            CreateFileNode(i.ID, i.FileName, i.ConnectionName);
+
+                        }
+
                     }
 
 
@@ -183,9 +187,10 @@ namespace  BeepEnterprize.Vis.Module
                 }
                 foreach (CategoryFolder i in DMEEditor.ConfigEditor.CategoryFolders.Where(x => x.RootName == "FILE"))
                 {
-
-                    CreateCategoryNode(i);
-
+                    if (!TreeEditor.Branches.Any(p => p.BranchText.Equals(i.FolderName, StringComparison.InvariantCultureIgnoreCase) && p.BranchType== EnumPointType.Category &&  p.BranchClass==BranchClass))
+                    {
+                        CreateCategoryNode(i);
+                    }
 
                 }
                 DMEEditor.AddLogMessage("Success", "Created child Nodes", DateTime.Now, 0, null, Errors.Ok);
@@ -223,11 +228,12 @@ namespace  BeepEnterprize.Vis.Module
 
             return viewbr;
         }
-        public IErrorsInfo CreateCategoryNode(CategoryFolder p)
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
         {
+            FileCategoryNode categoryBranch = null;
             try
             {
-                FileCategoryNode categoryBranch = new FileCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, "category.ico");
+                 categoryBranch = new FileCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, "category.ico");
                 TreeEditor.treeBranchHandler.AddBranch(this, categoryBranch);
                 ChildBranchs.Add(categoryBranch);
                 categoryBranch.CreateChildNodes();
@@ -240,7 +246,7 @@ namespace  BeepEnterprize.Vis.Module
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }
-            return DMEEditor.ErrorObject;
+            return categoryBranch;
 
         }
         public virtual List<ConnectionProperties> LoadFiles()
@@ -263,9 +269,17 @@ namespace  BeepEnterprize.Vis.Module
 
 
                         };
-                        if (f.FilePath.Contains(DMEEditor.ConfigEditor.ExePath))
+                        if (f.FilePath.Contains(DMEEditor.ConfigEditor.ExePath) )
                         {
                             f.FilePath.Replace(DMEEditor.ConfigEditor.ExePath, ".");
+                        }
+                        if ( f.FilePath.Contains(DMEEditor.ConfigEditor.Config.DataFilePath) )
+                        {
+                            f.FilePath.Replace(DMEEditor.ConfigEditor.Config.DataFilePath, ".");
+                        }
+                        if ( f.FilePath.Contains(DMEEditor.ConfigEditor.Config.ProjectDataPath))
+                        {
+                            f.FilePath.Replace(DMEEditor.ConfigEditor.Config.ProjectDataPath, ".");
                         }
                         string ext = Path.GetExtension(file).Replace(".", "").ToLower();
                         List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null).ToList();

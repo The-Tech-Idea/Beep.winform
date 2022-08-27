@@ -10,7 +10,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         IDMEEditor DMEEditor { get; set; }
 
         IErrorsInfo AddBranch(IBranch ParentBranch, IBranch Branch);
-        IErrorsInfo AddCategory(IBranch Rootbr);
+        IErrorsInfo AddCategory(IBranch Rootbr,string foldername);
         string CheckifBranchExistinCategory(string BranchName, string pRootName);
         IErrorsInfo CreateBranch(IBranch Branch);
         IBranch GetBranch(int pID);

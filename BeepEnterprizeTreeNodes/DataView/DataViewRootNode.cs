@@ -16,7 +16,7 @@ using TheTechIdea.Util;
 namespace  BeepEnterprize.Vis.Module
 {
     [AddinAttribute(Caption = "DataView", Name = "DataViewRootNode.Beep", misc = "Beep", iconimage = "dataview.ico", menu = "Beep",ObjectType ="Beep")]
-    public class DataViewRootNode  : IBranch ,IOrder,IBranchRootCategory
+    public class DataViewRootNode  : IBranch ,IOrder 
     {
         public DataViewRootNode()
         {
@@ -370,11 +370,12 @@ namespace  BeepEnterprize.Vis.Module
 
             return viewbr;
         }
-        public IErrorsInfo CreateCategoryNode(CategoryFolder p)
-    {
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
+        {
+            DataViewCategoryNode categoryBranch = null;
         try
         {
-                DataViewCategoryNode categoryBranch = new DataViewCategoryNode(TreeEditor, DMEEditor,this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, "category.ico");
+                categoryBranch = new DataViewCategoryNode(TreeEditor, DMEEditor,this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, "category.ico");
                 TreeEditor.treeBranchHandler.AddBranch(this, categoryBranch);
                 ChildBranchs.Add(categoryBranch);
                 categoryBranch.CreateChildNodes();
@@ -387,7 +388,7 @@ namespace  BeepEnterprize.Vis.Module
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
         }
-        return DMEEditor.ErrorObject;
+        return categoryBranch;
 
     }
         #endregion

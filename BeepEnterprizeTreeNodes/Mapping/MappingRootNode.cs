@@ -15,7 +15,7 @@ using TheTechIdea;
 namespace  BeepEnterprize.Vis.Module.Mapping
 {
     [AddinAttribute(Caption = "Mapping", Name = "Mapping.Beep", misc = "Beep", iconimage = "mapping.ico", menu = "Beep",ObjectType ="Beep")]
-    public class MappingRootNode  : IBranch ,IOrder,IBranchRootCategory
+    public class MappingRootNode  : IBranch ,IOrder 
     {
         public MappingRootNode()
         {
@@ -109,13 +109,14 @@ namespace  BeepEnterprize.Vis.Module.Mapping
         {
             throw new NotImplementedException();
         }
-        public IErrorsInfo CreateCategoryNode(CategoryFolder p)
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
         {
+            MappingCategoryNode Category = null;
             try
             {
                 if (!ChildBranchs.Any(x => x.BranchText == p.FolderName))
                 {
-                    MappingCategoryNode Category = new MappingCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
+                    Category = new MappingCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
                     TreeEditor.treeBranchHandler.AddBranch(this, Category);
                     ChildBranchs.Add(Category);
                     Category.CreateChildNodes();
@@ -130,7 +131,7 @@ namespace  BeepEnterprize.Vis.Module.Mapping
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }
-            return DMEEditor.ErrorObject;
+            return Category;
 
         }
         public IErrorsInfo SetConfig(ITree pTreeEditor, IDMEEditor pDMEEditor, IBranch pParentNode, string pBranchText, int pID, EnumPointType pBranchType, string pimagename)

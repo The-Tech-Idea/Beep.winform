@@ -13,7 +13,7 @@ using TheTechIdea.Util;
 namespace  BeepEnterprize.Vis.Module
 {
     [AddinAttribute(Caption = "Cloud", Name = "CloudServiceRootNode.Beep", misc = "Beep", iconimage = "cloud.ico", menu = "Beep",ObjectType ="Beep")]
-    public class CloudServiceRootNode  : IBranch , IOrder,IBranchRootCategory
+    public class CloudServiceRootNode  : IBranch , IOrder 
     {
         public CloudServiceRootNode()
         {
@@ -108,13 +108,14 @@ namespace  BeepEnterprize.Vis.Module
         {
             throw new NotImplementedException();
         }
-        public IErrorsInfo CreateCategoryNode(CategoryFolder p)
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
         {
+            CompositeLayerCategoryNode Category = null;
             try
             {
                 if (!ChildBranchs.Any(x => x.BranchText == p.FolderName))
                 {
-                    CompositeLayerCategoryNode Category = new CompositeLayerCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
+                    Category = new CompositeLayerCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
                     TreeEditor.treeBranchHandler.AddBranch(this, Category);
                     ChildBranchs.Add(Category);
                     Category.CreateChildNodes();
@@ -129,7 +130,7 @@ namespace  BeepEnterprize.Vis.Module
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }
-            return DMEEditor.ErrorObject;
+            return Category;
 
         }
         public IErrorsInfo SetConfig(ITree pTreeEditor, IDMEEditor pDMEEditor, IBranch pParentNode, string pBranchText, int pID, EnumPointType pBranchType, string pimagename)

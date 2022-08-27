@@ -172,11 +172,12 @@ namespace  BeepEnterprize.Vis.Module
             return DMEEditor.ErrorObject;
 
         }
-        private IErrorsInfo CreateCategoryNode(CategoryFolder p)
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
         {
+            DatabaseCategoryNode Category = null;
             try
             {
-                DatabaseCategoryNode Category = new DatabaseCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
+                 Category = new DatabaseCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
                 TreeEditor.treeBranchHandler.AddBranch(this, Category);
                 ChildBranchs.Add(Category);
                 Category.CreateChildNodes();
@@ -188,7 +189,7 @@ namespace  BeepEnterprize.Vis.Module
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }
-            return DMEEditor.ErrorObject;
+            return Category;
 
         }
         private IBranch CreateWebApiNode(string WebApiName)
@@ -213,6 +214,8 @@ namespace  BeepEnterprize.Vis.Module
 
             return viewbr;
         }
+
+        
         #endregion"Other Methods"
     }
 }

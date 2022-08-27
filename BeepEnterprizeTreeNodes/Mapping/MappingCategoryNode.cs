@@ -52,7 +52,12 @@ namespace  BeepEnterprize.Vis.Module.Mapping
         public string BranchClass { get; set; } = "MAP";
         public object TreeStrucure { get; set; }
         public  IVisManager  Visutil { get; set; }
-        public string ObjectType { get; set; } 
+        public string ObjectType { get; set; }
+
+        public  IBranch  CreateCategoryNode(CategoryFolder p)
+        {
+            throw new NotImplementedException();
+        }
 
         // public event EventHandler<PassedArgs> BranchSelected;
         // public event EventHandler<PassedArgs> BranchDragEnter;

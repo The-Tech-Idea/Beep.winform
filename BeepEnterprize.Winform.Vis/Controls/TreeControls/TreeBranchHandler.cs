@@ -25,20 +25,15 @@ namespace BeepEnterprize.Winform.Vis.Controls
             CreateDelagates();
 
         }
-      
         public System.Windows.Forms.TreeView TreeV { get; set; }
         private TreeControl Treecontrol { get; set; }
         public IDMEEditor DMEEditor { get; set; }
-       // public System.Windows.Forms.TreeView treeControl { get; set; }
         private ITree Tree { get; set; }
-
         private VisManager visManager { get; set; }
-
-
         #region "Branch Handling"
         public IErrorsInfo CreateBranch(IBranch Branch)
         {
-            throw new NotImplementedException();
+            return DMEEditor.ErrorObject;
         }
         public IErrorsInfo AddBranch(IBranch ParentBranch, IBranch Branch)
         {
@@ -155,11 +150,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
             return DMEEditor.ErrorObject;
 
         }
-      
         public string CheckifBranchExistinCategory(string BranchName, string pRootName)
         {
             //bool retval = false;
-            List<CategoryFolder> ls = DMEEditor.ConfigEditor.CategoryFolders.Where(x => x.RootName == pRootName).ToList();
+            List<CategoryFolder> ls = DMEEditor.ConfigEditor.CategoryFolders.Where(x => x.RootName == pRootName ).ToList();
             foreach (CategoryFolder item in ls)
             {
                 foreach (string f in item.items)
@@ -357,27 +351,24 @@ namespace BeepEnterprize.Winform.Vis.Controls
             return DMEEditor.ErrorObject;
 
         }
-        public IErrorsInfo AddCategory(IBranch Rootbr)
+        public IErrorsInfo AddCategory(IBranch Rootbr,string foldername)
         {
-
             try
             {
-
                 if (DMEEditor.Passedarguments == null)
                 {
                     DMEEditor.Passedarguments = new PassedArgs();
                 }
-                string foldername = "";
-                //Visutil.controlEditor.InputBox("Enter Category Name", "What Category you want to Add", ref foldername);
                 if (foldername != null)
                 {
                     if (foldername.Length > 0)
                     {
-                        CategoryFolder x = DMEEditor.ConfigEditor.AddFolderCategory(foldername, Rootbr.BranchClass, foldername);
-                        IBranchRootCategory f = (IBranchRootCategory)Rootbr;
-                        f.CreateCategoryNode(x);
-                        DMEEditor.ConfigEditor.SaveCategoryFoldersValues();
-
+                       if(!DMEEditor.ConfigEditor.CategoryFolders.Where(p=>p.RootName.Equals(Rootbr.BranchClass,StringComparison.InvariantCultureIgnoreCase) && p.ParentName.Equals(Rootbr.BranchText, StringComparison.InvariantCultureIgnoreCase) && p.FolderName.Equals(foldername, StringComparison.InvariantCultureIgnoreCase)).Any())
+                        {
+                            CategoryFolder x = DMEEditor.ConfigEditor.AddFolderCategory(foldername, Rootbr.BranchClass, Rootbr.BranchText);
+                            Rootbr.CreateCategoryNode(x);
+                            DMEEditor.ConfigEditor.SaveCategoryFoldersValues();
+                        }
                     }
                 }
                 DMEEditor.AddLogMessage("Success", "Added Category", DateTime.Now, 0, null, Errors.Failed);
@@ -448,7 +439,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
         }
         #endregion
-
         #region "Node Handling Functions"
         public void CreateDelagates()
         {
@@ -592,10 +582,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
             }
         }
-
-        // Returns the bounds of the specified node, including the region 
-        // occupied by the node label and any node tag displayed.
-
         private void TreeV_AfterSelect(object sender, TreeViewEventArgs e)
         {
             // Vary the response depending on which TreeViewAction
@@ -894,7 +880,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
             Treecontrol.SelectedBranchID =br.ID;
             NodeEvent(e);
         }
-
         public IErrorsInfo MoveBranchToCategory(IBranch CategoryBranch, IBranch CurrentBranch)
         {
             try
@@ -910,7 +895,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     RemoveEntityFromCategory(ParentBranch.BranchClass, currentParentFoelder, CurrentBranch.BranchText);
                 }
                 TreeV.Nodes.Remove(CurrentBranchNode);
-                CategoryFolder CurFodler = DMEEditor.ConfigEditor.CategoryFolders.Where(y => y.RootName == CategoryBranch.BranchClass).FirstOrDefault();
+                CategoryFolder CurFodler = DMEEditor.ConfigEditor.CategoryFolders.Where(y => y.RootName == CategoryBranch.BranchClass && y.FolderName==CategoryBranch.BranchText).FirstOrDefault();
                 if (CurFodler != null)
                 {
                     if (CurFodler.items.Contains(CurrentBranch.BranchText) == false)

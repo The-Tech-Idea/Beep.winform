@@ -27,7 +27,7 @@ namespace BeepEnterprize.Vis.Module
         IErrorsInfo CreateChildNodes();
         IErrorsInfo RemoveChildNodes();
         IErrorsInfo MenuItemClicked(string ActionNam);
-      
+        IBranch CreateCategoryNode(CategoryFolder p);
 
 
 

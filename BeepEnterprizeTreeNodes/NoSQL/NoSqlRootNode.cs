@@ -14,7 +14,7 @@ using TheTechIdea.Util;
 namespace  BeepEnterprize.Vis.Module
 {
     [AddinAttribute(Caption = "NoSQL", Name = "NoSQL.Beep", misc = "Beep", iconimage = "nosql.ico", menu = "Beep",ObjectType ="Beep")]
-    public class NoSqlRootNode  : IBranch ,IOrder,IBranchRootCategory
+    public class NoSqlRootNode  : IBranch ,IOrder 
     {
         public NoSqlRootNode()
         {
@@ -163,11 +163,12 @@ namespace  BeepEnterprize.Vis.Module
         }
 
 
-        public virtual IErrorsInfo CreateCategoryNode(CategoryFolder p)
+        public virtual  IBranch  CreateCategoryNode(CategoryFolder p)
         {
+            NoSqlCategoryNode Catitem = null;
             try
             {
-                NoSqlCategoryNode Catitem = new NoSqlCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
+                Catitem = new NoSqlCategoryNode(TreeEditor, DMEEditor, this, p.FolderName, TreeEditor.SeqID, EnumPointType.Category, TreeEditor.CategoryIcon);
                 TreeEditor.treeBranchHandler.AddBranch(this, Catitem);
                 ChildBranchs.Add(Catitem);
                 
@@ -178,7 +179,7 @@ namespace  BeepEnterprize.Vis.Module
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
                 DMEEditor.ErrorObject.Ex = ex;
             }
-            return DMEEditor.ErrorObject;
+            return Catitem;
 
         }
         public IErrorsInfo CreateNodes()
