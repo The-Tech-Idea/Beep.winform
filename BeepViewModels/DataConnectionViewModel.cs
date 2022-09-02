@@ -8,22 +8,29 @@ using System.Threading.Tasks;
 using TheTechIdea.Beep.Report;
 using System.Linq;
 using System.Linq.Dynamic.Core;
+using System.Collections.ObjectModel;
 
 namespace TheTechIdea.Beep.ViewModels
 {
-    public partial class DataConnectionViewModel : BaseViewModel,ICrud<ConnectionProperties>
+    public partial class DataConnectionViewModel : BaseViewModel, ICrud<ConnectionProperties>
     {
         [ObservableProperty]
-        ConnectionProperties connection;
+        ConnectionProperties currentConnection;
+        [ObservableProperty]
+        ObservableCollection<ConnectionProperties> connections;
+
+       
         public DataConnectionViewModel(IDMEEditor dMEditor) : base(dMEditor)
         {
             DMEditor = dMEditor;
+            connections=new ObservableCollection<ConnectionProperties>();
+            RecordTraces=new List<RecordTrace>();
+            CurrentRecordTrace.OriginalStatus = Enums.RecordStatus.Modified;
         }
-
-        public IDMEEditor DMEditor { get; }
 
         public Task<IErrorsInfo> Delete(int id)
         {
+            RecordTraces.Add(new RecordTrace() { ID = id, OriginalStatus = Enums.RecordStatus.Modified, Status = Enums.RecordStatus.Deleted });
             bool retval = Task.Run<bool>(() => DMEditor.ConfigEditor.RemoveConnByID(id)).Result ;
             if (retval)
             {
@@ -38,6 +45,7 @@ namespace TheTechIdea.Beep.ViewModels
         public Task<ConnectionProperties> Get(int id)
         {
             return Task.FromResult(DMEditor.ConfigEditor.DataConnections.FirstOrDefault(p => p.ID == id));
+
         }
 
         public Task<IEnumerable<ConnectionProperties>> Get()
@@ -58,9 +66,11 @@ namespace TheTechIdea.Beep.ViewModels
 
         public Task<IErrorsInfo> Insert(ConnectionProperties doc)
         {
+            UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.New, Enums.RecordStatus.New);
             bool retval = Task.Run<bool>(() => DMEditor.ConfigEditor.AddDataConnection(doc)).Result;
             if (retval)
             {
+                UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.New, Enums.RecordStatus.Idle);
                 DMEditor.ErrorObject.Flag = Errors.Ok;
             }
             else
@@ -74,6 +84,7 @@ namespace TheTechIdea.Beep.ViewModels
             bool retval = Task.Run<bool>(() => DMEditor.ConfigEditor.UpdateDataConnection(doc,doc.Category.ToString())).Result;
             if (retval)
             {
+                UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.Modified, Enums.RecordStatus.Idle);
                 DMEditor.ErrorObject.Flag = Errors.Ok;
             }
             else
