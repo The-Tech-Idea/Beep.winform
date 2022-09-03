@@ -38,8 +38,8 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagementModelsStandard, Version=1.0.0.21, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.21\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.22\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
     <Reference Include="DataManagmentEngineStandard, Version=1.0.0.41, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.41\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
@@ -199,6 +199,12 @@
     </Compile>
     <Compile Include="CRUD\Frm_NewUpdateEntity.Designer.cs">
       <DependentUpon>Frm_NewUpdateEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\uc_EntityfilterPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CRUD\uc_EntityfilterPanel.Designer.cs">
+      <DependentUpon>uc_EntityfilterPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="DataViewManagement\uc_CreateComposedLayerFromView.cs">
       <SubType>UserControl</SubType>
@@ -462,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CRUD\Frm_NewUpdateEntity.resx">
       <DependentUpon>Frm_NewUpdateEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRUD\uc_EntityfilterPanel.resx">
+      <DependentUpon>uc_EntityfilterPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataViewManagement\uc_CreateComposedLayerFromView.resx">
       <DependentUpon>uc_CreateComposedLayerFromView.cs</DependentUpon>

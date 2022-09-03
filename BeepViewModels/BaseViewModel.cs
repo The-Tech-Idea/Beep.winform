@@ -19,8 +19,11 @@ namespace TheTechIdea.Beep.ViewModels
 
         [ObservableProperty]
         List<RecordTrace> recordTraces = new List<RecordTrace>();
+      
         [ObservableProperty]
         RecordTrace currentRecordTrace;
+
+
 
         [ObservableProperty]
         DateTime dateCreated;

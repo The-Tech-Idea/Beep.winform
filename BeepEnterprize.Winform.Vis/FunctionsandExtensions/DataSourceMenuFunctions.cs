@@ -370,21 +370,21 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                 bool retval = DMEEditor.ConfigEditor.DataConnectionExist(br.DataSourceName);
                                 if (retval)
                                 {
-                                    Passedargs.ParameterString1 = $"Droping {br.DataSourceName} Connection ...";
+                                    Passedarguments.ParameterString1 = $"Droping {br.DataSourceName} Connection ...";
                                     ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                                     DMEEditor.RemoveDataDource(br.DataSourceName);
                                     DMEEditor.ErrorObject.Flag = Errors.Ok;
                                     DMEEditor.ConfigEditor.RemoveDataConnection(br.DataSourceName);
                                     if (DMEEditor.ErrorObject.Flag == Errors.Ok)
                                     {
-                                        Passedargs.ParameterString1 = $"Droping {br.DataSourceName} Connection Branch...";
+                                        Passedarguments.ParameterString1 = $"Droping {br.DataSourceName} Connection Branch...";
                                         ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                                        
                                         DMEEditor.AddLogMessage("Success", $"Droped Data Connection {br.DataSourceName}", DateTime.Now, -1, null, Errors.Ok);
                                     }
                                     else
                                     {
-                                        Passedargs.ParameterString1 = $"Failed Droping {br.DataSourceName} Connection ...";
+                                        Passedarguments.ParameterString1 = $"Failed Droping {br.DataSourceName} Connection ...";
                                         ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                                         DMEEditor.AddLogMessage("Fail", $"Error Drpping Connection {br.DataSourceName} - {DMEEditor.ErrorObject.Message}", DateTime.Now, -1, null, Errors.Failed);
                                     }

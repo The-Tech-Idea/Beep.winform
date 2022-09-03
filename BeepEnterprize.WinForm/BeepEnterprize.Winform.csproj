@@ -79,8 +79,8 @@
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataManagementModelsStandard, Version=1.0.0.21, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.21\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.22\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
     <Reference Include="DMLoggerStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TheTechIdea.Beep.DMLogger2.0.1.0.0.7\lib\netstandard2.0\DMLoggerStandard.dll</HintPath>
@@ -2910,6 +2910,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DataFiles\Sqlite_SampleDB.s3db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\CategoryFolders.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\Databasetypes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\DataConnections.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\reportsDefinition.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
