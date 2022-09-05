@@ -418,7 +418,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                     f.FilePath.Replace(DMEEditor.ConfigEditor.Config.ProjectDataPath, ".");
                 }
                 string ext = Path.GetExtension(file).Replace(".", "").ToLower();
-                List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null).ToList();
+                List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null  && p.extensionstoHandle.Contains(ext) && p.Favourite == true).ToList();
                 ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext) && o.Favourite == true).FirstOrDefault();
                 if (c is null)
                 {

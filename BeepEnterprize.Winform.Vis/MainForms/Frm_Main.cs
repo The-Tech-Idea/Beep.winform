@@ -255,7 +255,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             if (IsBeepDataOn == false) RemoveBeepGui();
             if (IsAppOn == false) RemoveAppGui();
             
-            this.StartPosition = FormStartPosition.CenterScreen; this.WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterScreen; 
+            //this.WindowState = FormWindowState.Maximized;
            // this.TopMost = true; 
         }
 

@@ -225,7 +225,7 @@ namespace TheTechIdea.ETL
                     EntityStructure.Drawn = true;
                     
 
-                    if (vds.Entities.Where(o => o.EntityName == EntityStructure.EntityName).Any())
+                    if (vds.Entities.Where(o => o.EntityName.Equals( EntityStructure.EntityName,StringComparison.InvariantCultureIgnoreCase)).Any())
                     {
                         vds.Entities[vds.Entities.FindIndex(i => i.EntityName.Equals(EntityStructure.EntityName, StringComparison.OrdinalIgnoreCase))] = EntityStructure;
                     }

@@ -167,6 +167,7 @@ namespace  BeepEnterprize.Vis.Module
                 DataSource = (IDataSource)DMEEditor.GetDataSource(BranchText);
                 if (DataSource != null)
                 {
+                    
                     DataSource.GetEntitesList();
                     if (DataSource.Entities.Count > 0)
                     {

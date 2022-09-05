@@ -58,6 +58,9 @@
             this.entityNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fieldsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.relationShipsDataGridView = new System.Windows.Forms.DataGridView();
+            this.RelatedEntityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RelatedEntityColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EntityColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.relationShipsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.viewIDTextBox = new System.Windows.Forms.TextBox();
             this.SaveEntitybutton = new System.Windows.Forms.Button();
@@ -100,9 +103,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.EntityNameLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.RelatedEntityID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RelatedEntityColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EntityColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ralationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relatedEntityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relatedEntityColumnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relatedColumnSequenceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entityColumnIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entityColumnSequenceIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             dataSourceIDLabel = new System.Windows.Forms.Label();
             viewtypeLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
@@ -138,7 +144,7 @@
             // 
             dataSourceIDLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             dataSourceIDLabel.AutoSize = true;
-            dataSourceIDLabel.Location = new System.Drawing.Point(47, 133);
+            dataSourceIDLabel.Location = new System.Drawing.Point(47, 146);
             dataSourceIDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             dataSourceIDLabel.Name = "dataSourceIDLabel";
             dataSourceIDLabel.Size = new System.Drawing.Size(84, 13);
@@ -149,7 +155,7 @@
             // 
             viewtypeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             viewtypeLabel.AutoSize = true;
-            viewtypeLabel.Location = new System.Drawing.Point(68, 182);
+            viewtypeLabel.Location = new System.Drawing.Point(68, 195);
             viewtypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             viewtypeLabel.Name = "viewtypeLabel";
             viewtypeLabel.Size = new System.Drawing.Size(63, 13);
@@ -160,7 +166,7 @@
             // 
             nameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(4, 18);
+            nameLabel.Location = new System.Drawing.Point(4, 31);
             nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new System.Drawing.Size(127, 13);
@@ -182,7 +188,7 @@
             // 
             viewIDLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             viewIDLabel.AutoSize = true;
-            viewIDLabel.Location = new System.Drawing.Point(84, 158);
+            viewIDLabel.Location = new System.Drawing.Point(84, 171);
             viewIDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             viewIDLabel.Name = "viewIDLabel";
             viewIDLabel.Size = new System.Drawing.Size(47, 13);
@@ -193,7 +199,7 @@
             // 
             captionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             captionLabel.AutoSize = true;
-            captionLabel.Location = new System.Drawing.Point(85, 43);
+            captionLabel.Location = new System.Drawing.Point(85, 56);
             captionLabel.Name = "captionLabel";
             captionLabel.Size = new System.Drawing.Size(46, 13);
             captionLabel.TabIndex = 23;
@@ -203,7 +209,7 @@
             // 
             label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(55, 69);
+            label1.Location = new System.Drawing.Point(55, 82);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(76, 13);
             label1.TabIndex = 25;
@@ -214,7 +220,7 @@
             this.dataSourceIDComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataSourceIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataHierarchyBindingSource, "DataSourceID", true));
             this.dataSourceIDComboBox.FormattingEnabled = true;
-            this.dataSourceIDComboBox.Location = new System.Drawing.Point(135, 130);
+            this.dataSourceIDComboBox.Location = new System.Drawing.Point(135, 143);
             this.dataSourceIDComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.dataSourceIDComboBox.Name = "dataSourceIDComboBox";
             this.dataSourceIDComboBox.Size = new System.Drawing.Size(200, 21);
@@ -229,7 +235,7 @@
             this.viewtypeComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.viewtypeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataHierarchyBindingSource, "Viewtype", true));
             this.viewtypeComboBox.FormattingEnabled = true;
-            this.viewtypeComboBox.Location = new System.Drawing.Point(135, 179);
+            this.viewtypeComboBox.Location = new System.Drawing.Point(135, 192);
             this.viewtypeComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.viewtypeComboBox.Name = "viewtypeComboBox";
             this.viewtypeComboBox.Size = new System.Drawing.Size(200, 21);
@@ -240,7 +246,7 @@
             this.nameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataHierarchyBindingSource, "EntityName", true));
             this.nameTextBox.Enabled = false;
-            this.nameTextBox.Location = new System.Drawing.Point(135, 15);
+            this.nameTextBox.Location = new System.Drawing.Point(135, 28);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(356, 20);
@@ -415,7 +421,13 @@
             this.relationShipsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RelatedEntityID,
             this.RelatedEntityColumnID,
-            this.EntityColumnID});
+            this.EntityColumnID,
+            this.ralationNameDataGridViewTextBoxColumn,
+            this.relatedEntityIDDataGridViewTextBoxColumn,
+            this.relatedEntityColumnIDDataGridViewTextBoxColumn,
+            this.relatedColumnSequenceIDDataGridViewTextBoxColumn,
+            this.entityColumnIDDataGridViewTextBoxColumn,
+            this.entityColumnSequenceIDDataGridViewTextBoxColumn});
             this.relationShipsDataGridView.DataSource = this.relationShipsBindingSource;
             this.relationShipsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.relationShipsDataGridView.Location = new System.Drawing.Point(3, 3);
@@ -426,6 +438,24 @@
             this.relationShipsDataGridView.Size = new System.Drawing.Size(442, 251);
             this.relationShipsDataGridView.TabIndex = 10;
             // 
+            // RelatedEntityID
+            // 
+            this.RelatedEntityID.DataPropertyName = "RelatedEntityID";
+            this.RelatedEntityID.HeaderText = "Related EntityID";
+            this.RelatedEntityID.Name = "RelatedEntityID";
+            // 
+            // RelatedEntityColumnID
+            // 
+            this.RelatedEntityColumnID.DataPropertyName = "RelatedEntityColumnID";
+            this.RelatedEntityColumnID.HeaderText = "Related ColumnID";
+            this.RelatedEntityColumnID.Name = "RelatedEntityColumnID";
+            // 
+            // EntityColumnID
+            // 
+            this.EntityColumnID.DataPropertyName = "EntityColumnID";
+            this.EntityColumnID.HeaderText = "ColumnID";
+            this.EntityColumnID.Name = "EntityColumnID";
+            // 
             // relationShipsBindingSource
             // 
             this.relationShipsBindingSource.DataMember = "Relations";
@@ -435,7 +465,7 @@
             // 
             this.viewIDTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.viewIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataHierarchyBindingSource, "ViewID", true));
-            this.viewIDTextBox.Location = new System.Drawing.Point(135, 155);
+            this.viewIDTextBox.Location = new System.Drawing.Point(135, 168);
             this.viewIDTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.viewIDTextBox.Name = "viewIDTextBox";
             this.viewIDTextBox.ReadOnly = true;
@@ -446,7 +476,7 @@
             // 
             this.SaveEntitybutton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SaveEntitybutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.SaveEntitybutton.Location = new System.Drawing.Point(135, 204);
+            this.SaveEntitybutton.Location = new System.Drawing.Point(455, 577);
             this.SaveEntitybutton.Margin = new System.Windows.Forms.Padding(2);
             this.SaveEntitybutton.Name = "SaveEntitybutton";
             this.SaveEntitybutton.Size = new System.Drawing.Size(99, 23);
@@ -470,7 +500,7 @@
             this.panel1.Controls.Add(this.CustomQueryDatadataGridView);
             this.panel1.Controls.Add(this.ValidateQuerybutton);
             this.panel1.Controls.Add(customBuildQueryLabel);
-            this.panel1.Location = new System.Drawing.Point(507, 15);
+            this.panel1.Location = new System.Drawing.Point(507, 28);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(462, 216);
             this.panel1.TabIndex = 18;
@@ -517,7 +547,7 @@
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.tabControl1);
-            this.groupBox1.Location = new System.Drawing.Point(507, 236);
+            this.groupBox1.Location = new System.Drawing.Point(507, 249);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(462, 302);
             this.groupBox1.TabIndex = 21;
@@ -528,7 +558,7 @@
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.tabControl2);
-            this.groupBox2.Location = new System.Drawing.Point(11, 236);
+            this.groupBox2.Location = new System.Drawing.Point(11, 249);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(490, 302);
             this.groupBox2.TabIndex = 22;
@@ -733,7 +763,7 @@
             // 
             this.captionTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.captionTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataHierarchyBindingSource, "Caption", true));
-            this.captionTextBox1.Location = new System.Drawing.Point(135, 40);
+            this.captionTextBox1.Location = new System.Drawing.Point(135, 53);
             this.captionTextBox1.Name = "captionTextBox1";
             this.captionTextBox1.Size = new System.Drawing.Size(356, 20);
             this.captionTextBox1.TabIndex = 24;
@@ -743,7 +773,7 @@
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataHierarchyBindingSource, "OriginalEntityName", true));
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(135, 66);
+            this.textBox1.Location = new System.Drawing.Point(135, 79);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(356, 20);
             this.textBox1.TabIndex = 26;
@@ -819,26 +849,44 @@
             this.panel3.Controls.Add(this.SaveEntitybutton);
             this.panel3.Location = new System.Drawing.Point(10, 78);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(981, 593);
+            this.panel3.Size = new System.Drawing.Size(981, 618);
             this.panel3.TabIndex = 28;
             // 
-            // RelatedEntityID
+            // ralationNameDataGridViewTextBoxColumn
             // 
-            this.RelatedEntityID.DataPropertyName = "RelatedEntityID";
-            this.RelatedEntityID.HeaderText = "Related EntityID";
-            this.RelatedEntityID.Name = "RelatedEntityID";
+            this.ralationNameDataGridViewTextBoxColumn.DataPropertyName = "RalationName";
+            this.ralationNameDataGridViewTextBoxColumn.HeaderText = "RalationName";
+            this.ralationNameDataGridViewTextBoxColumn.Name = "ralationNameDataGridViewTextBoxColumn";
             // 
-            // RelatedEntityColumnID
+            // relatedEntityIDDataGridViewTextBoxColumn
             // 
-            this.RelatedEntityColumnID.DataPropertyName = "RelatedEntityColumnID";
-            this.RelatedEntityColumnID.HeaderText = "Related ColumnID";
-            this.RelatedEntityColumnID.Name = "RelatedEntityColumnID";
+            this.relatedEntityIDDataGridViewTextBoxColumn.DataPropertyName = "RelatedEntityID";
+            this.relatedEntityIDDataGridViewTextBoxColumn.HeaderText = "RelatedEntityID";
+            this.relatedEntityIDDataGridViewTextBoxColumn.Name = "relatedEntityIDDataGridViewTextBoxColumn";
             // 
-            // EntityColumnID
+            // relatedEntityColumnIDDataGridViewTextBoxColumn
             // 
-            this.EntityColumnID.DataPropertyName = "EntityColumnID";
-            this.EntityColumnID.HeaderText = "ColumnID";
-            this.EntityColumnID.Name = "EntityColumnID";
+            this.relatedEntityColumnIDDataGridViewTextBoxColumn.DataPropertyName = "RelatedEntityColumnID";
+            this.relatedEntityColumnIDDataGridViewTextBoxColumn.HeaderText = "RelatedEntityColumnID";
+            this.relatedEntityColumnIDDataGridViewTextBoxColumn.Name = "relatedEntityColumnIDDataGridViewTextBoxColumn";
+            // 
+            // relatedColumnSequenceIDDataGridViewTextBoxColumn
+            // 
+            this.relatedColumnSequenceIDDataGridViewTextBoxColumn.DataPropertyName = "RelatedColumnSequenceID";
+            this.relatedColumnSequenceIDDataGridViewTextBoxColumn.HeaderText = "RelatedColumnSequenceID";
+            this.relatedColumnSequenceIDDataGridViewTextBoxColumn.Name = "relatedColumnSequenceIDDataGridViewTextBoxColumn";
+            // 
+            // entityColumnIDDataGridViewTextBoxColumn
+            // 
+            this.entityColumnIDDataGridViewTextBoxColumn.DataPropertyName = "EntityColumnID";
+            this.entityColumnIDDataGridViewTextBoxColumn.HeaderText = "EntityColumnID";
+            this.entityColumnIDDataGridViewTextBoxColumn.Name = "entityColumnIDDataGridViewTextBoxColumn";
+            // 
+            // entityColumnSequenceIDDataGridViewTextBoxColumn
+            // 
+            this.entityColumnSequenceIDDataGridViewTextBoxColumn.DataPropertyName = "EntityColumnSequenceID";
+            this.entityColumnSequenceIDDataGridViewTextBoxColumn.HeaderText = "EntityColumnSequenceID";
+            this.entityColumnSequenceIDDataGridViewTextBoxColumn.Name = "entityColumnSequenceIDDataGridViewTextBoxColumn";
             // 
             // Uc_DataViewEntityEditor
             // 
@@ -848,7 +896,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Name = "Uc_DataViewEntityEditor";
-            this.Size = new System.Drawing.Size(1003, 624);
+            this.Size = new System.Drawing.Size(1003, 710);
             ((System.ComponentModel.ISupportInitialize)(this.dataHierarchyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fieldsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fieldsBindingSource)).EndInit();
@@ -955,5 +1003,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RelatedEntityID;
         private System.Windows.Forms.DataGridViewTextBoxColumn RelatedEntityColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn EntityColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ralationNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn relatedEntityIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn relatedEntityColumnIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn relatedColumnSequenceIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn entityColumnIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn entityColumnSequenceIDDataGridViewTextBoxColumn;
     }
 }

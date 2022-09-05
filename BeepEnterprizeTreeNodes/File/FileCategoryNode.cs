@@ -240,12 +240,9 @@ namespace  BeepEnterprize.Vis.Module
                 string extens = DMEEditor.ConfigEditor.CreateFileExtensionString();
                 List<string> filenames = new List<string>();
                 filenames = Visutil.Controlmanager.LoadFilesDialog("*", DMEEditor.ConfigEditor.Config.Folders.Where(c => c.FolderFilesType == FolderFileTypes.DataFiles).FirstOrDefault().FolderPath, extens);
-
-                
-                    foreach (String file in filenames)
+                foreach (String file in filenames)
+                {
                     {
-
-
                         ConnectionProperties f = new ConnectionProperties
                         {
                             FileName = Path.GetFileName(file),
@@ -259,45 +256,64 @@ namespace  BeepEnterprize.Vis.Module
                         {
                             f.FilePath.Replace(DMEEditor.ConfigEditor.ExePath, ".");
                         }
-                        string ext = Path.GetExtension(file).Replace(".", "").ToLower();
-                        List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null).ToList();
-                        ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext)).FirstOrDefault();
-                        f.DriverName = c.PackageName;
-                        f.DriverVersion = c.version;
-                        f.Category = c.DatasourceCategory;
-
-                        switch (f.Ext.ToLower())
+                        if (f.FilePath.Contains(DMEEditor.ConfigEditor.Config.DataFilePath))
                         {
-                            case "txt":
-                                f.DatabaseType = DataSourceType.Text;
-                                break;
-                            case "csv":
-                                f.DatabaseType = DataSourceType.CSV;
-                                break;
-                            case "xml":
-                                f.DatabaseType = DataSourceType.xml;
-
-                                break;
-                            case "json":
-                                f.DatabaseType = DataSourceType.Json;
-                                break;
-                            case "xls":
-                            case "xlsx":
-                                f.DatabaseType = DataSourceType.Xls;
-                                break;
-                            default:
-                                f.DatabaseType = DataSourceType.Text;
-                                break;
+                            f.FilePath.Replace(DMEEditor.ConfigEditor.Config.DataFilePath, ".");
                         }
-                        f.Category = DatasourceCategory.FILE;
+                        if (f.FilePath.Contains(DMEEditor.ConfigEditor.Config.ProjectDataPath))
+                        {
+                            f.FilePath.Replace(DMEEditor.ConfigEditor.Config.ProjectDataPath, ".");
+                        }
+                        string ext = Path.GetExtension(file).Replace(".", "").ToLower();
+                        List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null && p.Favourite == true).ToList();
+                        ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext) && o.Favourite == true).FirstOrDefault();
+                        if (c is null)
+                        {
+                            c = clss.Where(o => o.classHandler.Equals("CSVDataSource", StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+                        }
+                        if (c != null)
+                        {
+                            f.DriverName = c.PackageName;
+                            f.DriverVersion = c.version;
+                            f.Category = c.DatasourceCategory;
 
+                            switch (f.Ext.ToLower())
+                            {
+                                case "txt":
+                                    f.DatabaseType = DataSourceType.Text;
+                                    break;
+                                case "csv":
+                                    f.DatabaseType = DataSourceType.CSV;
+                                    break;
+                                case "xml":
+                                    f.DatabaseType = DataSourceType.xml;
 
-                        retval.Add(f);
+                                    break;
+                                case "json":
+                                    f.DatabaseType = DataSourceType.Json;
+                                    break;
+                                case "xls":
+                                case "xlsx":
+                                    f.DatabaseType = DataSourceType.Xls;
+                                    break;
+                                default:
+                                    f.DatabaseType = DataSourceType.Text;
+                                    break;
+                            }
+                            f.Category = DatasourceCategory.FILE;
+                            retval.Add(f);
+
+                        }
+                        else
+                        {
+                            DMEEditor.AddLogMessage("Beep", $"Could not Load File {f.ConnectionName}", DateTime.Now, -1, null, Errors.Failed);
+                        }
+
                     }
 
 
 
-                
+                }
                 return retval;
             }
             catch (Exception ex)

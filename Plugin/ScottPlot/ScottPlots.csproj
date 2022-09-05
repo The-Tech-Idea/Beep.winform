@@ -7,11 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="ScottPlot" Version="4.1.57" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj" />
-    <ProjectReference Include="..\..\..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.22" />
   </ItemGroup>
 
 </Project>

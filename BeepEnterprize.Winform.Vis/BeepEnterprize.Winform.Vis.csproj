@@ -562,7 +562,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\TheTechIdea.Beep.DMEEditor.datasource" />
+    <None Include="Properties\DataSources\TheTechIdea.Beep.DataBase.EntityStructure.datasource" />
     <None Include="Properties\DataSources\TheTechIdea.Beep.Workflow.Mapping.EntityDataMap.datasource" />
     <None Include="Properties\DataSources\TheTechIdea.Beep.Workflow.Mapping.EntityDataMap_DTL.datasource" />
     <None Include="Resources\close_window_26px.png" />

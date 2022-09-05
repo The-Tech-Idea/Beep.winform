@@ -23,7 +23,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.22" />
   </ItemGroup>
 
 </Project>

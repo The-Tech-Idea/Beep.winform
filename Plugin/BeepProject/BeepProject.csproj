@@ -34,6 +34,9 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.22\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
@@ -60,14 +63,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\BeepDM\DataManagementEngineStandard\DataManagementEngineStandard.csproj">
-      <Project>{282db559-9dca-4486-8830-cd18be56418b}</Project>
-      <Name>DataManagementEngineStandard</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\BeepDM\DataManagementModelsStandard\DataManagementModelsStandard.csproj">
-      <Project>{3b8d3f1b-6fa6-4cba-a256-02ceea3cc774}</Project>
-      <Name>DataManagementModelsStandard</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ModuleExtensions\AIModule\AIModule.csproj">
       <Project>{a81b09ed-c936-4c60-be8f-223d5d3fce8d}</Project>
       <Name>AIModule</Name>
