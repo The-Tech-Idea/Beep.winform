@@ -494,6 +494,8 @@ namespace BeepEnterprize.Winform.Vis
                     form.Text = addin.AddinName;
                     IsDataModified = false;
                     CurrentDisplayedAddin = addin;
+                    form.ShowInTaskbar=true;
+                    
                     form.ShowDialog();
 
                 }

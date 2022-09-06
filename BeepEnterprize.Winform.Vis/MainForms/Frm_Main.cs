@@ -89,7 +89,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                
             }
             //---------- Init Controls --------------
-           
+            this.ResumeLayout(false);
             BeepTreeControl = (TreeControl)visManager.Tree;
             BeeptoolbarControl = (ToolbarControl)visManager.ToolStrip;
             BeepmenuControl = (MenuControl)visManager.MenuStrip;
@@ -256,6 +256,11 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             if (IsAppOn == false) RemoveAppGui();
             
             this.StartPosition = FormStartPosition.CenterScreen; 
+         
+            this.ShowInTaskbar = true;
+            this.ResumeLayout(true);
+
+            this.TreeFilterTextBox.Focus();
             //this.WindowState = FormWindowState.Maximized;
            // this.TopMost = true; 
         }
