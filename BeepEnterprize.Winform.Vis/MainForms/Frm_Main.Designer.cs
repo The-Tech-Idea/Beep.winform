@@ -47,12 +47,12 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MainViewsplitContainer = new System.Windows.Forms.SplitContainer();
             this.MinMaxButton = new System.Windows.Forms.Button();
             this.LogPanelCollapsebutton = new System.Windows.Forms.Button();
+            this.ContainerPanel = new BeepEnterprize.Winform.Vis.Controls.uc_Container();
             this.LogPanel = new System.Windows.Forms.TextBox();
             this.MainWinfowPanle = new System.Windows.Forms.Panel();
             this.TopMenuPanel = new System.Windows.Forms.Panel();
             this.AppmenuStrip = new System.Windows.Forms.MenuStrip();
             this.Beepmenustrip = new System.Windows.Forms.MenuStrip();
-            this.ContainerPanel = new BeepEnterprize.Winform.Vis.Controls.uc_Container();
             ((System.ComponentModel.ISupportInitialize)(this.MainSplitContainer1)).BeginInit();
             this.MainSplitContainer1.Panel1.SuspendLayout();
             this.MainSplitContainer1.Panel2.SuspendLayout();
@@ -87,7 +87,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.MainSplitContainer1.Panel2.Controls.Add(this.MainViewsplitContainer);
             this.MainSplitContainer1.Size = new System.Drawing.Size(1554, 1061);
-            this.MainSplitContainer1.SplitterDistance = 561;
+            this.MainSplitContainer1.SplitterDistance = 380;
             this.MainSplitContainer1.SplitterWidth = 5;
             this.MainSplitContainer1.TabIndex = 1;
             // 
@@ -103,7 +103,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.sidepanelView.Controls.Add(this.Filterbutton);
             this.sidepanelView.Location = new System.Drawing.Point(73, 0);
             this.sidepanelView.Name = "sidepanelView";
-            this.sidepanelView.Size = new System.Drawing.Size(488, 1058);
+            this.sidepanelView.Size = new System.Drawing.Size(304, 1058);
             this.sidepanelView.TabIndex = 13;
             // 
             // FilterTextboxLine2
@@ -113,7 +113,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.FilterTextboxLine2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FilterTextboxLine2.Location = new System.Drawing.Point(6, 3);
             this.FilterTextboxLine2.Name = "FilterTextboxLine2";
-            this.FilterTextboxLine2.Size = new System.Drawing.Size(479, 2);
+            this.FilterTextboxLine2.Size = new System.Drawing.Size(295, 2);
             this.FilterTextboxLine2.TabIndex = 12;
             // 
             // SidePanelContainer
@@ -133,7 +133,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // SidePanelContainer.Panel2
             // 
             this.SidePanelContainer.Panel2.Controls.Add(this.BeepTreeView);
-            this.SidePanelContainer.Size = new System.Drawing.Size(484, 1006);
+            this.SidePanelContainer.Size = new System.Drawing.Size(300, 1006);
             this.SidePanelContainer.SplitterDistance = 360;
             this.SidePanelContainer.SplitterWidth = 5;
             this.SidePanelContainer.TabIndex = 0;
@@ -142,7 +142,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.SidePanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SidePanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(443, 340);
+            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(329, 340);
             this.SidePanelCollapsebutton.Name = "SidePanelCollapsebutton";
             this.SidePanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
             this.SidePanelCollapsebutton.TabIndex = 15;
@@ -158,7 +158,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.AppTreeView.Location = new System.Drawing.Point(0, 0);
             this.AppTreeView.Name = "AppTreeView";
             this.AppTreeView.ShowNodeToolTips = true;
-            this.AppTreeView.Size = new System.Drawing.Size(484, 360);
+            this.AppTreeView.Size = new System.Drawing.Size(300, 360);
             this.AppTreeView.TabIndex = 14;
             // 
             // BeepTreeView
@@ -168,7 +168,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BeepTreeView.Location = new System.Drawing.Point(0, 0);
             this.BeepTreeView.Name = "BeepTreeView";
-            this.BeepTreeView.Size = new System.Drawing.Size(484, 638);
+            this.BeepTreeView.Size = new System.Drawing.Size(370, 637);
             this.BeepTreeView.TabIndex = 2;
             // 
             // TreeFilterTextBox
@@ -180,7 +180,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.TreeFilterTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TreeFilterTextBox.Location = new System.Drawing.Point(7, 10);
             this.TreeFilterTextBox.Name = "TreeFilterTextBox";
-            this.TreeFilterTextBox.Size = new System.Drawing.Size(429, 19);
+            this.TreeFilterTextBox.Size = new System.Drawing.Size(245, 19);
             this.TreeFilterTextBox.TabIndex = 9;
             // 
             // TextFilterLine
@@ -190,7 +190,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.TextFilterLine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextFilterLine.Location = new System.Drawing.Point(7, 35);
             this.TextFilterLine.Name = "TextFilterLine";
-            this.TextFilterLine.Size = new System.Drawing.Size(479, 2);
+            this.TextFilterLine.Size = new System.Drawing.Size(295, 2);
             this.TextFilterLine.TabIndex = 11;
             // 
             // Filterbutton
@@ -198,7 +198,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.Filterbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Filterbutton.FlatAppearance.BorderSize = 0;
             this.Filterbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Filterbutton.Location = new System.Drawing.Point(457, 7);
+            this.Filterbutton.Location = new System.Drawing.Point(273, 7);
             this.Filterbutton.Name = "Filterbutton";
             this.Filterbutton.Size = new System.Drawing.Size(26, 29);
             this.Filterbutton.TabIndex = 10;
@@ -271,7 +271,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // MainViewsplitContainer.Panel2
             // 
             this.MainViewsplitContainer.Panel2.Controls.Add(this.LogPanel);
-            this.MainViewsplitContainer.Size = new System.Drawing.Size(988, 1061);
+            this.MainViewsplitContainer.Size = new System.Drawing.Size(1169, 1061);
             this.MainViewsplitContainer.SplitterDistance = 925;
             this.MainViewsplitContainer.SplitterWidth = 5;
             this.MainViewsplitContainer.TabIndex = 17;
@@ -289,11 +289,21 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.LogPanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LogPanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(935, 905);
+            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(1116, 905);
             this.LogPanelCollapsebutton.Name = "LogPanelCollapsebutton";
             this.LogPanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
             this.LogPanelCollapsebutton.TabIndex = 16;
             this.LogPanelCollapsebutton.UseVisualStyleBackColor = false;
+            // 
+            // ContainerPanel
+            // 
+            this.ContainerPanel.ContainerType = BeepEnterprize.Winform.Vis.Controls.ContainerTypeEnum.SinglePanel;
+            this.ContainerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ContainerPanel.Location = new System.Drawing.Point(0, 0);
+            this.ContainerPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ContainerPanel.Name = "ContainerPanel";
+            this.ContainerPanel.Size = new System.Drawing.Size(1169, 925);
+            this.ContainerPanel.TabIndex = 17;
             // 
             // LogPanel
             // 
@@ -306,7 +316,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.LogPanel.Name = "LogPanel";
             this.LogPanel.ReadOnly = true;
             this.LogPanel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LogPanel.Size = new System.Drawing.Size(988, 131);
+            this.LogPanel.Size = new System.Drawing.Size(1169, 131);
             this.LogPanel.TabIndex = 0;
             // 
             // MainWinfowPanle
@@ -345,16 +355,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.Beepmenustrip.Size = new System.Drawing.Size(1552, 24);
             this.Beepmenustrip.TabIndex = 2;
             this.Beepmenustrip.Text = "menuStrip1";
-            // 
-            // ContainerPanel
-            // 
-            this.ContainerPanel.ContainerType = BeepEnterprize.Winform.Vis.Controls.ContainerTypeEnum.SinglePanel;
-            this.ContainerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ContainerPanel.Location = new System.Drawing.Point(0, 0);
-            this.ContainerPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ContainerPanel.Name = "ContainerPanel";
-            this.ContainerPanel.Size = new System.Drawing.Size(988, 925);
-            this.ContainerPanel.TabIndex = 17;
             // 
             // Frm_Main
             // 
