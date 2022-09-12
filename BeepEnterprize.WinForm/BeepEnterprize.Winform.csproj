@@ -2722,6 +2722,9 @@
     <Content Include="ProjectClasses\DataSources\KafkaDataSource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ProjectClasses\DataSources\LiteDB.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ProjectClasses\DataSources\MongoDBDataSource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
