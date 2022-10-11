@@ -24,58 +24,21 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
     {
         public IDMEEditor DMEEditor { get; set; }
         public IPassedArgs Passedargs { get; set; }
-        private VisManager Vismanager { get; set; }
-        private ControlManager Controlmanager { get; set; }
-        private CrudManager Crudmanager { get; set; }
-        private MenuControl Menucontrol { get; set; }
-        private ToolbarControl Toolbarcontrol { get; set; }
-        private TreeControl TreeEditor { get; set; }
 
         CancellationTokenSource tokenSource;
+
         CancellationToken token;
-        IDataSource DataSource;
-        IBranch pbr;
-        IBranch RootBranch;
+
+
+        private FunctionandExtensionsHelpers ExtensionsHelpers;
         public DeveloperAssistantMenuFunctions(IDMEEditor pdMEEditor,VisManager pvisManager,TreeControl ptreeControl)
         {
+
             DMEEditor = pdMEEditor;
-            Vismanager = pvisManager;
-            TreeEditor = ptreeControl;
+
+            ExtensionsHelpers = new FunctionandExtensionsHelpers(DMEEditor, pvisManager, ptreeControl);
         }
-        private void GetValues(IPassedArgs Passedarguments)
-        {
-
-            if (Passedarguments.Objects.Where(c => c.Name == "Vismanager").Any())
-            {
-                Vismanager = (VisManager)Passedarguments.Objects.Where(c => c.Name == "Vismanager").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "TreeControl").Any())
-            {
-                TreeEditor = (TreeControl)Passedarguments.Objects.Where(c => c.Name == "TreeControl").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "CrudManager").Any())
-            {
-                Crudmanager = (CrudManager)Passedarguments.Objects.Where(c => c.Name == "CrudManager").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "ControlManager").Any())
-            {
-                Controlmanager = (ControlManager)Passedarguments.Objects.Where(c => c.Name == "ControlManager").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "MenuControl").Any())
-            {
-                Menucontrol = (MenuControl)Passedarguments.Objects.Where(c => c.Name == "MenuControl").FirstOrDefault().obj;
-            }
-
-            if (Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").Any())
-            {
-                Toolbarcontrol = (ToolbarControl)Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").FirstOrDefault().obj;
-            }
-
-            DataSource = DMEEditor.GetDataSource(Passedarguments.DatasourceName);
-            DMEEditor.OpenDataSource(Passedarguments.DatasourceName);
-            pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-            RootBranch = TreeEditor.Branches[TreeEditor.Branches.FindIndex(x => x.BranchClass == pbr.BranchClass && x.BranchType == EnumPointType.Root)];
-        }
+       
 
          [CommandAttribute(Caption = "Create POCO Classes", Name = "createpoco", Click = true, iconimage = "createpoco.ico", ObjectType = "Beep", PointType = EnumPointType.DataPoint)]
         public IErrorsInfo CreatePOCOlasses(IPassedArgs Passedarguments)
@@ -83,18 +46,19 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             try
             {
+                ExtensionsHelpers.GetValues(Passedarguments);
                 string iconimage;
-                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-                if (pbr.BranchType == EnumPointType.DataPoint)
+                ExtensionsHelpers.pbr = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
                 {
-                    GetValues(Passedarguments);
+                   
 
-                    if (DataSource != null)
+                    if (ExtensionsHelpers.DataSource != null)
                     {
 
-                        if (DataSource.ConnectionStatus == System.Data.ConnectionState.Open)
+                        if (ExtensionsHelpers.DataSource.ConnectionStatus == System.Data.ConnectionState.Open)
                         {
-                            if (Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, this might take some time?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
+                            if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, this might take some time?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
                             {
 
                                 int i = 0;
@@ -107,20 +71,20 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                         Directory.CreateDirectory(Path.Combine(DMEEditor.ConfigEditor.Config.ScriptsPath, Passedarguments.DatasourceName));
                                     };
                                     {
-                                        if (TreeEditor.SelectedBranchs.Count > 0)
+                                        if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
                                         {
-                                            foreach (int item in TreeEditor.SelectedBranchs)
+                                            foreach (int item in ExtensionsHelpers.TreeEditor.SelectedBranchs)
                                             {
-                                                IBranch br = TreeEditor.treeBranchHandler.GetBranch(item);
+                                                IBranch br = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(item);
 
                                                 //         TreeEditor.AddCommentsWaiting($"{i} - Added {br.BranchText} to {Passedarguments.DatasourceName}");
-                                                EntityStructure ent = DataSource.GetEntityStructure(br.BranchText, true);
+                                                EntityStructure ent = ExtensionsHelpers.DataSource.GetEntityStructure(br.BranchText, true);
 
                                                 DMEEditor.classCreator.CreateClass(ent.EntityName, ent.Fields, Path.Combine(DMEEditor.ConfigEditor.Config.ScriptsPath, Passedarguments.DatasourceName));
                                                 i += 1;
                                             }
                                             DMEEditor.AddLogMessage("Success", $"Created POCO", DateTime.Now, 0, null, Errors.Ok);
-                                            Vismanager.Controlmanager.MsgBox("Beep", "Created POCO Successfully");
+                                            ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Created POCO Successfully");
                                         }
                                         //foreach (string tb in DataSource.EntitiesNames)
                                         //{
@@ -161,14 +125,15 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             try
             {
                 string iconimage;
+                ExtensionsHelpers.GetValues(Passedarguments);
                 List<EntityStructure> ls = new List<EntityStructure>();
                 EntityStructure entity = null;
                 tokenSource = new CancellationTokenSource();
                 token = tokenSource.Token;
-                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-                if (pbr.BranchType == EnumPointType.DataPoint)
+                ExtensionsHelpers.pbr = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
                 {
-                    GetValues(Passedarguments);
+                   
 
                     var progress = new Progress<PassedArgs>(percent => {
 
@@ -186,7 +151,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                 List<string> reterror = (List<string>)percent.Objects[0].obj;
                                 foreach (var item in reterror)
                                 {
-                                    DMEEditor.AddLogMessage("Fail", item, DateTime.Now, 0, DataSource.DatasourceName, Errors.Failed);
+                                    DMEEditor.AddLogMessage("Fail", item, DateTime.Now, 0, ExtensionsHelpers.DataSource.DatasourceName, Errors.Failed);
                                 }
 
                             }
@@ -195,12 +160,12 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
 
                     });
-                    if (DataSource != null)
+                    if (ExtensionsHelpers.DataSource != null)
                     {
 
-                        if (DataSource.ConnectionStatus == System.Data.ConnectionState.Open)
+                        if (ExtensionsHelpers.DataSource.ConnectionStatus == System.Data.ConnectionState.Open)
                         {
-                            if (Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, this might take some time?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
+                            if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, this might take some time?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
                             {
 
                                 int i = 0;
@@ -213,22 +178,22 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                         Directory.CreateDirectory(Path.Combine(DMEEditor.ConfigEditor.Config.ScriptsPath, Passedarguments.DatasourceName));
                                     };
 
-                                    foreach (int item in TreeEditor.SelectedBranchs)
+                                    foreach (int item in ExtensionsHelpers.TreeEditor.SelectedBranchs)
                                     {
-                                        IBranch br = TreeEditor.treeBranchHandler.GetBranch(item);
+                                        IBranch br = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(item);
                                         IDataSource srcds = DMEEditor.GetDataSource(br.DataSourceName);
 
                                         if (srcds != null)
                                         {
                                             if (srcds.DatasourceName == Passedarguments.DatasourceName)
                                             {
-                                                if (!DataSource.Entities.Where(p => p.EntityName.Equals(br.BranchText, StringComparison.OrdinalIgnoreCase)).Any())
+                                                if (!ExtensionsHelpers.DataSource.Entities.Where(p => p.EntityName.Equals(br.BranchText, StringComparison.OrdinalIgnoreCase)).Any())
                                                 {
                                                     entity = (EntityStructure)srcds.GetEntityStructure(br.BranchText, true).Clone();
                                                 }
                                                 else
                                                 {
-                                                    entity = (EntityStructure)DataSource.Entities.Where(p => p.EntityName.Equals(br.BranchText, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().Clone();
+                                                    entity = (EntityStructure)ExtensionsHelpers.DataSource.Entities.Where(p => p.EntityName.Equals(br.BranchText, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().Clone();
                                                 }
                                                 //     TreeEditor.AddCommentsWaiting($"{i}- Added Entity {entity.EntityName}");
                                                 ls.Add(entity);
@@ -247,7 +212,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                     if (ret == "ok")
                                     {
                                         DMEEditor.AddLogMessage("Success", $"Create DLL", DateTime.Now, 0, null, Errors.Ok);
-                                        Vismanager.Controlmanager.MsgBox("Beep", "Created DLL Successfully");
+                                        ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Created DLL Successfully");
                                     }
                                     else
                                     {

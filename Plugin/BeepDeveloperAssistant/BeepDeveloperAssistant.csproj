@@ -58,6 +58,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\BeepEnterprize.Winform.Vis\FunctionsandExtensions\FunctionandExtensionsHelpers.cs">
+      <Link>FunctionandExtensionsHelpers.cs</Link>
+    </Compile>
     <Compile Include="DeveloperAssistantMenuFunctions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -679,7 +679,7 @@ namespace BeepEnterprize.Winform.Vis
                     }
                     else
                     {
-                        form.Close();//Fault tolerance this code should never be executed
+                        form.BeginInvoke((MethodInvoker)delegate () { form.CloseForm(); });
                         WaitFormShown = false;
                     }
 

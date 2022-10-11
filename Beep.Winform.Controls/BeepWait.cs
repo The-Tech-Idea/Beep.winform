@@ -37,10 +37,10 @@ namespace Beep.Winform.Controls
         public void CloseForm()
         {
 
-            System.Threading.Thread.Sleep(4000);
+            System.Threading.Thread.Sleep(2000);
             if (this.IsHandleCreated)
             {
-                Close();
+             this.Invoke(new Action(Close));
             }
 
         }
