@@ -8,7 +8,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Controls;
-using BeepEnterprize.Winform.Vis.CRUD;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -47,7 +46,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             try
             {
                 ExtensionsHelpers.GetValues(Passedarguments);
-                string iconimage;
+                //string iconimage;
                 ExtensionsHelpers.pbr = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
                 if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
                 {
@@ -60,7 +59,9 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                         {
                             if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, this might take some time?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
                             {
-
+                                PassedArgs args = new PassedArgs();
+                                args.ParameterString1 = $"Creating POCO Entities Files for {Passedarguments.DatasourceName} ";
+                                ExtensionsHelpers.Vismanager.ShowWaitForm(args);
                                 int i = 0;
                                 //    TreeEditor.ShowWaiting();
                                 //    TreeEditor.ChangeWaitingCaption($"Creating POCO Entities for total:{DataSource.EntitiesNames.Count}");
@@ -75,6 +76,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                         {
                                             foreach (int item in ExtensionsHelpers.TreeEditor.SelectedBranchs)
                                             {
+                                                args.ParameterString1 = $"Addin Entity  {item} ";
+                                                ExtensionsHelpers.Vismanager.PasstoWaitForm(args);
                                                 IBranch br = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(item);
 
                                                 //         TreeEditor.AddCommentsWaiting($"{i} - Added {br.BranchText} to {Passedarguments.DatasourceName}");
@@ -84,19 +87,20 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                                 i += 1;
                                             }
                                             DMEEditor.AddLogMessage("Success", $"Created POCO", DateTime.Now, 0, null, Errors.Ok);
-                                            ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Created POCO Successfully");
+                                         //   ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Created POCO Successfully");
                                         }
                                         //foreach (string tb in DataSource.EntitiesNames)
                                         //{
 
                                         //}
-
+                                        ExtensionsHelpers.Vismanager.CloseWaitForm();
                                     }
                                 }
                                 catch (Exception ex1)
                                 {
 
                                     DMEEditor.AddLogMessage("Fail", $"Could not Create Directory or error in Generating Class {ex1.Message}", DateTime.Now, 0, Passedarguments.DatasourceName, Errors.Failed);
+                                    ExtensionsHelpers.Vismanager.CloseWaitForm();
                                 }
 
                                 //   TreeEditor.HideWaiting();
@@ -114,6 +118,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             catch (Exception ex)
             {
                 DMEEditor.AddLogMessage("Fail", $" error in Generating Class {ex.Message}", DateTime.Now, 0, Passedarguments.DatasourceName, Errors.Failed);
+                ExtensionsHelpers.Vismanager.CloseWaitForm();
             }
             return DMEEditor.ErrorObject;
 
@@ -124,7 +129,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             try
             {
-                string iconimage;
+                //string iconimage;
                 ExtensionsHelpers.GetValues(Passedarguments);
                 List<EntityStructure> ls = new List<EntityStructure>();
                 EntityStructure entity = null;
@@ -170,6 +175,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
                                 int i = 0;
                                 //    TreeEditor.ShowWaiting();
+                                
                                 //   TreeEditor.ChangeWaitingCaption($"Creating POCO Entities for total:{DataSource.EntitiesNames.Count}");
                                 try
                                 {
@@ -177,7 +183,9 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                     {
                                         Directory.CreateDirectory(Path.Combine(DMEEditor.ConfigEditor.Config.ScriptsPath, Passedarguments.DatasourceName));
                                     };
-
+                                    PassedArgs args = new PassedArgs();
+                                    args.ParameterString1 = $"Creating DLL for POCO Entities  {Passedarguments.DatasourceName} ";
+                                    ExtensionsHelpers.Vismanager.ShowWaitForm(args);
                                     foreach (int item in ExtensionsHelpers.TreeEditor.SelectedBranchs)
                                     {
                                         IBranch br = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(item);
@@ -187,6 +195,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                         {
                                             if (srcds.DatasourceName == Passedarguments.DatasourceName)
                                             {
+                                                args.ParameterString1 = $"Addin Entity  {br.BranchText} ";
+                                                ExtensionsHelpers.Vismanager.PasstoWaitForm(args);
                                                 if (!ExtensionsHelpers.DataSource.Entities.Where(p => p.EntityName.Equals(br.BranchText, StringComparison.OrdinalIgnoreCase)).Any())
                                                 {
                                                     entity = (EntityStructure)srcds.GetEntityStructure(br.BranchText, true).Clone();
@@ -212,18 +222,20 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                     if (ret == "ok")
                                     {
                                         DMEEditor.AddLogMessage("Success", $"Create DLL", DateTime.Now, 0, null, Errors.Ok);
-                                        ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Created DLL Successfully");
+                                    //    ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Created DLL Successfully");
                                     }
                                     else
                                     {
                                         //MessageBox.Show(t, ret,"Beep");
                                     }
 
+                                    ExtensionsHelpers.Vismanager.CloseWaitForm();
                                 }
                                 catch (Exception ex1)
                                 {
 
                                     DMEEditor.AddLogMessage("Fail", $"Could not Create Directory or error in Generating DLL {ex1.Message}", DateTime.Now, 0, Passedarguments.DatasourceName, Errors.Failed);
+                                    ExtensionsHelpers.Vismanager.CloseWaitForm();
                                 }
 
                                 //  TreeEditor.HideWaiting();
