@@ -69,8 +69,8 @@
     <ApplicationIcon>SimpleODM.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly_helpersStandard, Version=1.0.0.14, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.AssemblyHelper2.0.1.0.0.14\lib\netstandard2.0\Assembly_helpersStandard.dll</HintPath>
+    <Reference Include="Assembly_helpersStandard, Version=1.0.0.15, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.AssemblyHelper2.0.1.0.0.15\lib\netstandard2.0\Assembly_helpersStandard.dll</HintPath>
     </Reference>
     <Reference Include="Autofac, Version=6.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.6.4.0\lib\netstandard2.0\Autofac.dll</HintPath>
