@@ -70,8 +70,8 @@ namespace AIBuilder.Cpython
         public BindingSource bindingSource { get; set; }
         public string filenameLoaded { get; set; } = null;
         public List<string> outputdata  { get; set; }= new List<string>();
-        public string packagenames { get; } = "Plotly;plotly;GFX,PyQt5;PyQt5;GFX,Dash;Ploty and Dash App;GFX,pythonnet;Python.Net;Tools,qtconsole;qtconsole;Tools,jupyter;Jupyter;Tools,winpty;Pseudoterminals;Tools,ipython;IPython;Tools,pprint36;Pretty Print;Tools,tabulate;Tabular Print;Tools,Pillow;Imaging Library;GFX,Matplotlib;MatPlot;GFX,Numpy;Numpy;Compute,opencv-python;OpenCV;GFX,Requests;HTTP library;Tools,Keras;Keras;ML,TensorFlow;TensorFlow;ML,Theano;Theano Math;ML,NLTK;Natural Language Toolkit;ML,Fire;Fire Auto. command line interfaces Generation;Tools,Arrow;Arrow Date Manupliation;Tools,FlashText;FlashText;Tools,Scipy;SciPy Scientific Library;ML,SQLAlchemy;SQLAlcemy Database Abstraction;ML,wxPython;wx GUI toolkit;Gui,PyTorch;PyTorch Tensors and Dynamic neural networks;ML,Luminoth;Luminoth Computer vision toolkit based on TensorFlow;GFX,BeautifulSoup;BeautifulSoup Screen-scraping library;Tools,Bokeh;Bokeh Interactive plots and applications;GFX,Poetry;Poetry dependency management and packaging made easy;Tools,Gensim;Gensim fast Vector Space Modelling;ML,pandas;Pandas data structures for data analysis-time series-statistics;ML,Pytil;tility library;Tools,scikit-learn;Scikit Learn machine learning and data mining;ML,NetworkX;Networkx creating and manipulating graphs and networks;ML,TextBlob;TextBlob text processing;ML,Mahotas;Mahotas Computer Vision;ML";
-        public string packagecatgoryimages { get; } = "Tools;tools,ML;ml,GUI;gui,GFX;gfx,Compute;Compute";
+        public string packagenames { get; } = "Plotly;plotly;Chart,PyQt5;PyQt5;Chart,Dash;Ploty and Dash App;Chart,pythonnet;Python.Net;Tools,qtconsole;qtconsole;Tools,jupyter;Jupyter;Tools,winpty;Pseudoterminals;Tools,ipython;IPython;Tools,pprint36;Pretty Print;Tools,tabulate;Tabular Print;Tools,Pillow;Imaging Library;Chart,Matplotlib;MatPlot;Chart,Numpy;Numpy;Compute,opencv-python;OpenCV;Chart,Requests;HTTP library;Tools,Keras;Keras;ML,TensorFlow;TensorFlow;ML,Theano;Theano Math;ML,NLTK;Natural Language Toolkit;ML,Fire;Fire Auto. command line interfaces Generation;Tools,Arrow;Arrow Date Manupliation;Tools,FlashText;FlashText;Tools,Scipy;SciPy Scientific Library;ML,SQLAlchemy;SQLAlcemy Database Abstraction;ML,wxPython;wx GUI toolkit;Gui,PyTorch;PyTorch Tensors and Dynamic neural networks;ML,Luminoth;Luminoth Computer vision toolkit based on TensorFlow;Chart,BeautifulSoup;BeautifulSoup Screen-scraping library;Tools,Bokeh;Bokeh Interactive plots and applications;Chart,Poetry;Poetry dependency management and packaging made easy;Tools,Gensim;Gensim fast Vector Space Modelling;ML,pandas;Pandas data structures for data analysis-time series-statistics;ML,Pytil;tility library;Tools,scikit-learn;Scikit Learn machine learning and data mining;ML,NetworkX;Networkx creating and manipulating graphs and networks;ML,TextBlob;TextBlob text processing;ML,Mahotas;Mahotas Computer Vision;ML";
+        public string packagecatgoryimages { get; } = "Tools;tools,ML;ml,GUI;gui,Chart;gfx,Compute;Compute";
         public List<packagelist> packages { get; set; } = new List<packagelist>();
         public List<packageCategoryImages> packageCategorys { get; set; } = new List<packageCategoryImages>();
         public string[] packs { get; set; }
@@ -126,13 +126,14 @@ namespace AIBuilder.Cpython
             ToolStripItem t = packagesToolStripMenuItem.DropDownItems.Add("Install pip");
             t.Click += Installpip_Click;
             t.Image= resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "install.ico");
-            t = packagesToolStripMenuItem.DropDownItems.Add("List Packages");
-            t.Image = resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "list.ico");
-            t.Click += PackagesInstalledbutton_Click;
 
             ToolStripItem tupdate = packagesToolStripMenuItem.DropDownItems.Add("Update pip");
             tupdate.Click += updatePIP_Click;
             tupdate.Image = resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "install.ico");
+            t = packagesToolStripMenuItem.DropDownItems.Add("List Packages");
+            t.Image = resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "list.ico");
+            t.Click += PackagesInstalledbutton_Click;
+
           
 
             //ToolStripMenuItem AILMitem = new ToolStripMenuItem("ML");
@@ -240,7 +241,7 @@ namespace AIBuilder.Cpython
         {
 
 
-            runPythonScriptscommandlineAsync($@"pip.exe install --upgrade pip ", $@"{binpath}\scripts\");
+            runPythonScriptscommandlineAsync($@"{binpath}\python.exe -m pip install --upgrade pip", $@"{binpath}\scripts\");
         }
         public void InstallPythonNet()
         {
