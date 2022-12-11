@@ -172,6 +172,16 @@
       <Link>ProjectClasses\AppBuilder\WinformScreenControls.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Extensions\Beep.BusinessProcess.Extensions.dll">
+      <Link>LoadingExtensions\BusinessProcess\Beep.BusinessProcess.Extensions.dll</Link>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Module\Beep.BusinessProcess.Module.dll">
+      <Link>LoadingExtensions\BusinessProcess\Beep.BusinessProcess.Module.dll</Link>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess\Beep.BusinessProcess.dll">
+      <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\ModuleExtensions\outputdll\AIModule\AIModule.dll">
       <Link>LoadingExtensions\AssemblyLoaderAI\AIModule.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
