@@ -82,8 +82,8 @@
     <Reference Include="DataManagementModelsStandard, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.22\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.41, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.41\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.42, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.42\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
     </Reference>
     <Reference Include="DMLoggerStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TheTechIdea.Beep.DMLogger2.0.1.0.0.7\lib\netstandard2.0\DMLoggerStandard.dll</HintPath>
@@ -95,7 +95,7 @@
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.12.0\lib\net47\Serilog.dll</HintPath>
@@ -182,6 +182,82 @@
     </Content>
     <Content Include="..\..\outputDLL\Beep.BusinessProcess\Beep.BusinessProcess.dll">
       <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NETExtensions\ML.NETExtensions.dll">
+      <Link>LoadingExtensions\ML.NET\ML.NETExtensions.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NETVIS4\ML.NETVIS4.dll">
+      <Link>ProjectClasses\ML.NET\ML.NETVIS4.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.AutoML.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.AutoML.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.CodeGenerator.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.CodeGenerator.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Core.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.Core.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Data.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.Data.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.DataView.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.DataView.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.FastTree.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.FastTree.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.KMeansClustering.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.KMeansClustering.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Parquet.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.Parquet.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.PCA.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.PCA.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Scoring.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.Scoring.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.SearchSpace.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.SearchSpace.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.StandardTrainers.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.StandardTrainers.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TimeSeries.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.TimeSeries.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TorchSharp.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.TorchSharp.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Transforms.dll">
+      <Link>ProjectClasses\ML.NET\Microsoft.ML.Transforms.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\ML.NET.dll">
+      <Link>ProjectClasses\ML.NET\ML.NET.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\ModuleExtensions\outputdll\AIModule\AIModule.dll">
@@ -728,6 +804,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\mkv.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\mldotnet.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\mongodb.ico">
