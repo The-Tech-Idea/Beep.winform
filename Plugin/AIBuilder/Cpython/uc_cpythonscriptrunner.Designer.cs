@@ -30,13 +30,15 @@ namespace AIBuilder.Cpython
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.scripttextBox = new System.Windows.Forms.RichTextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.process1 = new System.Diagnostics.Process();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.PanelSearch = new System.Windows.Forms.Panel();
+            this.TxtSearch = new System.Windows.Forms.TextBox();
+            this.TextArea = new ScintillaNET.Scintilla();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -67,14 +69,15 @@ namespace AIBuilder.Cpython
             this.OutputdataGridView = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.OutputtextBox = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Clearoutputbutton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Clearoutputbutton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.PanelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QtConsolebutton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Jupiterbutton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Runbutton)).BeginInit();
@@ -90,21 +93,6 @@ namespace AIBuilder.Cpython
             ((System.ComponentModel.ISupportInitialize)(this.OutputdataGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // scripttextBox
-            // 
-            this.scripttextBox.AutoWordSelection = true;
-            this.scripttextBox.BackColor = System.Drawing.Color.Black;
-            this.scripttextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.scripttextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scripttextBox.EnableAutoDragDrop = true;
-            this.scripttextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scripttextBox.ForeColor = System.Drawing.Color.White;
-            this.scripttextBox.Location = new System.Drawing.Point(0, 141);
-            this.scripttextBox.Name = "scripttextBox";
-            this.scripttextBox.Size = new System.Drawing.Size(1202, 306);
-            this.scripttextBox.TabIndex = 2;
-            this.scripttextBox.Text = "Write your Script here";
             // 
             // openFileDialog1
             // 
@@ -132,6 +120,8 @@ namespace AIBuilder.Cpython
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.PanelSearch);
+            this.splitContainer1.Panel1.Controls.Add(this.TextArea);
             this.splitContainer1.Panel1.Controls.Add(this.label10);
             this.splitContainer1.Panel1.Controls.Add(this.label9);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
@@ -148,7 +138,6 @@ namespace AIBuilder.Cpython
             this.splitContainer1.Panel1.Controls.Add(this.Insertlocaldbpathbutton);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.LocalDBcomboBox);
-            this.splitContainer1.Panel1.Controls.Add(this.scripttextBox);
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.menuStrip1);
@@ -159,6 +148,39 @@ namespace AIBuilder.Cpython
             this.splitContainer1.Size = new System.Drawing.Size(1204, 649);
             this.splitContainer1.SplitterDistance = 449;
             this.splitContainer1.TabIndex = 4;
+            // 
+            // PanelSearch
+            // 
+            this.PanelSearch.Controls.Add(this.TxtSearch);
+            this.PanelSearch.Location = new System.Drawing.Point(863, 37);
+            this.PanelSearch.Name = "PanelSearch";
+            this.PanelSearch.Size = new System.Drawing.Size(196, 64);
+            this.PanelSearch.TabIndex = 33;
+            // 
+            // TxtSearch
+            // 
+            this.TxtSearch.Location = new System.Drawing.Point(71, 24);
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.Size = new System.Drawing.Size(100, 20);
+            this.TxtSearch.TabIndex = 32;
+            // 
+            // TextArea
+            // 
+            this.TextArea.AutoCMaxHeight = 9;
+            this.TextArea.BiDirectionality = ScintillaNET.BiDirectionalDisplayType.Disabled;
+            this.TextArea.CaretLineBackColor = System.Drawing.Color.Black;
+            this.TextArea.CaretLineVisible = true;
+            this.TextArea.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextArea.Lexer = ScintillaNET.Lexer.Python;
+            this.TextArea.LexerName = "python";
+            this.TextArea.Location = new System.Drawing.Point(0, 141);
+            this.TextArea.Name = "TextArea";
+            this.TextArea.ScrollWidth = 110;
+            this.TextArea.Size = new System.Drawing.Size(1202, 306);
+            this.TextArea.TabIndents = true;
+            this.TextArea.TabIndex = 31;
+            this.TextArea.UseRightToLeftReadingLayout = false;
+            this.TextArea.WrapMode = ScintillaNET.WrapMode.None;
             // 
             // label10
             // 
@@ -436,14 +458,14 @@ namespace AIBuilder.Cpython
             this.OutputdataGridView.BackgroundColor = System.Drawing.Color.Black;
             this.OutputdataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.OutputdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.OutputdataGridView.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.OutputdataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.OutputdataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OutputdataGridView.GridColor = System.Drawing.Color.Black;
             this.OutputdataGridView.Location = new System.Drawing.Point(0, 23);
@@ -451,11 +473,11 @@ namespace AIBuilder.Cpython
             this.OutputdataGridView.ReadOnly = true;
             this.OutputdataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.OutputdataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OutputdataGridView.RowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OutputdataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.OutputdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.OutputdataGridView.Size = new System.Drawing.Size(1170, 171);
+            this.OutputdataGridView.Size = new System.Drawing.Size(1170, 77);
             this.OutputdataGridView.TabIndex = 0;
             // 
             // label3
@@ -484,6 +506,17 @@ namespace AIBuilder.Cpython
             this.OutputtextBox.TabIndex = 3;
             this.OutputtextBox.Text = "";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.Clearoutputbutton);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1202, 30);
+            this.panel2.TabIndex = 5;
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -498,11 +531,6 @@ namespace AIBuilder.Cpython
             this.label2.TabIndex = 2;
             this.label2.Text = "Output";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Clearoutputbutton
             // 
@@ -519,16 +547,10 @@ namespace AIBuilder.Cpython
             this.Clearoutputbutton.TabIndex = 4;
             this.Clearoutputbutton.UseVisualStyleBackColor = false;
             // 
-            // panel2
+            // contextMenuStrip1
             // 
-            this.panel2.BackColor = System.Drawing.Color.AliceBlue;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.Clearoutputbutton);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1202, 30);
-            this.panel2.TabIndex = 5;
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // uc_cpythonscriptrunner
             // 
@@ -542,6 +564,8 @@ namespace AIBuilder.Cpython
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.PanelSearch.ResumeLayout(false);
+            this.PanelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QtConsolebutton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Jupiterbutton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Runbutton)).EndInit();
@@ -563,8 +587,6 @@ namespace AIBuilder.Cpython
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox scripttextBox;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         public System.Diagnostics.Process process1;
@@ -603,5 +625,8 @@ namespace AIBuilder.Cpython
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Clearoutputbutton;
         private System.Windows.Forms.Panel panel2;
+        private ScintillaNET.Scintilla TextArea;
+        private System.Windows.Forms.Panel PanelSearch;
+        private System.Windows.Forms.TextBox TxtSearch;
     }
 }

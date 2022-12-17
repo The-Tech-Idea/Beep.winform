@@ -73,6 +73,7 @@ namespace BeepEnterprize.Winform.Vis
         #region "Winform Implemetation Properties"
         public ImageList Images { get; set; } = new ImageList();
         private Control _container;
+        public Form MainForm { get; set; }
         public Control Container { get { return _container; } set { _container =value; _controlManager.DisplayPanel = value; } }
         #endregion
         public WizardManager wizardManager { get; set; }

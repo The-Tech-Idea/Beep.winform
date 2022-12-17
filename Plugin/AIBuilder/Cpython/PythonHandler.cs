@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AI;
 using Beep.Winform.Controls;
+using ScintillaNET;
 using TheTechIdea.Beep;
 using TheTechIdea.Util;
 
@@ -20,14 +21,14 @@ namespace AIBuilder.Cpython
 {
     public class PythonHandler
     {
-        public PythonHandler(IDMEEditor pDMEEditor, RichTextBox prichBoxWriter, RichTextBox poutbox,BindingSource pbindingSource)
+        public PythonHandler(IDMEEditor pDMEEditor, Scintilla prichBoxWriter, RichTextBox poutbox,BindingSource pbindingSource)
         {
             DMEEditor = pDMEEditor;
             bindingSource = pbindingSource;
             outrichtextbox = poutbox;
             scriptrichtextbox = prichBoxWriter;
 
-            scriptWriter = new RichTextBoxWriter(scriptrichtextbox);
+            scriptWriter = prichBoxWriter;
             outputBoxWriter = new RichTextBoxWriter(poutbox);
             String AppName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
             if (Environment.Is64BitOperatingSystem)
@@ -77,14 +78,15 @@ namespace AIBuilder.Cpython
         public string[] packs { get; set; }
         public int numOutputLines { get; set; }
         public byte[] lasttmpcsvhash { get; set; }
-        RichTextBoxWriter scriptWriter { get; }
+       // RichTextBoxWriter scriptWriter { get; }
+        Scintilla scriptWriter { get; }
         RichTextBoxWriter outputBoxWriter { get; }
         public Process Process { get; set; }
 
         string FilenameLoaded = null;
         bool TmpCSVFileUpdated = false;
 
-        public RichTextBox scriptrichtextbox { get; set; }
+        public Scintilla scriptrichtextbox { get; set; }
         public RichTextBox outrichtextbox { get; set; }
 
         public  ResourceManager resourceManager { get; set; } = new ResourceManager();
