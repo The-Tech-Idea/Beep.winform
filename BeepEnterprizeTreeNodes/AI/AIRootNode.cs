@@ -168,11 +168,11 @@ namespace BeepEnterprize.Vis.Module
                         br.DMEEditor = DMEEditor;
 
                         ChildBranchs.Add(br);
-                   
-             
+                    br.CreateChildNodes();
 
-              
-                 
+
+
+
                 }
               
                 DMEEditor.AddLogMessage("Success", "Created child Nodes", DateTime.Now, 0, null, Errors.Ok);
