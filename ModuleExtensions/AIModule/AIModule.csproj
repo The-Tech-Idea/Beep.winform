@@ -55,10 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI\IAAPP.cs" />
-    <Compile Include="MachineLearning\IMachineLearningContext.cs" />
-    <Compile Include="MachineLearning\ITestData.cs" />
-    <Compile Include="MachineLearning\ITrainedModel.cs" />
+    <Compile Include="IAAPP.cs" />
+    <Compile Include="IMachineLearningContext.cs" />
+    <Compile Include="ITrainedModel.cs" />
+    <Compile Include="MLProcess.cs" />
+    <Compile Include="MLScenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

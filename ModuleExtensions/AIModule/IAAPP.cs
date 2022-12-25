@@ -10,12 +10,9 @@ namespace TheTechIdea.Beep.AI
         string AppName { get; set; }
         string AppID { get; }
         string DataSourceName { get; set; }
-        List<string> Tables { get; set; }
-        List<DataTable> TestData { get; set; }
+        List<IAAPPTestData> TestData { get; set; }
         IDMEEditor DMEEditor { get; set; }
-
-
-
+        
     }
     public interface IAAPPTestData
     {
