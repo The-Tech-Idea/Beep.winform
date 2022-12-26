@@ -75,15 +75,21 @@
     <Reference Include="Autofac, Version=6.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.6.5.0\lib\netstandard2.0\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Beep.Winform.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Winform.Vis.1.0.0\lib\net48\Beep.Winform.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="BeepEnterprize.Winform.Vis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Winform.Vis.1.0.0\lib\net48\BeepEnterprize.Winform.Vis.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataManagementModelsStandard, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.22\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
+    <Reference Include="DataManagementModelsStandard, Version=1.0.0.24, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.24\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.42, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.42\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.44, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.44\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
     </Reference>
     <Reference Include="DMLoggerStandard, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\TheTechIdea.Beep.DMLogger2.0.1.0.0.7\lib\netstandard2.0\DMLoggerStandard.dll</HintPath>
@@ -180,8 +186,16 @@
       <Link>LoadingExtensions\BusinessProcess\Beep.BusinessProcess.Module.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Nodes\Beep.BusinessProcess.Nodes.dll">
+      <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Nodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.BusinessProcess\Beep.BusinessProcess.dll">
       <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\CompositeLayerNodes\CompositeLayerNodes.dll">
+      <Link>ProjectClasses\BeepEnterprizeTreeNodes\CompositeLayerNodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NETExtensions\ML.NETExtensions.dll">
@@ -260,12 +274,12 @@
       <Link>ProjectClasses\ML.NET\ML.NET.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\ModuleExtensions\outputdll\AIModule\AIModule.dll">
-      <Link>LoadingExtensions\AssemblyLoaderAI\AIModule.dll</Link>
+    <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\TheTechIdea.Beep.TreeNodes.dll">
+      <Link>ProjectClasses\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\outputdll\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.dll">
-      <Link>ProjectClasses\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.dll</Link>
+    <Content Include="..\ModuleExtensions\outputdll\AIModule\AIModule.dll">
+      <Link>LoadingExtensions\AssemblyLoaderAI\AIModule.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Plugin\accord\bin\Debug\Accord.dll">
@@ -2777,6 +2791,9 @@
     <Content Include="ProjectClasses\DataSources\CockroachDBDataSource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ProjectClasses\DataSources\CompositeLayerDataSource.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ProjectClasses\DataSources\CouchBaseDataSource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -3463,16 +3480,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Beep.Winform.Controls\Beep.Winform.Controls.csproj">
-      <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
-      <Name>Beep.Winform.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
-      <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
-      <Name>BeepEnterprize.Winform.Vis</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ConnectionDrivers\Cassandra.dll">
