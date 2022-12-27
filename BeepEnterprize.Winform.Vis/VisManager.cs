@@ -72,11 +72,15 @@ namespace BeepEnterprize.Winform.Vis
         }
         #region "Winform Implemetation Properties"
         public ImageList Images { get; set; } = new ImageList();
+        BeepWait BeepWaitForm { get; set; }
+        public IWaitForm WaitForm { get; set; }
         private Control _container;
         public Form MainForm { get; set; }
         public Control Container { get { return _container; } set { _container =value; _controlManager.DisplayPanel = value; } }
         #endregion
         public WizardManager wizardManager { get; set; }
+       
+
         IDM_Addin MainFormView;
         public IErrorsInfo LoadSetting()
         {
@@ -365,7 +369,7 @@ namespace BeepEnterprize.Winform.Vis
 
             }
             return addin;
-            //form.GetType().GetField("")
+            //BeepWaitForm.GetType().GetField("")
         }
         public event EventHandler<FormClosingEventArgs> PreClose;
         private void Form_PreClose(object sender, FormClosingEventArgs e)
@@ -377,7 +381,7 @@ namespace BeepEnterprize.Winform.Vis
         {
             control.Controls.Clear();
             ErrorsandMesseges.Flag = Errors.Ok;
-            //Form form = new Form();
+            //Form BeepWaitForm = new Form();
             // var path = Path.Combine(dllpath, dllname);
             UserControl uc = new UserControl();
             IDM_Addin addin = null;
@@ -513,7 +517,7 @@ namespace BeepEnterprize.Winform.Vis
             }
           
             return addin;
-            //form.GetType().GetField("")
+            //BeepWaitForm.GetType().GetField("")
         }
         //---------------- Run Class Addin -----------------
         private IDM_Addin RunAddinClass(string classname, IDMEEditor pDMEEditor, string[] args, IPassedArgs e)
@@ -562,19 +566,19 @@ namespace BeepEnterprize.Winform.Vis
             }
 
             return addin;
-            //form.GetType().GetField("")
+            //BeepWaitForm.GetType().GetField("")
         }
         //--------------------------------------------------
 
         #endregion
         #region "Wait Forms"
-        BeepWait form;
+      
         
         delegate void SetTextCallback(Form f, TextBox ctrl, string text);
         /// <summary>
         /// Set text property of various controls
         /// </summary>
-        /// <param name="form">The calling form</param>
+        /// <param name="form">The calling BeepWaitForm</param>
         /// <param name="ctrl"></param>
         /// <param name="text"></param>
         public static void SetText(Form form, TextBox ctrl, string text)
@@ -586,7 +590,7 @@ namespace BeepEnterprize.Winform.Vis
             //if (ctrl.InvokeRequired)
             //{
             //    SetTextCallback d = new SetTextCallback(SetText);
-            //    form.Invoke(d, new object[] { form, ctrl, text });
+            //    BeepWaitForm.Invoke(d, new object[] { BeepWaitForm, ctrl, text });
             //}
             //else
             //{
@@ -601,20 +605,20 @@ namespace BeepEnterprize.Winform.Vis
         private async void startwait(PassedArgs Passedarguments)
         {
             string[] args = null;
-            form = (BeepWait)Application.OpenForms["BeepWait"];
-            if (form != null)
+            BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
+            if (BeepWaitForm != null)
             {
                 CloseWaitForm();
             }
             await Task.Run(() => {
-                form = new BeepWait();
-                //form.SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, Passedarguments, ErrorsandMesseges);
-                //form.Run(Passedarguments);
-                form.TopMost=true;
+                BeepWaitForm = new BeepWait();
+                //BeepWaitForm.SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, Passedarguments, ErrorsandMesseges);
+                //BeepWaitForm.Run(Passedarguments);
+                BeepWaitForm.TopMost=true;
                // Form frm = (Form)MainFormView;
-                form.StartPosition = FormStartPosition.CenterScreen;
-               // form.Parent = frm;
-                form.ShowDialog();
+                BeepWaitForm.StartPosition = FormStartPosition.CenterScreen;
+               // BeepWaitForm.Parent = frm;
+                BeepWaitForm.ShowDialog();
    
             });
         }
@@ -622,8 +626,8 @@ namespace BeepEnterprize.Winform.Vis
         {
             try
             {
-                form = (BeepWait)Application.OpenForms["BeepWait"];
-                if (form != null)
+                BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
+                if (BeepWaitForm != null)
                 {
                     CloseWaitForm();
                 }
@@ -632,7 +636,7 @@ namespace BeepEnterprize.Winform.Vis
                 startwait(Passedarguments);
                 WaitFormShown=true;
                 while ((BeepWait)Application.OpenForms["BeepWait"] == null) Application.DoEvents();
-                form = (BeepWait)Application.OpenForms["BeepWait"];
+                BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
 
             }
             catch (Exception ex)
@@ -650,10 +654,10 @@ namespace BeepEnterprize.Winform.Vis
             {
 
                 ErrorsandMesseges = new ErrorsInfo();
-                form = (BeepWait)Application.OpenForms["BeepWait"];
-                if (form != null)
+                BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
+                if (BeepWaitForm != null)
                 {
-                    SetText(form, form.messege, Passedarguments.ParameterString1);
+                    SetText(BeepWaitForm, BeepWaitForm.messege, Passedarguments.ParameterString1);
                     WaitFormShown = true;
                 }
 
@@ -670,17 +674,17 @@ namespace BeepEnterprize.Winform.Vis
         {
             try
             {
-                form = (BeepWait)Application.OpenForms["BeepWait"];
-                if (form != null)
+                BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
+                if (BeepWaitForm != null)
                 {
-                    if (form.InvokeRequired)
+                    if (BeepWaitForm.InvokeRequired)
                     {
-                        form.BeginInvoke((MethodInvoker)delegate () { form.CloseForm(); });
+                        BeepWaitForm.BeginInvoke((MethodInvoker)delegate () { BeepWaitForm.CloseForm(); });
                         WaitFormShown = false;
                     }
                     else
                     {
-                        form.BeginInvoke((MethodInvoker)delegate () { form.CloseForm(); });
+                        BeepWaitForm.BeginInvoke((MethodInvoker)delegate () { BeepWaitForm.CloseForm(); });
                         WaitFormShown = false;
                     }
 

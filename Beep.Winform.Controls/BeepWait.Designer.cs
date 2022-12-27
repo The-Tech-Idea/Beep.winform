@@ -73,10 +73,10 @@
             this.Title.BackColor = System.Drawing.Color.Transparent;
             this.Title.Dock = System.Windows.Forms.DockStyle.Top;
             this.Title.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.Title.ForeColor = System.Drawing.Color.Orange;
             this.Title.Location = new System.Drawing.Point(0, 0);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(304, 41);
+            this.Title.Size = new System.Drawing.Size(304, 53);
             this.Title.TabIndex = 1;
             this.Title.Text = "Beep Platform";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -689,7 +689,7 @@ namespace AIBuilder.Cpython
         private void InitHotkeys()
         {
 
-            // register the hotkeys with the form
+            // register the hotkeys with the WaitForm
             HotKeyManager.AddHotKey(visManager.MainForm, OpenSearch, Keys.F, true);
             HotKeyManager.AddHotKey(this.visManager.MainForm, OpenFindDialog, Keys.F, true, false, true);
             HotKeyManager.AddHotKey(this.visManager.MainForm, OpenReplaceDialog, Keys.R, true);

@@ -50,7 +50,7 @@ namespace TheTechIdea.ETL
     IBranch Parentbranch = null;
     public EntityStructure ParentEntity { get; set; } = null;
     DataViewDataSource vds;
-    CompositeLayerDataSource cds;
+    ICompositeLayerDataSource cds;
     public void Run(IPassedArgs pPassedarg)
     {
 

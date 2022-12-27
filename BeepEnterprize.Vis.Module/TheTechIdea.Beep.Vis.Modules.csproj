@@ -72,6 +72,9 @@
     <Compile Include="..\TheTechIdea.Beep.Vis.Modules2.0\ICrud.cs">
       <Link>ICrud.cs</Link>
     </Compile>
+    <Compile Include="..\TheTechIdea.Beep.Vis.Modules2.0\IWaitForm.cs">
+      <Link>IWaitForm.cs</Link>
+    </Compile>
     <Compile Include="..\TheTechIdea.Beep.Vis.Modules2.0\ICrudGeneric.cs">
       <Link>ICrudGeneric.cs</Link>
     </Compile>
