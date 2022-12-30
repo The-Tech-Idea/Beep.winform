@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Controls.TreeControls;
+using BeepEnterprize.Winform.Vis.Helpers;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -523,12 +524,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         private void SetupTreeView()
         {
-
             Vismanager.Images = new ImageList();
-           
-                Vismanager.Images.ImageSize = IconSize;
-          
-            
+            Vismanager.Images.ImageSize = IconSize;
             Vismanager.Images.ColorDepth = ColorDepth.Depth32Bit;
             List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
             foreach (string filename_w_path in paths)
@@ -536,10 +533,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 try
                 {
                     string filename = Path.GetFileName(filename_w_path);
-
+                    Vismanager.ImagesUrls.Add(new FileStorage() { FileName=filename, Url= filename_w_path });
                     Vismanager.Images.Images.Add(filename, Image.FromFile(filename_w_path));
-
-
                 }
                 catch (FileLoadException ex)
                 {
@@ -547,15 +542,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     DMEEditor.ErrorObject.Ex = ex;
                     DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
                 }
-
             }
             TreeV.CheckBoxes = false;
             TreeV.ImageList = Vismanager.Images;
-           // TreeV.ItemHeight = 24;
             TreeV.SelectedImageKey = SelectIcon;
-            //TreeV.Dock = DockStyle.Fill;
-            //TreeV.SendToBack();
-           
         }
         public IErrorsInfo TurnonOffCheckBox(IPassedArgs Passedarguments)
         {

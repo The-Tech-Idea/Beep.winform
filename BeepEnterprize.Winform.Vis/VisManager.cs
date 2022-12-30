@@ -26,7 +26,10 @@ namespace BeepEnterprize.Winform.Vis
 {
     public class VisManager : IVisManager
     {
-        
+
+        public string LogoUrl { get; set; }
+        public string Title { get; set; }
+        public string IconUrl { get; set; }
         public IDMEEditor DMEEditor { get; set; }
         public IDM_Addin MenuStrip { get; set; }
         public IDM_Addin ToolStrip { get; set; }
@@ -72,6 +75,7 @@ namespace BeepEnterprize.Winform.Vis
         }
         #region "Winform Implemetation Properties"
         public ImageList Images { get; set; } = new ImageList();
+        public List<IFileStorage> ImagesUrls { get; set; } = new List<IFileStorage>();
         BeepWait BeepWaitForm { get; set; }
         public IWaitForm WaitForm { get; set; }
         private Control _container;
@@ -79,7 +83,8 @@ namespace BeepEnterprize.Winform.Vis
         public Control Container { get { return _container; } set { _container =value; _controlManager.DisplayPanel = value; } }
         #endregion
         public WizardManager wizardManager { get; set; }
-       
+
+        public bool IsShowingMainForm { get; set; } = false;
 
         IDM_Addin MainFormView;
         public IErrorsInfo LoadSetting()
@@ -500,9 +505,19 @@ namespace BeepEnterprize.Winform.Vis
                     IsDataModified = false;
                     CurrentDisplayedAddin = addin;
                     form.ShowInTaskbar=true;
-                    
+                    if (IsShowingMainForm)
+                    {
+                        if (string.IsNullOrEmpty(Title))
+                        {
+                            form.Text = Title;
+                        }
+                    }
+                    if (string.IsNullOrEmpty(IconUrl))
+                    {
+                        string Iconp = ImagesUrls.Where(p => p.FileName.Equals(IconUrl)).FirstOrDefault().Url;
+                        form.Icon =new Icon(Iconp);
+                    }
                     form.ShowDialog();
-
                 }
                 else
                 {
@@ -572,8 +587,6 @@ namespace BeepEnterprize.Winform.Vis
 
         #endregion
         #region "Wait Forms"
-      
-        
         delegate void SetTextCallback(Form f, TextBox ctrl, string text);
         /// <summary>
         /// Set text property of various controls
@@ -637,6 +650,11 @@ namespace BeepEnterprize.Winform.Vis
                 WaitFormShown=true;
                 while ((BeepWait)Application.OpenForms["BeepWait"] == null) Application.DoEvents();
                 BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
+                if (!string.IsNullOrEmpty(Title))
+                {
+                    BeepWaitForm.Title.Text = Title;
+                }
+               
 
             }
             catch (Exception ex)
@@ -699,7 +717,6 @@ namespace BeepEnterprize.Winform.Vis
             }
             return ErrorsandMesseges;
         }
-
         #endregion
         #region "Resource Loaders"
         public Image GetImage(string fullName)

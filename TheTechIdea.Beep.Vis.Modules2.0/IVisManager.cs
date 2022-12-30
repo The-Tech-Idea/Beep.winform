@@ -2,6 +2,7 @@
 
 using BeepEnterprize.Winform.Vis;
 using BeepEnterprize.Winform.Vis.Helpers;
+using System.Collections.Generic;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Vis;
@@ -22,6 +23,11 @@ namespace BeepEnterprize.Vis.Module
         IDM_Addin SecondaryMenuStrip { get; set; }
         IDM_Addin CurrentDisplayedAddin { get; set; }
         bool IsDataModified { get; set; }
+        bool IsShowingMainForm { get; set; }
+        List<IFileStorage> ImagesUrls { get; set; }
+        string LogoUrl { get; set; }
+        string Title { get; set; }
+        string IconUrl { get;set; }
         IWaitForm WaitForm { get; set; }
         IErrorsInfo LoadSetting();
         IErrorsInfo SaveSetting();

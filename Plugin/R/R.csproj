@@ -79,8 +79,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.23, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.23\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
+    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.27, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.27\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

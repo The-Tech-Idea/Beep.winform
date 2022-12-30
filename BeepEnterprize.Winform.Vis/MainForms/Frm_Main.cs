@@ -241,7 +241,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.LogPanelCollapsebutton.Click += LogPanelCollapsebutton_Click;
             LogPanelHeight = LogPanel.Height;
           
-            MainSplitContainer1.Panel1MinSize = 40;
+            //MainSplitContainer1.Panel1MinSize = 40;
 
             ListSearch = (Bitmap)Properties.Resources.ResourceManager.GetObject("ListBoxSearch");
             CollapseLeft = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseLeft");

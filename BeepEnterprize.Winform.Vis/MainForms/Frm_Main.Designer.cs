@@ -169,7 +169,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.BeepTreeView.ItemHeight = 33;
             this.BeepTreeView.Location = new System.Drawing.Point(0, 0);
             this.BeepTreeView.Name = "BeepTreeView";
-            this.BeepTreeView.Size = new System.Drawing.Size(300, 635);
+            this.BeepTreeView.Size = new System.Drawing.Size(300, 634);
             this.BeepTreeView.TabIndex = 2;
             // 
             // TreeFilterTextBox
@@ -290,7 +290,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             this.LogPanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LogPanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(1116, 905);
+            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(1149, 907);
             this.LogPanelCollapsebutton.Name = "LogPanelCollapsebutton";
             this.LogPanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
             this.LogPanelCollapsebutton.TabIndex = 16;
@@ -298,12 +298,14 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             // ContainerPanel
             // 
+            this.ContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ContainerPanel.ContainerType = BeepEnterprize.Winform.Vis.Controls.ContainerTypeEnum.SinglePanel;
-            this.ContainerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ContainerPanel.Location = new System.Drawing.Point(0, 0);
+            this.ContainerPanel.Location = new System.Drawing.Point(18, 0);
             this.ContainerPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ContainerPanel.Name = "ContainerPanel";
-            this.ContainerPanel.Size = new System.Drawing.Size(1169, 925);
+            this.ContainerPanel.Size = new System.Drawing.Size(1147, 905);
             this.ContainerPanel.TabIndex = 17;
             // 
             // LogPanel

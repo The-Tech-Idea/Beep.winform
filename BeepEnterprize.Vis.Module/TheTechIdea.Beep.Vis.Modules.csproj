@@ -60,6 +60,9 @@
     <Compile Include="..\TheTechIdea.Beep.Vis.Modules2.0\enums.cs">
       <Link>enums.cs</Link>
     </Compile>
+    <Compile Include="..\TheTechIdea.Beep.Vis.Modules2.0\IFileStorage.cs">
+      <Link>IFileStorage.cs</Link>
+    </Compile>
     <Compile Include="..\TheTechIdea.Beep.Vis.Modules2.0\IBranch.cs">
       <Link>IBranch.cs</Link>
     </Compile>
