@@ -104,10 +104,6 @@
       <Project>{D185808C-5D43-454A-9468-829E122C2C2A}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ModuleExtensions\AIModule\AIModule.csproj">
-      <Project>{a81b09ed-c936-4c60-be8f-223d5d3fce8d}</Project>
-      <Name>AIModule</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="uc_REditor.resx">

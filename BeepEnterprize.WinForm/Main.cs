@@ -125,11 +125,11 @@ namespace BeepEnterprize.Winform
                 //};
                 DMEEditor.Passedarguments.ParameterString1 = "NoApp";
                 DMEEditor.AddLogMessage("Show Main Page");
-                vis.IsShowingMainForm= true;
+              
                 vis.Title = "Beep - The Data Plaform";
                 vis.IconUrl = "SimpleODM.ico";
                 vis.LogoUrl = "";
-                vis.IsShowingMainForm =false; 
+                vis.IsShowingMainForm =true; 
                 vis.ShowMainPage();
                
 

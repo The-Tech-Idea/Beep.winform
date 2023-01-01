@@ -20,7 +20,7 @@ namespace Beep.Winform.Controls
         public BeepWait()
         {
             InitializeComponent();
-          
+            LogopictureBox.Visible= false;
 
         }
 
@@ -50,7 +50,10 @@ namespace Beep.Winform.Controls
 
         public void SetImage(string image)
         {
-            throw new NotImplementedException();
+            Title.Visible= false;
+            LogopictureBox.Visible = true;
+            LogopictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            LogopictureBox.Image=Image.FromFile(image);
         }
 
         public void SetText(string text)
@@ -64,7 +67,9 @@ namespace Beep.Winform.Controls
 
         public void SetTitle(string title)
         {
-            throw new NotImplementedException();
+            Title.Visible = true;
+            LogopictureBox.Visible = false;
+            Title.Text = title;
         }
 
         public void SetTitle(string title, string text)

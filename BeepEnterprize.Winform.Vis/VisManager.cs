@@ -507,12 +507,12 @@ namespace BeepEnterprize.Winform.Vis
                     form.ShowInTaskbar=true;
                     if (IsShowingMainForm)
                     {
-                        if (string.IsNullOrEmpty(Title))
+                        if (!string.IsNullOrEmpty(Title))
                         {
                             form.Text = Title;
                         }
                     }
-                    if (string.IsNullOrEmpty(IconUrl))
+                    if (!string.IsNullOrEmpty(IconUrl))
                     {
                         string Iconp = ImagesUrls.Where(p => p.FileName.Equals(IconUrl)).FirstOrDefault().Url;
                         form.Icon =new Icon(Iconp);

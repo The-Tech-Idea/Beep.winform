@@ -76,10 +76,10 @@
       <HintPath>..\packages\Autofac.6.5.0\lib\netstandard2.0\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Beep.Winform.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.Winform.Vis.1.0.5\lib\net48\Beep.Winform.Controls.dll</HintPath>
+      <HintPath>..\packages\TheTechIdea.Beep.Winform.Vis.1.0.8\lib\net48\Beep.Winform.Controls.dll</HintPath>
     </Reference>
     <Reference Include="BeepEnterprize.Winform.Vis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.Winform.Vis.1.0.5\lib\net48\BeepEnterprize.Winform.Vis.dll</HintPath>
+      <HintPath>..\packages\TheTechIdea.Beep.Winform.Vis.1.0.8\lib\net48\BeepEnterprize.Winform.Vis.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>

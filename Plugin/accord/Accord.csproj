@@ -130,12 +130,6 @@
     <Content Include="gfx\accord.ico" />
     <Content Include="License-LGPL.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ModuleExtensions\AIModule\AIModule.csproj">
-      <Project>{a81b09ed-c936-4c60-be8f-223d5d3fce8d}</Project>
-      <Name>AIModule</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

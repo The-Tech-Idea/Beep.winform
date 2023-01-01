@@ -376,8 +376,16 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         }
         private void Frm_Main_Shown(object sender, EventArgs e)
         {
-           // this.WindowState = FormWindowState.Maximized;
-            this.Text = "Beep - The Plugable Integrated Platform";
+            // this.WindowState = FormWindowState.Maximized;
+            if (string.IsNullOrEmpty(visManager.Title))
+            {
+                this.Text = "Beep - The Plugable Integrated Platform";
+            }
+            else
+            {
+                this.Text = visManager.Title;
+            }
+            
         }
         private void Logger_Onevent(object sender, string e)
         {
