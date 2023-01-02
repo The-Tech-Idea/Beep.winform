@@ -8,7 +8,7 @@ namespace BeepEnterprize.Winform.Vis.Helpers
         IDMEEditor DMEEditor { get; set; }
         IVisManager Vismanager { get; set; }
      
-        int GetImageIndex(string imagename);
-        int GetImageIndexFromConnectioName(string Connectioname);
+        int GetImageIndex(string imagename, int size);
+        int GetImageIndexFromConnectioName(string Connectioname, int size);
     }
 }

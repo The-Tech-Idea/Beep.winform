@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -40,7 +41,12 @@ namespace BeepEnterprize.Winform.Vis
         public IDM_Addin SecondaryMenuStrip { get; set ; }
 
         public List<ObjectItem> objects { get; set; } = new List<ObjectItem>();
-       
+        public bool IsBeepDataOn { get; set; } = true;
+        public bool IsAppOn { get; set; } = true;
+      
+        public bool IsDevModeOn { get; set; } = false;
+        public string AppObjectsName { get; set; }
+        public string BeepObjectsName { get; set; }="Beep";
         public IVisHelper visHelper { get; set; }
         public IControlManager Controlmanager { get; set; }
         public ControlManager _controlManager { get { return (ControlManager)Controlmanager; } }
@@ -72,9 +78,99 @@ namespace BeepEnterprize.Winform.Vis
 
             }
             DMEEditor.Passedarguments.Objects = CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects);
+
+            Images16 = new ImageList();
+            Images16.ColorDepth = ColorDepth.Depth32Bit;
+
+            Images16 = new ImageList();
+            Images16.ImageSize = new Size(16, 16);
+            Images16.ColorDepth = ColorDepth.Depth32Bit;
+            Images32 = new ImageList();
+            Images32.ImageSize = new Size(16, 16);
+            Images32.ColorDepth = ColorDepth.Depth32Bit;
+            Images64 = new ImageList();
+            Images64.ImageSize = new Size(16, 16);
+            Images64.ColorDepth = ColorDepth.Depth32Bit;
+            Images128 = new ImageList();
+            Images128.ImageSize = new Size(16, 16);
+            Images128.ColorDepth = ColorDepth.Depth32Bit;
+            Images256 = new ImageList();
+            Images256.ImageSize = new Size(16, 16);
+            Images256.ColorDepth = ColorDepth.Depth32Bit;
+            List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
+            foreach (string filename_w_path in paths)
+            {
+                try
+                {
+                    string filename = Path.GetFileName(filename_w_path);
+                    ImagesUrls.Add(new FileStorage() { FileName = filename, Url = filename_w_path });
+                    Image im = Image.FromFile(filename_w_path);
+                    if (im != null)
+                    {
+                        Images16.Images.Add(filename, im);
+                        Images32.Images.Add(filename, im);
+                        Images64.Images.Add(filename, im);
+                        Images128.Images.Add(filename, im);
+                        Images256.Images.Add(filename, im);
+                        Images.Images.Add(filename, im);
+
+                        //switch (im.Size.Height)
+                        //{
+                        //    case 16:
+                        //        Images16.Images.Add(filename,im );
+                        //        break;
+                        //    case 32:
+                        //        Images32.Images.Add(filename, im);
+                        //        break;
+                        //    case 64:
+                        //        Images64.Images.Add(filename, im);
+                        //        break;
+                        //    case 128:
+                        //        Images128.Images.Add(filename, im);
+                        //        break;
+                        //    case 256:
+                        //        Images256.Images.Add(filename, im);
+                        //        break;
+                        //    default:
+                        //        Images.Images.Add(filename, im);
+                        //        break;
+                        //}
+                        ImagesUrls.Add(new FileStorage() { FileName = filename, Url = filename_w_path });
+                    }
+                   
+                }
+                catch (FileLoadException ex)
+                {
+                    DMEEditor.ErrorObject.Flag = Errors.Failed;
+                    DMEEditor.ErrorObject.Ex = ex;
+                    DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
+                }
+            }
+            paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.png", SearchOption.AllDirectories).ToList();
+            foreach (string filename_w_path in paths)
+            {
+                try
+                {
+                    string filename = Path.GetFileName(filename_w_path);
+                    Images.Images.Add(filename, Image.FromFile(filename_w_path));
+                    ImagesUrls.Add(new FileStorage() { FileName = filename, Url = filename_w_path });
+
+                }
+                catch (FileLoadException ex)
+                {
+                    DMEEditor.ErrorObject.Flag = Errors.Failed;
+                    DMEEditor.ErrorObject.Ex = ex;
+                    DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
+                }
+            }
         }
         #region "Winform Implemetation Properties"
         public ImageList Images { get; set; } = new ImageList();
+        public ImageList Images16 { get; set; } = new ImageList();
+        public ImageList Images32 { get; set; } = new ImageList();
+        public ImageList Images64 { get; set; } = new ImageList();
+        public ImageList Images128 { get; set; } = new ImageList();
+        public ImageList Images256 { get; set; } = new ImageList();
         public List<IFileStorage> ImagesUrls { get; set; } = new List<IFileStorage>();
         BeepWait BeepWaitForm { get; set; }
         public IWaitForm WaitForm { get; set; }
@@ -517,6 +613,7 @@ namespace BeepEnterprize.Winform.Vis
                         string Iconp = ImagesUrls.Where(p => p.FileName.Equals(IconUrl)).FirstOrDefault().Url;
                         form.Icon =new Icon(Iconp);
                     }
+                   
                     form.ShowDialog();
                 }
                 else
@@ -625,8 +722,19 @@ namespace BeepEnterprize.Winform.Vis
             }
             await Task.Run(() => {
                 BeepWaitForm = new BeepWait();
-                //BeepWaitForm.SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, Passedarguments, ErrorsandMesseges);
-                //BeepWaitForm.Run(Passedarguments);
+                if (!string.IsNullOrEmpty(Title))
+                {
+                    BeepWaitForm.Title.Text = Title;
+                }
+                Debug.WriteLine($"Getting Logourl {LogoUrl}");
+                if (!string.IsNullOrEmpty(LogoUrl))
+                {
+                    string logurl = ImagesUrls.Where(p => p.FileName.Equals(LogoUrl)).FirstOrDefault().Url;
+                    Debug.WriteLine($"found or not = {logurl}");
+
+                    BeepWaitForm.SetImage(logurl);
+                }
+                Debug.WriteLine($"not found logurl");
                 BeepWaitForm.TopMost=true;
                // Form frm = (Form)MainFormView;
                 BeepWaitForm.StartPosition = FormStartPosition.CenterScreen;
@@ -646,16 +754,12 @@ namespace BeepEnterprize.Winform.Vis
                 }
 
                 ErrorsandMesseges = new ErrorsInfo();
+
                 startwait(Passedarguments);
                 WaitFormShown=true;
                 while ((BeepWait)Application.OpenForms["BeepWait"] == null) Application.DoEvents();
                 BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
-                if (!string.IsNullOrEmpty(Title))
-                {
-                    BeepWaitForm.Title.Text = Title;
-                }
-               
-
+              
             }
             catch (Exception ex)
             {

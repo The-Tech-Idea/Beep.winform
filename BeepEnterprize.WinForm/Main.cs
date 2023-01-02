@@ -99,6 +99,13 @@ namespace BeepEnterprize.Winform
                 DMEEditor.ETL.RulesEditor = rulesEditor;
                 PassedArgs p = new PassedArgs();
                 vis = scope.Resolve<IVisManager>();
+                vis.BeepObjectsName = "Beep";
+                vis.IsAppOn = false;
+                vis.IsBeepDataOn = true;
+                vis.Title = "Beep - The Data Plaform";
+                vis.IconUrl = "iris.ico";
+                vis.LogoUrl = "dh3.png";
+
                 vis.ShowWaitForm(p);
                 DMEEditor.AddLogMessage("Started Assembly Loader");
                 p.ParameterString1 = "Loading DLL's";
@@ -123,12 +130,8 @@ namespace BeepEnterprize.Winform
                 //{
                 //    DMEEditor.AddLogMessage("Beep",eventArgs.Exception.ToString(),DateTime.Now,0,null,Errors.Failed);
                 //};
-                DMEEditor.Passedarguments.ParameterString1 = "NoApp";
                 DMEEditor.AddLogMessage("Show Main Page");
-              
-                vis.Title = "Beep - The Data Plaform";
-                vis.IconUrl = "SimpleODM.ico";
-                vis.LogoUrl = "";
+                
                 vis.IsShowingMainForm =true; 
                 vis.ShowMainPage();
                

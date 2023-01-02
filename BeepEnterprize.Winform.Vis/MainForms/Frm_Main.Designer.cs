@@ -166,10 +166,10 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.BeepTreeView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BeepTreeView.ItemHeight = 33;
+            this.BeepTreeView.ItemHeight = 32;
             this.BeepTreeView.Location = new System.Drawing.Point(0, 0);
             this.BeepTreeView.Name = "BeepTreeView";
-            this.BeepTreeView.Size = new System.Drawing.Size(300, 634);
+            this.BeepTreeView.Size = new System.Drawing.Size(300, 633);
             this.BeepTreeView.TabIndex = 2;
             // 
             // TreeFilterTextBox

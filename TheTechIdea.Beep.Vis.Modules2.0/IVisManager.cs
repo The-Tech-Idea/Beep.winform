@@ -25,9 +25,16 @@ namespace BeepEnterprize.Vis.Module
         bool IsDataModified { get; set; }
         bool IsShowingMainForm { get; set; }
         List<IFileStorage> ImagesUrls { get; set; }
+        bool IsBeepDataOn { get; set; }
+        bool IsAppOn { get; set; }
+
+        bool IsDevModeOn { get; set; }
+        string AppObjectsName { get; set; }
+        string BeepObjectsName { get; set; }
         string LogoUrl { get; set; }
         string Title { get; set; }
         string IconUrl { get;set; }
+      
         IWaitForm WaitForm { get; set; }
         IErrorsInfo LoadSetting();
         IErrorsInfo SaveSetting();

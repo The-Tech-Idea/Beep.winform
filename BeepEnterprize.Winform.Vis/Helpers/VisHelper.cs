@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea.Beep;
 using TheTechIdea.Util;
@@ -20,11 +21,42 @@ namespace BeepEnterprize.Winform.Vis.Helpers
         public IDMEEditor DMEEditor { get; set; }
         public IVisManager Vismanager { get; set; }
         public VisManager vismanager { get { return (VisManager)Vismanager; }  }
-        public int GetImageIndex(string imagename)
+        private ImageList GetImageList(int IconSize)
+        {
+
+
+            switch (IconSize)
+            {
+                case 16:
+                    return vismanager.Images16;
+                    break;
+                case 32:
+                    return vismanager.Images32;
+                    break;
+                case 64:
+                    return vismanager.Images64;
+                    break;
+                case 128:
+                    return vismanager.Images128;
+                    break;
+                case 256:
+                    return vismanager.Images256;
+                    break;
+                default:
+                    return vismanager.Images;
+                    break;
+            }
+
+        }
+        public int GetImageIndex(string imagename,int size)
         {
             try
             {
-                int imgindx = vismanager.Images.Images.IndexOfKey(imagename);
+                int imgindx = GetImageList(size).Images.IndexOfKey(imagename);
+                if (imgindx == -1)
+                {
+                    GetImageList(1000).Images.IndexOfKey(imagename);
+                }
                 return imgindx;
                 // Tree.SelectedImageIndex = GetImageIndex("select.ico");
             }
@@ -33,12 +65,16 @@ namespace BeepEnterprize.Winform.Vis.Helpers
                 return -1;
             }
         }
-        public Bitmap GetImage(string imagename)
+        public Bitmap GetImage(string imagename, int size)
         {
             try
             {
-                int idx = GetImageIndex(imagename);
-                Bitmap img = (Bitmap)vismanager.Images.Images[idx];
+                int idx = GetImageIndex(imagename,size);
+                if (idx == -1)
+                {
+                   idx= GetImageList(1000).Images.IndexOfKey(imagename);
+                }
+                Bitmap img = (Bitmap)GetImageList(size).Images[idx];
                 return img;
                 // Tree.SelectedImageIndex = GetImageIndex("select.ico");
             }
@@ -47,7 +83,7 @@ namespace BeepEnterprize.Winform.Vis.Helpers
                 return null;
             }
         }
-        public int GetImageIndexFromConnectioName(string Connectioname)
+        public int GetImageIndexFromConnectioName(string Connectioname, int size)
         {
             try
             {
@@ -81,7 +117,10 @@ namespace BeepEnterprize.Winform.Vis.Helpers
 
                     }
                    
-                    int imgindx = vismanager.Images.Images.IndexOfKey(iconname);
+                    int imgindx = GetImageList(size).Images.IndexOfKey(iconname);
+                    if (imgindx != -1) {
+                        imgindx = GetImageList(1000).Images.IndexOfKey(iconname);
+                    }
                     return imgindx;
                 }
                 else

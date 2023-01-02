@@ -54,7 +54,36 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             throw new NotImplementedException();
         }
+        private Size _iconsize = new Size(32, 32);
+        private bool IsNewSizeSet = false;
+        public Size IconSize { get { return _iconsize; } set { _iconsize = value; IsNewSizeSet = true; } }
+        private ImageList GetImageList()
+        {
 
+
+            switch (IconSize.Height)
+            {
+                case 16:
+                    return vismanager.Images16;
+                    break;
+                case 32:
+                    return vismanager.Images32;
+                    break;
+                case 64:
+                    return vismanager.Images64;
+                    break;
+                case 128:
+                    return vismanager.Images128;
+                    break;
+                case 256:
+                    return vismanager.Images256;
+                    break;
+                default:
+                    return vismanager.Images;
+                    break;
+            }
+
+        }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
             DMEEditor = pbl;
@@ -96,7 +125,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 toolbarstrip.Stretch = true;
                 
                 //toolbarstrip.TextDirection = System.Windows.Forms.ToolStripTextDirection.;
-                toolbarstrip.ImageList = vismanager.Images;
+                toolbarstrip.ImageList = GetImageList();
                 foreach (AssemblyClassDefinition cls in DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.componentType == "IFunctionExtension" && x.classProperties!=null && x.classProperties.ObjectType  !=null && x.classProperties.ObjectType.Equals(ObjectType,StringComparison.InvariantCultureIgnoreCase)))
                 {
                   
@@ -105,7 +134,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         ToolStripButton toolStripButton1 = new ToolStripButton();
                         if (item.iconimage != null)
                         {
-                            toolStripButton1.ImageIndex = vismanager.visHelper.GetImageIndex(item.iconimage);
+                            toolStripButton1.ImageIndex = vismanager.visHelper.GetImageIndex(item.iconimage, IconSize.Width);
                         }
                         toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
                         toolStripButton1.TextAlign = ContentAlignment.BottomLeft;
