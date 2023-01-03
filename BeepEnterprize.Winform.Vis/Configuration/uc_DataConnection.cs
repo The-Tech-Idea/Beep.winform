@@ -19,7 +19,7 @@ using BeepEnterprize.Winform.Vis;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Controls;
 using Beep.Winform.Controls;
-using TheTechIdea.Beep.ViewModels;
+//using TheTechIdea.Beep.ViewModels;
 
 namespace BeepEnterprize.Winform.Vis
 {
@@ -50,7 +50,7 @@ namespace BeepEnterprize.Winform.Vis
         public IUtil util { get; set; }
         public VisManager Visutil { get; set; }
         public IDMEEditor DMEEditor { get; set; }
-        DataConnectionViewModel viewModel;
+       // DataConnectionViewModel viewModel;
         #region "IAddinVisSchema"
         public string RootNodeName { get; set; } = "Configuration";
         public string CatgoryName { get; set; }

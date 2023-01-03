@@ -172,6 +172,14 @@
       <Link>ProjectClasses\AppBuilder\WinformScreenControls.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\AIExtensionLoader\AIExtensionLoader.dll">
+      <Link>LoadingExtensions\AssemblyLoaderAI\AIExtensionLoader.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\AIModule\AIModule.dll">
+      <Link>LoadingExtensions\AssemblyLoaderAI\AIModule.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.Extensions\Beep.BusinessProcess.Extensions.dll">
       <Link>LoadingExtensions\BusinessProcess\Beep.BusinessProcess.Extensions.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -272,20 +280,12 @@
       <Link>ProjectClasses\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\ModuleExtensions\outputdll\AIModule\AIModule.dll">
-      <Link>LoadingExtensions\AssemblyLoaderAI\AIModule.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Plugin\accord\bin\Debug\Accord.dll">
       <Link>ProjectClasses\Accord\Accord.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Plugin\AIBuilder\bin\Debug\AIBuilder.dll">
       <Link>ProjectClasses\AIBuilder\AIBuilder.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Plugin\OutputDLL\AssemblyLoaderAI\AssemblyLoaderAI.dll">
-      <Link>LoadingExtensions\AssemblyLoaderAI\AssemblyLoaderAI.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Plugin\OutputDLL\AssemblyLoaderExtension\AssemblyLoaderExtension.dll">
@@ -1033,7 +1033,22 @@
     <Content Include="GFX\zip.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="LoadingExtensions\AppBuilderExtensions\HereweAddLoadingAssemblyExtensions.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\AssemblyLoaderAI\HereweAddLoadingAssemblyExtensions.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\AssemblyLoaderExtension\HereweAddLoadingAssemblyExtensions.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\BusinessProcess\HereweAddLoadingAssemblyExtensions - Copy %282%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\ML.NET\HereweAddLoadingAssemblyExtensions - Copy.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Mapping\HereweAddAllmapping.txt">

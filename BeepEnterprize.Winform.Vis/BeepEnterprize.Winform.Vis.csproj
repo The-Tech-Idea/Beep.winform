@@ -585,10 +585,6 @@
       <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
       <Name>Beep.Winform.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BeepViewModels\ViewModels.csproj">
-      <Project>{533BD5A1-302E-40FB-8408-75F2D668FCF4}</Project>
-      <Name>ViewModels</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Wizards\CopyEntities\" />
