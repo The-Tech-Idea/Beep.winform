@@ -196,6 +196,10 @@
       <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\BranchAssemblyLoader\BranchAssemblyLoader.dll">
+      <Link>LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\CompositeLayerNodes\CompositeLayerNodes.dll">
       <Link>ProjectClasses\BeepEnterprizeTreeNodes\CompositeLayerNodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -286,10 +290,6 @@
     </Content>
     <Content Include="..\Plugin\AIBuilder\bin\Debug\AIBuilder.dll">
       <Link>ProjectClasses\AIBuilder\AIBuilder.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Plugin\OutputDLL\AssemblyLoaderExtension\AssemblyLoaderExtension.dll">
-      <Link>LoadingExtensions\AssemblyLoaderExtension\AssemblyLoaderExtension.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Plugin\OutputDLL\BeepDeveloperAssistant\BeepDeveloperAssistant.dll">

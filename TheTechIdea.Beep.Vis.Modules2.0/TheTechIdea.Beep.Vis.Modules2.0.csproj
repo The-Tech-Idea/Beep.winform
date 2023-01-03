@@ -25,5 +25,7 @@
   <ItemGroup>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.25" />
   </ItemGroup>
-
+	<Target Name="CopyDLL" AfterTargets="Build">
+		<Copy SourceFiles="$(OutDir)$(PackageId).dll" DestinationFolder="$(ProjectDir)..\..\outputDLL\$(PackageId)" SkipUnchangedFiles="false" />
+	</Target>
 </Project>
