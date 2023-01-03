@@ -65,29 +65,29 @@ namespace TheTechIdea.Beep.ViewModels
 
         public Task<IErrorsInfo> Insert(DefaultValue doc)
         {
-            UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.New, Enums.RecordStatus.New);
-            bool retval = Task.Run<bool>(() => DMEditor.ConfigEditor.AddDataConnection(doc)).Result;
-            if (retval)
-            {
-                UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.New, Enums.RecordStatus.Idle);
-                DMEditor.ErrorObject.Flag = Errors.Ok;
-            }
-            else
-                DMEditor.ErrorObject.Flag = Errors.Failed;
+            //UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.New, Enums.RecordStatus.New);
+            //bool retval = Task.Run<bool>(() => DMEditor.ConfigEditor.AddDataConnection(doc)).Result;
+            //if (retval)
+            //{
+            //    UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.New, Enums.RecordStatus.Idle);
+            //    DMEditor.ErrorObject.Flag = Errors.Ok;
+            //}
+            //else
+            //    DMEditor.ErrorObject.Flag = Errors.Failed;
             return Task.FromResult(DMEditor.ErrorObject);
         }
 
         public Task<IErrorsInfo> Update(DefaultValue doc)
         {
 
-            bool retval = Task.Run<bool>(() => DMEditor.ConfigEditor.UpdateDataConnection(doc, doc.Category.ToString())).Result;
-            if (retval)
-            {
-                UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.Modified, Enums.RecordStatus.Idle);
-                DMEditor.ErrorObject.Flag = Errors.Ok;
-            }
-            else
-                DMEditor.ErrorObject.Flag = Errors.Failed;
+            //bool retval = Task.Run<bool>(() => DMEditor.ConfigEditor.UpdateDataConnection(doc, doc.Category.ToString())).Result;
+            //if (retval)
+            //{
+            //    UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.Modified, Enums.RecordStatus.Idle);
+            //    DMEditor.ErrorObject.Flag = Errors.Ok;
+            //}
+            //else
+            //    DMEditor.ErrorObject.Flag = Errors.Failed;
             return Task.FromResult(DMEditor.ErrorObject);
         }
 

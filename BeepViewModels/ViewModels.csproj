@@ -9,9 +9,9 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
     <PackageReference Include="Flee" Version="2.0.0" />
-    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.23" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.24" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.24" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules2.0" Version="1.0.0.27" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules2.0" Version="1.0.0.29" />
   </ItemGroup>
 
 </Project>
