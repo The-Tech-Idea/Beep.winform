@@ -48,18 +48,18 @@ namespace BeepEnterprize.Winform
             Builder.RegisterType<ErrorsInfo>().As<IErrorsInfo>().SingleInstance();
             Builder.RegisterType<DMLogger>().As<IDMLogger>().SingleInstance();
             Builder.RegisterType<ConfigEditor>().As<IConfigEditor>().SingleInstance();
-            Builder.RegisterType<DataTypesHelper>().As<IDataTypesHelper>().SingleInstance();
+            //Builder.RegisterType<DataTypesHelper>().As<IDataTypesHelper>().SingleInstance();
             Builder.RegisterType<DMEEditor>().As<IDMEEditor>().SingleInstance();
-            Builder.RegisterType<WorkFlowEditor>().As<IWorkFlowEditor>().SingleInstance();
-            Builder.RegisterType<WorkFlowStepEditor>().As<IWorkFlowStepEditor>().SingleInstance();
-            Builder.RegisterType<RuleParser>().As<IRuleParser>().SingleInstance();
-            Builder.RegisterType<RulesEditor>().As<IRulesEditor>().SingleInstance();
+            //Builder.RegisterType<WorkFlowEditor>().As<IWorkFlowEditor>().SingleInstance();
+            //Builder.RegisterType<WorkFlowStepEditor>().As<IWorkFlowStepEditor>().SingleInstance();
+            //Builder.RegisterType<RuleParser>().As<IRuleParser>().SingleInstance();
+            //Builder.RegisterType<RulesEditor>().As<IRulesEditor>().SingleInstance();
             Builder.RegisterType<Util>().As<IUtil>().SingleInstance();
             Builder.RegisterType<VisManager>().As<IVisManager>().SingleInstance();
             Builder.RegisterType<JsonLoader>().As<IJsonLoader>().SingleInstance();
             Builder.RegisterType<AssemblyHandler>().As<IAssemblyHandler>().SingleInstance();
-            Builder.RegisterType<ClassCreator>().As<IClassCreator>().SingleInstance();
-            Builder.RegisterType<ETL>().As<IETL>().SingleInstance();
+            //Builder.RegisterType<ClassCreator>().As<IClassCreator>().SingleInstance();
+           // Builder.RegisterType<ETL>().As<IETL>().SingleInstance();
             return Builder.Build();
            
         }
@@ -71,32 +71,32 @@ namespace BeepEnterprize.Winform
             {
                 Config_editor = scope.Resolve<IConfigEditor>();
                 LLoader = scope.Resolve<IAssemblyHandler>();
-                eTL = scope.Resolve<IETL>();
-                WorkFlowEditor = scope.Resolve<IWorkFlowEditor>();
-                WorkFlowStepEditor = scope.Resolve<IWorkFlowStepEditor>();
-                ruleparser = scope.Resolve<IRuleParser>();
-                rulesEditor = scope.Resolve<IRulesEditor>();
+               // eTL = scope.Resolve<IETL>();
                 DMEEditor = scope.Resolve<IDMEEditor>();
-                typesHelper = scope.Resolve<IDataTypesHelper>();
-                classCreator = scope.Resolve<IClassCreator>();
+                //WorkFlowEditor = scope.Resolve<IWorkFlowEditor>();
+                //WorkFlowStepEditor = scope.Resolve<IWorkFlowStepEditor>();
+                //ruleparser = scope.Resolve<IRuleParser>();
+                //rulesEditor = scope.Resolve<IRulesEditor>();
+             
+                //typesHelper = scope.Resolve<IDataTypesHelper>();
+                //classCreator = scope.Resolve<IClassCreator>();
 
-                typesHelper.DMEEditor = DMEEditor;
-                DMEEditor.typesHelper = typesHelper;
-                DMEEditor.ETL = eTL;
-                eTL.DMEEditor = DMEEditor;
-                DMEEditor.assemblyHandler = LLoader;
-                DMEEditor.classCreator = classCreator;
+                //typesHelper.DMEEditor = DMEEditor;
+                //DMEEditor.typesHelper = typesHelper;
+                //DMEEditor.ETL = eTL;
+                //eTL.DMEEditor = DMEEditor;
+                //DMEEditor.assemblyHandler = LLoader;
+                //DMEEditor.classCreator = classCreator;
 
-                DMEEditor.WorkFlowEditor = WorkFlowEditor;
-                DMEEditor.WorkFlowEditor.DMEEditor = DMEEditor;
-                WorkFlowStepEditor.DMEEditor = DMEEditor;
-                DMEEditor.WorkFlowEditor.StepEditor = WorkFlowStepEditor;
+                //DMEEditor.WorkFlowEditor = WorkFlowEditor;
+                //DMEEditor.WorkFlowEditor.DMEEditor = DMEEditor;
+                //WorkFlowStepEditor.DMEEditor = DMEEditor;
+                //DMEEditor.WorkFlowEditor.StepEditor = WorkFlowStepEditor;
 
-                ruleparser.DMEEditor = DMEEditor;
-                rulesEditor.DMEEditor = DMEEditor;
-                rulesEditor.Parser = ruleparser;
-
-                DMEEditor.ETL.RulesEditor = rulesEditor;
+                //ruleparser.DMEEditor = DMEEditor;
+                //rulesEditor.DMEEditor = DMEEditor;
+                //rulesEditor.Parser = ruleparser;
+                //DMEEditor.ETL.RulesEditor = rulesEditor;
                 PassedArgs p = new PassedArgs();
                 vis = scope.Resolve<IVisManager>();
                 vis.BeepObjectsName = "Beep";
