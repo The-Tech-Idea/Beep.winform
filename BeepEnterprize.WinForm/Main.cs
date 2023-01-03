@@ -31,13 +31,6 @@ namespace BeepEnterprize.Winform
         public IErrorsInfo Erinfo { get; set; }
         public IJsonLoader jsonLoader { get; set; }
         public IAssemblyHandler LLoader { get; set; }
-        public IClassCreator classCreator { get; set; }
-        public IDataTypesHelper typesHelper { get; set; }
-        public IETL eTL { get; set; }
-        public IWorkFlowEditor WorkFlowEditor { get; set; }
-        public IWorkFlowStepEditor WorkFlowStepEditor { get; set; }
-        public IRuleParser ruleparser { get; set; }
-        public IRulesEditor rulesEditor { get; set; }
 
         #endregion
         CancellationTokenSource tokenSource;
@@ -65,20 +58,35 @@ namespace BeepEnterprize.Winform
                 Config_editor = scope.Resolve<IConfigEditor>();
                 LLoader = scope.Resolve<IAssemblyHandler>();
                 DMEEditor = scope.Resolve<IDMEEditor>();
-              
-                PassedArgs p = new PassedArgs();
+             
                 vis = scope.Resolve<IVisManager>();
+                // Show Beep Data Management System Tree
                 vis.BeepObjectsName = "Beep";
-                vis.IsAppOn = false;
                 vis.IsBeepDataOn = true;
-                vis.Title = "Beep - The Data Plaform";
-                vis.IconUrl = "iris.ico";
-                vis.LogoUrl = "dh3.png";
 
-                vis.ShowWaitForm(p);
+                // Show or Hide Custome App Tree
+                vis.IsAppOn = false;
+                //vis.AppObjectsName = "App";
+
+                vis.Title = "Beep - The Data Plaform";
+                vis.IconUrl = "SimpleODM.ico";
+
+                // Show Image Log instead of above Text Title
+                //vis.LogoUrl = "dh3.png";
+
+
+
                 DMEEditor.AddLogMessage("Started Assembly Loader");
+
+                // Create A parameter object for Wait Form
+                PassedArgs p = new PassedArgs();
                 p.ParameterString1 = "Loading DLL's";
+                // Show Wait Form
+                vis.ShowWaitForm(p);
+                // Passing Message to WaitForm
                 vis.PasstoWaitForm(p);
+
+                // Prepare Async Data Notification from Assembly loader to WaitForm
                 tokenSource = new CancellationTokenSource();
                 token = tokenSource.Token;
                 var progress = new Progress<PassedArgs>(percent => {
@@ -86,11 +94,15 @@ namespace BeepEnterprize.Winform
                     p.ParameterString1 = percent.ParameterString1;
                     vis.PasstoWaitForm(p);
                 });
+
+                // Load Assemblies
                 LLoader.LoadAllAssembly(progress, token);
                 Config_editor.LoadedAssemblies = LLoader.Assemblies.Select(c => c.DllLib).ToList();
 
+                // Create Default Parameter object
                 DMEEditor.Passedarguments = new PassedArgs();
                 DMEEditor.Passedarguments.Objects = new System.Collections.Generic.List<ObjectItem>();
+
                 // Setup the Entry Screen 
                 // the screen has to be in one the Addin DLL's loaded by the Assembly loader
                 // Config_editor.Config.SystemEntryFormName = @"MainForm";
@@ -101,6 +113,7 @@ namespace BeepEnterprize.Winform
                 //};
                 DMEEditor.AddLogMessage("Show Main Page");
                 
+                // This Flag for Showing Main Form
                 vis.IsShowingMainForm =true; 
                 vis.ShowMainPage();
                
