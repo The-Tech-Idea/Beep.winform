@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Beep.Winform.Controls</RootNamespace>
     <AssemblyName>Beep.Winform.Controls</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -60,8 +60,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.29, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.29\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
+    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.30\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -214,4 +214,9 @@
     <Content Include="gfx\tick.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir  $(ProjectDir)..\..\outputdll\$(TargetName)\
+
+copy $(TargetName).dll  $(ProjectDir)..\..\outputdll\$(TargetName)\$(TargetName).dll</PostBuildEvent>
+  </PropertyGroup>
 </Project>

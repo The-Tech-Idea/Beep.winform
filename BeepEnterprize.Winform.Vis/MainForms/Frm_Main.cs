@@ -174,7 +174,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
               
               
             }
-            else
+          
             
               
             ///----------------------------------------

@@ -43,6 +43,7 @@ namespace BeepEnterprize.Vis.Module
         IErrorsInfo CallAddinRun();
         IErrorsInfo CloseAddin();
         IErrorsInfo PrintGrid(IPassedArgs passedArgs);
+        IDM_Addin ShowUserControlPopUp(string usercontrolname, IDMEEditor pDMEEditor, string[] args, IPassedArgs e);
         IErrorsInfo ShowPage(string pagename,  PassedArgs Passedarguments,  DisplayType displayType = DisplayType.InControl);
         IErrorsInfo ShowWaitForm(PassedArgs Passedarguments);
         IErrorsInfo PasstoWaitForm(PassedArgs Passedarguments);

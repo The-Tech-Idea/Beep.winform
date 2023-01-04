@@ -62,10 +62,7 @@ namespace BeepEnterprize.Winform
                 vis = scope.Resolve<IVisManager>();
                 // Show Beep Data Management System Tree
                 vis.BeepObjectsName = "Beep";
-                vis.IsBeepDataOn = true;
-
-                // Show or Hide Custome App Tree
-                vis.IsAppOn = false;
+               
                 //vis.AppObjectsName = "App";
 
                 vis.Title = "Beep - The Data Plaform";
@@ -112,7 +109,11 @@ namespace BeepEnterprize.Winform
                 //    DMEEditor.AddLogMessage("Beep",eventArgs.Exception.ToString(),DateTime.Now,0,null,Errors.Failed);
                 //};
                 DMEEditor.AddLogMessage("Show Main Page");
-                
+
+                vis.IsBeepDataOn = true;
+
+                // Show or Hide Custome App Tree
+                vis.IsAppOn = false;
                 // This Flag for Showing Main Form
                 vis.IsShowingMainForm =true; 
                 vis.ShowMainPage();
