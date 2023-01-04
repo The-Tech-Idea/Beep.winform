@@ -60,10 +60,7 @@ namespace BeepEnterprize.Winform
                 DMEEditor = scope.Resolve<IDMEEditor>();
              
                 vis = scope.Resolve<IVisManager>();
-                // Show Beep Data Management System Tree
-                vis.BeepObjectsName = "Beep";
-               
-                //vis.AppObjectsName = "App";
+            
 
                 vis.Title = "Beep - The Data Plaform";
                 vis.IconUrl = "SimpleODM.ico";
@@ -109,7 +106,10 @@ namespace BeepEnterprize.Winform
                 //    DMEEditor.AddLogMessage("Beep",eventArgs.Exception.ToString(),DateTime.Now,0,null,Errors.Failed);
                 //};
                 DMEEditor.AddLogMessage("Show Main Page");
+                // Show Beep Data Management System Tree
+                vis.BeepObjectsName = "Beep";
 
+                //vis.AppObjectsName = "App";
                 vis.IsBeepDataOn = true;
 
                 // Show or Hide Custome App Tree

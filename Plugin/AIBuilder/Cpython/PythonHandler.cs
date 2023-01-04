@@ -70,13 +70,14 @@ namespace AIBuilder.Cpython
         public string packageinstallpath { get; set; }
         public BindingSource bindingSource { get; set; }
         public string filenameLoaded { get; set; } = null;
-        public List<string> outputdata  { get; set; }= new List<string>();
+     
         public string packagenames { get; } = "Plotly;plotly;Chart,PyQt5;PyQt5;Chart,Dash;Ploty and Dash App;Chart,pythonnet;Python.Net;Tools,qtconsole;qtconsole;Tools,jupyter;Jupyter;Tools,winpty;Pseudoterminals;Tools,ipython;IPython;Tools,pprint36;Pretty Print;Tools,tabulate;Tabular Print;Tools,Pillow;Imaging Library;Chart,Matplotlib;MatPlot;Chart,Numpy;Numpy;Compute,opencv-python;OpenCV;Chart,Requests;HTTP library;Tools,Keras;Keras;ML,TensorFlow;TensorFlow;ML,Theano;Theano Math;ML,NLTK;Natural Language Toolkit;ML,Fire;Fire Auto. command line interfaces Generation;Tools,Arrow;Arrow Date Manupliation;Tools,FlashText;FlashText;Tools,Scipy;SciPy Scientific Library;ML,SQLAlchemy;SQLAlcemy Database Abstraction;ML,wxPython;wx GUI toolkit;Gui,torch;PyTorch Tensors and Dynamic neural networks;ML,Luminoth;Luminoth Computer vision toolkit based on TensorFlow;Chart,BeautifulSoup;BeautifulSoup Screen-scraping library;Tools,Bokeh;Bokeh Interactive plots and applications;Chart,Poetry;Poetry dependency management and packaging made easy;Tools,Gensim;Gensim fast Vector Space Modelling;ML,pandas;Pandas data structures for data analysis-time series-statistics;ML,Pytil;tility library;Tools,scikit-learn;Scikit Learn machine learning and data mining;ML,NetworkX;Networkx creating and manipulating graphs and networks;ML,TextBlob;TextBlob text processing;ML,Mahotas;Mahotas Computer Vision;ML";
         public string packagecatgoryimages { get; } = "Tools;tools,ML;ml,GUI;gui,Chart;gfx,Compute;Compute";
         public List<packagelist> packages { get; set; } = new List<packagelist>();
         public List<packageCategoryImages> packageCategorys { get; set; } = new List<packageCategoryImages>();
         public string[] packs { get; set; }
         public int numOutputLines { get; set; }
+        public List<string> outputdata { get; set; } = new List<string>();
         public byte[] lasttmpcsvhash { get; set; }
        // RichTextBoxWriter scriptWriter { get; }
         Scintilla scriptWriter { get; }
@@ -454,31 +455,6 @@ namespace AIBuilder.Cpython
             using (FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
                 return sha1.ComputeHash(stream);
         }
-        private void ParseLine(string line,RichTextBox scripttextbox)
-        {
-            Regex r = new Regex("([ \\t{}():;])");
-            String[] tokens = r.Split(line);
-            foreach (string token in tokens)
-            {
-                // Set the tokens default color and font.  
-                scripttextbox.SelectionColor = Color.Black;
-                scripttextbox.SelectionFont = new Font("Courier New", 10, FontStyle.Regular);
-                // Check whether the token is a keyword.   
-                String[] keywords = { "public", "void", "using", "static", "class" };
-                for (int i = 0; i < keywords.Length; i++)
-                {
-                    if (keywords[i] == token)
-                    {
-                        // Apply alternative color and font to highlight keyword.  
-                        scripttextbox.SelectionColor = Color.Blue;
-                        scripttextbox.SelectionFont = new Font("Courier New", 10, FontStyle.Bold);
-                        break;
-                    }
-                }
-                scripttextbox.SelectedText = token;
-            }
-            scripttextbox.SelectedText = "\n";
-        }
         private DataTable ConvertStringtoDatatable()
         {
             DataTable dt;
@@ -499,33 +475,7 @@ namespace AIBuilder.Cpython
 
             return dt;
         }
-        private StringBuilder GetoutputText()
-        {
-            string outputfilename = $@"{DMEEditor.ConfigEditor.Config.Folders.Where(c => c.FolderFilesType == FolderFileTypes.Scripts && c.FolderPath.Contains("AI")).FirstOrDefault().FolderPath }\\output.txt";
-            StreamReader sr = new StreamReader(outputfilename);
-            //Read the first line of text
-            string line = sr.ReadLine();
-            //Continue to read until you reach end of file
-            StringBuilder st = new StringBuilder();
-            while (line != null)
-            {
-                //write the lie to console window
-                //scripttextBox.AppendText(line + Environment.NewLine);
-                //this.OutputtextBox.BeginInvoke(new Action(() => {
-                //    this.OutputtextBox.AppendText(Environment.NewLine +
-                //    $">{line}");
-                //    OutputtextBox.SelectionStart = OutputtextBox.Text.Length;
-                //    OutputtextBox.ScrollToCaret();
-                //}));
-                st.AppendLine(line);
-                //Read the next line
-                line = sr.ReadLine();
-                st.AppendLine(line);
-            }
-            //close the file
-            sr.Close();
-            return st;
-        }
+       
         #endregion
         #region "File Handling"
         private string lookfortmopcsv()

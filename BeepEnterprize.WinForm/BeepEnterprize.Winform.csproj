@@ -75,6 +75,12 @@
     <Reference Include="Autofac, Version=6.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.6.5.0\lib\netstandard2.0\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Beep.Winform.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Winform.Vis.1.0.20\lib\net48\Beep.Winform.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="BeepEnterprize.Winform.Vis, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheTechIdea.Beep.Winform.Vis.1.0.20\lib\net48\BeepEnterprize.Winform.Vis.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
       <Private>True</Private>
@@ -3689,16 +3695,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Beep.Winform.Controls\Beep.Winform.Controls.csproj">
-      <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
-      <Name>Beep.Winform.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
-      <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
-      <Name>BeepEnterprize.Winform.Vis</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
