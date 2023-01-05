@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beep.Winform.Controls
+namespace TheTechIdea.Beep.AIBuilder
 {
     public class ResourceManager
     {
@@ -21,7 +21,7 @@ namespace Beep.Winform.Controls
         {
             Bitmap image = null;
             Stream stream;
-            Assembly assembly = Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.GetCallingAssembly();
             // Is this just a single (ie. one-time) image?
             stream = assembly.GetManifestResourceStream(path + fullName);
             if (stream != null)
@@ -37,7 +37,7 @@ namespace Beep.Winform.Controls
         {
             Icon icon = null;
             Stream stream;
-            Assembly assembly = Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.GetCallingAssembly();
             // Is this just a single (ie. one-time) image?
             stream = assembly.GetManifestResourceStream(path + fullName);
             if (stream != null)

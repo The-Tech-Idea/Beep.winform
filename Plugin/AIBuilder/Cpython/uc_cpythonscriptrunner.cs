@@ -51,6 +51,7 @@ namespace AIBuilder.Cpython
 		public string EntityName { get; set; }
 		public IPassedArgs Passedarg { get; set; }
 		public PythonHandler Python { get; set; }
+        public CPythonManager CPythonManager { get; set; }
 		public IVisManager Visutil { get; set; }
         VisManager visManager;
 	
@@ -61,14 +62,11 @@ namespace AIBuilder.Cpython
 
 
         BindingSource griddatasource = new BindingSource();
-			public void RaiseObjectSelected()
-		{
-			throw new NotImplementedException();
-		}
+		
          
 		public void Run(IPassedArgs Passedarg)
 		{
-			throw new NotImplementedException();
+			
 		}
 
 		public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
@@ -125,14 +123,40 @@ namespace AIBuilder.Cpython
 			this.Insertlocaldbpathbutton.Click += Insertlocaldbpathbutton_Click;
             this.QtConsolebutton.Click += QtConsolebutton_Click;
 			OutputdataGridView.DataSource = griddatasource;
-            
-            LoadScriptbutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "load64.png");
-            Savebutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "save64.png");
-            SaveAsbutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "saveas64.png");
-            Jupiterbutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "jupyter64.png");
-            QtConsolebutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "qt64.png");
-            Runbutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "run64.png");
-            Clearoutputbutton.BackgroundImage = Python.resourceManager.GetImage("AIBuilder.gfx.", "clear.png");
+
+            //         LoadScriptbutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "load64.png");
+            //         Savebutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "save64.png");
+            //         SaveAsbutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "saveas64.png");
+            //         Jupiterbutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "jupyter64.png");
+            //         QtConsolebutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "qt64.png");
+            //         Runbutton.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "run64.png");
+            //         Clearoutputbutton.BackgroundImage = Python.resourceManager.GetImage("AIBuilder.gfx.", "clear.png");
+            //         Clearoutputbutton.Click += Clearoutputbutton_Click;
+            //         LoadScriptbutton.MouseHover += AllButtons_MouseHover;
+            //         Savebutton.MouseHover += AllButtons_MouseHover;
+            //         SaveAsbutton.MouseHover += AllButtons_MouseHover;
+            //         Jupiterbutton.MouseHover += AllButtons_MouseHover;
+            //         QtConsolebutton.MouseHover += AllButtons_MouseHover;
+            //         Runbutton.MouseHover += AllButtons_MouseHover;
+
+            //         loadToolStripMenuItem.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "load.ico");
+            //         saveToolStripMenuItem.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "saveas.ico");
+            //         runToolStripMenuItem.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "run.ico");
+            //         Python.SetupPipMenu(packagesToolStripMenuItem);
+            //         if (Python.checkifpackageinstalled("pythonnet"))
+            //         {
+            //	Python.InstallPythonNet();
+
+            //}
+            CPythonManager = new CPythonManager(DMEEditor, DMEEditor.ConfigEditor.JsonLoader);
+            CPythonManager.SendMessege += CPythonManager_SendMessege;
+            LoadScriptbutton.Image = CPythonManager.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "load64.png");
+            Savebutton.Image = CPythonManager.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "save64.png");
+            SaveAsbutton.Image = CPythonManager.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "saveas64.png");
+            Jupiterbutton.Image = CPythonManager.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "jupyter64.png");
+            QtConsolebutton.Image = CPythonManager.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "qt64.png");
+            Runbutton.Image = CPythonManager.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "run64.png");
+            Clearoutputbutton.BackgroundImage = CPythonManager.resourceManager.GetImage("AIBuilder.gfx.", "clear.png");
             Clearoutputbutton.Click += Clearoutputbutton_Click;
             LoadScriptbutton.MouseHover += AllButtons_MouseHover;
             Savebutton.MouseHover += AllButtons_MouseHover;
@@ -141,22 +165,16 @@ namespace AIBuilder.Cpython
             QtConsolebutton.MouseHover += AllButtons_MouseHover;
             Runbutton.MouseHover += AllButtons_MouseHover;
 
-            loadToolStripMenuItem.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "load.ico");
-            saveToolStripMenuItem.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "saveas.ico");
-            runToolStripMenuItem.Image = Python.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "run.ico");
+            loadToolStripMenuItem.Image = CPythonManager.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "load.ico");
+            saveToolStripMenuItem.Image = CPythonManager.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "saveas.ico");
+            runToolStripMenuItem.Image = CPythonManager.resourceManager.GetImage("TheTechIdea.Beep.AIBuilder.gfx.", "run.ico");
+            CPythonManager.PIPManager.SetupPipMenu(packagesToolStripMenuItem);
+            //if (CPythonManager.checkifpackageinstalled("pythonnet"))
+            //{
+            //    CPythonManager.InstallPythonNet();
 
-
-        
-
-
-            Python.SetupPipMenu(packagesToolStripMenuItem);
-
-            if (Python.checkifpackageinstalled("pythonnet"))
-            {
-				Python.InstallPythonNet();
-
-			}
-			this.Disposed += Uc_cpythonscriptrunner_Disposed;
+            //}
+            this.Disposed += Uc_cpythonscriptrunner_Disposed;
 
             // BASIC CONFIG
             TextArea.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -184,11 +202,32 @@ namespace AIBuilder.Cpython
 
             // DEFAULT FILE
             //  LoadDataFromFile("../../MainForm.cs");
-          //  TextArea.Text="";
-            Python.LoadScriptFile(Path.Combine(Python.aifolder, "demo1.py"));
+            //  TextArea.Text="";
+            string retval = CPythonManager.FileManager.LoadScriptFile(Path.Combine(CPythonManager.AiFolderpath, "demo1.py"));
+            if ( retval!= null)
+            {
+                TextArea.Text = CPythonManager.Script;
+                Filenamelabel.Text = retval;
+            }    ;
             // INIT HOTKEYS
               InitHotkeys();
 
+
+        }
+        public int numOutputLines { get; set; }
+        private void CPythonManager_SendMessege(object sender, string e)
+        {
+            if (!String.IsNullOrEmpty(e))
+            {
+               
+                //Add the text to the collected output.
+
+                this.OutputtextBox.BeginInvoke(new Action(() =>
+                {
+                    this.OutputtextBox.AppendText(Environment.NewLine +
+                    $">{e}");
+                }));
+            }
 
         }
 
@@ -205,7 +244,7 @@ namespace AIBuilder.Cpython
 
         private void QtConsolebutton_Click(object sender, EventArgs e)
         {
-            Python.QtConsoleRun();
+            //CPythonManager.QtConsoleRun();
         }
         private void Insertlocaldbpathbutton_Click(object sender, EventArgs e)
 		{
@@ -242,20 +281,20 @@ namespace AIBuilder.Cpython
 		}
 		private void Uc_cpythonscriptrunner_Disposed(object sender, EventArgs e)
 			{
-				 Python.JupiterStop();
-                Python.QtConsoleStop();
+				// Python.JupiterStop();
+               //  Python.QtConsoleStop();
 			  //  runPythonScriptscommandline($@"jupyter notebook stop ", $@"{aifolder}");
 		  
 			}
 		private void Jupiterbutton_Click(object sender, EventArgs e)
 			{
-				 Python.JupiterRun();
+				// Python.JupiterRun();
 			   // runPythonScriptscommandline($@"jupyter notebook ", $@"{aifolder}");
 			}
 		private void SavefilepictureBox_Click(object sender, EventArgs e)
 			{
 
-				Python.SaveTexttoFile();
+            CPythonManager.FileManager.SaveTexttoFile();
 
 			}
 		private void RunScriptbutton_Click(object sender, EventArgs e)
@@ -269,7 +308,7 @@ namespace AIBuilder.Cpython
 				this.TextArea.Text = this.TextArea.Text.Replace("BeepDrivers", $"{Path.Combine(DMEEditor.ConfigEditor.ExePath, "ConnectionDrivers")}");
 				this.TextArea.Text = this.TextArea.Text.Replace("BeepOtherDLL", $"{Path.Combine(DMEEditor.ConfigEditor.ExePath, "OtherDLL")}");
 
-				Python.RunScript();
+                CPythonManager.ProcessManager.RunScript( this.TextArea.Text );
 			}
 			catch (Exception ex)
 			{
@@ -281,13 +320,18 @@ namespace AIBuilder.Cpython
 		}
 		private void SaveFilebutton_Click(object sender, EventArgs e)
 		{
-				Python.SaveTextAsFile();
+            CPythonManager.FileManager.SaveTextAsFile();
 		}
 		private void LoadFilebutton_Click(object sender, EventArgs e)
 		{
-			Filenamelabel.Text= Python.LoadScriptFile(null);
-		   
-		}
+            string retval = CPythonManager.FileManager.LoadScriptFile(null);
+            if (retval != null)
+            {
+                TextArea.Text = CPythonManager.Script;
+                Filenamelabel.Text = retval;
+            }
+
+        }
         private void OnTextChanged(object sender, EventArgs e)
         {
 

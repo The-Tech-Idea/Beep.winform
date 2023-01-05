@@ -1,9 +1,11 @@
 ﻿using Beep.Winform.Controls;
+using System;
 
 namespace TheTechIdea.Beep.AIBuilder.Cpython
 {
     public interface ICPythonManager
     {
+        event EventHandler<string> SendMessege;
         IDMEEditor DMEEditor { get; set; }
         IDEManager IDEManager { get; set; }
         PIPManager PIPManager { get; set; }

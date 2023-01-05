@@ -151,7 +151,54 @@ namespace TheTechIdea.Beep.AIBuilder.Cpython
         }
         public void Installpip_Click(object sender, EventArgs e)
         {
-            pythonManager.ProcessManager.runPythonScriptscommandlineAsync("py get-pip.py", $@"{pythonManager.BinPath}\scripts\");
+           
+        }
+        public bool InstallPIP()
+        {
+            if (checkifpackageinstalled("pip"))
+            {
+                return true;
+            }
+            else
+            {
+                pythonManager.ProcessManager.runPythonScriptscommandlineAsync("py get-pip.py", $@"{pythonManager.BinPath}\scripts\");
+                if (checkifpackageinstalled("pip"))
+                {
+                    //i.Image = global::TheTechIdea.Beep.AIBuilder.Properties.Resources.verified_account_32px;
+                    //MessageBox.Show($"Success Install Package {n}");
+                    return true;
+                }
+                else
+                {
+                    return false;
+                    //   i.Image = global::TheTechIdea.Beep.AIBuilder.Properties.Resources.cancel_32px;
+                    // MessageBox.Show($"Failed to Install Package {n}");
+                }
+            }
+        }
+        public bool InstallPackage(string packagename)
+        {
+            if (checkifpackageinstalled(packagename))
+            {
+                return true;
+            }
+            else
+            {
+                pythonManager.ProcessManager.runPythonScriptscommandlineAsync($@"pip.exe install {packagename}", $@"{pythonManager.BinPath}\scripts\");
+                if (checkifpackageinstalled(packagename))
+                {
+                    //i.Image = global::TheTechIdea.Beep.AIBuilder.Properties.Resources.verified_account_32px;
+                    //MessageBox.Show($"Success Install Package {n}");
+                    return true;
+                }
+                else
+                {
+                    return false;
+                    //   i.Image = global::TheTechIdea.Beep.AIBuilder.Properties.Resources.cancel_32px;
+                    // MessageBox.Show($"Failed to Install Package {n}");
+                }
+            }
+            
         }
         public void PackagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -204,6 +251,8 @@ namespace TheTechIdea.Beep.AIBuilder.Cpython
         {
             pythonManager.ProcessManager.runPythonScriptscommandlineAsync($@"jupyter notebook stop ", $@"{pythonManager.AiFolderpath}");
         }
+
+       
         #endregion
     }
 }

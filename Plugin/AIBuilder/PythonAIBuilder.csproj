@@ -97,6 +97,7 @@
     <Compile Include="Cpython\PythonHandler.cs" />
     <Compile Include="Cpython\SearchManager.cs" />
     <Compile Include="packagelist.cs" />
+    <Compile Include="ResourceManager.cs" />
     <Compile Include="TreeNodes\AICPythonNode.cs" />
     <Compile Include="CommandLineRun.cs" />
     <Compile Include="Cpython\uc_cpythonscriptrunner.cs">
