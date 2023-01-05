@@ -219,67 +219,67 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.AutoML.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.AutoML.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.AutoML.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.CodeGenerator.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.CodeGenerator.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.CodeGenerator.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Core.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.Core.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Core.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Data.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.Data.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Data.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.DataView.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.DataView.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.DataView.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.FastTree.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.FastTree.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.FastTree.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.KMeansClustering.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.KMeansClustering.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.KMeansClustering.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Parquet.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.Parquet.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Parquet.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.PCA.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.PCA.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.PCA.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Scoring.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.Scoring.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Scoring.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.SearchSpace.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.SearchSpace.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.SearchSpace.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.StandardTrainers.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.StandardTrainers.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.StandardTrainers.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TimeSeries.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.TimeSeries.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.TimeSeries.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TorchSharp.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.TorchSharp.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.TorchSharp.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Transforms.dll">
-      <Link>ProjectClasses\ML.NET\Microsoft.ML.Transforms.dll</Link>
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Transforms.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\ML.NET.dll">
