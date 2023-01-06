@@ -15,6 +15,7 @@ using AI;
 using Beep.Winform.Controls;
 using ScintillaNET;
 using TheTechIdea.Beep;
+using TheTechIdea.Beep.AIBuilder;
 using TheTechIdea.Util;
 
 namespace AIBuilder.Cpython

@@ -63,9 +63,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules2.0.csproj">
+    <ProjectReference Include="..\..\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules.csproj">
       <Project>{48AAD630-7A91-49C9-9C02-619043A77AB7}</Project>
-      <Name>TheTechIdea.Beep.Vis.Modules2.0</Name>
+      <Name>TheTechIdea.Beep.Vis.Modules</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

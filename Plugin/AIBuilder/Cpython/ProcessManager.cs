@@ -18,24 +18,18 @@ namespace TheTechIdea.Beep.AIBuilder.Cpython
         {
             pythonManager = cPythonManager;
         }
-        string tmpcsvfile;
+      
         private ICPythonManager pythonManager;
         public BindingSource bindingSource { get; set; }
         public Process Process { get; set; }
         public int numOutputLines { get; set; }
         public List<string> outputdata { get; set; } = new List<string>();
-      
         public void RunScript(string script)
         {
+            pythonManager.Script = script;
             string scripttorun = Path.Combine(pythonManager.AiFolderpath, "tmp.py");
             File.WriteAllText(scripttorun, script);
-            //var t = Task.Run(() => {   });
             runPythonScriptcommandlineSync($@"{pythonManager.BinPath}\python.exe -q {Path.GetFileName(scripttorun)}", pythonManager.AiFolderpath);
-            //int milliseconds = 2000;
-            //Thread.Sleep(milliseconds);
-            //   GetoutputText();
-         
-
         }
         public void runPythonScriptcommandlineSync(string Command, string Commandpath)
         {
@@ -192,13 +186,11 @@ namespace TheTechIdea.Beep.AIBuilder.Cpython
             numOutputLines = 0;
             // Process.WaitForExit();
         }
-
         #region "Output Management"
-      
         private DataTable ConvertStringtoDatatable()
         {
             DataTable dt;
-
+            string tmpcsvfile="";
             if (File.Exists(tmpcsvfile))
             {
                 dt = pythonManager.DMEEditor.Utilfunction.CreateDataTableFromFile(tmpcsvfile);
@@ -208,7 +200,6 @@ namespace TheTechIdea.Beep.AIBuilder.Cpython
            
             return dt;
         }
-
         #endregion
     }
 }

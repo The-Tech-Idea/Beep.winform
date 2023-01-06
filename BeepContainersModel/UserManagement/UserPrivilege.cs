@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+
 using System.Linq;
 using System.Threading.Tasks;
 using TheTechIdea.Beep.Containers.Models;
@@ -11,7 +11,7 @@ namespace TheTechIdea.Beep.Containers.UserManagement
     public class UserPrivilege
     {
         public int UserPrivilegeID { get; set; }
-        [ForeignKey("UserName")]
+       
         public ApplicationUser User { get; set; }
         public PrivilegePriv Privileges { get; set; }
         public DateTime StartDate { get; set; }

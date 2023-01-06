@@ -50,7 +50,7 @@ namespace AIBuilder.Cpython
 		public EntityStructure EntityStructure { get; set; }
 		public string EntityName { get; set; }
 		public IPassedArgs Passedarg { get; set; }
-		public PythonHandler Python { get; set; }
+	//	public PythonHandler Python { get; set; }
         public CPythonManager CPythonManager { get; set; }
 		public IVisManager Visutil { get; set; }
         VisManager visManager;
@@ -75,7 +75,7 @@ namespace AIBuilder.Cpython
 			Logger = plogger;
 			ErrorObject = per;
 			DMEEditor = pbl;
-			Python = new PythonHandler(pbl,TextArea,OutputtextBox, griddatasource);
+			//Python = new PythonHandler(pbl,TextArea,OutputtextBox, griddatasource);
 			griddatasource.DataSourceChanged += Griddatasource_DataSourceChanged;
             Visutil = (IVisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
             visManager = (VisManager)Visutil;
@@ -106,10 +106,10 @@ namespace AIBuilder.Cpython
 
 
 			}
-			foreach (string cnname in Python.GetLocalDB())
-			{
-				this.LocalDBcomboBox.Items.Add(cnname);
-			}
+			//foreach (string cnname in Python.GetLocalDB())
+			//{
+			//	this.LocalDBcomboBox.Items.Add(cnname);
+			//}
 			//  this.Disposed += Uc_cpythonscriptrunner_Disposed;
 			this.loadToolStripMenuItem.Click += LoadFilebutton_Click;
 			 this.saveToolStripMenuItem.Click += SaveFilebutton_Click;
@@ -273,7 +273,7 @@ namespace AIBuilder.Cpython
 		private void Tmpfilepathbutton_Click(object sender, EventArgs e)
 		{
 			//scripttextBox.AppendText(Path.Combine(Python.aifolder,"tmp.csv"));
-            Clipboard.SetText(Path.Combine(Python.aifolder, "tmp.csv"));
+            Clipboard.SetText(Path.Combine(CPythonManager.AiFolderpath, "tmp.csv"));
         }
 		private void Griddatasource_DataSourceChanged(object sender, EventArgs e)
 		{

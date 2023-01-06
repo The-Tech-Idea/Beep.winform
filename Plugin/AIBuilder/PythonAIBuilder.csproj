@@ -33,19 +33,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Beep.Winform.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.Winform.Vis.1.0.20\lib\net48\Beep.Winform.Controls.dll</HintPath>
+      <HintPath>..\..\packages\TheTechIdea.Beep.Winform.Vis.1.0.21\lib\net48\Beep.Winform.Controls.dll</HintPath>
     </Reference>
     <Reference Include="BeepEnterprize.Winform.Vis, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.Winform.Vis.1.0.20\lib\net48\BeepEnterprize.Winform.Vis.dll</HintPath>
+      <HintPath>..\..\packages\TheTechIdea.Beep.Winform.Vis.1.0.21\lib\net48\BeepEnterprize.Winform.Vis.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="DataManagementModelsStandard, Version=1.0.0.25, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementModels2.0.1.0.0.25\lib\netstandard2.0\DataManagementModelsStandard.dll</HintPath>
-    </Reference>
-    <Reference Include="DataManagmentEngineStandard, Version=1.0.0.45, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementEngine2.0.1.0.0.45\lib\netstandard2.0\DataManagmentEngineStandard.dll</HintPath>
+    <Reference Include="DataManagementModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.DataManagementModels.1.0.0\lib\netstandard2.0\DataManagementModels.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Dynamic, Version=1.3.3.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
@@ -81,8 +78,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TheTechIdea.Beep.Vis.Modules2.0, Version=1.0.0.30, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TheTechIdea.Beep.Vis.Modules2.0.1.0.0.30\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules2.0.dll</HintPath>
+    <Reference Include="TheTechIdea.Beep.Vis.Modules, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TheTechIdea.Beep.Vis.Modules.1.0.0\lib\netstandard2.0\TheTechIdea.Beep.Vis.Modules.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +91,6 @@
     <Compile Include="Cpython\IDEManager.cs" />
     <Compile Include="Cpython\PIPManager.cs" />
     <Compile Include="Cpython\ProcessManager.cs" />
-    <Compile Include="Cpython\PythonHandler.cs" />
     <Compile Include="Cpython\SearchManager.cs" />
     <Compile Include="packagelist.cs" />
     <Compile Include="ResourceManager.cs" />
@@ -163,220 +159,7 @@
     <EmbeddedResource Include="gfx\run.ico" />
     <EmbeddedResource Include="gfx\install.ico" />
     <EmbeddedResource Include="gfx\list.ico" />
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\libcrypto-1_1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\libffi-7.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\libssl-1_1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
     <Content Include="Beep\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="python-3.9.5-embed-amd64\scripts\get-pip.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="python-3.9.5-embed-amd64\Lib\site-packages\packages.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\LICENSE.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\python.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\python3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\python39.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\pythonw.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\sqlite3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\vcruntime140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\vcruntime140_1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\libcrypto-1_1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\libffi-7.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\libssl-1_1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <Content Include="python-3.9.5-embed-win32\Lib\site-packages\packages.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\LICENSE.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\python.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\python3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\python39.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\pythonw.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\sqlite3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\vcruntime140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\pyexpat.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\python.cat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\python39.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\python39._pth">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\select.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\unicodedata.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\winsound.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_asyncio.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_bz2.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_ctypes.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_decimal.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_elementtree.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_hashlib.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_lzma.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_msi.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_multiprocessing.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_overlapped.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_queue.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_socket.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_sqlite3.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_ssl.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_uuid.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-amd64\_zoneinfo.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\pyexpat.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\python.cat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\python39.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\python39._pth">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\select.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\unicodedata.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\winsound.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_asyncio.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_bz2.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_ctypes.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_decimal.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_elementtree.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_hashlib.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_lzma.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_msi.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_multiprocessing.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_overlapped.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_queue.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_socket.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_sqlite3.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_ssl.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_uuid.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="python-3.9.5-embed-win32\_zoneinfo.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <Content Include="python-3.9.5-embed-win32\scripts\get-pip.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\go_32px.png" />
