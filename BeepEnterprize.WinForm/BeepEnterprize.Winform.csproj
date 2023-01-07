@@ -196,6 +196,18 @@
       <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Logic\Beep.Python.Logic.dll">
+      <Link>ProjectClasses\Python\Beep.Python.Logic.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Nodes\Beep.Python.Nodes.dll">
+      <Link>ProjectClasses\Python\Beep.Python.Nodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Winform\Beep.Python.Winform.dll">
+      <Link>ProjectClasses\Python\Beep.Python.Winform.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\CompositeLayerNodes\CompositeLayerNodes.dll">
       <Link>ProjectClasses\CompositeLayer\CompositeLayerNodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -282,10 +294,6 @@
     </Content>
     <Content Include="..\..\Plugins\BranchAssemblyLoader\bin\Release\netstandard2.0\BranchAssemblyLoader.dll">
       <Link>LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Plugin\accord\bin\Debug\Accord.dll">
-      <Link>ProjectClasses\Accord\Accord.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Plugin\OutputDLL\BeepDeveloperAssistant\BeepDeveloperAssistant.dll">
@@ -1149,1648 +1157,1648 @@
     <Content Include="ProjectClasses\AI\Accord\ZedGraph.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\beep.py">
+    <Content Include="ProjectClasses\Python\beep.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\abc.py">
+    <Content Include="ProjectClasses\Python\lib\abc.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\aifc.py">
+    <Content Include="ProjectClasses\Python\lib\aifc.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\antigravity.py">
+    <Content Include="ProjectClasses\Python\lib\antigravity.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\anydbm.py">
+    <Content Include="ProjectClasses\Python\lib\anydbm.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\argparse.py">
+    <Content Include="ProjectClasses\Python\lib\argparse.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ast.py">
+    <Content Include="ProjectClasses\Python\lib\ast.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\asynchat.py">
+    <Content Include="ProjectClasses\Python\lib\asynchat.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\asyncore.py">
+    <Content Include="ProjectClasses\Python\lib\asyncore.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\atexit.py">
+    <Content Include="ProjectClasses\Python\lib\atexit.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\audiodev.py">
+    <Content Include="ProjectClasses\Python\lib\audiodev.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\base64.py">
+    <Content Include="ProjectClasses\Python\lib\base64.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\BaseHTTPServer.py">
+    <Content Include="ProjectClasses\Python\lib\BaseHTTPServer.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\Bastion.py">
+    <Content Include="ProjectClasses\Python\lib\Bastion.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\bdb.py">
+    <Content Include="ProjectClasses\Python\lib\bdb.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\binhex.py">
+    <Content Include="ProjectClasses\Python\lib\binhex.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\bisect.py">
+    <Content Include="ProjectClasses\Python\lib\bisect.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\calendar.py">
+    <Content Include="ProjectClasses\Python\lib\calendar.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\cgi.py">
+    <Content Include="ProjectClasses\Python\lib\cgi.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\CGIHTTPServer.py">
+    <Content Include="ProjectClasses\Python\lib\CGIHTTPServer.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\cgitb.py">
+    <Content Include="ProjectClasses\Python\lib\cgitb.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\chunk.py">
+    <Content Include="ProjectClasses\Python\lib\chunk.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\clrtype.py">
+    <Content Include="ProjectClasses\Python\lib\clrtype.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\cmd.py">
+    <Content Include="ProjectClasses\Python\lib\cmd.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\code.py">
+    <Content Include="ProjectClasses\Python\lib\code.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\codecs.py">
+    <Content Include="ProjectClasses\Python\lib\codecs.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\codeop.py">
+    <Content Include="ProjectClasses\Python\lib\codeop.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\collections.py">
+    <Content Include="ProjectClasses\Python\lib\collections.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\colorsys.py">
+    <Content Include="ProjectClasses\Python\lib\colorsys.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\commands.py">
+    <Content Include="ProjectClasses\Python\lib\commands.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\compileall.py">
+    <Content Include="ProjectClasses\Python\lib\compileall.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ConfigParser.py">
+    <Content Include="ProjectClasses\Python\lib\ConfigParser.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\contextlib.py">
+    <Content Include="ProjectClasses\Python\lib\contextlib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\Cookie.py">
+    <Content Include="ProjectClasses\Python\lib\Cookie.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\cookielib.py">
+    <Content Include="ProjectClasses\Python\lib\cookielib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\copy.py">
+    <Content Include="ProjectClasses\Python\lib\copy.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\csv.py">
+    <Content Include="ProjectClasses\Python\lib\csv.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ctypes\macholib\dyld.py">
+    <Content Include="ProjectClasses\Python\lib\ctypes\macholib\dyld.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ctypes\macholib\dylib.py">
+    <Content Include="ProjectClasses\Python\lib\ctypes\macholib\dylib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ctypes\macholib\framework.py">
+    <Content Include="ProjectClasses\Python\lib\ctypes\macholib\framework.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ctypes\macholib\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\ctypes\macholib\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ctypes\util.py">
+    <Content Include="ProjectClasses\Python\lib\ctypes\util.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ctypes\wintypes.py">
+    <Content Include="ProjectClasses\Python\lib\ctypes\wintypes.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ctypes\_endian.py">
+    <Content Include="ProjectClasses\Python\lib\ctypes\_endian.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ctypes\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\ctypes\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\decimal.py">
+    <Content Include="ProjectClasses\Python\lib\decimal.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\difflib.py">
+    <Content Include="ProjectClasses\Python\lib\difflib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\dircache.py">
+    <Content Include="ProjectClasses\Python\lib\dircache.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\dis.py">
+    <Content Include="ProjectClasses\Python\lib\dis.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\archive_util.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\archive_util.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\bcppcompiler.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\bcppcompiler.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\ccompiler.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\ccompiler.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\cmd.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\cmd.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\bdist.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\bdist.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\bdist_dumb.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\bdist_dumb.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\bdist_rpm.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\bdist_rpm.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\bdist_wininst.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\bdist_wininst.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\build.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\build.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\build_clib.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\build_clib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\build_ext.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\build_ext.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\build_py.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\build_py.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\build_scripts.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\build_scripts.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\check.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\check.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\clean.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\clean.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\config.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\config.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\install.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\install.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\install_data.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\install_data.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\install_egg_info.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\install_egg_info.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\install_headers.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\install_headers.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\install_lib.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\install_lib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\install_scripts.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\install_scripts.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\register.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\register.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\sdist.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\sdist.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\upload.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\upload.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\command\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\command\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\config.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\config.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\core.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\core.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\cygwinccompiler.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\cygwinccompiler.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\debug.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\debug.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\dep_util.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\dep_util.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\dir_util.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\dir_util.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\dist.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\dist.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\emxccompiler.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\emxccompiler.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\errors.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\errors.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\extension.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\extension.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\fancy_getopt.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\fancy_getopt.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\filelist.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\filelist.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\file_util.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\file_util.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\log.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\log.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\msvccompiler.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\msvccompiler.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\spawn.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\spawn.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\sysconfig.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\sysconfig.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\text_file.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\text_file.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\unixccompiler.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\unixccompiler.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\util.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\util.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\version.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\version.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\versionpredicate.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\versionpredicate.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\distutils\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\distutils\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\doctest.py">
+    <Content Include="ProjectClasses\Python\lib\doctest.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\DocXMLRPCServer.py">
+    <Content Include="ProjectClasses\Python\lib\DocXMLRPCServer.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\dumbdbm.py">
+    <Content Include="ProjectClasses\Python\lib\dumbdbm.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\dummy_thread.py">
+    <Content Include="ProjectClasses\Python\lib\dummy_thread.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\dummy_threading.py">
+    <Content Include="ProjectClasses\Python\lib\dummy_threading.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\base64mime.py">
+    <Content Include="ProjectClasses\Python\lib\email\base64mime.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\charset.py">
+    <Content Include="ProjectClasses\Python\lib\email\charset.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\encoders.py">
+    <Content Include="ProjectClasses\Python\lib\email\encoders.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\errors.py">
+    <Content Include="ProjectClasses\Python\lib\email\errors.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\feedparser.py">
+    <Content Include="ProjectClasses\Python\lib\email\feedparser.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\generator.py">
+    <Content Include="ProjectClasses\Python\lib\email\generator.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\header.py">
+    <Content Include="ProjectClasses\Python\lib\email\header.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\iterators.py">
+    <Content Include="ProjectClasses\Python\lib\email\iterators.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\message.py">
+    <Content Include="ProjectClasses\Python\lib\email\message.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\mime\application.py">
+    <Content Include="ProjectClasses\Python\lib\email\mime\application.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\mime\audio.py">
+    <Content Include="ProjectClasses\Python\lib\email\mime\audio.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\mime\base.py">
+    <Content Include="ProjectClasses\Python\lib\email\mime\base.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\mime\image.py">
+    <Content Include="ProjectClasses\Python\lib\email\mime\image.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\mime\message.py">
+    <Content Include="ProjectClasses\Python\lib\email\mime\message.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\mime\multipart.py">
+    <Content Include="ProjectClasses\Python\lib\email\mime\multipart.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\mime\nonmultipart.py">
+    <Content Include="ProjectClasses\Python\lib\email\mime\nonmultipart.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\mime\text.py">
+    <Content Include="ProjectClasses\Python\lib\email\mime\text.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\mime\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\email\mime\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\parser.py">
+    <Content Include="ProjectClasses\Python\lib\email\parser.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\quoprimime.py">
+    <Content Include="ProjectClasses\Python\lib\email\quoprimime.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\utils.py">
+    <Content Include="ProjectClasses\Python\lib\email\utils.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\_parseaddr.py">
+    <Content Include="ProjectClasses\Python\lib\email\_parseaddr.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\email\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\email\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\aliases.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\aliases.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\ascii.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\ascii.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\base64_codec.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\base64_codec.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\bz2_codec.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\bz2_codec.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\charmap.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\charmap.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp037.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp037.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1006.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1006.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1026.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1026.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1140.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1140.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1250.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1250.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1251.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1251.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1252.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1252.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1253.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1253.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1254.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1254.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1255.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1255.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1256.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1256.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1257.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1257.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp1258.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp1258.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp424.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp424.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp437.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp437.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp500.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp500.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp720.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp720.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp737.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp737.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp775.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp775.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp850.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp850.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp852.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp852.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp855.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp855.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp856.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp856.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp857.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp857.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp858.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp858.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp860.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp860.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp861.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp861.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp862.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp862.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp863.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp863.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp864.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp864.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp865.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp865.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp866.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp866.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp869.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp869.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp874.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp874.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\cp875.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\cp875.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\hex_codec.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\hex_codec.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\hp_roman8.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\hp_roman8.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\idna.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\idna.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_1.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_1.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_10.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_10.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_11.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_11.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_13.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_13.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_14.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_14.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_15.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_15.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_16.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_16.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_2.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_2.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_3.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_3.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_4.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_4.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_5.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_5.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_6.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_6.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_7.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_7.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_8.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_8.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\iso8859_9.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\iso8859_9.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\koi8_r.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\koi8_r.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\koi8_u.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\koi8_u.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\latin_1.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\latin_1.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_arabic.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_arabic.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_centeuro.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_centeuro.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_croatian.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_croatian.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_cyrillic.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_cyrillic.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_farsi.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_farsi.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_greek.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_greek.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_iceland.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_iceland.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_latin2.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_latin2.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_roman.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_roman.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_romanian.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_romanian.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mac_turkish.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mac_turkish.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\mbcs.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\mbcs.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\palmos.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\palmos.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\ptcp154.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\ptcp154.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\punycode.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\punycode.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\quopri_codec.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\quopri_codec.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\raw_unicode_escape.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\raw_unicode_escape.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\rot_13.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\rot_13.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\string_escape.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\string_escape.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\tis_620.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\tis_620.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\undefined.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\undefined.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\unicode_escape.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\unicode_escape.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\unicode_internal.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\unicode_internal.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\utf_16.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\utf_16.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\utf_16_be.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\utf_16_be.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\utf_16_le.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\utf_16_le.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\utf_32.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\utf_32.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\utf_32_be.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\utf_32_be.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\utf_32_le.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\utf_32_le.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\utf_7.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\utf_7.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\utf_8.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\utf_8.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\utf_8_sig.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\utf_8_sig.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\uu_codec.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\uu_codec.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\zlib_codec.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\zlib_codec.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\encodings\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\encodings\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ensurepip\_uninstall.py">
+    <Content Include="ProjectClasses\Python\lib\ensurepip\_uninstall.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ensurepip\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\ensurepip\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ensurepip\__main__.py">
+    <Content Include="ProjectClasses\Python\lib\ensurepip\__main__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\filecmp.py">
+    <Content Include="ProjectClasses\Python\lib\filecmp.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\fileinput.py">
+    <Content Include="ProjectClasses\Python\lib\fileinput.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\fnmatch.py">
+    <Content Include="ProjectClasses\Python\lib\fnmatch.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\formatter.py">
+    <Content Include="ProjectClasses\Python\lib\formatter.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\fpformat.py">
+    <Content Include="ProjectClasses\Python\lib\fpformat.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\fractions.py">
+    <Content Include="ProjectClasses\Python\lib\fractions.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ftplib.py">
+    <Content Include="ProjectClasses\Python\lib\ftplib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\functools.py">
+    <Content Include="ProjectClasses\Python\lib\functools.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\genericpath.py">
+    <Content Include="ProjectClasses\Python\lib\genericpath.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\getopt.py">
+    <Content Include="ProjectClasses\Python\lib\getopt.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\getpass.py">
+    <Content Include="ProjectClasses\Python\lib\getpass.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\gettext.py">
+    <Content Include="ProjectClasses\Python\lib\gettext.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\glob.py">
+    <Content Include="ProjectClasses\Python\lib\glob.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\gzip.py">
+    <Content Include="ProjectClasses\Python\lib\gzip.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\hashlib.py">
+    <Content Include="ProjectClasses\Python\lib\hashlib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\heapq.py">
+    <Content Include="ProjectClasses\Python\lib\heapq.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\hmac.py">
+    <Content Include="ProjectClasses\Python\lib\hmac.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\htmlentitydefs.py">
+    <Content Include="ProjectClasses\Python\lib\htmlentitydefs.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\htmllib.py">
+    <Content Include="ProjectClasses\Python\lib\htmllib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\HTMLParser.py">
+    <Content Include="ProjectClasses\Python\lib\HTMLParser.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\httplib.py">
+    <Content Include="ProjectClasses\Python\lib\httplib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ihooks.py">
+    <Content Include="ProjectClasses\Python\lib\ihooks.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\imaplib.py">
+    <Content Include="ProjectClasses\Python\lib\imaplib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\imghdr.py">
+    <Content Include="ProjectClasses\Python\lib\imghdr.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\importlib\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\importlib\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\imputil.py">
+    <Content Include="ProjectClasses\Python\lib\imputil.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\inspect.py">
+    <Content Include="ProjectClasses\Python\lib\inspect.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\io.py">
+    <Content Include="ProjectClasses\Python\lib\io.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\json\decoder.py">
+    <Content Include="ProjectClasses\Python\lib\json\decoder.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\json\encoder.py">
+    <Content Include="ProjectClasses\Python\lib\json\encoder.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\json\scanner.py">
+    <Content Include="ProjectClasses\Python\lib\json\scanner.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\json\tool.py">
+    <Content Include="ProjectClasses\Python\lib\json\tool.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\json\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\json\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\keyword.py">
+    <Content Include="ProjectClasses\Python\lib\keyword.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\btm_matcher.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\btm_matcher.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\btm_utils.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\btm_utils.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixer_base.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixer_base.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixer_util.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixer_util.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_apply.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_apply.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_asserts.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_asserts.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_basestring.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_basestring.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_buffer.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_buffer.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_dict.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_dict.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_except.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_except.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_exec.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_exec.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_execfile.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_execfile.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_exitfunc.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_exitfunc.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_filter.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_filter.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_funcattrs.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_funcattrs.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_future.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_future.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_getcwdu.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_getcwdu.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_has_key.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_has_key.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_idioms.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_idioms.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_import.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_import.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_imports.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_imports.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_imports2.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_imports2.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_input.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_input.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_intern.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_intern.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_isinstance.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_isinstance.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_itertools.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_itertools.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_itertools_imports.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_itertools_imports.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_long.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_long.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_map.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_map.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_metaclass.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_metaclass.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_methodattrs.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_methodattrs.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_ne.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_ne.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_next.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_next.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_nonzero.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_nonzero.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_numliterals.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_numliterals.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_operator.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_operator.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_paren.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_paren.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_print.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_print.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_raise.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_raise.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_raw_input.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_raw_input.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_reduce.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_reduce.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_renames.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_renames.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_repr.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_repr.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_set_literal.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_set_literal.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_standarderror.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_standarderror.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_sys_exc.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_sys_exc.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_throw.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_throw.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_tuple_params.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_tuple_params.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_types.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_types.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_unicode.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_unicode.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_urllib.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_urllib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_ws_comma.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_ws_comma.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_xrange.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_xrange.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_xreadlines.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_xreadlines.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\fix_zip.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\fix_zip.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\fixes\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\fixes\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\main.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\main.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\patcomp.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\patcomp.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pgen2\conv.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pgen2\conv.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pgen2\driver.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pgen2\driver.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pgen2\grammar.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pgen2\grammar.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pgen2\literals.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pgen2\literals.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pgen2\parse.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pgen2\parse.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pgen2\pgen.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pgen2\pgen.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pgen2\token.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pgen2\token.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pgen2\tokenize.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pgen2\tokenize.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pgen2\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pgen2\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pygram.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pygram.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\pytree.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\pytree.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\refactor.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\refactor.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\lib2to3\__main__.py">
+    <Content Include="ProjectClasses\Python\lib\lib2to3\__main__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\linecache.py">
+    <Content Include="ProjectClasses\Python\lib\linecache.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\locale.py">
+    <Content Include="ProjectClasses\Python\lib\locale.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\logging\config.py">
+    <Content Include="ProjectClasses\Python\lib\logging\config.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\logging\handlers.py">
+    <Content Include="ProjectClasses\Python\lib\logging\handlers.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\logging\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\logging\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\macpath.py">
+    <Content Include="ProjectClasses\Python\lib\macpath.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\macurl2path.py">
+    <Content Include="ProjectClasses\Python\lib\macurl2path.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\mailbox.py">
+    <Content Include="ProjectClasses\Python\lib\mailbox.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\mailcap.py">
+    <Content Include="ProjectClasses\Python\lib\mailcap.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\markupbase.py">
+    <Content Include="ProjectClasses\Python\lib\markupbase.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\md5.py">
+    <Content Include="ProjectClasses\Python\lib\md5.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\mhlib.py">
+    <Content Include="ProjectClasses\Python\lib\mhlib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\mimetools.py">
+    <Content Include="ProjectClasses\Python\lib\mimetools.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\mimetypes.py">
+    <Content Include="ProjectClasses\Python\lib\mimetypes.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\MimeWriter.py">
+    <Content Include="ProjectClasses\Python\lib\MimeWriter.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\mimify.py">
+    <Content Include="ProjectClasses\Python\lib\mimify.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\modulefinder.py">
+    <Content Include="ProjectClasses\Python\lib\modulefinder.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multifile.py">
+    <Content Include="ProjectClasses\Python\lib\multifile.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\connection.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\connection.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\dummy\connection.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\dummy\connection.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\dummy\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\dummy\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\forking.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\forking.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\heap.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\heap.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\managers.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\managers.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\pool.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\pool.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\process.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\process.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\queues.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\queues.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\reduction.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\reduction.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\sharedctypes.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\sharedctypes.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\synchronize.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\synchronize.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\util.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\util.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\multiprocessing\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\multiprocessing\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\mutex.py">
+    <Content Include="ProjectClasses\Python\lib\mutex.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\netrc.py">
+    <Content Include="ProjectClasses\Python\lib\netrc.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\new.py">
+    <Content Include="ProjectClasses\Python\lib\new.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\nntplib.py">
+    <Content Include="ProjectClasses\Python\lib\nntplib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ntpath.py">
+    <Content Include="ProjectClasses\Python\lib\ntpath.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\nturl2path.py">
+    <Content Include="ProjectClasses\Python\lib\nturl2path.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\numbers.py">
+    <Content Include="ProjectClasses\Python\lib\numbers.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\opcode.py">
+    <Content Include="ProjectClasses\Python\lib\opcode.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\optparse.py">
+    <Content Include="ProjectClasses\Python\lib\optparse.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\os.py">
+    <Content Include="ProjectClasses\Python\lib\os.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\os2emxpath.py">
+    <Content Include="ProjectClasses\Python\lib\os2emxpath.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pdb.py">
+    <Content Include="ProjectClasses\Python\lib\pdb.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pickle.py">
+    <Content Include="ProjectClasses\Python\lib\pickle.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pickletools.py">
+    <Content Include="ProjectClasses\Python\lib\pickletools.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pipes.py">
+    <Content Include="ProjectClasses\Python\lib\pipes.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pkgutil.py">
+    <Content Include="ProjectClasses\Python\lib\pkgutil.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\platform.py">
+    <Content Include="ProjectClasses\Python\lib\platform.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\plistlib.py">
+    <Content Include="ProjectClasses\Python\lib\plistlib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\popen2.py">
+    <Content Include="ProjectClasses\Python\lib\popen2.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\poplib.py">
+    <Content Include="ProjectClasses\Python\lib\poplib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\posixfile.py">
+    <Content Include="ProjectClasses\Python\lib\posixfile.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\posixpath.py">
+    <Content Include="ProjectClasses\Python\lib\posixpath.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pprint.py">
+    <Content Include="ProjectClasses\Python\lib\pprint.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\profile.py">
+    <Content Include="ProjectClasses\Python\lib\profile.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pstats.py">
+    <Content Include="ProjectClasses\Python\lib\pstats.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pyclbr.py">
+    <Content Include="ProjectClasses\Python\lib\pyclbr.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pydoc.py">
+    <Content Include="ProjectClasses\Python\lib\pydoc.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pydoc_data\topics.py">
+    <Content Include="ProjectClasses\Python\lib\pydoc_data\topics.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\pydoc_data\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\pydoc_data\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\py_compile.py">
+    <Content Include="ProjectClasses\Python\lib\py_compile.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\Queue.py">
+    <Content Include="ProjectClasses\Python\lib\Queue.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\quopri.py">
+    <Content Include="ProjectClasses\Python\lib\quopri.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\random.py">
+    <Content Include="ProjectClasses\Python\lib\random.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\repr.py">
+    <Content Include="ProjectClasses\Python\lib\repr.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\rexec.py">
+    <Content Include="ProjectClasses\Python\lib\rexec.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\rfc822.py">
+    <Content Include="ProjectClasses\Python\lib\rfc822.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\rlcompleter.py">
+    <Content Include="ProjectClasses\Python\lib\rlcompleter.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\robotparser.py">
+    <Content Include="ProjectClasses\Python\lib\robotparser.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\runpy.py">
+    <Content Include="ProjectClasses\Python\lib\runpy.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sched.py">
+    <Content Include="ProjectClasses\Python\lib\sched.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sets.py">
+    <Content Include="ProjectClasses\Python\lib\sets.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sgmllib.py">
+    <Content Include="ProjectClasses\Python\lib\sgmllib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sha.py">
+    <Content Include="ProjectClasses\Python\lib\sha.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\shelve.py">
+    <Content Include="ProjectClasses\Python\lib\shelve.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\shlex.py">
+    <Content Include="ProjectClasses\Python\lib\shlex.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\shutil.py">
+    <Content Include="ProjectClasses\Python\lib\shutil.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\SimpleHTTPServer.py">
+    <Content Include="ProjectClasses\Python\lib\SimpleHTTPServer.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\SimpleXMLRPCServer.py">
+    <Content Include="ProjectClasses\Python\lib\SimpleXMLRPCServer.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\site-packages\README.txt">
+    <Content Include="ProjectClasses\Python\lib\site-packages\README.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\site.py">
+    <Content Include="ProjectClasses\Python\lib\site.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\smtpd.py">
+    <Content Include="ProjectClasses\Python\lib\smtpd.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\smtplib.py">
+    <Content Include="ProjectClasses\Python\lib\smtplib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sndhdr.py">
+    <Content Include="ProjectClasses\Python\lib\sndhdr.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\socket.py">
+    <Content Include="ProjectClasses\Python\lib\socket.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\SocketServer.py">
+    <Content Include="ProjectClasses\Python\lib\SocketServer.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sqlite3\dbapi2.py">
+    <Content Include="ProjectClasses\Python\lib\sqlite3\dbapi2.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sqlite3\dump.py">
+    <Content Include="ProjectClasses\Python\lib\sqlite3\dump.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sqlite3\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\sqlite3\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sre_constants.py">
+    <Content Include="ProjectClasses\Python\lib\sre_constants.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sre_parse.py">
+    <Content Include="ProjectClasses\Python\lib\sre_parse.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ssl.py">
+    <Content Include="ProjectClasses\Python\lib\ssl.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\stat.py">
+    <Content Include="ProjectClasses\Python\lib\stat.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\statvfs.py">
+    <Content Include="ProjectClasses\Python\lib\statvfs.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\string.py">
+    <Content Include="ProjectClasses\Python\lib\string.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\StringIO.py">
+    <Content Include="ProjectClasses\Python\lib\StringIO.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\stringold.py">
+    <Content Include="ProjectClasses\Python\lib\stringold.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\stringprep.py">
+    <Content Include="ProjectClasses\Python\lib\stringprep.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\struct.py">
+    <Content Include="ProjectClasses\Python\lib\struct.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\subprocess.py">
+    <Content Include="ProjectClasses\Python\lib\subprocess.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sunau.py">
+    <Content Include="ProjectClasses\Python\lib\sunau.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sunaudio.py">
+    <Content Include="ProjectClasses\Python\lib\sunaudio.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\symbol.py">
+    <Content Include="ProjectClasses\Python\lib\symbol.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\sysconfig.py">
+    <Content Include="ProjectClasses\Python\lib\sysconfig.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\tabnanny.py">
+    <Content Include="ProjectClasses\Python\lib\tabnanny.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\tarfile.py">
+    <Content Include="ProjectClasses\Python\lib\tarfile.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\telnetlib.py">
+    <Content Include="ProjectClasses\Python\lib\telnetlib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\tempfile.py">
+    <Content Include="ProjectClasses\Python\lib\tempfile.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\textwrap.py">
+    <Content Include="ProjectClasses\Python\lib\textwrap.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\this.py">
+    <Content Include="ProjectClasses\Python\lib\this.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\threading.py">
+    <Content Include="ProjectClasses\Python\lib\threading.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\timeit.py">
+    <Content Include="ProjectClasses\Python\lib\timeit.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\toaiff.py">
+    <Content Include="ProjectClasses\Python\lib\toaiff.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\token.py">
+    <Content Include="ProjectClasses\Python\lib\token.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\tokenize.py">
+    <Content Include="ProjectClasses\Python\lib\tokenize.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\trace.py">
+    <Content Include="ProjectClasses\Python\lib\trace.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\traceback.py">
+    <Content Include="ProjectClasses\Python\lib\traceback.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\types.py">
+    <Content Include="ProjectClasses\Python\lib\types.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\unittest\case.py">
+    <Content Include="ProjectClasses\Python\lib\unittest\case.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\unittest\loader.py">
+    <Content Include="ProjectClasses\Python\lib\unittest\loader.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\unittest\main.py">
+    <Content Include="ProjectClasses\Python\lib\unittest\main.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\unittest\result.py">
+    <Content Include="ProjectClasses\Python\lib\unittest\result.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\unittest\runner.py">
+    <Content Include="ProjectClasses\Python\lib\unittest\runner.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\unittest\signals.py">
+    <Content Include="ProjectClasses\Python\lib\unittest\signals.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\unittest\suite.py">
+    <Content Include="ProjectClasses\Python\lib\unittest\suite.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\unittest\util.py">
+    <Content Include="ProjectClasses\Python\lib\unittest\util.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\unittest\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\unittest\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\unittest\__main__.py">
+    <Content Include="ProjectClasses\Python\lib\unittest\__main__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\urllib.py">
+    <Content Include="ProjectClasses\Python\lib\urllib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\urllib2.py">
+    <Content Include="ProjectClasses\Python\lib\urllib2.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\urlparse.py">
+    <Content Include="ProjectClasses\Python\lib\urlparse.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\user.py">
+    <Content Include="ProjectClasses\Python\lib\user.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\UserDict.py">
+    <Content Include="ProjectClasses\Python\lib\UserDict.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\UserList.py">
+    <Content Include="ProjectClasses\Python\lib\UserList.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\UserString.py">
+    <Content Include="ProjectClasses\Python\lib\UserString.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\uu.py">
+    <Content Include="ProjectClasses\Python\lib\uu.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\uuid.py">
+    <Content Include="ProjectClasses\Python\lib\uuid.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\warnings.py">
+    <Content Include="ProjectClasses\Python\lib\warnings.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\wave.py">
+    <Content Include="ProjectClasses\Python\lib\wave.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\weakref.py">
+    <Content Include="ProjectClasses\Python\lib\weakref.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\webbrowser.py">
+    <Content Include="ProjectClasses\Python\lib\webbrowser.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\whichdb.py">
+    <Content Include="ProjectClasses\Python\lib\whichdb.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\wpf.py">
+    <Content Include="ProjectClasses\Python\lib\wpf.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\wsgiref\handlers.py">
+    <Content Include="ProjectClasses\Python\lib\wsgiref\handlers.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\wsgiref\headers.py">
+    <Content Include="ProjectClasses\Python\lib\wsgiref\headers.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\wsgiref\simple_server.py">
+    <Content Include="ProjectClasses\Python\lib\wsgiref\simple_server.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\wsgiref\util.py">
+    <Content Include="ProjectClasses\Python\lib\wsgiref\util.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\wsgiref\validate.py">
+    <Content Include="ProjectClasses\Python\lib\wsgiref\validate.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\wsgiref\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\wsgiref\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xdrlib.py">
+    <Content Include="ProjectClasses\Python\lib\xdrlib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xmllib.py">
+    <Content Include="ProjectClasses\Python\lib\xmllib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xmlrpclib.py">
+    <Content Include="ProjectClasses\Python\lib\xmlrpclib.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\dom\domreg.py">
+    <Content Include="ProjectClasses\Python\lib\xml\dom\domreg.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\dom\expatbuilder.py">
+    <Content Include="ProjectClasses\Python\lib\xml\dom\expatbuilder.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\dom\minicompat.py">
+    <Content Include="ProjectClasses\Python\lib\xml\dom\minicompat.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\dom\minidom.py">
+    <Content Include="ProjectClasses\Python\lib\xml\dom\minidom.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\dom\NodeFilter.py">
+    <Content Include="ProjectClasses\Python\lib\xml\dom\NodeFilter.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\dom\pulldom.py">
+    <Content Include="ProjectClasses\Python\lib\xml\dom\pulldom.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\dom\xmlbuilder.py">
+    <Content Include="ProjectClasses\Python\lib\xml\dom\xmlbuilder.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\dom\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\xml\dom\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\etree\cElementTree.py">
+    <Content Include="ProjectClasses\Python\lib\xml\etree\cElementTree.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\etree\ElementInclude.py">
+    <Content Include="ProjectClasses\Python\lib\xml\etree\ElementInclude.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\etree\ElementPath.py">
+    <Content Include="ProjectClasses\Python\lib\xml\etree\ElementPath.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\etree\ElementTree.py">
+    <Content Include="ProjectClasses\Python\lib\xml\etree\ElementTree.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\etree\SimpleXMLTreeBuilder.py">
+    <Content Include="ProjectClasses\Python\lib\xml\etree\SimpleXMLTreeBuilder.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\etree\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\xml\etree\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\parsers\expat.py">
+    <Content Include="ProjectClasses\Python\lib\xml\parsers\expat.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\parsers\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\xml\parsers\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\sax\expatreader.py">
+    <Content Include="ProjectClasses\Python\lib\xml\sax\expatreader.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\sax\handler.py">
+    <Content Include="ProjectClasses\Python\lib\xml\sax\handler.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\sax\saxutils.py">
+    <Content Include="ProjectClasses\Python\lib\xml\sax\saxutils.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\sax\xmlreader.py">
+    <Content Include="ProjectClasses\Python\lib\xml\sax\xmlreader.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\sax\_exceptions.py">
+    <Content Include="ProjectClasses\Python\lib\xml\sax\_exceptions.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\sax\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\xml\sax\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\xml\__init__.py">
+    <Content Include="ProjectClasses\Python\lib\xml\__init__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\zipfile.py">
+    <Content Include="ProjectClasses\Python\lib\zipfile.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\_abcoll.py">
+    <Content Include="ProjectClasses\Python\lib\_abcoll.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\_LWPCookieJar.py">
+    <Content Include="ProjectClasses\Python\lib\_LWPCookieJar.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\_MozillaCookieJar.py">
+    <Content Include="ProjectClasses\Python\lib\_MozillaCookieJar.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\_osx_support.py">
+    <Content Include="ProjectClasses\Python\lib\_osx_support.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\_pyio.py">
+    <Content Include="ProjectClasses\Python\lib\_pyio.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\_strptime.py">
+    <Content Include="ProjectClasses\Python\lib\_strptime.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\_threading_local.py">
+    <Content Include="ProjectClasses\Python\lib\_threading_local.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\_weakrefset.py">
+    <Content Include="ProjectClasses\Python\lib\_weakrefset.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\__future__.py">
+    <Content Include="ProjectClasses\Python\lib\__future__.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\__phello__.foo.py">
+    <Content Include="ProjectClasses\Python\lib\__phello__.foo.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\Microsoft.Dynamic.dll">
+    <Content Include="ProjectClasses\Python\Microsoft.Dynamic.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\Microsoft.Scripting.dll">
+    <Content Include="ProjectClasses\Python\Microsoft.Scripting.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\Microsoft.Scripting.Metadata.dll">
+    <Content Include="ProjectClasses\Python\Microsoft.Scripting.Metadata.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\libcrypto-1_1.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\libcrypto-1_1.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\libffi-7.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\libffi-7.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\libssl-1_1.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\libssl-1_1.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\Lib\site-packages\packages.txt">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\Lib\site-packages\packages.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\LICENSE.txt">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\LICENSE.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\python.exe">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\python.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\python3.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\python3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\python39.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\python39.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\pythonw.exe">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\pythonw.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\scripts\get-pip.py">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\scripts\get-pip.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\sqlite3.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\sqlite3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\vcruntime140.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\vcruntime140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\vcruntime140_1.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\vcruntime140_1.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\libcrypto-1_1.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\libcrypto-1_1.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\libffi-7.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\libffi-7.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\libssl-1_1.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\libssl-1_1.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\Lib\site-packages\packages.txt">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\Lib\site-packages\packages.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\LICENSE.txt">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\LICENSE.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\python.exe">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\python.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\python3.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\python3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\python39.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\python39.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\pythonw.exe">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\pythonw.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\scripts\get-pip.py">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\scripts\get-pip.py">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\sqlite3.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\sqlite3.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\vcruntime140.dll">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\vcruntime140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\Scintilla.NET.dll">
+    <Content Include="ProjectClasses\Python\Scintilla.NET.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\System.CodeDom.dll">
+    <Content Include="ProjectClasses\Python\System.CodeDom.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\BeepEnterprizeTreeNodes\HereweputClasses.txt">
@@ -3338,151 +3346,151 @@
     <Content Include="AI\tmp.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ensurepip\_bundled\pip-19.2.3-py2.py3-none-any.whl">
+    <Content Include="ProjectClasses\Python\lib\ensurepip\_bundled\pip-19.2.3-py2.py3-none-any.whl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\lib\ensurepip\_bundled\setuptools-41.2.0-py2.py3-none-any.whl">
+    <Content Include="ProjectClasses\Python\lib\ensurepip\_bundled\setuptools-41.2.0-py2.py3-none-any.whl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\pyexpat.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\pyexpat.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\python.cat">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\python.cat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\python39.zip">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\python39.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\python39._pth">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\python39._pth">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\select.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\select.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\unicodedata.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\unicodedata.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\winsound.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\winsound.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_asyncio.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_asyncio.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_bz2.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_bz2.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_ctypes.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_ctypes.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_decimal.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_decimal.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_elementtree.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_elementtree.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_hashlib.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_hashlib.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_lzma.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_lzma.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_msi.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_msi.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_multiprocessing.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_multiprocessing.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_overlapped.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_overlapped.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_queue.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_queue.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_socket.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_socket.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_sqlite3.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_sqlite3.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_ssl.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_ssl.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_uuid.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_uuid.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-amd64\_zoneinfo.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-amd64\_zoneinfo.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\pyexpat.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\pyexpat.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\python.cat">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\python.cat">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\python39.zip">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\python39.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\python39._pth">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\python39._pth">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\select.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\select.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\unicodedata.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\unicodedata.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\winsound.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\winsound.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_asyncio.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_asyncio.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_bz2.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_bz2.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_ctypes.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_ctypes.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_decimal.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_decimal.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_elementtree.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_elementtree.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_hashlib.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_hashlib.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_lzma.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_lzma.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_msi.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_msi.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_multiprocessing.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_multiprocessing.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_overlapped.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_overlapped.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_queue.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_queue.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_socket.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_socket.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_sqlite3.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_sqlite3.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_ssl.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_ssl.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_uuid.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_uuid.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\python-3.9.5-embed-win32\_zoneinfo.pyd">
+    <Content Include="ProjectClasses\Python\python-3.9.5-embed-win32\_zoneinfo.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AIBuilder\tmp.csv">
+    <Content Include="ProjectClasses\Python\tmp.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectData\Dhub3Lite.s3db">
@@ -3701,6 +3709,9 @@
       <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProjectClasses\Accord\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

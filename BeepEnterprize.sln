@@ -55,7 +55,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkFlowBuilder", "plugin\W
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reporting", "Reporting", "{5BC50C7F-3CFC-4D6C-A81D-8602FB6F788E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythonAIBuilder", "..\Plugins\Python\PythonAIBuilder.csproj", "{396C644A-EF7F-4FC4-A7D0-C7F0B1DFD34B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Python.Winform", "..\Plugins\Python\Beep.Python.Winform.csproj", "{396C644A-EF7F-4FC4-A7D0-C7F0B1DFD34B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AI", "AI", "{5476A29B-D1C5-4E71-8362-428947F253F0}"
 EndProject
@@ -163,13 +163,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepProject", "..\Plugins\B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Python", "Python", "{79459AD6-7467-4FE5-943A-19FAA08086AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Python.Logic", "..\Plugins\Beep.Python.Logic\Beep.Python.Logic.csproj", "{72328F79-03F0-48BE-8663-BCC548762988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Python.Logic", "..\Plugins\Beep.Python.Logic\Beep.Python.Logic.csproj", "{72328F79-03F0-48BE-8663-BCC548762988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Python.Nodes", "..\Plugins\Beep.Python.Nodes\Beep.Python.Nodes.csproj", "{413035F0-9EA2-48FC-A1A0-9C1770FEEDEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Python.Nodes", "..\Plugins\Beep.Python.Nodes\Beep.Python.Nodes.csproj", "{413035F0-9EA2-48FC-A1A0-9C1770FEEDEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Python.Extensions", "..\Plugins\Beep.Python.Extensions\Beep.Python.Extensions.csproj", "{5CEE761A-1BA4-4BDD-A09C-10A0020978EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Python.Extensions", "..\Plugins\Beep.Python.Extensions\Beep.Python.Extensions.csproj", "{5CEE761A-1BA4-4BDD-A09C-10A0020978EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Python.ExtensionLoader", "..\Plugins\Beep.Python.ExtensionLoader\Beep.Python.ExtensionLoader.csproj", "{CE1976D3-B323-4E97-AB05-E9F5210D164B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Python.ExtensionLoader", "..\Plugins\Beep.Python.ExtensionLoader\Beep.Python.ExtensionLoader.csproj", "{CE1976D3-B323-4E97-AB05-E9F5210D164B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
