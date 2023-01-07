@@ -8,21 +8,21 @@ using System.Windows.Forms;
 
 namespace TheTechIdea.Beep.AIBuilder.Cpython
 {
-    internal class SearchManager
+    public class SearchManager
     {
 
         public static ScintillaNET.Scintilla TextArea;
-        public static TextBox SearchBox;
+      
 
         public static string LastSearch = "";
 
         public static int LastSearchIndex;
 
-        public static void Find(bool next, bool incremental)
+        public static void Find(Scintilla TextArea,string searchtext,bool next, bool incremental)
         {
-            bool first = LastSearch != SearchBox.Text;
+            bool first = LastSearch != searchtext;
 
-            LastSearch = SearchBox.Text;
+            LastSearch = searchtext;
             if (LastSearch.Length > 0)
             {
 
@@ -103,7 +103,7 @@ namespace TheTechIdea.Beep.AIBuilder.Cpython
 
             }
 
-            SearchBox.Focus();
+            //SearchBox.Focus();
         }
 
 

@@ -89,6 +89,7 @@
     <Compile Include="Cpython\HotKeyManager.cs" />
     <Compile Include="Cpython\ICPythonManager.cs" />
     <Compile Include="Cpython\IDEManager.cs" />
+    <Compile Include="Cpython\MenuManager.cs" />
     <Compile Include="Cpython\PIPManager.cs" />
     <Compile Include="Cpython\ProcessManager.cs" />
     <Compile Include="Cpython\SearchManager.cs" />

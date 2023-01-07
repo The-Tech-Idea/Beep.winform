@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScintillaNET;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -15,7 +16,7 @@ namespace TheTechIdea.Beep.AIBuilder.Cpython
     {
         public event EventHandler<string> SendMessege;
         public CPythonManager() { }
-        public CPythonManager(IDMEEditor dMEEditor,IJsonLoader jsonLoader, string runtimepath="")
+        public CPythonManager(IDMEEditor dMEEditor,IJsonLoader jsonLoader,Scintilla scintilla, string runtimepath="")
         {
             RuntimePath = runtimepath;
             DMEEditor= dMEEditor;
@@ -23,9 +24,11 @@ namespace TheTechIdea.Beep.AIBuilder.Cpython
             ProcessManager=new ProcessManager(this);
             IDEManager=new IDEManager(this);    
             FileManager= new FileManager(this, jsonLoader);
+            MenuManager = new MenuManager(this, scintilla);
             AppName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
             Init();
         }
+        public MenuManager MenuManager { get; set; }
         public IDMEEditor DMEEditor { get; set; }
         public CpythonConfig Config { get; set; }
         public string LastfilePath { get; set; }

@@ -30,14 +30,12 @@ namespace AIBuilder.Cpython
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.process1 = new System.Diagnostics.Process();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.PanelSearch = new System.Windows.Forms.Panel();
-            this.TxtSearch = new System.Windows.Forms.TextBox();
             this.TextArea = new ScintillaNET.Scintilla();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -73,11 +71,13 @@ namespace AIBuilder.Cpython
             this.label2 = new System.Windows.Forms.Label();
             this.Clearoutputbutton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.SearchText = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Findbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.PanelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QtConsolebutton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Jupiterbutton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Runbutton)).BeginInit();
@@ -120,8 +120,10 @@ namespace AIBuilder.Cpython
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.PanelSearch);
+            this.splitContainer1.Panel1.Controls.Add(this.Findbutton);
             this.splitContainer1.Panel1.Controls.Add(this.TextArea);
+            this.splitContainer1.Panel1.Controls.Add(this.SearchText);
+            this.splitContainer1.Panel1.Controls.Add(this.label11);
             this.splitContainer1.Panel1.Controls.Add(this.label10);
             this.splitContainer1.Panel1.Controls.Add(this.label9);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
@@ -148,21 +150,6 @@ namespace AIBuilder.Cpython
             this.splitContainer1.Size = new System.Drawing.Size(1204, 649);
             this.splitContainer1.SplitterDistance = 449;
             this.splitContainer1.TabIndex = 4;
-            // 
-            // PanelSearch
-            // 
-            this.PanelSearch.Controls.Add(this.TxtSearch);
-            this.PanelSearch.Location = new System.Drawing.Point(863, 37);
-            this.PanelSearch.Name = "PanelSearch";
-            this.PanelSearch.Size = new System.Drawing.Size(196, 64);
-            this.PanelSearch.TabIndex = 33;
-            // 
-            // TxtSearch
-            // 
-            this.TxtSearch.Location = new System.Drawing.Point(71, 24);
-            this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(100, 20);
-            this.TxtSearch.TabIndex = 32;
             // 
             // TextArea
             // 
@@ -318,7 +305,7 @@ namespace AIBuilder.Cpython
             // 
             // Insertlocaldbpathbutton
             // 
-            this.Insertlocaldbpathbutton.Location = new System.Drawing.Point(702, 68);
+            this.Insertlocaldbpathbutton.Location = new System.Drawing.Point(702, 78);
             this.Insertlocaldbpathbutton.Name = "Insertlocaldbpathbutton";
             this.Insertlocaldbpathbutton.Size = new System.Drawing.Size(121, 23);
             this.Insertlocaldbpathbutton.TabIndex = 17;
@@ -327,17 +314,18 @@ namespace AIBuilder.Cpython
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(713, 31);
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Location = new System.Drawing.Point(702, 31);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 13);
+            this.label4.Size = new System.Drawing.Size(121, 20);
             this.label4.TabIndex = 16;
             this.label4.Text = "Local DataSources";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LocalDBcomboBox
             // 
             this.LocalDBcomboBox.FormattingEnabled = true;
-            this.LocalDBcomboBox.Location = new System.Drawing.Point(702, 47);
+            this.LocalDBcomboBox.Location = new System.Drawing.Point(702, 54);
             this.LocalDBcomboBox.Name = "LocalDBcomboBox";
             this.LocalDBcomboBox.Size = new System.Drawing.Size(121, 21);
             this.LocalDBcomboBox.TabIndex = 15;
@@ -361,18 +349,18 @@ namespace AIBuilder.Cpython
             this.Filenamelabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Filenamelabel.Location = new System.Drawing.Point(127, 6);
             this.Filenamelabel.Name = "Filenamelabel";
-            this.Filenamelabel.Size = new System.Drawing.Size(1070, 20);
+            this.Filenamelabel.Size = new System.Drawing.Size(1057, 20);
             this.Filenamelabel.TabIndex = 11;
             // 
             // currentfileloadedlabel
             // 
-            this.currentfileloadedlabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currentfileloadedlabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.currentfileloadedlabel.Location = new System.Drawing.Point(9, 6);
             this.currentfileloadedlabel.Name = "currentfileloadedlabel";
             this.currentfileloadedlabel.Size = new System.Drawing.Size(112, 20);
             this.currentfileloadedlabel.TabIndex = 10;
             this.currentfileloadedlabel.Text = "Current File Loaded :";
+            this.currentfileloadedlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -458,14 +446,14 @@ namespace AIBuilder.Cpython
             this.OutputdataGridView.BackgroundColor = System.Drawing.Color.Black;
             this.OutputdataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.OutputdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.OutputdataGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.OutputdataGridView.DefaultCellStyle = dataGridViewCellStyle7;
             this.OutputdataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OutputdataGridView.GridColor = System.Drawing.Color.Black;
             this.OutputdataGridView.Location = new System.Drawing.Point(0, 23);
@@ -473,9 +461,9 @@ namespace AIBuilder.Cpython
             this.OutputdataGridView.ReadOnly = true;
             this.OutputdataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.OutputdataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OutputdataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OutputdataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.OutputdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.OutputdataGridView.Size = new System.Drawing.Size(1170, 77);
             this.OutputdataGridView.TabIndex = 0;
@@ -552,6 +540,32 @@ namespace AIBuilder.Cpython
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // SearchText
+            // 
+            this.SearchText.Location = new System.Drawing.Point(839, 54);
+            this.SearchText.Name = "SearchText";
+            this.SearchText.Size = new System.Drawing.Size(112, 20);
+            this.SearchText.TabIndex = 12;
+            // 
+            // label11
+            // 
+            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label11.Location = new System.Drawing.Point(839, 31);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(112, 20);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Search For";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Findbutton
+            // 
+            this.Findbutton.Location = new System.Drawing.Point(839, 78);
+            this.Findbutton.Name = "Findbutton";
+            this.Findbutton.Size = new System.Drawing.Size(112, 23);
+            this.Findbutton.TabIndex = 14;
+            this.Findbutton.Text = "Find";
+            this.Findbutton.UseVisualStyleBackColor = true;
+            // 
             // uc_cpythonscriptrunner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,8 +578,6 @@ namespace AIBuilder.Cpython
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.PanelSearch.ResumeLayout(false);
-            this.PanelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QtConsolebutton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Jupiterbutton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Runbutton)).EndInit();
@@ -626,7 +638,8 @@ namespace AIBuilder.Cpython
         private System.Windows.Forms.Button Clearoutputbutton;
         private System.Windows.Forms.Panel panel2;
         private ScintillaNET.Scintilla TextArea;
-        private System.Windows.Forms.Panel PanelSearch;
-        private System.Windows.Forms.TextBox TxtSearch;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox SearchText;
+        private System.Windows.Forms.Button Findbutton;
     }
 }
