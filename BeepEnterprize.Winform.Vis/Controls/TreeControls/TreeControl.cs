@@ -166,7 +166,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public TreeNode ParentNode { get; set; }
         public IErrorsInfo CreateRootTree()
         {
-           
+            string packagename = "";
             try
             {
                 //bool HasConstructor=false;
@@ -189,6 +189,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                             {
                                 int id = SeqID;
                                 br.Name = cls.PackageName;
+                                packagename = cls.PackageName;
                                 if (TreeType != null)
                                 {
                                     if (cls.classProperties.ObjectType != null)
@@ -213,7 +214,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
             {
                 DMEEditor.ErrorObject.Ex = ex;
                 DMEEditor.ErrorObject.Flag = Errors.Failed;
-               
+                DMEEditor.AddLogMessage("Error", $"Creating Tree Root Node {packagename} - {ex.Message} ", DateTime.Now, 0, null, Errors.Failed);
+
             };
             return DMEEditor.ErrorObject;
         }
