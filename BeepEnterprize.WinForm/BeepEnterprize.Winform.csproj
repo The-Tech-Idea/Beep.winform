@@ -288,10 +288,6 @@
       <Link>ProjectClasses\Accord\Accord.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Plugin\AIBuilder\bin\Debug\AIBuilder.dll">
-      <Link>ProjectClasses\AIBuilder\AIBuilder.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Plugin\OutputDLL\BeepDeveloperAssistant\BeepDeveloperAssistant.dll">
       <Link>ProjectClasses\BeepDeveloperAssistant\BeepDeveloperAssistant.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
