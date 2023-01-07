@@ -152,32 +152,36 @@
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="..\..\Beep.Winfom.AppBuilders\outputdll\AppbuilderExtensions\AppbuilderExtensions.dll">
-      <Link>ProjectClasses\AppBuilder\AppbuilderExtensions.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\Beep.Winfom.AppBuilders\outputdll\AppExtensionsLoaderNet\AppExtensionsLoaderNet.dll">
-      <Link>LoadingExtensions\AppBuilderExtensions\AppExtensionsLoaderNet.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\Beep.Winfom.AppBuilders\outputdll\AppModule\AppModule.dll">
-      <Link>LoadingExtensions\AppBuilderExtensions\AppModule.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\Beep.Winfom.AppBuilders\WinformDesigner\bin\Debug\WinformDesigner.dll">
-      <Link>ProjectClasses\AppBuilder\WinformDesigner.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\Beep.Winfom.AppBuilders\WinformScreenControls\bin\Debug\WinformScreenControls.dll">
-      <Link>ProjectClasses\AppBuilder\WinformScreenControls.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\AIExtensionLoader\AIExtensionLoader.dll">
       <Link>LoadingExtensions\AssemblyLoaderAI\AIExtensionLoader.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\AIModule\AIModule.dll">
       <Link>LoadingExtensions\AssemblyLoaderAI\AIModule.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.Controls.Winform\Beep.App.Controls.Winform.dll">
+      <Link>ProjectClasses\AppBuilder\Beep.App.Controls.Winform.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.ExtensionsLoader\Beep.App.ExtensionsLoader.dll">
+      <Link>LoadingExtensions\AppBuilderExtensions\Beep.App.ExtensionsLoader.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.Extensions\Beep.App.Extensions.dll">
+      <Link>LoadingExtensions\AppBuilderExtensions\Beep.App.Extensions.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.Module\Beep.App.Module.dll">
+      <Link>ProjectClasses\AppBuilder\Beep.App.Module.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.Nodes\Beep.App.Nodes.dll">
+      <Link>ProjectClasses\AppBuilder\Beep.App.Nodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.Winform.Builder\Beep.App.Winform.Builder.dll">
+      <Link>ProjectClasses\AppBuilder\Beep.App.Winform.Builder.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.Extensions\Beep.BusinessProcess.Extensions.dll">
@@ -212,12 +216,12 @@
       <Link>ProjectClasses\CompositeLayer\CompositeLayerNodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NETExtensions\ML.NETExtensions.dll">
-      <Link>LoadingExtensions\ML.NET\ML.NETExtensions.dll</Link>
+    <Content Include="..\..\outputDLL\ML.NET.Winform\ML.NET.Winform.dll">
+      <Link>ProjectClasses\ML.NET\ML.NET.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NETVIS4\ML.NETVIS4.dll">
-      <Link>ProjectClasses\ML.NET\ML.NETVIS4.dll</Link>
+    <Content Include="..\..\outputDLL\ML.NETExtensions\ML.NETExtensions.dll">
+      <Link>LoadingExtensions\ML.NET\ML.NETExtensions.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.AutoML.dll">
@@ -300,24 +304,8 @@
       <Link>ProjectClasses\BeepDeveloperAssistant\BeepDeveloperAssistant.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Plugin\OutputDLL\DxBeepCommn\DxBeepCommn.dll">
-      <Link>ProjectClasses\DxBeepCommn\DxBeepCommn.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Plugin\OutputDLL\DxDashboard\DxDashboard.dll">
-      <Link>ProjectClasses\DxDashboard\DxDashboard.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Plugin\OutputDLL\DXReportBuilder\DXReportBuilder.dll">
-      <Link>ProjectClasses\DXReportBuilder\DXReportBuilder.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Plugin\OutputDLL\DxSimpleReporting\DxSimpleReporting.dll">
-      <Link>ProjectClasses\DxSimpleReporting\DxSimpleReporting.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\Plugin\OutputDLL\R\R.dll">
-      <Link>ProjectClasses\R\R.dll</Link>
+      <Link>ProjectClasses\AI\R\R.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Addin\HereweAddAllVisualAddin.txt">
@@ -3710,9 +3698,7 @@
       <Name>BeepEnterprize.Winform.Vis</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ProjectClasses\Accord\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
