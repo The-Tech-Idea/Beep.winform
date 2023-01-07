@@ -141,7 +141,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Python.WorflowSteps", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Python.Winform6", "..\Plugins\Beep.Python.Winform6\Beep.Python.Winform6.csproj", "{555705F6-DF1E-4BC2-80C3-A2D5E9EE88EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.NET.Winform6", "..\Plugins\AI\ML.NET.Winform6\ML.NET.Winform6.csproj", "{B4C1D236-6E17-44B5-B890-7A10E4608B31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ML.NET.Winform6", "..\Plugins\AI\ML.NET.Winform6\ML.NET.Winform6.csproj", "{B4C1D236-6E17-44B5-B890-7A10E4608B31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.NET.Winform", "..\Plugins\AI\ML.NET.Winform\ML.NET.Winform.csproj", "{A5AD8A82-D376-4EAB-8B2A-03FDF78BE7E8}"
 EndProject
@@ -155,9 +155,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.App.Controls.Winform",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.App.Winform.Builder", "..\Plugins\Beep.AppBuilders\Beep.App.Winform.Builder\Beep.App.Winform.Builder.csproj", "{6A9D6090-244A-48D1-B509-64AFEE7B569D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.App.Nodes", "..\Plugins\Beep.AppBuilders\Beep.App.Nodes\Beep.App.Nodes.csproj", "{A20767A5-5FFB-4EAD-996D-7DF571C8C0C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.App.Nodes", "..\Plugins\Beep.AppBuilders\Beep.App.Nodes\Beep.App.Nodes.csproj", "{A20767A5-5FFB-4EAD-996D-7DF571C8C0C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.App.Extensions", "..\Plugins\Beep.AppBuilders\Beep.App.Extensions\Beep.App.Extensions.csproj", "{CB826502-C3D2-46D6-94BF-68FA16E800F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.App.Extensions", "..\Plugins\Beep.AppBuilders\Beep.App.Extensions\Beep.App.Extensions.csproj", "{CB826502-C3D2-46D6-94BF-68FA16E800F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.App.Controls.Winform6", "..\Plugins\Beep.AppBuilders\Beep.App.Controls.Winform6\Beep.App.Controls.Winform6.csproj", "{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.App.Winform.Builder6", "..\Plugins\Beep.AppBuilders\Beep.App.Winform.Builder6\Beep.App.Winform.Builder6.csproj", "{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -793,6 +797,30 @@ Global
 		{CB826502-C3D2-46D6-94BF-68FA16E800F0}.x86|Any CPU.Build.0 = Debug|Any CPU
 		{CB826502-C3D2-46D6-94BF-68FA16E800F0}.x86|x86.ActiveCfg = Debug|Any CPU
 		{CB826502-C3D2-46D6-94BF-68FA16E800F0}.x86|x86.Build.0 = Debug|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.Debug|x86.Build.0 = Debug|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.Release|x86.ActiveCfg = Release|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.Release|x86.Build.0 = Release|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.x86|x86.ActiveCfg = Debug|Any CPU
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}.x86|x86.Build.0 = Debug|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.Debug|x86.Build.0 = Debug|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.Release|x86.ActiveCfg = Release|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.Release|x86.Build.0 = Release|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.x86|x86.ActiveCfg = Debug|Any CPU
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.x86|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -864,6 +892,8 @@ Global
 		{6A9D6090-244A-48D1-B509-64AFEE7B569D} = {959541EE-4115-4F03-8711-F832F25E1BB2}
 		{A20767A5-5FFB-4EAD-996D-7DF571C8C0C9} = {959541EE-4115-4F03-8711-F832F25E1BB2}
 		{CB826502-C3D2-46D6-94BF-68FA16E800F0} = {959541EE-4115-4F03-8711-F832F25E1BB2}
+		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962} = {959541EE-4115-4F03-8711-F832F25E1BB2}
+		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E} = {959541EE-4115-4F03-8711-F832F25E1BB2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {080094DB-7666-459B-88F8-5F017533DAA6}
