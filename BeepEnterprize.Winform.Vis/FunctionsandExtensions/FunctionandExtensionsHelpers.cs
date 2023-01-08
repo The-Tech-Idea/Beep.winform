@@ -156,7 +156,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                     DMEEditor.ConfigEditor.DataConnections.Add(f);
                     DMEEditor.ConfigEditor.SaveDataconnectionsValues();
 
-                    DataViewDataSource ds = (DataViewDataSource)DMEEditor.GetDataSource(f.ConnectionName);
+                    IDataViewDataSource ds = (IDataViewDataSource)DMEEditor.GetDataSource(f.ConnectionName);
                     ds.DataView = ds.GenerateView(f.ConnectionName, f.ConnectionName);
 
                     ds.WriteDataViewFile(fullname);
@@ -237,7 +237,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
         public Errors AddEntitiesToView(string datasourcename,List<EntityStructure> ls, IPassedArgs Passedarguments)
         {
              try
-            {       DataViewDataSource ds = (DataViewDataSource)DMEEditor.GetDataSource(datasourcename);
+            {       IDataViewDataSource ds = (IDataViewDataSource)DMEEditor.GetDataSource(datasourcename);
                     Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
                     Passedarguments.ParameterString1 = $"Creating {ls.Count()} entities ...";
                     Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
