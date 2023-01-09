@@ -159,9 +159,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.App.Nodes", "..\Plugin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.App.Extensions", "..\Plugins\Beep.AppBuilders\Beep.App.Extensions\Beep.App.Extensions.csproj", "{CB826502-C3D2-46D6-94BF-68FA16E800F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.App.Controls.Winform6", "..\Plugins\Beep.AppBuilders\Beep.App.Controls.Winform6\Beep.App.Controls.Winform6.csproj", "{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.App.Controls.Winform6", "..\Plugins\Beep.AppBuilders\Beep.App.Controls.Winform6\Beep.App.Controls.Winform6.csproj", "{F21AE438-5A62-4C2F-9D15-C9BEA5D29962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.App.Winform.Builder6", "..\Plugins\Beep.AppBuilders\Beep.App.Winform.Builder6\Beep.App.Winform.Builder6.csproj", "{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.App.Winform.Builder6", "..\Plugins\Beep.AppBuilders\Beep.App.Winform.Builder6\Beep.App.Winform.Builder6.csproj", "{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.PythonRuntime", "..\Plugins\Beep.PythonRuntime\Beep.PythonRuntime.csproj", "{0A37173B-8F98-4215-893B-8090CBEEA1CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -821,6 +823,18 @@ Global
 		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.x86|Any CPU.Build.0 = Debug|Any CPU
 		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.x86|x86.ActiveCfg = Debug|Any CPU
 		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E}.x86|x86.Build.0 = Debug|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.Debug|x86.Build.0 = Debug|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.Release|x86.ActiveCfg = Release|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.Release|x86.Build.0 = Release|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.x86|x86.ActiveCfg = Debug|Any CPU
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.x86|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -894,6 +908,7 @@ Global
 		{CB826502-C3D2-46D6-94BF-68FA16E800F0} = {959541EE-4115-4F03-8711-F832F25E1BB2}
 		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962} = {959541EE-4115-4F03-8711-F832F25E1BB2}
 		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E} = {959541EE-4115-4F03-8711-F832F25E1BB2}
+		{0A37173B-8F98-4215-893B-8090CBEEA1CF} = {79459AD6-7467-4FE5-943A-19FAA08086AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {080094DB-7666-459B-88F8-5F017533DAA6}
