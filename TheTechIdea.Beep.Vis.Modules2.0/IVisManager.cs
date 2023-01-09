@@ -27,7 +27,6 @@ namespace BeepEnterprize.Vis.Module
         List<IFileStorage> ImagesUrls { get; set; }
         bool IsBeepDataOn { get; set; }
         bool IsAppOn { get; set; }
-
         bool IsDevModeOn { get; set; }
         string AppObjectsName { get; set; }
         string BeepObjectsName { get; set; }

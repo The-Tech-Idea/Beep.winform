@@ -146,10 +146,6 @@
       <Link>ProjectClasses\Python\Beep.Python.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\BranchAssemblyLoader\BranchAssemblyLoader.dll">
-      <Link>LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\CompositeLayerNodes\CompositeLayerNodes.dll">
       <Link>ProjectClasses\CompositeLayer\CompositeLayerNodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -234,12 +230,12 @@
       <Link>ProjectClasses\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Plugin\OutputDLL\BeepDeveloperAssistant\BeepDeveloperAssistant.dll">
-      <Link>ProjectClasses\BeepDeveloperAssistant\BeepDeveloperAssistant.dll</Link>
+    <Content Include="..\..\Plugins\BranchAssemblyLoader\bin\Release\netstandard2.0\BranchAssemblyLoader.dll">
+      <Link>LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\Plugin\OutputDLL\R\R.dll">
-      <Link>ProjectClasses\AI\R\R.dll</Link>
+    <Content Include="..\Plugin\OutputDLL\BeepDeveloperAssistant\BeepDeveloperAssistant.dll">
+      <Link>ProjectClasses\BeepDeveloperAssistant\BeepDeveloperAssistant.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Addin\HereweAddAllVisualAddin.txt">
