@@ -94,6 +94,18 @@
       <Link>LoadingExtensions\AssemblyLoaderAI\AIModule.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.Accord.Logic\Beep.Accord.Logic.dll">
+      <Link>ProjectClasses\AI\Accord\Beep.Accord.Logic.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Accord.Nodes\Beep.Accord.Nodes.dll">
+      <Link>ProjectClasses\AI\Accord\Beep.Accord.Nodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Accord.Winform\Beep.Accord.Winform.dll">
+      <Link>ProjectClasses\AI\Accord\Beep.Accord.Winform.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.App.Controls.Winform\Beep.App.Controls.Winform.dll">
       <Link>ProjectClasses\AppBuilder\Beep.App.Controls.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -144,6 +156,30 @@
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Winform\Beep.Python.Winform.dll">
       <Link>ProjectClasses\Python\Beep.Python.Winform.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.R.ExtensionLoader\Beep.R.ExtensionLoader.dll">
+      <Link>ProjectClasses\AI\R\Beep.R.ExtensionLoader.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.R.Extensions\Beep.R.Extensions.dll">
+      <Link>ProjectClasses\AI\R\Beep.R.Extensions.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.R.Logic\Beep.R.Logic.dll">
+      <Link>ProjectClasses\AI\R\Beep.R.Logic.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.R.Nodes\Beep.R.Nodes.dll">
+      <Link>ProjectClasses\AI\R\Beep.R.Nodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.R.Winform\Beep.R.Winform.dll">
+      <Link>ProjectClasses\AI\R\Beep.R.Winform.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\BeepDeveloperAssistant\BeepDeveloperAssistant.dll">
+      <Link>ProjectClasses\BeepDeveloperAssistant\BeepDeveloperAssistant.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\CompositeLayerNodes\CompositeLayerNodes.dll">
@@ -232,10 +268,6 @@
     </Content>
     <Content Include="..\..\Plugins\BranchAssemblyLoader\bin\Release\netstandard2.0\BranchAssemblyLoader.dll">
       <Link>LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Plugin\OutputDLL\BeepDeveloperAssistant\BeepDeveloperAssistant.dll">
-      <Link>ProjectClasses\BeepDeveloperAssistant\BeepDeveloperAssistant.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Addin\HereweAddAllVisualAddin.txt">
@@ -1042,10 +1074,19 @@
     <Content Include="ProjectClasses\AI\Accord\Accord.Controls.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ProjectClasses\AI\Accord\Accord.DataSets.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\AI\Accord\Accord.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ProjectClasses\AI\Accord\Accord.Fuzzy.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\AI\Accord\Accord.Genetic.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\AI\Accord\Accord.Imaging.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\AI\Accord\Accord.IO.dll">
@@ -1069,10 +1110,19 @@
     <Content Include="ProjectClasses\AI\Accord\Accord.Statistics.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ProjectClasses\AI\Accord\Accord.Video.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\AI\Accord\Accord.Vision.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ProjectClasses\AI\Accord\ICSharpCode.SharpZipLib.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\AI\Accord\ZedGraph.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\AI\Accord\ZstdSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\Python\beep.py">
