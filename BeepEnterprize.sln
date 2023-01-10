@@ -155,8 +155,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.App.Winform.Builder6",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.PythonRuntime", "..\Plugins\Beep.PythonRuntime\Beep.PythonRuntime.csproj", "{0A37173B-8F98-4215-893B-8090CBEEA1CF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIModule", "..\Plugins\AI\AIModule\AIModule.csproj", "{B96C3F2D-3B31-4435-85AB-00F116E7A478}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AINodes", "..\Plugins\AI\AINodes\AINodes.csproj", "{4C4B4B4B-8FD6-4D6A-BE9B-E98A21DEBCE0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIExtensionLoader", "..\Plugins\AI\AIExtensionLoader\AIExtensionLoader.csproj", "{A84DB431-2384-43D8-883E-8E539F9B7315}"
@@ -165,27 +163,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "R", "R", "{589C011F-BC8A-4D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Accord", "Accord", "{8A1EA156-B3EB-48CE-B6CA-FDE1C26BCC62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Accord.Nodes", "..\Plugins\AI\Beep.Accord.Nodes\Beep.Accord.Nodes.csproj", "{456070D1-F8A5-46B0-98C7-C64C4E84EBB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Accord.Nodes", "..\Plugins\AI\Beep.Accord.Nodes\Beep.Accord.Nodes.csproj", "{456070D1-F8A5-46B0-98C7-C64C4E84EBB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Accord.Logic", "..\Plugins\AI\Beep.Accord.Logic\Beep.Accord.Logic.csproj", "{C2EC699B-15E6-4B0E-940C-3E9849BB50DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Accord.Logic", "..\Plugins\AI\Beep.Accord.Logic\Beep.Accord.Logic.csproj", "{C2EC699B-15E6-4B0E-940C-3E9849BB50DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Accord.Winform", "..\Plugins\AI\Beep.Accord.Winform\Beep.Accord.Winform.csproj", "{ED282401-478B-4556-9B74-215877B81CB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.R.Logic", "..\Plugins\AI\Beep.R.Logic\Beep.R.Logic.csproj", "{5C946CD9-4B69-4AE2-9DF8-2E971F85C277}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.R.Logic", "..\Plugins\AI\Beep.R.Logic\Beep.R.Logic.csproj", "{5C946CD9-4B69-4AE2-9DF8-2E971F85C277}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.R.Nodes", "..\Plugins\AI\Beep.R.Nodes\Beep.R.Nodes.csproj", "{238E15E5-BE97-403C-9CF0-4C80C845B20E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.R.Nodes", "..\Plugins\AI\Beep.R.Nodes\Beep.R.Nodes.csproj", "{238E15E5-BE97-403C-9CF0-4C80C845B20E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.R.Extensions", "..\Plugins\AI\Beep.R.Extensions\Beep.R.Extensions.csproj", "{C6AEE174-3803-4BD5-BF9F-ED5EA2C381C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.R.Extensions", "..\Plugins\AI\Beep.R.Extensions\Beep.R.Extensions.csproj", "{C6AEE174-3803-4BD5-BF9F-ED5EA2C381C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.R.ExtensionLoader", "..\Plugins\AI\Beep.R.ExtensionLoader\Beep.R.ExtensionLoader.csproj", "{DB64FF28-D558-4815-9704-0E386EE7F4B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.R.ExtensionLoader", "..\Plugins\AI\Beep.R.ExtensionLoader\Beep.R.ExtensionLoader.csproj", "{DB64FF28-D558-4815-9704-0E386EE7F4B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.R.Winform", "..\Plugins\AI\Beep.R.Winform\Beep.R.Winform.csproj", "{0D481338-1580-4861-A190-DE552811E54D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.WorkFlow.Rules", "..\Plugins\Beep.WorkFlows\Beep.WorkFlow.Rules\Beep.WorkFlow.Rules.csproj", "{D8FAB04C-88E5-47EE-B1C0-CD79AEE1BFD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WorkFlow.Rules", "..\Plugins\Beep.WorkFlows\Beep.WorkFlow.Rules\Beep.WorkFlow.Rules.csproj", "{D8FAB04C-88E5-47EE-B1C0-CD79AEE1BFD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.WorkFlow.Steps", "..\Plugins\Beep.WorkFlows\Beep.WorkFlow.Steps\Beep.WorkFlow.Steps.csproj", "{C164AB3E-BD38-40F2-A9BD-4CAEE958AACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WorkFlow.Steps", "..\Plugins\Beep.WorkFlows\Beep.WorkFlow.Steps\Beep.WorkFlow.Steps.csproj", "{C164AB3E-BD38-40F2-A9BD-4CAEE958AACD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.WorkFlow.Actions", "..\Plugins\Beep.WorkFlows\Beep.WorkFlow.Actions\Beep.WorkFlow.Actions.csproj", "{5252BE94-7420-4F4C-89EE-7677B924A18F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WorkFlow.Actions", "..\Plugins\Beep.WorkFlows\Beep.WorkFlow.Actions\Beep.WorkFlow.Actions.csproj", "{5252BE94-7420-4F4C-89EE-7677B924A18F}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataManagmentEngineShared", "..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.shproj", "{B5D91583-1EB4-4B3C-8288-88FD13E35556}"
 EndProject
@@ -202,6 +200,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dummyLib", "..\InstallationScripts\dummyLib\dummyLib.csproj", "{D6642ACA-8557-4E69-82A7-641065C7A64A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NuggetDummy", "..\..\Nuget.Local\NuggetDummy\NuggetDummy.csproj", "{E3B47489-38A0-4E05-8038-ED357218F0EF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AIModule", "..\Plugins\AI\AIModule\AIModule.csproj", "{2B492608-72AE-4C18-BEDB-9B4F663C830A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -813,18 +813,6 @@ Global
 		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.x86|Any CPU.Build.0 = Debug|Any CPU
 		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.x86|x86.ActiveCfg = Debug|Any CPU
 		{0A37173B-8F98-4215-893B-8090CBEEA1CF}.x86|x86.Build.0 = Debug|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.Debug|x86.Build.0 = Debug|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.Release|x86.ActiveCfg = Release|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.Release|x86.Build.0 = Release|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.x86|Any CPU.ActiveCfg = Debug|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.x86|Any CPU.Build.0 = Debug|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.x86|x86.ActiveCfg = Debug|Any CPU
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478}.x86|x86.Build.0 = Debug|Any CPU
 		{4C4B4B4B-8FD6-4D6A-BE9B-E98A21DEBCE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4C4B4B4B-8FD6-4D6A-BE9B-E98A21DEBCE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C4B4B4B-8FD6-4D6A-BE9B-E98A21DEBCE0}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -1029,6 +1017,18 @@ Global
 		{E3B47489-38A0-4E05-8038-ED357218F0EF}.x86|Any CPU.Build.0 = Debug|Any CPU
 		{E3B47489-38A0-4E05-8038-ED357218F0EF}.x86|x86.ActiveCfg = Debug|Any CPU
 		{E3B47489-38A0-4E05-8038-ED357218F0EF}.x86|x86.Build.0 = Debug|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.Debug|x86.Build.0 = Debug|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.Release|x86.ActiveCfg = Release|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.Release|x86.Build.0 = Release|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.x86|x86.ActiveCfg = Debug|Any CPU
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A}.x86|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1098,7 +1098,6 @@ Global
 		{F21AE438-5A62-4C2F-9D15-C9BEA5D29962} = {959541EE-4115-4F03-8711-F832F25E1BB2}
 		{EA44AD6A-00B3-48AE-9114-394E7B1F2D2E} = {959541EE-4115-4F03-8711-F832F25E1BB2}
 		{0A37173B-8F98-4215-893B-8090CBEEA1CF} = {79459AD6-7467-4FE5-943A-19FAA08086AC}
-		{B96C3F2D-3B31-4435-85AB-00F116E7A478} = {5476A29B-D1C5-4E71-8362-428947F253F0}
 		{4C4B4B4B-8FD6-4D6A-BE9B-E98A21DEBCE0} = {5476A29B-D1C5-4E71-8362-428947F253F0}
 		{A84DB431-2384-43D8-883E-8E539F9B7315} = {5476A29B-D1C5-4E71-8362-428947F253F0}
 		{589C011F-BC8A-4DC9-9B87-53A0918BCC68} = {5476A29B-D1C5-4E71-8362-428947F253F0}
@@ -1120,13 +1119,13 @@ Global
 		{E952A61A-C838-43C2-8A00-049EE67CFD81} = {1B83C595-4F67-4060-A568-6E15DA2317C2}
 		{D6642ACA-8557-4E69-82A7-641065C7A64A} = {83077BDF-81A5-4AA8-96C3-13EF34D36536}
 		{E3B47489-38A0-4E05-8038-ED357218F0EF} = {761F2D5B-441C-43E5-84D1-BF50EFFB8273}
+		{2B492608-72AE-4C18-BEDB-9B4F663C830A} = {5476A29B-D1C5-4E71-8362-428947F253F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {080094DB-7666-459B-88F8-5F017533DAA6}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\BeepDM\DataManagementModelsShared\DataManagementModelsShared.projitems*{2f745b0a-b2f4-4eb8-9a8e-5a87b2988f99}*SharedItemsImports = 13
-		..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.projitems*{687a1d10-f665-4cc8-b74b-d13eb804bee3}*SharedItemsImports = 5
 		..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.projitems*{b5d91583-1eb4-4b3c-8288-88fd13e35556}*SharedItemsImports = 13
 		..\BeepDM\DataManagementModelsShared\DataManagementModelsShared.projitems*{e952a61a-c838-43c2-8a00-049ee67cfd81}*SharedItemsImports = 5
 	EndGlobalSection
