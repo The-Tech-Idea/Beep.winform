@@ -1126,6 +1126,7 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\BeepDM\DataManagementModelsShared\DataManagementModelsShared.projitems*{2f745b0a-b2f4-4eb8-9a8e-5a87b2988f99}*SharedItemsImports = 13
+		..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.projitems*{687a1d10-f665-4cc8-b74b-d13eb804bee3}*SharedItemsImports = 5
 		..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.projitems*{b5d91583-1eb4-4b3c-8288-88fd13e35556}*SharedItemsImports = 13
 		..\BeepDM\DataManagementModelsShared\DataManagementModelsShared.projitems*{e952a61a-c838-43c2-8a00-049ee67cfd81}*SharedItemsImports = 5
 	EndGlobalSection
