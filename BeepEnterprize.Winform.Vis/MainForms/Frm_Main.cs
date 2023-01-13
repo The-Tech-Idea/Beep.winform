@@ -8,13 +8,15 @@ using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Vis;
+using BeepEnterprize.Vis.Module;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace BeepEnterprize.Winform.Vis.MainForms
 {
     [AddinAttribute(Caption ="Beep", Name ="MainForm", misc ="MainForm")]
-    public partial class Frm_Main : Form, IDM_Addin
+    public partial class Frm_Main :  Form, IDM_Addin,IMainForm
     {
         public Frm_Main()
         {
@@ -323,9 +325,45 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 SidePanelContainer.Panel2Collapsed = false;
             }
         }
+
+        public void ShowTreeWindow(bool showornot)
+        {
+           
+            if (!showornot)
+            {
+                SidePanelContainer.Panel2Collapsed = true;
+                SidePanelCollapsebutton.Image = CollapseUp;
+                IsSidePanelsOpen = false;
+            }
+            else
+            {
+                SidePanelContainer.Panel2Collapsed = false;
+                SidePanelCollapsebutton.Image = CollapseDown;
+                IsSidePanelsOpen = true;
+            }
+          
+
+        }
+        public void ShowLogWindow(bool showornot)
+        {
+            if (!showornot)
+            {
+                MainViewsplitContainer.Panel2Collapsed = true;
+                LogPanelCollapsebutton.Image = CollapseUp;
+                IsLogPanelOpen = false;
+            }
+            else
+            {
+                LogPanelCollapsebutton.Image = CollapseDown;
+                MainViewsplitContainer.Panel2Collapsed = false;
+                IsLogPanelOpen = true;
+            }
+
+
+        }
         private void LogPanelCollapsebutton_Click(object sender, EventArgs e)
         {
-            //IsLogPanelOpen
+           
             if (IsLogPanelOpen)
             {
                 MainViewsplitContainer.Panel2Collapsed = true;
@@ -338,10 +376,12 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 MainViewsplitContainer.Panel2Collapsed = false;
                 IsLogPanelOpen = true;
             }
+
+
         }
         private void SidePanelCollapsebutton_Click(object sender, EventArgs e)
         {
-            //IsSidePanelsOpen
+           
             if (IsSidePanelsOpen)
             {
                 SidePanelContainer.Panel2Collapsed = true;
@@ -354,6 +394,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 SidePanelCollapsebutton.Image = CollapseDown;
                 IsSidePanelsOpen = true;
             }
+
         }
         private void MinMaxButton_Click(object sender, EventArgs e)
         {
@@ -400,5 +441,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
 
         }
 
+       
     }
 }

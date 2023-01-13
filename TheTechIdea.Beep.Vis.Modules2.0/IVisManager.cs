@@ -33,7 +33,11 @@ namespace BeepEnterprize.Vis.Module
         string LogoUrl { get; set; }
         string Title { get; set; }
         string IconUrl { get;set; }
-      
+         bool ShowLogWindow { get ; set ; }
+    
+         bool ShowTreeWindow { get ; set; } 
+
+       
         IWaitForm WaitForm { get; set; }
         IErrorsInfo LoadSetting();
         IErrorsInfo SaveSetting();

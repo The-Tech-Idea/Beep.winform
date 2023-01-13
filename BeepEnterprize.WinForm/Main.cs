@@ -115,6 +115,7 @@ namespace BeepEnterprize.Winform
                 // Show or Hide Custome App Tree
                 vis.IsAppOn = false;
                 // This Flag for Showing Main Form
+                
                 vis.IsShowingMainForm =true; 
                 vis.ShowMainPage();
                

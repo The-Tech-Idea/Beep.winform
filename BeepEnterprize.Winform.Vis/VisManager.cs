@@ -27,7 +27,7 @@ namespace BeepEnterprize.Winform.Vis
 {
     public class VisManager : IVisManager
     {
-
+        
         public string LogoUrl { get; set; }
         public string Title { get; set; }
         public string IconUrl { get; set; }
@@ -53,6 +53,24 @@ namespace BeepEnterprize.Winform.Vis
         public ErrorsInfo ErrorsandMesseges { get; set; }
         public IDM_Addin CurrentDisplayedAddin { get; set; }
         public bool IsDataModified { get; set; }
+        bool _showLogWindow = true;
+        bool _showTreeWindow = true;
+        public bool ShowLogWindow { get => _showLogWindow; set { SetLogWindows(value); } }
+        private void SetLogWindows(bool val)
+        {
+            IMainForm frm= (IMainForm)MainForm;
+            frm.ShowLogWindow( val);
+
+        }
+
+        public bool ShowTreeWindow { get => _showTreeWindow; set { SetTreeWindow(value); } }
+
+        private void SetTreeWindow(bool val)
+        {
+            IMainForm frm = (IMainForm)MainForm;
+            frm.ShowTreeWindow(val);
+        }
+
         public VisManager(IDMEEditor pdmeeditor)
         {
             IsDataModified = false;
@@ -79,23 +97,23 @@ namespace BeepEnterprize.Winform.Vis
             }
             DMEEditor.Passedarguments.Objects = CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects);
 
-            Images16 = new ImageList();
-            Images16.ColorDepth = ColorDepth.Depth32Bit;
-
+            Images = new ImageList();
+            Images.ColorDepth = ColorDepth.Depth32Bit;
+            Images.ImageSize = new Size(32, 32);
             Images16 = new ImageList();
             Images16.ImageSize = new Size(16, 16);
             Images16.ColorDepth = ColorDepth.Depth32Bit;
             Images32 = new ImageList();
-            Images32.ImageSize = new Size(16, 16);
+            Images32.ImageSize = new Size(32, 32);
             Images32.ColorDepth = ColorDepth.Depth32Bit;
             Images64 = new ImageList();
-            Images64.ImageSize = new Size(16, 16);
+            Images64.ImageSize = new Size(64, 64);
             Images64.ColorDepth = ColorDepth.Depth32Bit;
             Images128 = new ImageList();
-            Images128.ImageSize = new Size(16, 16);
+            Images128.ImageSize = new Size(128 ,128);
             Images128.ColorDepth = ColorDepth.Depth32Bit;
             Images256 = new ImageList();
-            Images256.ImageSize = new Size(16, 16);
+            Images256.ImageSize = new Size(256, 256);
             Images256.ColorDepth = ColorDepth.Depth32Bit;
             List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
             foreach (string filename_w_path in paths)
@@ -832,11 +850,23 @@ namespace BeepEnterprize.Winform.Vis
             stream = assembly.GetManifestResourceStream(fullName);
             if (stream != null)
             {
+               
                 image = new Bitmap(stream);
                 stream.Close();
                 return image;
-            }else
-                return null;
+            }
+            else
+            {
+                assembly = Assembly.GetCallingAssembly();
+                stream = assembly.GetManifestResourceStream(fullName);
+                if (stream != null)
+                {
+                    image = new Bitmap(stream);
+                    stream.Close();
+                    return image;
+                }
+            }
+            return null;
         }
         public List<string> GetImageList(Assembly assembly)
         {
