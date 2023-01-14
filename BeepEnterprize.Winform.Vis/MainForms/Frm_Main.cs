@@ -142,7 +142,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 BeeptoolbarControl.ObjectType = visManager.BeepObjectsName;
                 BeepmenuControl.ObjectType = visManager.BeepObjectsName;
 
-                BeepTreeControl.IconSize = new Size(32, 32);
+                BeepTreeControl.IconsSize = new Size(32, 32);
                 BeepmenuControl.IconSize = new Size(32, 32);
                 BeeptoolbarControl.IconSize = new Size(32, 32); 
 
@@ -152,7 +152,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                
                 BeeptoolbarControl.vismanager = visManager;
                 BeepmenuControl.vismanager = visManager;
-                //  you can change icon size in Tree controls  ex. Apptree.IconSize = new Size(24, 24);
+                //  you can change icon size in Tree controls  ex. Apptree.IconsSize = new Size(24, 24);
 
                 Passedarg.ParameterString1 = "Loading Beep Data Management Functions and Tree";
                 visManager.PasstoWaitForm((PassedArgs)Passedarg);
@@ -188,7 +188,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 ApptoolbarControl.ObjectType = visManager.AppObjectsName;
                 AppmenuControl.ObjectType = visManager.AppObjectsName; ;
 
-                ApptreeControl.IconSize=new Size(32,32);
+                ApptreeControl.IconsSize=new Size(32,32);
                 AppmenuControl.IconSize = new Size(32, 32);
                 ApptoolbarControl.IconSize = new Size(32, 32);
 

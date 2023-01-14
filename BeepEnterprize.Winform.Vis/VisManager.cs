@@ -43,7 +43,13 @@ namespace BeepEnterprize.Winform.Vis
         public List<ObjectItem> objects { get; set; } = new List<ObjectItem>();
         public bool IsBeepDataOn { get; set; } = true;
         public bool IsAppOn { get; set; } = true;
+        public int TreeIconSize { get; set; } = 32;
       
+        public bool TreeExpand { get; set ; }=false;
+
+        public int SecondaryTreeIconSize { get; set; } = 32;
+       
+        public bool SecondaryTreeExpand { get; set; }=false;
         public bool IsDevModeOn { get; set; } = false;
         public string AppObjectsName { get; set; }
         public string BeepObjectsName { get; set; }="Beep";

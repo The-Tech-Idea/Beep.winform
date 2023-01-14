@@ -11,18 +11,20 @@ using TheTechIdea.Util;
 
 namespace TheTechIdea.Beep.ViewModels
 {
-    public class DataSourceDefaultsViewModel : BaseViewModel, ICrud<DefaultValue>
+    public partial class DataSourceDefaultsViewModel : BaseViewModel, ICrud<DefaultValue>
     {
         [ObservableProperty]
-        ConnectionProperties currentConnection;
+        ConnectionProperties    currentConnection;
         [ObservableProperty]
-        ObservableCollection<DefaultValue> connections;
+        DefaultValue            currentDefault;
+        [ObservableProperty]
+        ObservableCollection<DefaultValue> defaults;
 
 
         public DataSourceDefaultsViewModel(IDMEEditor dMEditor) : base(dMEditor)
         {
             DMEditor = dMEditor;
-            connections = new ObservableCollection<DefaultValue>();
+            defaults = new ObservableCollection<DefaultValue>();
             RecordTraces = new List<RecordTrace>();
             CurrentRecordTrace.OriginalStatus = Enums.RecordStatus.Modified;
         }
@@ -43,13 +45,26 @@ namespace TheTechIdea.Beep.ViewModels
 
         public Task<DefaultValue> Get(int id)
         {
-            return Task.FromResult(DMEditor.ConfigEditor.DataConnections.FirstOrDefault(p => p.ID == id));
+            currentConnection = DMEditor.ConfigEditor.DataConnections.FirstOrDefault(p => p.ID == id);
+            if (currentConnection == null)
+            {
+                currentDefault= currentConnection.DatasourceDefaults.FirstOrDefault(p => p.propertyName == id);
+                return Task.FromResult(currentDefault);
+            }
+            else
+                return null;
 
         }
 
         public Task<IEnumerable<DefaultValue>> Get()
         {
-            return Task.FromResult(DMEditor.ConfigEditor..AsEnumerable());
+            if (currentConnection == null)
+            {
+                return Task.FromResult(currentConnection.DatasourceDefaults.AsEnumerable());
+            }
+            else
+                return null;
+           
         }
 
         public Task<IEnumerable<DefaultValue>> GetByFilter(string Filter)
@@ -94,3 +109,4 @@ namespace TheTechIdea.Beep.ViewModels
       
     }
 }
+

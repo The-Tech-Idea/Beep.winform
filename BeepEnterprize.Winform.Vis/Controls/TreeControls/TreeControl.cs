@@ -80,13 +80,15 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public List<int> SelectedBranchs { get; set; } = new List<int>();
         public TreeNodeDragandDropHandler treeNodeDragandDropHandler { get ; set ; }
         public ITreeBranchHandler treeBranchHandler { get ; set ; }
+     
+
         private Size _iconsize = new Size(32,32);
         private bool IsNewSizeSet=false;
-        public Size IconSize { get { return _iconsize; } set { _iconsize = value; IsNewSizeSet = true;  } }
+        public Size IconsSize { get { return _iconsize; } set { _iconsize = value; IsNewSizeSet = true;  } }
         private ImageList GetImageList() {
 
             return Vismanager.Images;
-            //switch (IconSize.Height)
+            //switch (IconsSize.Height)
             //{
             //    case 16:
             //        return Vismanager.Images16;
@@ -123,7 +125,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         nodemenu.Name = br.ToString();
                         if (item.iconimage != null)
                         {
-                            st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage, IconSize.Width);
+                            st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage, IconsSize.Width);
                         }
                         nodemenu.ItemClicked += Nodemenu_ItemClicked;
                         nodemenu.Tag = br;
@@ -232,10 +234,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
             ParentNode = null;
             CurrentNode = n;
             //br.ParentBranch = n;
-            if (Vismanager.visHelper.GetImageIndex(br.IconImageName, IconSize.Width) == -1)
+            if (Vismanager.visHelper.GetImageIndex(br.IconImageName, IconsSize.Width) == -1)
             {
-                n.ImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText, IconSize.Width);
-                n.SelectedImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText, IconSize.Width);
+                n.ImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText, IconsSize.Width);
+                n.SelectedImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText, IconsSize.Width);
             }
             else
             {
@@ -297,7 +299,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                                     menuList.Menu.Name = br.ToString();
                                     if (item.iconimage != null)
                                     {
-                                        st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage, IconSize.Width);
+                                        st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage, IconsSize.Width);
                                     }
                                     st.Tag = cls;
                                 }
@@ -310,7 +312,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                                     menuList.Menu.Name = br.ToString();
                                     if (item.iconimage != null)
                                     {
-                                        st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage, IconSize.Width);
+                                        st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage, IconsSize.Width);
                                     }
                                     st.Tag = cls;
                                 }
@@ -365,7 +367,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         menuList.Menu.Name = branch.ToString();
                         if (item.iconimage != null)
                         {
-                            st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage, IconSize.Width);
+                            st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage, IconsSize.Width);
                         }
                         st.Tag = cls;
 
@@ -554,7 +556,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         private void SetupTreeView()
         {
             //Vismanager.Images = new ImageList();
-            //Vismanager.Images.ImageSize = IconSize;
+            //Vismanager.Images.ImageSize = IconsSize;
             //Vismanager.Images.ColorDepth = ColorDepth.Depth32Bit;
             //List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
             //foreach (string filename_w_path in paths)
@@ -574,7 +576,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             //}
             TreeV.CheckBoxes = false;
             TreeV.ImageList=new ImageList();
-            TreeV.ImageList.ImageSize = IconSize;
+            TreeV.ImageList.ImageSize = IconsSize;
             TreeV.ImageList = GetImageList();
             TreeV.SelectedImageKey = SelectIcon;
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace BeepEnterprize.Vis.Module
             string  TreeType { get; set; }
             IBranch CurrentBranch { get; set; }
             IDMEEditor DMEEditor { get; set; }
+           
             PassedArgs args { get; set; }
             int SeqID { get; }
             List<IBranch> Branches { get; set; }

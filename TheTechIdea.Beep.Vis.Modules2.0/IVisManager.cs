@@ -28,6 +28,11 @@ namespace BeepEnterprize.Vis.Module
         bool IsBeepDataOn { get; set; }
         bool IsAppOn { get; set; }
         bool IsDevModeOn { get; set; }
+        int TreeIconSize { get; set; }
+        bool TreeExpand { get; set; }
+
+        int SecondaryTreeIconSize { get; set; }
+        bool SecondaryTreeExpand { get; set; }
         string AppObjectsName { get; set; }
         string BeepObjectsName { get; set; }
         string LogoUrl { get; set; }

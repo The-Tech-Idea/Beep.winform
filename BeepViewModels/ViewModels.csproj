@@ -1,17 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+		<RootNamespace>TheTechIdea.Beep.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+		<LangVersion>Latest</LangVersion>
+	</PropertyGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Copy SourceFiles="$(TargetDir)$(PackageId).dll" DestinationFolder="$(ProjectDir)..\..\..\outputDLL\$(PackageId)\$(TargetFramework)" SkipUnchangedFiles="false" />
+	</Target>
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>TheTechIdea.Beep.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-	  <LangVersion>Latest</LangVersion>
-  </PropertyGroup>
 
-  <ItemGroup>
+	<ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-    <PackageReference Include="Flee" Version="2.0.0" />
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.24" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.25" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules2.0" Version="1.0.0.30" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.2" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.4" />
   </ItemGroup>
 
 </Project>

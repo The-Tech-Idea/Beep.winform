@@ -47,10 +47,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 TreeNode p = Treecontrol.GetTreeNodeByID(ParentBranch.BranchID, TreeV.Nodes);
                
                 TreeNode n = p.Nodes.Add(Branch.BranchText);
-                if (visManager.visHelper.GetImageIndex(Branch.IconImageName,Treecontrol.IconSize.Width) == -1)
+                if (visManager.visHelper.GetImageIndex(Branch.IconImageName,Treecontrol.IconsSize.Width) == -1)
                 {
-                    n.ImageIndex = visManager.visHelper.GetImageIndexFromConnectioName(Branch.BranchText, Treecontrol.IconSize.Width);
-                    n.SelectedImageIndex = visManager.visHelper.GetImageIndexFromConnectioName(Branch.BranchText, Treecontrol.IconSize.Width);
+                    n.ImageIndex = visManager.visHelper.GetImageIndexFromConnectioName(Branch.BranchText, Treecontrol.IconsSize.Width);
+                    n.SelectedImageIndex = visManager.visHelper.GetImageIndexFromConnectioName(Branch.BranchText, Treecontrol.IconsSize.Width);
                 }
                 else
                 {
@@ -136,7 +136,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     }
 
                 }
-                p.ExpandAll();
+                if (visManager.TreeExpand)
+                {
+                    p.ExpandAll();
+                }
+                
                 Treecontrol.TreeV.EndUpdate();
             }
             catch (Exception ex)

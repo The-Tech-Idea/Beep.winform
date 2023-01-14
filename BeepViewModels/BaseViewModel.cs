@@ -35,8 +35,6 @@ namespace TheTechIdea.Beep.ViewModels
         string updatedBy;
 
         public IDMEEditor DMEditor { get; set; }
-       
-
         public BaseViewModel(IDMEEditor dMEditor)
         {
             DMEditor = dMEditor;
