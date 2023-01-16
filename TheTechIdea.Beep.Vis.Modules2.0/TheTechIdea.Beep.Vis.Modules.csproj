@@ -4,7 +4,7 @@
 	  <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
     <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Authors>The Tech Idea</Authors>
     <Description>Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
     <PackageProjectUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform</PackageProjectUrl>
@@ -27,5 +27,8 @@
   </ItemGroup>
 	<Target Name="CopyPackage" AfterTargets="Pack">
 		<Copy SourceFiles="$(OutputPath)$(PackageId).$(PackageVersion).nupkg" DestinationFolder="..\..\..\Nuget.Local" />
+	</Target>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Copy SourceFiles="$(TargetDir)$(PackageId).dll" DestinationFolder="$(ProjectDir)..\..\outputDLL\$(PackageId)\$(TargetFramework)" SkipUnchangedFiles="false" />
 	</Target>
 </Project>
