@@ -59,7 +59,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public string CategoryIcon { get; set; } = "Category.ico";
         public string SelectIcon { get; set; } = "select.ico";
         public IBranch CurrentBranch { get ; set ; }
-        public List<ContextMenu> menus { get; set; }=new List<ContextMenu>();
+        public List<ContextMenu> menus { get; set; }=new List<ContextMenu>(); //ContextMenuStrip
         public PassedArgs args { get; set; }
         static int pSeqID = 0;
         public int SeqID {

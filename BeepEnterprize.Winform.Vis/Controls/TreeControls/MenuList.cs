@@ -22,7 +22,7 @@ namespace BeepEnterprize.Winform.Vis.Controls.TreeControls
             PointType = pointType;
         }
         public ContextMenuStrip Menu { get; set; }
-        public List<MenuItem> Items { get; set; }
+        public List<MenuItem> Items { get; set; } //ToolStripMenuItem
         public EnumPointType  PointType { get; set; }
         public string ObjectType { get; set; }
         public string BranchClass { get; set; } 
