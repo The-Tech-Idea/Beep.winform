@@ -219,7 +219,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{235BEE6D-095
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WebAPI", "..\BeepWeb\Beep.WebAPI\Beep.WebAPI.csproj", "{E86DBF45-0377-4617-94E6-3980438816BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.BlazorApp", "..\BeepWeb\Beep.BlazorApp\Beep.BlazorApp.csproj", "{E9F6351F-B227-4315-891D-68B2AB1F5A42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.BlazorApp", "..\BeepWeb\Beep.BlazorApp\Beep.BlazorApp.csproj", "{E9F6351F-B227-4315-891D-68B2AB1F5A42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAPI", "..\BeepWeb\TestAPI\TestAPI.csproj", "{77E5F1DB-A7E5-4DA7-BE51-CB1566C0786E}"
 EndProject
