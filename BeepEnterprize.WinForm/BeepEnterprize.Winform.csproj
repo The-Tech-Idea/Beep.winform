@@ -91,7 +91,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\AIModule\netstandard2.0\AIModule.dll">
-      <Link>LoadingExtensions\AssemblyLoaderAI\AIModule.dll</Link>
+      <Link>ProjectClasses\AI\AIModule.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Accord.Logic\Beep.Accord.Logic.dll">
@@ -203,6 +203,10 @@
     </Content>
     <Content Include="..\..\outputDLL\ML.NET.Modules\netstandard2.0\ML.NET.Modules.dll">
       <Link>ProjectClasses\ML.NET\ML.NET.Modules.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET.Nodes\netstandard2.0\ML.NET.Nodes.dll">
+      <Link>ProjectClasses\ML.NET\ML.NET.Nodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET.Winform\ML.NET.Winform.dll">
