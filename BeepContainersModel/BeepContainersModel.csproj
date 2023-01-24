@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.2" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.2" />
   </ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">

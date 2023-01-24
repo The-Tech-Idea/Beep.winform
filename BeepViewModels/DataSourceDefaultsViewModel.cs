@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Text;
 using System.Threading.Tasks;
 using TheTechIdea.Beep.Report;
@@ -48,7 +49,7 @@ namespace TheTechIdea.Beep.ViewModels
             currentConnection = DMEditor.ConfigEditor.DataConnections.FirstOrDefault(p => p.ID == id);
             if (currentConnection == null)
             {
-                currentDefault= currentConnection.DatasourceDefaults.FirstOrDefault(p => p.propertyName == id);
+                currentDefault= currentConnection.DatasourceDefaults.FirstOrDefault(p => p.propertyName == id.ToString());
                 return Task.FromResult(currentDefault);
             }
             else
@@ -70,7 +71,7 @@ namespace TheTechIdea.Beep.ViewModels
         public Task<IEnumerable<DefaultValue>> GetByFilter(string Filter)
         {
 
-            return Task.FromResult(DMEditor.ConfigEditor.DataConnections.AsQueryable().Where(Filter).ToDynamicList<ConnectionProperties>().AsEnumerable<ConnectionProperties>());
+            return Task.FromResult(DMEditor.ConfigEditor.DataConnections.AsQueryable().Where(Filter).ToDynamicList<DefaultValue>().AsEnumerable());
         }
 
         public Task<IEnumerable<DefaultValue>> GetByFilter(List<AppFilter> Filter)

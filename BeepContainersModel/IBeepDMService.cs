@@ -1,7 +1,8 @@
-﻿
-
-
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using TheTechIdea.Beep.ConfigUtil;
+using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Workflow;
 using TheTechIdea.Logger;
@@ -12,20 +13,19 @@ namespace TheTechIdea.Beep.Containers.Services
 {
     public interface IBeepDMService
     {
+        IConfigEditor Config_editor { get; set; }
         IDMEEditor DMEEditor { get; set; }
-        IClassCreator ClassCreator { get; set; }
-        IConfigEditor Configeditor { get; set; }
         IErrorsInfo Erinfo { get; set; }
-        IETL eTL { get; set; }
-        IJsonLoader JsonLoader { get; set; }
-        IDMLogger Logger { get; set; }
+        IJsonLoader jsonLoader { get; set; }
+        IDMLogger lg { get; set; }
         IAssemblyHandler LLoader { get; set; }
-        IDataTypesHelper TypesHelper { get; set; }
-        IUtil Util { get; set; }
-        IWorkFlowEditor WorkFlowEditor { get; set; }
+        IServiceCollection Services { get; }
+        IUtil util { get; set; }
+        void Configure();
+     
 
-        bool AddConnection(string pConnectionName, DataSourceType dataSourceType);
-        void ConfigureServices();
-        IDataSource CreateConnection(string ConnName);
+      
+       
+      
     }
 }

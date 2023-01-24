@@ -1,134 +1,89 @@
-﻿using System;
+﻿using Dapper;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Data;
 using System.Linq;
 using TheTechIdea.Beep.ConfigUtil;
-using TheTechIdea.Beep.Containers.Models;
-using TheTechIdea.Beep.Editor;
-using TheTechIdea.Beep.Workflow;
+using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Logger;
 using TheTechIdea.Tools;
-//using TheTechIdea.Tools.AssemblyHandling;
 using TheTechIdea.Util;
 
 namespace TheTechIdea.Beep.Containers.Services
 {
-    public class BeepDMService : IBeepDMService
+    public class BeepMain :IBeepDMService
     {
-        #region "System Components"
+        public BeepMain(IServiceCollection services)
+    {
+        Services = services;
 
-        public IDMEEditor DMEEditor { get; set; }
-        public IConfigEditor Configeditor { get; set; }
-        public IWorkFlowEditor WorkFlowEditor { get; set; }
-        public IDMLogger Logger { get; set; }
-        public IUtil Util { get; set; }
-        public IErrorsInfo Erinfo { get; set; }
-        public IJsonLoader JsonLoader { get; set; }
-        public IAssemblyHandler LLoader { get; set; }
-        public IClassCreator ClassCreator { get; set; }
-        public IDataTypesHelper TypesHelper { get; set; }
-        public IETL eTL { get; set; }
 
-        #endregion
-
-      
-        private BeepContainer beepContainer;
-       
-        public BeepDMService(BeepContainer pBeepContainer)
-        {
-            beepContainer = pBeepContainer;
-           
-          
-            ConfigureServices();
-
-        }
-        public IDataSource CreateConnection(string ConnName)
-        {
-            try
-            {
-                IDataSource src;
-                string connname = $"{ConnName}_{DataSourceType.Oracle.ToString()}";
-                AddConnection(connname, DataSourceType.Oracle);
-                src = DMEEditor.GetDataSource(connname);
-                src.Openconnection();
-                return src;
-            }
-            catch (Exception ex)
-            {
-                return null;
-
-            }
-        }
-        public bool AddConnection(string pConnectionName, DataSourceType dataSourceType)
-        {
-            bool retval = true;
-            ConnectionProperties connection;
-            ConnectionProperties cn = DMEEditor.ConfigEditor.DataConnections.Where(o => o.ConnectionName.Equals(pConnectionName, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
-            DMEEditor.ConfigEditor.DataConnections.Remove(cn);
-            ConnectionDriversConfig configdr = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.DatasourceType == dataSourceType).FirstOrDefault();
-            if (!DMEEditor.ConfigEditor.DataConnections.Where(o => o.ConnectionName.Equals(pConnectionName, StringComparison.OrdinalIgnoreCase)).Any())
-            {
-                //ConnectionProperties cn = DMEEditor.ConfigEditor.DataConnections.Where(o => o.ConnectionName.Equals(pConnectionName, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
-                //DMEEditor.ConfigEditor.DataConnections.Remove(cn);
-                if (configdr != null)
-                {
-                    connection = new ConnectionProperties()
-                    {
-                        Category = DatasourceCategory.RDBMS,
-                        ConnectionName = pConnectionName,
-                        Database = "xe",
-                        UserID = "kocuser",
-                        Password = "xyz",
-                        Host = "localhost",
-                        Port = 1521,
-                        DatabaseType = dataSourceType,
-                        ConnectionString = configdr.ConnectionString,
-                        DriverName = configdr.DriverClass,
-                        DriverVersion = configdr.version
-                    };
-                    DMEEditor.ConfigEditor.AddDataConnection(connection);
-                    DMEEditor.ConfigEditor.SaveDataconnectionsValues();
-                }
-                else
-                    retval = false;
-            }
-            return retval;
-        }
-
-        #region "Beep Setup"
-        public void ConfigureServices()
-        {
-          //  CreateBeepEnv();
-          
-
-        }
-        //private bool CreateBeepEnv()
-        //{
-        //    try
-        //    {
-        //        Logger = new DMLogger();
-        //        JsonLoader = new JsonLoader();
-        //        Util = new Util(Logger, Erinfo, Configeditor);
-        //        Erinfo = new ErrorsInfo();
-        //        TypesHelper = new DataTypesHelper(Logger, Erinfo);
-        //        Configeditor = new ConfigEditor(Logger, Erinfo, JsonLoader);
-        //        eTL = new ETL();
-        //        WorkFlowEditor = new WorkFlowEditor();
-        //        ClassCreator = new ClassCreator();
-        //        DMEEditor = new DMEEditor(Logger,Util,Erinfo, Configeditor, WorkFlowEditor,ClassCreator,eTL,LLoader,TypesHelper);
-        //        LLoader = new AssemblyHandlerCore(Configeditor, Erinfo, Logger, Util);
-        //        LLoader.LoadAllAssembly();
-        //        Configeditor.LoadedAssemblies = LLoader.Assemblies.Select(c => c.DllLib).ToList();
-
-        //        return true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //    }
-        //}
-
-      
-
-        #endregion
     }
+    bool isDev = false;
+
+    #region "System Components"
+    public IDMEEditor DMEEditor { get; set; }
+    public IConfigEditor Config_editor { get; set; }
+    public IDMLogger lg { get; set; }
+    public IUtil util { get; set; }
+
+    public IErrorsInfo Erinfo { get; set; }
+    public IJsonLoader jsonLoader { get; set; }
+    public IAssemblyHandler LLoader { get; set; }
+
+
+
+    public IServiceCollection Services { get; }
+    CancellationTokenSource tokenSource;
+    CancellationToken token;
+    #endregion
+    public void Configure() //ContainerBuilder builder
+    {
+        Erinfo = new ErrorsInfo();
+        lg = new DMLogger();
+        jsonLoader = new JsonLoader();
+        string root = "";
+        root = AppContext.BaseDirectory + ("Beep");
+        Config_editor = new ConfigEditor(lg, Erinfo, jsonLoader, root);
+        util = new Util(lg, Erinfo, Config_editor);
+        LLoader = new AssemblyHandler(Config_editor, Erinfo, lg, util);
+        DMEEditor = new DMEEditor(lg, util, Erinfo, Config_editor, LLoader);
+        try
+        {
+            Services.AddSingleton<IErrorsInfo>(Erinfo);
+            Services.AddSingleton<IDMLogger>(lg);
+            Services.AddSingleton<IConfigEditor>(Config_editor);
+            Services.AddSingleton<IDMEEditor>(DMEEditor);
+            Services.AddSingleton<IUtil>(util);
+            Services.AddSingleton<IJsonLoader>(jsonLoader);
+
+        }
+        catch (Exception ex)
+        {
+
+            Console.WriteLine(ex.Message);
+        }
+        var progress = new Progress<PassedArgs>(percent => {
+
+
+        });
+        LLoader.LoadAllAssembly(progress, token);
+        Config_editor.LoadedAssemblies = LLoader.Assemblies.Select(c => c.DllLib).ToList();
+        // Setup the Entry Screen 
+        // the screen has to be in one the Addin DLL's loaded by the Assembly loader
+
+
+    }
+
+    #region "Dapper Methods"
+  
+
+    public bool AddConnection(string pConnectionName, DataSourceType dataSourceType)
+    {
+        return true;
+    }
+
+
+    #endregion "Dapper Methods"
+}
 }
