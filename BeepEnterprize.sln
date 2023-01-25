@@ -225,7 +225,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAPI", "..\BeepWeb\TestA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ML.NET.Nodes", "..\Plugins\AI\ML.NET.Nodes\ML.NET.Nodes.csproj", "{160EEDDB-06DF-46B6-B295-EF3FF44D285E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Blazor.Components", "..\BeepWeb\Beep.Blazor.Components\Beep.Blazor.Components.csproj", "{F2687B7F-4F35-4C60-A6F5-EB9663456112}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Blazor.Components", "..\BeepWeb\Beep.Blazor.Components\Beep.Blazor.Components.csproj", "{F2687B7F-4F35-4C60-A6F5-EB9663456112}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

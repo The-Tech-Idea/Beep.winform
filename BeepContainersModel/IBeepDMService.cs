@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TheTechIdea.Beep.ConfigUtil;
@@ -19,7 +19,7 @@ namespace TheTechIdea.Beep.Containers.Services
         IJsonLoader jsonLoader { get; set; }
         IDMLogger lg { get; set; }
         IAssemblyHandler LLoader { get; set; }
-        IServiceCollection Services { get; }
+        Microsoft.Extensions.DependencyInjection.IServiceCollection Services { get; }
         IUtil util { get; set; }
         void Configure();
      
