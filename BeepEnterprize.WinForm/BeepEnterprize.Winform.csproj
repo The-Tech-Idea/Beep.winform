@@ -249,6 +249,14 @@
       <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.KMeansClustering.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.LightGbm.dll">
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.LightGbm.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Mkl.Components.dll">
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Mkl.Components.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Parquet.dll">
       <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Parquet.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -259,6 +267,10 @@
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Scoring.dll">
       <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Scoring.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.ScoringNative.dll">
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.ScoringNative.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.SearchSpace.dll">
@@ -279,6 +291,14 @@
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Transforms.dll">
       <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Transforms.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\mkldnn.dll">
+      <Link>ProjectClasses\ML.NET\lib\mkldnn.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\tensorflow.dll">
+      <Link>ProjectClasses\ML.NET\lib\tensorflow.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\netstandard2.0\ML.NET.dll">
@@ -1107,6 +1127,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OtherDLL\mkldnn.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OtherDLL\netstandard.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OtherDLL\Sparrow.dll">
