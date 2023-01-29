@@ -229,6 +229,10 @@
       <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Core.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.CpuMath.dll">
+      <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.CpuMath.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Data.dll">
       <Link>ProjectClasses\ML.NET\lib\Microsoft.ML.Data.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1124,6 +1128,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OtherDLL\Microsoft.Bcl.HashCode.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OtherDLL\Microsoft.Extensions.DependencyInjection.Abstractions.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OtherDLL\Microsoft.Extensions.DependencyInjection.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OtherDLL\mkldnn.dll">
