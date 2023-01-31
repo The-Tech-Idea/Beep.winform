@@ -19,7 +19,7 @@ using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
-    internal class FunctionandExtensionsHelpers
+    public class FunctionandExtensionsHelpers
     {
         public IDMEEditor DMEEditor { get; set; }
         public IPassedArgs Passedargs { get; set; }
@@ -526,6 +526,151 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
             };
             return retval;
+        }
+        public virtual ConnectionProperties LoadFile()
+        {
+            ConnectionProperties retval = new ConnectionProperties();
+            try
+            {
+                string pextens = DMEEditor.ConfigEditor.CreateFileExtensionString();
+                string pfilename = Vismanager.Controlmanager.LoadFileDialog("*", DMEEditor.ConfigEditor.Config.ProjectDataPath, pextens);
+                string pFileName = Path.GetFileName(pfilename);
+                string pFilePath = Path.GetDirectoryName(pfilename);
+                string pExt = Path.GetExtension(pfilename).Replace(".", "").ToLower();
+                if (!pFilePath.Contains(@"ProjectData"))
+                {
+                    if (AskToCopyFile(pFileName, pFilePath))
+                    {
+                        pFilePath = @".\ProjectData";
+                    }
+                }
+
+                ConnectionProperties f = new ConnectionProperties
+                {
+                    FileName = Path.GetFileName(pfilename),
+                    Ext = Path.GetExtension(pfilename).Replace(".", "").ToLower(),
+                    FilePath = pFilePath,
+                    ConnectionName = Path.GetFileName(pfilename)
+                };
+                if (f.FilePath.Contains(DMEEditor.ConfigEditor.ExePath))
+                {
+                    pFilePath = @".";
+                }
+                if (f.FilePath.StartsWith(@DMEEditor.ConfigEditor.Config.DataFilePath, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    string pathafter = pFilePath.Substring(pFilePath.IndexOf("DataFiles") + 9);
+                    if (string.IsNullOrEmpty(pathafter))
+                    {
+                        pFilePath = @".\DataFiles";
+                    }
+                    else
+                    {
+                        pFilePath = @".\DataFiles" + pathafter;
+                    }
+                    f.FilePath = pFilePath;
+                }
+                if (f.FilePath.StartsWith(@DMEEditor.ConfigEditor.Config.ProjectDataPath, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    string pathafter = pFilePath.Substring(pFilePath.IndexOf("ProjectData") + 11);
+                    if (string.IsNullOrEmpty(pathafter))
+                    {
+                        pFilePath = @".\ProjectData";
+                    }
+                    else
+                    {
+                        pFilePath = @".\ProjectData" + pathafter;
+                    }
+                    f.FilePath = pFilePath;
+                }
+                string ext = Path.GetExtension(pfilename).Replace(".", "").ToLower();
+                List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null && p.Favourite == true).ToList();
+                ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext) && o.Favourite == true).FirstOrDefault();
+                if (c is null)
+                {
+                    c = clss.Where(o => o.classHandler.Equals("CSVDataSource", StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+                }
+                if (c != null)
+                {
+                    f.DriverName = c.PackageName;
+                    f.DriverVersion = c.version;
+                    f.Category = c.DatasourceCategory;
+
+                    switch (f.Ext.ToLower())
+                    {
+                        case "txt":
+                            f.DatabaseType = DataSourceType.Text;
+                            break;
+                        case "csv":
+                            f.DatabaseType = DataSourceType.CSV;
+                            break;
+                        case "xml":
+                            f.DatabaseType = DataSourceType.xml;
+
+                            break;
+                        case "json":
+                            f.DatabaseType = DataSourceType.Json;
+                            break;
+                        case "xls":
+                        case "xlsx":
+                            f.DatabaseType = DataSourceType.Xls;
+                            break;
+                        default:
+                            f.DatabaseType = DataSourceType.Text;
+                            break;
+                    }
+                    f.Category = DatasourceCategory.FILE;
+                    retval = f;
+
+                }
+                else
+                {
+                    DMEEditor.AddLogMessage("Beep", $"Could not Load File {f.ConnectionName}", DateTime.Now, -1, null, Errors.Failed);
+                }
+                return retval;
+            }
+            catch (Exception ex)
+            {
+                string mes = ex.Message;
+                DMEEditor.AddLogMessage(ex.Message, "Could not Load Files ", DateTime.Now, -1, mes, Errors.Failed);
+                //  Vismanager.CloseWaitForm();
+                return null;
+            };
+
+        }
+        public virtual bool AskToCopyFile(string filename, string sourcPath)
+        {
+
+            try
+            {
+                if (Vismanager.Controlmanager.InputBoxYesNo("Beep AI", $"Would you Like to Copy File {filename} to Local Folders?") == DialogResult.OK)
+                {
+                    CopyFileToLocal(sourcPath, DMEEditor.ConfigEditor.Config.ProjectDataPath, filename);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                string mes = ex.Message;
+                DMEEditor.AddLogMessage(ex.Message, "Could not Copy File", DateTime.Now, -1, mes, Errors.Failed);
+                //  Vismanager.CloseWaitForm();
+                return false;
+            }
+        }
+        public virtual bool CopyFileToLocal(string sourcePath, string destinationPath, string filename)
+        {
+
+            try
+            {
+                File.Copy(Path.Combine(sourcePath, filename), Path.Combine(destinationPath, filename));
+                return true;
+            }
+            catch (Exception ex)
+            {
+                string mes = ex.Message;
+                DMEEditor.AddLogMessage(ex.Message, "Could not Copy File", DateTime.Now, -1, mes, Errors.Failed);
+                //  Vismanager.CloseWaitForm();
+                return false;
+            }
         }
 
     }
