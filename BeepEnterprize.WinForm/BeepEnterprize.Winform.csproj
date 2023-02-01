@@ -166,19 +166,19 @@
       <Link>LoadingExtensions\PythonExtentionLoader\Beep.Python.ExtensionLoader.dll</Link>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Extensions\netstandard2.0\Beep.Python.Extensions.dll">
-      <Link>ProjectClasses\Python\Beep.Python.Extensions.dll</Link>
+      <Link>ProjectClasses\Py\Beep.Python.Extensions.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Logic\netstandard2.0\Beep.Python.Logic.dll">
-      <Link>ProjectClasses\Python\Beep.Python.Logic.dll</Link>
+      <Link>ProjectClasses\Py\Beep.Python.Logic.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Nodes\netstandard2.0\Beep.Python.Nodes.dll">
-      <Link>ProjectClasses\Python\Beep.Python.Nodes.dll</Link>
+      <Link>ProjectClasses\Py\Beep.Python.Nodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Winform\Beep.Python.Winform.dll">
-      <Link>ProjectClasses\Python\Beep.Python.Winform.dll</Link>
+      <Link>ProjectClasses\Py\Beep.Python.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.R.Extensions\netstandard2.0\Beep.R.Extensions.dll">
