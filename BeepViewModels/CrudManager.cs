@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BeepEnterprize.Vis.Module;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using BeepEnterprize.Winform.Vis.ETL.ImportData;
+
 
 using TheTechIdea;
 using TheTechIdea.Beep;
@@ -18,7 +19,7 @@ using TheTechIdea.Util;
 namespace BeepEnterprize.Winform.Vis.CRUD
 {
     [AddinAttribute(Caption = "Crud Manager", Name = "CRUDMANAGER", misc = "CRUD",addinType =AddinType.Class)]
-    public class CrudManager : IDM_Addin
+    public class CrudManager<T> : IDM_Addin where T : class
     {
         public CrudManager()
         {
@@ -44,22 +45,22 @@ namespace BeepEnterprize.Winform.Vis.CRUD
 
         public object CurrentRecord { get; set; }
         public Type CurrentType { get; set; }
-        public  BindingSource EntitybindingSource { get; set; }
-        public  Frm_ListEntities listEntities { get; set; }
-        public ImportDataManager dataLoadingManager { get; set; } = new ImportDataManager();
-        public Control queryFields { get; set; }
+        public ObservableCollection<T> EntitybindingSource { get; set; }
+        public  IDM_Addin listEntities { get; set; }
+        public IDM_Addin dataLoadingManager { get; set; }
+        public IDM_Addin queryFields { get; set; }
         IDataSource ds;
     
         public TransActionType TransType { get; set; } 
       
-        VisManager visManager;
+        IVisManager visManager;
 
 
         public void Run(IPassedArgs pPassedarg)
         {
-            visManager.Container.Controls.Clear();
-            visManager.Container.Controls.Add(listEntities);
-            listEntities.Dock = System.Windows.Forms.DockStyle.Fill;
+            //visManager.Container.Controls.Clear();
+            //visManager.Container.Controls.Add(listEntities);
+            //listEntities.Dock = System.Windows.Forms.DockStyle.Fill;
         }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
@@ -69,11 +70,11 @@ namespace BeepEnterprize.Winform.Vis.CRUD
 
             if (e.Objects.Where(c => c.Name == "VISUTIL").Any())
             {
-                visManager = (VisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
+                visManager = (IVisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
             }
-            EntitybindingSource = new BindingSource();
+            //EntitybindingSource = new BindingSource();
          
-            listEntities = new Frm_ListEntities(this);
+            //listEntities = new Frm_ListEntities(this);
             SetupConnection(e.DatasourceName, (PassedArgs)e);
 
 
@@ -220,7 +221,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
                                 }
                                 else
                                 {
-                                    EntitybindingSource.RemoveCurrent();
+                                   // EntitybindingSource.RemoveCurrent();
                                    // listEntities.DeleteRecord(record);
                                     visManager.Controlmanager.MsgBox("Beep", "Success to Delete Record");
                                 }
@@ -252,12 +253,12 @@ namespace BeepEnterprize.Winform.Vis.CRUD
                 {
                     if (EntityStructure.EntityName != null)
                     {
-                        if (EntitybindingSource.Current != null)
-                        {
-                            EntitybindingSource.RemoveCurrent();
-                        }
-                        EntitybindingSource.AddNew();
-                        CurrentRecord = EntitybindingSource.Current;
+                      //  if (EntitybindingSource.Current != null)
+                     //   {
+                     //       EntitybindingSource.RemoveCurrent();
+                     //   }
+                     //   EntitybindingSource.AddNew();
+                    //    CurrentRecord = EntitybindingSource.Current;
                         // ob = EntitybindingSource.Current;
                         if (Passedarg.Objects.Where(i => i.Name == EntityStructure.EntityName).Any())
                         {

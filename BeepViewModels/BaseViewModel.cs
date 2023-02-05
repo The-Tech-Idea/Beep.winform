@@ -56,33 +56,6 @@ namespace TheTechIdea.Beep.ViewModels
                 fnd.Status=current;
             }
         }
-        public Task<IEnumerable<T>> LoadData<T>(IDataSource DataSource, string querystring, object parameters)
-        {
-            return null;
-        }
-        public Task<IEnumerable<T>> LoadDataFromOTS<T>(IDataSource DataSource, string querystring, object parameters)
-        {
-            return null;
-        }
-        public Task<T> LoadDataFirst<T>(IDataSource DataSource, string querystring, object parameters)
-        {
-            return null;
-        }
-        public Task<int?> Insert<T>(IDataSource DataSource, T doc)
-        {
-            return null;
-        }
-        public Task<int> Update<T>(IDataSource DataSource, T doc)
-        {
-            return null;
-        }
-        public int Delete<T>(IDataSource DataSource, int id)
-        {
-            return 0;
-        }
-        public int GetSeq(IDataSource DataSource, string SeqName)
-        {
-            return 0;
-        }
+      
     }
 }
