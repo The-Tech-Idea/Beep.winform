@@ -220,7 +220,7 @@ namespace TheTechIdea.Beep.Containers.ContainerManagement
                             //-------- Create DMService -----
                             try
                             {
-                               services.AddScoped<IBeepDMService>(s=>new BeepMain(pContainer));
+                               services.AddScoped<IBeepDMService>(s=>new BeepMain(services));
                                 var provider = services.BuildServiceProvider();
                                 var ContianerService = provider.GetService<IBeepDMService>();
 
