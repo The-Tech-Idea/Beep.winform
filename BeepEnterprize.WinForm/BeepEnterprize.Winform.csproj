@@ -154,6 +154,18 @@
       <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.CSV.Extensions\netstandard2.0\Beep.CSV.Extensions.dll">
+      <Link>ProjectClasses\CSVManager\Beep.CSV.Extensions.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.CSVManager.Winform\Beep.CSVManager.Winform.dll">
+      <Link>ProjectClasses\CSVManager\Beep.CSVManager.Winform.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.CSVManager\netstandard2.0\Beep.CSVManager.dll">
+      <Link>ProjectClasses\CSVManager\Beep.CSVManager.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.logic\netstandard2.0\Beep.DeveloperAssistant.logic.dll">
       <Link>ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.logic.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
