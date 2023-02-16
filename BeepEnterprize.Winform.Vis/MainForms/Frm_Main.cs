@@ -59,7 +59,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         bool IsSidePanelsOpen = true;
         bool IsLogPanelOpen = true;
         int LogPanelHeight;
-       // private System.Windows.Forms.Button MinMaxButton;
+
         Image CollapseLeft;
         Image Collapseright;
         Image CollapseUp;
@@ -67,8 +67,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         Image ListSearch;
         bool _IsDevModeOn = true;
         bool IsDevModeOn { get { return _IsDevModeOn; } set { _IsDevModeOn = value; DevModeOn(); } }
-       // bool IsAddingControl = false;
-        
+
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
             DMEEditor = pbl;
@@ -86,8 +85,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 {
                     IsDevModeOn=true;
                 }
-                
-               
             }
             //---------- Init Controls --------------
             this.ResumeLayout(false);
@@ -118,7 +115,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             DMEEditor.Passedarguments.Objects.Add(new ObjectItem() { Name = "AppTreeControl", obj = ApptreeControl });
             DMEEditor.Passedarguments.Objects.Add(new ObjectItem() { Name = "AppMenuControl", obj = AppmenuControl });
             DMEEditor.Passedarguments.Objects.Add(new ObjectItem() { Name = "AppToolbarControl", obj = ApptoolbarControl });
-       //     DMEEditor.Passedarguments = Passedarg;
 
             //-------------------------------------------------
             if (!visManager.WaitFormShown)
@@ -126,17 +122,13 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 visManager.ShowWaitForm((PassedArgs)Passedarg);
             }
 
-            
             //------------- Setup Control Container to Display controls and addons
             visManager.Container = ContainerPanel;
             visManager.MainForm = this;
             //--------------------------------------------------------------------
-            
-           
             if (visManager.IsBeepDataOn)
             {
                 ///------------ Setup Beep Data Management 
-
                 BeepTreeControl.TreeType = visManager.BeepObjectsName;
                 BeepTreeControl.ObjectType = visManager.BeepObjectsName;
                 BeeptoolbarControl.ObjectType = visManager.BeepObjectsName;
@@ -173,12 +165,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 {
                     Beepmenustrip.Visible = false;
                 }
-              
-              
             }
-          
-            
-              
             ///----------------------------------------
             if (visManager.IsAppOn)
             {
@@ -216,24 +203,13 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 Passedarg.ParameterString1 = "Loading Function Extensions Menu for App ";
                 visManager.PasstoWaitForm((PassedArgs)Passedarg);
                 AppmenuControl.menustrip = AppmenuStrip;
-               
                 AppmenuControl.CreateGlobalMenu();
                 if (AppmenuStrip.Items.Count == 0)
                 {
                     AppmenuStrip.Visible = false;
                 }
-              
-              
             }
             ///----------------------------------------
-        
-
-           
-
-
-            //Appmenu.menustrip = appme;
-            //Appmenu.CreateGlobalMenu();
-
             this.Shown += Frm_Main_Shown;
             startLoggin = true;
             visManager.CloseWaitForm();
@@ -242,32 +218,22 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MinMaxButton.Click += MinMaxButton_Click;
             this.LogPanelCollapsebutton.Click += LogPanelCollapsebutton_Click;
             LogPanelHeight = LogPanel.Height;
-          
-            //MainSplitContainer1.Panel1MinSize = 40;
-
             ListSearch = (Bitmap)Properties.Resources.ResourceManager.GetObject("ListBoxSearch");
             CollapseLeft = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseLeft");
             Collapseright = (Bitmap)Properties.Resources.ResourceManager.GetObject("Collapseright");
             CollapseUp = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseUp");
             CollapseDown = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseDown");
-
             this.SidePanelCollapsebutton.Image = CollapseDown;
             this.MinMaxButton.Image= CollapseLeft;
             this.LogPanelCollapsebutton.Image = CollapseDown;
             Filterbutton.Image = ListSearch;
             if (visManager.IsBeepDataOn == false) RemoveBeepGui();
             if (visManager.IsAppOn == false) RemoveAppGui();
-            
             this.StartPosition = FormStartPosition.CenterScreen; 
-         
             this.ShowInTaskbar = true;
             this.ResumeLayout(true);
-
             this.TreeFilterTextBox.Focus();
-            //this.WindowState = FormWindowState.Maximized;
-           // this.TopMost = true; 
         }
-
         private void RemoveAppGui()
         {
             ApptoolStrip.Visible = false;
@@ -281,11 +247,11 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             tableLayoutPanel2.ColumnStyles[0].Width = 30;
             tableLayoutPanel2.Width = 25;
             panel1.Width = 35;
-            
+            sidepanelView.Left = 31;
+            sidepanelView.Width += 42;
             SidePanelCollapsebutton.Visible = false;
             SidePanelContainer.Panel1Collapsed = true;
         }
-
         private void RemoveBeepGui()
         {
             LogPanelCollapsebutton.Visible = false;
@@ -301,12 +267,11 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             tableLayoutPanel2.ColumnStyles[1].Width = 30;
             tableLayoutPanel2.Width = 25;
             panel1.Width = 35;
-            
-          
+
+            sidepanelView.Left = 73;
             SidePanelCollapsebutton.Visible = false;
             SidePanelContainer.Panel2Collapsed = true;
         }
-
         public void DevModeOn()
         {
 
@@ -325,7 +290,6 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 SidePanelContainer.Panel2Collapsed = false;
             }
         }
-
         public void ShowTreeWindow(bool showornot)
         {
            

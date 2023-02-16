@@ -8,6 +8,8 @@ namespace BeepEnterprize.Vis.Module
     {
         void ShowTreeWindow(bool showornot);
         void ShowLogWindow(bool showornot);
+      
+
 
     }
 }

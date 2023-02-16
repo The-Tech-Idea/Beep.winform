@@ -169,7 +169,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.BeepTreeView.ItemHeight = 32;
             this.BeepTreeView.Location = new System.Drawing.Point(0, 0);
             this.BeepTreeView.Name = "BeepTreeView";
-            this.BeepTreeView.Size = new System.Drawing.Size(300, 337);
+            this.BeepTreeView.Size = new System.Drawing.Size(300, 336);
             this.BeepTreeView.TabIndex = 2;
             // 
             // TreeFilterTextBox
@@ -301,7 +301,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.ContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContainerPanel.ContainerType = BeepEnterprize.Winform.Vis.Controls.ContainerTypeEnum.SinglePanel;
+            this.ContainerPanel.ContainerType = BeepEnterprize.Winform.Vis.Controls.ContainerTypeEnum.TabbedPanel;
             this.ContainerPanel.Location = new System.Drawing.Point(18, 0);
             this.ContainerPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ContainerPanel.Name = "ContainerPanel";

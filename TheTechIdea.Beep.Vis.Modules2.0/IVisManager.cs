@@ -40,9 +40,10 @@ namespace BeepEnterprize.Vis.Module
         string IconUrl { get;set; }
          bool ShowLogWindow { get ; set ; }
     
-         bool ShowTreeWindow { get ; set; } 
+         bool ShowTreeWindow { get ; set; }
+        int Width { get; set; }
+        int Height { get; set; }
 
-       
         IWaitForm WaitForm { get; set; }
         IErrorsInfo LoadSetting();
         IErrorsInfo SaveSetting();

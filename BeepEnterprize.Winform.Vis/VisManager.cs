@@ -27,7 +27,6 @@ namespace BeepEnterprize.Winform.Vis
 {
     public class VisManager : IVisManager
     {
-        
         public string LogoUrl { get; set; }
         public string Title { get; set; }
         public string IconUrl { get; set; }
@@ -39,16 +38,12 @@ namespace BeepEnterprize.Winform.Vis
         public IDM_Addin SecondaryTree { get; set; }
         public IDM_Addin SecondaryToolStrip { get ; set ; }
         public IDM_Addin SecondaryMenuStrip { get; set ; }
-
         public List<ObjectItem> objects { get; set; } = new List<ObjectItem>();
         public bool IsBeepDataOn { get; set; } = true;
         public bool IsAppOn { get; set; } = true;
         public int TreeIconSize { get; set; } = 32;
-      
         public bool TreeExpand { get; set ; }=false;
-
         public int SecondaryTreeIconSize { get; set; } = 32;
-       
         public bool SecondaryTreeExpand { get; set; }=false;
         public bool IsDevModeOn { get; set; } = false;
         public string AppObjectsName { get; set; }
@@ -66,17 +61,15 @@ namespace BeepEnterprize.Winform.Vis
         {
             IMainForm frm= (IMainForm)MainForm;
             frm.ShowLogWindow( val);
-
         }
-
         public bool ShowTreeWindow { get => _showTreeWindow; set { SetTreeWindow(value); } }
-
         private void SetTreeWindow(bool val)
         {
             IMainForm frm = (IMainForm)MainForm;
             frm.ShowTreeWindow(val);
         }
-
+        public int Width { get; set; } = 1800;
+        public int Height { get; set; } = 1000;
         public VisManager(IDMEEditor pdmeeditor)
         {
             IsDataModified = false;
@@ -200,20 +193,16 @@ namespace BeepEnterprize.Winform.Vis
         public IWaitForm WaitForm { get; set; }
         private Control _container;
         public Form MainForm { get; set; }
+        uc_Container container;
         public Control Container { get { return _container; } set { _container =value; _controlManager.DisplayPanel = value; } }
         #endregion
         public WizardManager wizardManager { get; set; }
-
         public bool IsShowingMainForm { get; set; } = false;
-
         IDM_Addin MainFormView;
         public IErrorsInfo LoadSetting()
         {
             try
             {
-
-               
-
                 ErrorsandMesseges.Flag = Errors.Ok;
                 ErrorsandMesseges.Message = $"Function Executed";
             }
@@ -230,9 +219,6 @@ namespace BeepEnterprize.Winform.Vis
         {
             try
             {
-              
-
-
                 ErrorsandMesseges.Flag = Errors.Ok;
                 ErrorsandMesseges.Message = $"Function Executed";
             }
@@ -266,31 +252,25 @@ namespace BeepEnterprize.Winform.Vis
         }
         public IErrorsInfo ShowMainPage()
         {
-
             try
             {
                 PassedArgs E=null;
                 ErrorsandMesseges = new ErrorsInfo();
                 ErrorsandMesseges = (ErrorsInfo)CheckSystemEntryDataisSet();
-
-              
-                    if (ErrorsandMesseges.Flag == Errors.Ok)
+                if (ErrorsandMesseges.Flag == Errors.Ok)
+                {
+                    string[] args = { null, null, null };
+                    if (DMEEditor.Passedarguments == null)
                     {
-                        string[] args = { null, null, null };
-                        if (DMEEditor.Passedarguments == null)
-                        {
-                            E = CreateDefaultArgsForVisUtil();
-                        }   
-                        else
-                        {
-                            DMEEditor.Passedarguments.Objects=CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects);
-                            E = (PassedArgs)DMEEditor.Passedarguments;
-                        }
-                        MainFormView = ShowForm(DMEEditor.ConfigEditor.Config.SystemEntryFormName, DMEEditor, args, E);
+                        E = CreateDefaultArgsForVisUtil();
+                    }   
+                    else
+                    {
+                        DMEEditor.Passedarguments.Objects=CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects);
+                        E = (PassedArgs)DMEEditor.Passedarguments;
                     }
-
-                
-
+                    MainFormView = ShowForm(DMEEditor.ConfigEditor.Config.SystemEntryFormName, DMEEditor, args, E);
+                }
                 ErrorsandMesseges.Flag = Errors.Ok;
                 ErrorsandMesseges.Message = $"Function Executed";
             }
@@ -299,7 +279,6 @@ namespace BeepEnterprize.Winform.Vis
                 ErrorsandMesseges.Flag = Errors.Failed;
                 ErrorsandMesseges.Message = ex.Message;
                 ErrorsandMesseges.Ex = ex;
-
             }
             return ErrorsandMesseges;
         }
@@ -541,8 +520,8 @@ namespace BeepEnterprize.Winform.Vis
                             addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                             CurrentDisplayedAddin = addin;
                             IsDataModified = false;
-                            uc_Container container = (uc_Container)control;
-                            container.AddControl(addin.AddinName, uc, ContainerTypeEnum.SinglePanel);
+                            container = (uc_Container)control;
+                            container.AddControl(addin.AddinName, uc, ContainerTypeEnum.TabbedPanel);
                             uc.Dock = DockStyle.Fill;
 
                         }
@@ -629,6 +608,7 @@ namespace BeepEnterprize.Winform.Vis
                     {
                         if (!string.IsNullOrEmpty(Title))
                         {
+                            form.Width = Width; form.Height=Height;
                             form.Text = Title;
                         }
                     }

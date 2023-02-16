@@ -35,6 +35,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Beep.MindsDB.Winform">
+      <HintPath>..\..\Plugins\AI\Beep.MindsDB.Winform\obj\Debug\Beep.MindsDB.Winform.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -624,7 +627,7 @@
       <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
-      <Version>1.0.5</Version>
+      <Version>1.0.6</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

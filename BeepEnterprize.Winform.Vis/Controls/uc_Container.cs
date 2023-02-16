@@ -21,6 +21,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         public bool AddControl(string TitleText,Control control, ContainerTypeEnum pcontainerType)
         {
+            ContainerType= pcontainerType;
             if (control == null || control != null && control.Controls.Contains(control)) { return false; }
             switch (pcontainerType)
             {
