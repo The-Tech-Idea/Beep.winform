@@ -11,14 +11,14 @@ using System.Windows.Forms;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
-
+using TheTechIdea.Beep.Report;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.CRUD
 {
-    [AddinAttribute(Caption = "List Entities", Name = "Frm_ListEntities", misc = "CRUD")]
+    [AddinAttribute(Caption = "List Entities", Name = "Frm_ListEntities", misc = "CRUD",displayType = DisplayType.InControl,addinType = AddinType.Control)]
     public partial class Frm_ListEntities : UserControl, IDM_Addin
     {
         CrudManager crudManager;
@@ -35,7 +35,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
 
         public string ParentName { get ; set ; }
         public string ObjectName { get ; set ; }
-        public string ObjectType { get ; set ; } = "Form";
+        public string ObjectType { get ; set ; } = "UserControl";
         public string AddinName { get ; set ; } = "List Entities";
         public string Description { get ; set ; }
         public bool DefaultCreate { get ; set ; }
@@ -54,6 +54,8 @@ namespace BeepEnterprize.Winform.Vis.CRUD
         int CurrentRecordIndex;
         IDataSource ds;
         object objdata;
+        bool IsCrudEnabled;
+        Type CurrentType;
         public void Run(IPassedArgs pPassedarg)
         {
             throw new NotImplementedException();
@@ -64,7 +66,10 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             DMEEditor = pbl;
             ErrorObject = pbl.ErrorObject;
             Logger = pbl.Logger;
-
+            if (e.Objects.Where(c => c.Name == "CRUDMANAGER").Any())
+            {
+                crudManager = (CrudManager)e.Objects.Where(c => c.Name == "CRUDMANAGER").FirstOrDefault().obj;
+            }
             if (e.Objects.Where(c => c.Name == "VISUTIL").Any())
             {
                 visManager = (VisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
@@ -73,23 +78,31 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             {
                 e.Objects.Remove(e.Objects.Where(i => i.Name == "FilterPanel").FirstOrDefault());
             }
+
             e.Objects.Add(new ObjectItem() { Name = "FilterPanel", obj = FilterPanel });
             DMEEditor.Passedarguments = e;
-
-         //  visManager._controlManager.CrudFilterPanel = FilterPanel;
-            EntitybindingSource = crudManager.EntitybindingSource;
-            EntitybindingSource.PositionChanged += EntitybindingSource_PositionChanged;
-            EntitybindingSource.DataError += EntitybindingSource_DataError;
-            EntitybindingSource.CurrentChanged += EntitybindingSource_CurrentChanged;
-            EntityNameLabel.Text = crudManager.EntityStructure.EntityName;
-            SubtitleLabel.Text = $"{e.DatasourceName}";
-            NewButton.Click += NewButton_Click;
-            EditButton.Click += EditButton_Click;
-            DeleteButton.Click += DeleteButton_Click;
-            PrintButton.Click += PrintButton_Click;
-            SubmitButton.Click += SubmitButton_Click;
-            objdata = crudManager.GetData();
-            RefreshData(objdata);
+            SetupConnection(e.DatasourceName, (PassedArgs)e);
+            if (crudManager != null)
+            {
+                EntitybindingSource = crudManager.EntitybindingSource;
+                EntitybindingSource.PositionChanged += EntitybindingSource_PositionChanged;
+                EntitybindingSource.DataError += EntitybindingSource_DataError;
+                EntitybindingSource.CurrentChanged += EntitybindingSource_CurrentChanged;
+                if (crudManager.EntityStructure != null)
+                {
+                    EntityNameLabel.Text = crudManager.EntityStructure.EntityName;
+                    SubtitleLabel.Text = $"{e.DatasourceName}";
+                    NewButton.Click += NewButton_Click;
+                    EditButton.Click += EditButton_Click;
+                    DeleteButton.Click += DeleteButton_Click;
+                    PrintButton.Click += PrintButton_Click;
+                    SubmitButton.Click += SubmitButton_Click;
+                    objdata = GetData();
+                    RefreshData(objdata);
+                }
+               
+            }
+           
 
         }
 
@@ -110,7 +123,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            objdata = crudManager.GetData();
+            objdata = GetData();
             RefreshData(objdata);
         }
 
@@ -181,7 +194,69 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             EntityNameLabel.Text = crudManager.EntityStructure.EntityName;
             SubtitleLabel.Text = $"{crudManager.EntityStructure.DataSourceID}";
         }
-
-       
+        public object GetData()
+        {
+            return ds.GetEntity(crudManager.EntityStructure.DatasourceEntityName, crudManager.EntityStructure.Filters);
+        }
+        public void SetupConnection(string DatasourceName, PassedArgs e)
+        {
+            Passedarg = e;
+            ds = DMEEditor.GetDataSource(DatasourceName);
+            if (ds != null)
+            {
+                ds.Openconnection();
+                if (ds != null && ds.ConnectionStatus == ConnectionState.Open)
+                {
+                    EntityName = e.CurrentEntity;
+                    if (e.Objects.Where(c => c.Name == "EntityStructure").Any())
+                    {
+                        crudManager.EntityStructure = (EntityStructure)e.Objects.Where(c => c.Name == "EntityStructure").FirstOrDefault().obj;
+                    }
+                    else
+                    {
+                        crudManager.EntityStructure = ds.GetEntityStructure(EntityName, true);
+                        e.Objects.Add(new ObjectItem { Name = "EntityStructure", obj = crudManager.EntityStructure });
+                    }
+                    if (crudManager.EntityStructure != null)
+                    {
+                        crudManager.EntityStructure.DataSourceID = DatasourceName;
+                        if (crudManager.EntityStructure.Fields != null)
+                        {
+                            if (crudManager.EntityStructure.PrimaryKeys.Count > 0)
+                            {
+                                if (crudManager.EntityStructure.Fields.Count > 0)
+                                {
+                                    SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, null, e, DMEEditor.ErrorObject);
+                                    crudManager.EntityStructure.Filters = new List<AppFilter>();
+                                    List<DefaultValue> defaults = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == ds.DatasourceName)].DatasourceDefaults;
+                                    visManager.Controlmanager.CreateEntityFilterControls(EntityStructure, defaults, e);
+                                }
+                                CurrentType = ds.GetEntityType(EntityStructure.EntityName);
+                            }
+                            else
+                            {
+                                if (ds.Category != DatasourceCategory.RDBMS)
+                                {
+                                    IsCrudEnabled = true;
+                                }
+                                else
+                                {
+                                    IsCrudEnabled = false;
+                                    visManager.Controlmanager.MsgBox("Beep", "Cannot Edit a table with no primary keys");
+                                }
+                                if (crudManager.EntityStructure.Fields.Count > 0)
+                                {
+                                    //   SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, null, e, DMEEditor.ErrorObject);
+                                    crudManager.EntityStructure.Filters = new List<AppFilter>();
+                                    List<DefaultValue> defaults = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == ds.DatasourceName)].DatasourceDefaults;
+                                    visManager.Controlmanager.CreateEntityFilterControls(crudManager.EntityStructure, defaults, e);
+                                }
+                                CurrentType = ds.GetEntityType(crudManager.EntityStructure.EntityName);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

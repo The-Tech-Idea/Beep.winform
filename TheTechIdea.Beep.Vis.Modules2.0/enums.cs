@@ -47,4 +47,9 @@ namespace BeepEnterprize.Vis.Module
         //     The dialog box return value is No (usually sent from a button labeled No).
         No = 7
     }
+    public enum ContainerTypeEnum
+    {
+        SinglePanel,
+        TabbedPanel
+    }
 }

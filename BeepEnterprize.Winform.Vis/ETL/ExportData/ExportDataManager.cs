@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
@@ -35,11 +36,13 @@ namespace BeepEnterprize.Winform.Vis.ETL.ExportData
 
         VisManager visManager;
         IDataSource ds;
-
+        Control DisplayPanel;
         public void Run(IPassedArgs pPassedarg)
         {
-            visManager.Container.Controls.Clear();
-       
+            //DisplayPanel = (Control)visManager.Container;
+            //DisplayPanel.Controls.Clear();
+         //   visManager.ShowPage(listEntities.Name, (PassedArgs)pPassedarg, DisplayType.InControl);
+
         }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {

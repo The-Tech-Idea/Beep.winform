@@ -1,27 +1,77 @@
-﻿using System;
+﻿using BeepEnterprize.Vis.Module;
+using BeepEnterprize.Winform.Vis.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BeepEnterprize.Winform.Vis.Controls
 {
-    public partial class uc_Container : UserControl
+    public partial class uc_Container : UserControl,IDisplayContainer
     {
         public ContainerTypeEnum ContainerType { get; set; }
         private Panel ContainerPanel=new Panel();
         private TabControl TabContainerPanel = new TabControl();
+        Image CloseImage;
+        Point _imageLocation = new Point(20, 4);
+        Point _imgHitArea = new Point(20, 4);
+
+
         public uc_Container()
         {
             InitializeComponent();
+          
         }
-        public bool AddControl(string TitleText,Control control, ContainerTypeEnum pcontainerType)
+
+        private void TabContainerPanel_MouseClick(object sender, MouseEventArgs e)
         {
-            ContainerType= pcontainerType;
+            for (var i = 0; i < this.TabContainerPanel.TabPages.Count; i++)
+            {
+                var tabRect = this.TabContainerPanel.GetTabRect(i);
+                tabRect.Inflate(-2, -2);
+                var imageRect = new Rectangle(tabRect.Right - CloseImage.Width,
+                                         tabRect.Top + (tabRect.Height - CloseImage.Height) / 2,
+                                         CloseImage.Width,
+                                         CloseImage.Height);
+                if (imageRect.Contains(e.Location))
+                {
+                    this.TabContainerPanel.TabPages.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
+        private void TabContainerPanel_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            try
+            {
+                Image img = new Bitmap(CloseImage);
+                Rectangle r = e.Bounds;
+                r = this.TabContainerPanel.GetTabRect(e.Index);
+                r.Offset(2, 2);
+                Brush TitleBrush = new SolidBrush(Color.Black);
+                Font f = this.Font;
+                string title = this.TabContainerPanel.TabPages[e.Index].Text;
+                SizeF titlesize=e.Graphics.MeasureString(title, f);
+                
+                e.Graphics.DrawString(title, f, TitleBrush, new PointF(r.X, r.Y));
+                
+                e.Graphics.DrawImage(img, new Point(r.X + (this.TabContainerPanel.GetTabRect(e.Index).Width - _imageLocation.X), _imageLocation.Y));
+
+            }
+            catch (Exception ex) { }
+        }
+
+        public bool AddControl(string TitleText, object pcontrol, ContainerTypeEnum pcontainerType)
+        {
+            Control control = (Control)pcontrol;
+            ContainerType = pcontainerType;
             if (control == null || control != null && control.Controls.Contains(control)) { return false; }
             switch (pcontainerType)
             {
@@ -52,17 +102,24 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 TabContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
            | System.Windows.Forms.AnchorStyles.Left)
            | System.Windows.Forms.AnchorStyles.Right)));
-                TabContainerPanel.Location = new System.Drawing.Point(0, Line1panel.Height+2);
+                TabContainerPanel.Location = new System.Drawing.Point(17,0);
                 TabContainerPanel.Name = "ControlPanel";
-                TabContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height- Line1panel.Height + 2);
+                TabContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height-17);
                 TabContainerPanel.TabPages.Clear();
                 Controls.Add(TabContainerPanel);
-                
+                CloseImage = Properties.Resources.close;
+                this.TabContainerPanel.Multiline = true;
+                TabContainerPanel.DrawMode = TabDrawMode.OwnerDrawFixed;
+                TabContainerPanel.DrawItem += TabContainerPanel_DrawItem;
+                TabContainerPanel.MouseClick += TabContainerPanel_MouseClick;
+                TabContainerPanel.Padding = new Point(30, 4);
+              
+
             }
-            TabContainerPanel.TabPages.Add(TitleText);
+            TabContainerPanel.TabPages.Add(TitleText, TitleText);
             TabContainerPanel.TabPages[TabContainerPanel.TabPages.Count-1].Controls.Add(control);
             control.Dock = DockStyle.Fill;
-            this.TitleLabel.Text = TitleText;
+        //    this.TitleLabel.Text = TitleText;
             return true;
         }
         private bool AddToSingle(string TitleText, Control control)
@@ -81,21 +138,30 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 ContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
          | System.Windows.Forms.AnchorStyles.Left)
          | System.Windows.Forms.AnchorStyles.Right)));
-                ContainerPanel.Location = new System.Drawing.Point(20, Line1panel.Height + 2);
+                ContainerPanel.Location = new System.Drawing.Point(20, 2);
                 ContainerPanel.Name = "ControlPanel";
                 ContainerPanel.Dock = DockStyle.None;
-                ContainerPanel.Size = new System.Drawing.Size(this.Width-20, this.Height - Line1panel.Height + 2);
+                ContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height );
                 Controls.Add(ContainerPanel);
             }
             ContainerPanel.Controls.Add(control);
             control.Dock = DockStyle.Fill;
-            this.TitleLabel.Text = TitleText;
+         //   this.TitleLabel.Text = TitleText;
             return true;
         }
+        public static Rectangle GetRTLCoordinates(Rectangle container, Rectangle drawRectangle)
+        {
+            return new Rectangle(
+                container.Width - drawRectangle.Width - drawRectangle.X,
+                drawRectangle.Y,
+                drawRectangle.Width,
+                drawRectangle.Height);
+        }
+
+        public bool RemoveControl(string TitleText, object control)
+        {
+            throw new NotImplementedException();
+        }
     }
-    public enum ContainerTypeEnum
-    {
-        SinglePanel,
-        TabbedPanel
-    }
+   
 }

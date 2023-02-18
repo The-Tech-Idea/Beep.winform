@@ -25,7 +25,7 @@ namespace BeepEnterprize.Winform.Vis
             DMEEditor = pdmeeditor;
             Vismanager = pVismanager;
             vismanager = (VisManager)pVismanager;
-            DisplayPanel = vismanager.Container;
+            DisplayPanel = (Control)vismanager.Container;
         }
 
         string DisplayField;

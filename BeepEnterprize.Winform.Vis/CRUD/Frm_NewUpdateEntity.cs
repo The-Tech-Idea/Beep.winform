@@ -14,7 +14,7 @@ using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.CRUD
 {
-    [AddinAttribute(Caption = "New/Update Entity", Name = "Frm_NewUpdateEntity", misc = "CRUD")]
+    [AddinAttribute(Caption = "New/Update Entity", Name = "Frm_NewUpdateEntity", misc = "CRUD", addinType = AddinType.Control)]
     public partial class Frm_NewUpdateEntity : UserControl, IDM_Addin
     {
         CrudManager crudManager;
@@ -32,7 +32,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
 
         public string ParentName { get ; set ; }
         public string ObjectName { get ; set ; }
-        public string ObjectType { get ; set ; } = "Form";
+        public string ObjectType { get ; set ; } = "UserControl";
         public string AddinName { get ; set ; } = "New/Update Entity";
         public string Description { get ; set ; }
         public bool DefaultCreate { get ; set ; }

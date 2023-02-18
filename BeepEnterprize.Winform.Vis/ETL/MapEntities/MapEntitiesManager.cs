@@ -4,10 +4,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Report;
+using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
@@ -33,12 +35,16 @@ namespace BeepEnterprize.Winform.Vis.ETL.MapEntities
 
         VisManager visManager;
         IDataSource ds;
+      
+        Control DisplayPanel;
 
         public void Run(IPassedArgs pPassedarg)
         {
-            visManager.Container.Controls.Clear();
-          //  visManager.Container.Controls.Add(listEntities);
-          //  listEntities.Dock = System.Windows.Forms.DockStyle.Fill;
+            DisplayPanel = (Control)visManager.Container;
+            DisplayPanel.Controls.Clear();
+           // visManager.ShowPage(listEntities.Name, (PassedArgs)pPassedarg, DisplayType.InControl);
+            //  visManager.Container.Controls.Add(listEntities);
+            //  listEntities.Dock = System.Windows.Forms.DockStyle.Fill;
         }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {

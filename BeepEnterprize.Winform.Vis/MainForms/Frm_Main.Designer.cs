@@ -1,4 +1,6 @@
 ﻿
+using BeepEnterprize.Vis.Module;
+
 namespace BeepEnterprize.Winform.Vis.MainForms
 {
     partial class Frm_Main
@@ -45,8 +47,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.ApptoolStrip = new System.Windows.Forms.ToolStrip();
             this.BeeptoolStrip = new System.Windows.Forms.ToolStrip();
             this.MainViewsplitContainer = new System.Windows.Forms.SplitContainer();
-            this.MinMaxButton = new System.Windows.Forms.Button();
             this.LogPanelCollapsebutton = new System.Windows.Forms.Button();
+            this.MinMaxButton = new System.Windows.Forms.Button();
             this.ContainerPanel = new BeepEnterprize.Winform.Vis.Controls.uc_Container();
             this.LogPanel = new System.Windows.Forms.TextBox();
             this.MainWinfowPanle = new System.Windows.Forms.Panel();
@@ -169,7 +171,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.BeepTreeView.ItemHeight = 32;
             this.BeepTreeView.Location = new System.Drawing.Point(0, 0);
             this.BeepTreeView.Name = "BeepTreeView";
-            this.BeepTreeView.Size = new System.Drawing.Size(300, 336);
+            this.BeepTreeView.Size = new System.Drawing.Size(300, 333);
             this.BeepTreeView.TabIndex = 2;
             // 
             // TreeFilterTextBox
@@ -265,8 +267,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             // MainViewsplitContainer.Panel1
             // 
-            this.MainViewsplitContainer.Panel1.Controls.Add(this.MinMaxButton);
             this.MainViewsplitContainer.Panel1.Controls.Add(this.LogPanelCollapsebutton);
+            this.MainViewsplitContainer.Panel1.Controls.Add(this.MinMaxButton);
             this.MainViewsplitContainer.Panel1.Controls.Add(this.ContainerPanel);
             // 
             // MainViewsplitContainer.Panel2
@@ -277,35 +279,38 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MainViewsplitContainer.SplitterWidth = 5;
             this.MainViewsplitContainer.TabIndex = 17;
             // 
-            // MinMaxButton
-            // 
-            this.MinMaxButton.BackColor = System.Drawing.Color.Transparent;
-            this.MinMaxButton.Location = new System.Drawing.Point(1, 10);
-            this.MinMaxButton.Name = "MinMaxButton";
-            this.MinMaxButton.Size = new System.Drawing.Size(16, 21);
-            this.MinMaxButton.TabIndex = 16;
-            this.MinMaxButton.UseVisualStyleBackColor = false;
-            // 
             // LogPanelCollapsebutton
             // 
             this.LogPanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LogPanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(1149, 907);
+            this.LogPanelCollapsebutton.FlatAppearance.BorderSize = 0;
+            this.LogPanelCollapsebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogPanelCollapsebutton.Location = new System.Drawing.Point(1146, 905);
             this.LogPanelCollapsebutton.Name = "LogPanelCollapsebutton";
             this.LogPanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
-            this.LogPanelCollapsebutton.TabIndex = 16;
+            this.LogPanelCollapsebutton.TabIndex = 19;
             this.LogPanelCollapsebutton.UseVisualStyleBackColor = false;
+            // 
+            // MinMaxButton
+            // 
+            this.MinMaxButton.BackColor = System.Drawing.Color.Transparent;
+            this.MinMaxButton.FlatAppearance.BorderSize = 0;
+            this.MinMaxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinMaxButton.Location = new System.Drawing.Point(3, 3);
+            this.MinMaxButton.Name = "MinMaxButton";
+            this.MinMaxButton.Size = new System.Drawing.Size(16, 21);
+            this.MinMaxButton.TabIndex = 18;
+            this.MinMaxButton.UseVisualStyleBackColor = false;
             // 
             // ContainerPanel
             // 
-            this.ContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContainerPanel.ContainerType = BeepEnterprize.Winform.Vis.Controls.ContainerTypeEnum.TabbedPanel;
-            this.ContainerPanel.Location = new System.Drawing.Point(18, 0);
-            this.ContainerPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ContainerPanel.AutoScroll = true;
+            this.ContainerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ContainerPanel.ContainerType = BeepEnterprize.Vis.Module.ContainerTypeEnum.SinglePanel;
+            this.ContainerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ContainerPanel.Location = new System.Drawing.Point(0, 0);
             this.ContainerPanel.Name = "ContainerPanel";
-            this.ContainerPanel.Size = new System.Drawing.Size(1147, 905);
+            this.ContainerPanel.Size = new System.Drawing.Size(1169, 925);
             this.ContainerPanel.TabIndex = 17;
             // 
             // LogPanel
@@ -407,10 +412,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         private System.Windows.Forms.Panel FilterTextboxLine2;
         private System.Windows.Forms.Panel TextFilterLine;
         private System.Windows.Forms.Button SidePanelCollapsebutton;
-        private System.Windows.Forms.Button MinMaxButton;
-        private System.Windows.Forms.Button LogPanelCollapsebutton;
         private System.Windows.Forms.SplitContainer MainViewsplitContainer;
-        private Controls.uc_Container ContainerPanel;
         private System.Windows.Forms.ToolStrip ApptoolStrip;
         private System.Windows.Forms.ToolStrip BeeptoolStrip;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -420,5 +422,8 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         private System.Windows.Forms.MenuStrip AppmenuStrip;
         private System.Windows.Forms.MenuStrip Beepmenustrip;
         private System.Windows.Forms.Panel sidepanelView;
+        private System.Windows.Forms.Button LogPanelCollapsebutton;
+        private System.Windows.Forms.Button MinMaxButton;
+        private Controls.uc_Container ContainerPanel;
     }
 }

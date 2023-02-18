@@ -123,7 +123,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             }
 
             //------------- Setup Control Container to Display controls and addons
-            visManager.Container = ContainerPanel;
+            visManager.Container = (IDisplayContainer)ContainerPanel;
             visManager.MainForm = this;
             //--------------------------------------------------------------------
             if (visManager.IsBeepDataOn)

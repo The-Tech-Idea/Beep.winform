@@ -35,9 +35,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Beep.MindsDB.Winform">
-      <HintPath>..\..\Plugins\AI\Beep.MindsDB.Winform\obj\Debug\Beep.MindsDB.Winform.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -169,6 +166,12 @@
     </Compile>
     <Compile Include="Controls\uc_Container.Designer.cs">
       <DependentUpon>uc_Container.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\uc_Container_1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\uc_Container_1.Designer.cs">
+      <DependentUpon>uc_Container_1.cs</DependentUpon>
     </Compile>
     <Compile Include="CRUD\CrudManager.cs" />
     <Compile Include="CRUD\Frm_ListEntities.cs">
@@ -311,6 +314,12 @@
     <Compile Include="MainForms\Frm_Main.Designer.cs">
       <DependentUpon>Frm_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainForms\Frm_Main_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\Frm_Main_1.Designer.cs">
+      <DependentUpon>Frm_Main_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -447,6 +456,9 @@
     <EmbeddedResource Include="Controls\uc_Container.resx">
       <DependentUpon>uc_Container.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\uc_Container_1.resx">
+      <DependentUpon>uc_Container_1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRUD\Frm_ListEntities.resx">
       <DependentUpon>Frm_ListEntities.cs</DependentUpon>
     </EmbeddedResource>
@@ -510,6 +522,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\Frm_Main.resx">
       <DependentUpon>Frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\Frm_Main_1.resx">
+      <DependentUpon>Frm_Main_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -620,6 +635,9 @@
     <None Include="Resources\CollapseUp.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="ReaLTaiizor">
+      <Version>3.7.9.1</Version>
+    </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine">
       <Version>1.0.3</Version>
     </PackageReference>
@@ -627,8 +645,17 @@
       <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
-      <Version>1.0.6</Version>
+      <Version>1.0.8</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

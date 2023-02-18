@@ -9,6 +9,7 @@ using Beep.Winform.Controls;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea;
 using TheTechIdea.Beep;
+using TheTechIdea.Beep.Vis;
 
 namespace BeepEnterprize.Winform.Vis.Wizards
 {
@@ -87,8 +88,9 @@ namespace BeepEnterprize.Winform.Vis.Wizards
                 addin.Run(DMEEditor.Passedarguments);
                 if (DMEEditor.ErrorObject.Flag == TheTechIdea.Util.Errors.Ok)
                 {
-                    DisplayPanel.Controls.Clear();
-                    DisplayPanel.Controls.Add(ctl);
+                    //DisplayPanel.Controls.Clear();
+                    //DisplayPanel.Controls.Add(ctl);
+                    visManager.ShowPage(ctl.Name, (PassedArgs)DMEEditor.Passedarguments, DisplayType.InControl);
                     // DisplayPanel.SendToBack();
                     ctl.Dock = DockStyle.Fill;
                     addin.Run(DMEEditor.Passedarguments);

@@ -98,7 +98,7 @@ namespace BeepEnterprize.Winform.Vis
 
             Images = new ImageList();
             Images.ColorDepth = ColorDepth.Depth32Bit;
-            Images.ImageSize = new Size(32, 32);
+            Images.ImageSize = new Size(20, 20);
             Images16 = new ImageList();
             Images16.ImageSize = new Size(16, 16);
             Images16.ColorDepth = ColorDepth.Depth32Bit;
@@ -193,8 +193,8 @@ namespace BeepEnterprize.Winform.Vis
         public IWaitForm WaitForm { get; set; }
         private Control _container;
         public Form MainForm { get; set; }
-        uc_Container container;
-        public Control Container { get { return _container; } set { _container =value; _controlManager.DisplayPanel = value; } }
+        IDisplayContainer container;
+        public IDisplayContainer Container { get { return (IDisplayContainer)_container; } set { _container = (Control)value; _controlManager.DisplayPanel = (Control)value; } }
         #endregion
         public WizardManager wizardManager { get; set; }
         public bool IsShowingMainForm { get; set; } = false;
@@ -402,7 +402,7 @@ namespace BeepEnterprize.Winform.Vis
             // string path = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath) + @"\Addin\";
             if (DMEEditor.assemblyHandler.AddIns.Where(x => x.ObjectName.Equals(usercontrolname, StringComparison.OrdinalIgnoreCase)).Any())
             {
-                return ShowUserControlDialogOnControl( usercontrolname, Container, pDMEEditor, args, e);
+                return ShowUserControlDialogOnControl( usercontrolname, (Control)Container, pDMEEditor, args, e);
             }
             else
             {
@@ -483,7 +483,7 @@ namespace BeepEnterprize.Winform.Vis
 
         private IDM_Addin ShowUserControlDialogOnControl( string formname, Control control, IDMEEditor pDMEEditor, string[] args, IPassedArgs e)
         {
-            control.Controls.Clear();
+            
             ErrorsandMesseges.Flag = Errors.Ok;
             //Form BeepWaitForm = new Form();
             // var path = Path.Combine(dllpath, dllname);
@@ -520,7 +520,7 @@ namespace BeepEnterprize.Winform.Vis
                             addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                             CurrentDisplayedAddin = addin;
                             IsDataModified = false;
-                            container = (uc_Container)control;
+                            container = (IDisplayContainer)control;
                             container.AddControl(addin.AddinName, uc, ContainerTypeEnum.TabbedPanel);
                             uc.Dock = DockStyle.Fill;
 

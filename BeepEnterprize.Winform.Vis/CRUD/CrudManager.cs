@@ -53,13 +53,15 @@ namespace BeepEnterprize.Winform.Vis.CRUD
         public TransActionType TransType { get; set; } 
       
         VisManager visManager;
-
+        Control DisplayPanel;
 
         public void Run(IPassedArgs pPassedarg)
         {
-            visManager.Container.Controls.Clear();
-            visManager.Container.Controls.Add(listEntities);
-            listEntities.Dock = System.Windows.Forms.DockStyle.Fill;
+            //DisplayPanel = (Control)visManager.Container;
+            //DisplayPanel.Controls.Clear();
+            //DisplayPanel.Controls.Add(listEntities);
+            //listEntities.Dock = System.Windows.Forms.DockStyle.Fill;
+          
         }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
@@ -73,24 +75,22 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             }
             EntitybindingSource = new BindingSource();
          
-            listEntities = new Frm_ListEntities(this);
-            SetupConnection(e.DatasourceName, (PassedArgs)e);
-
+          //  listEntities = new Frm_ListEntities(this);
+          //  SetupConnection(e.DatasourceName, (PassedArgs)e);
+            e.Objects.Add(new ObjectItem() { Name="CRUDMANAGER", obj= this });
+            visManager.ShowPage("Frm_ListEntities", (PassedArgs)e, DisplayType.InControl);
 
         }
         public void SetupConnection(string DatasourceName,PassedArgs e)
         {
             Passedarg = e;
             ds = DMEEditor.GetDataSource(DatasourceName);
-            // ds.Dataconnection.OpenConnection();
             if(ds != null)
             {
                 ds.Openconnection();
-                //  ds.ConnectionStatus = ds.Dataconnection.ConnectionStatus;
                 if (ds != null && ds.ConnectionStatus == ConnectionState.Open)
                 {
                     EntityName = e.CurrentEntity;
-
                     if (e.Objects.Where(c => c.Name == "EntityStructure").Any())
                     {
                         EntityStructure = (EntityStructure)e.Objects.Where(c => c.Name == "EntityStructure").FirstOrDefault().obj;
@@ -112,7 +112,6 @@ namespace BeepEnterprize.Winform.Vis.CRUD
                                     listEntities.SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, null, e, DMEEditor.ErrorObject);
                                     EntityStructure.Filters = new List<AppFilter>();
                                     List<DefaultValue> defaults = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == ds.DatasourceName)].DatasourceDefaults;
-
                                     visManager.Controlmanager.CreateEntityFilterControls(EntityStructure, defaults, e);
                                 }
                                 CurrentType = ds.GetEntityType(EntityStructure.EntityName);
@@ -139,11 +138,8 @@ namespace BeepEnterprize.Winform.Vis.CRUD
                             }
                         }
                     }
-
-
                 }
             }
-         
         }
         public void EditEntity(object record)
         {
@@ -345,10 +341,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             }
             return retval;
         }
-        public object GetData()
-        {
-            return ds.GetEntity(EntityStructure.DatasourceEntityName,EntityStructure.Filters);
-        }
+      
        
         
     }

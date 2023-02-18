@@ -89,8 +89,7 @@ namespace TheTechIdea.ETL
     
         this.entitiesBindingSource.DataSource = EntityStructure;
         this.fieldsBindingSource.DataSource = this.entitiesBindingSource;
-
-            MainbindingNavigator.SetConfig(pDMEEditor, Logger, putil, args, obj, per);
+        MainbindingNavigator.SetConfig(pDMEEditor, Logger, putil, args, obj, per);
             RelationbindingNavigator.SetConfig(pDMEEditor, Logger, putil, args, obj, per);
             RelationbindingNavigator.bindingSource = relationsBindingSource;
             MainbindingNavigator.bindingSource = entitiesBindingSource;

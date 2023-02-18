@@ -54,7 +54,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             throw new NotImplementedException();
         }
-        private Size _iconsize = new Size(32, 32);
+        private Size _iconsize = new Size(20, 20);
         private bool IsNewSizeSet = false;
         public Size IconSize { get { return _iconsize; } set { _iconsize = value; IsNewSizeSet = true; } }
         private ImageList GetImageList()

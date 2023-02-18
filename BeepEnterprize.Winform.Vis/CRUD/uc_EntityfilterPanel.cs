@@ -18,7 +18,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace BeepEnterprize.Winform.Vis.CRUD
 {
-    [AddinAttribute(Caption = "Filter Entities", Name = "uc_EntityfilterPanel", misc = "CRUD")]
+    [AddinAttribute(Caption = "Filter Entities", Name = "uc_EntityfilterPanel", misc = "CRUD", addinType = AddinType.Control)]
     public partial class uc_EntityfilterPanel : UserControl,IDM_Addin
     {
         public uc_EntityfilterPanel()
