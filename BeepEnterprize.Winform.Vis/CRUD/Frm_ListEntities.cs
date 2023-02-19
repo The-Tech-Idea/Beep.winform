@@ -58,7 +58,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
         Type CurrentType;
         public void Run(IPassedArgs pPassedarg)
         {
-            throw new NotImplementedException();
+          //  throw new NotImplementedException();
         }
 
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
@@ -90,6 +90,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
                 EntitybindingSource.CurrentChanged += EntitybindingSource_CurrentChanged;
                 if (crudManager.EntityStructure != null)
                 {
+                    
                     EntityNameLabel.Text = crudManager.EntityStructure.EntityName;
                     SubtitleLabel.Text = $"{e.DatasourceName}";
                     NewButton.Click += NewButton_Click;
@@ -226,12 +227,12 @@ namespace BeepEnterprize.Winform.Vis.CRUD
                             {
                                 if (crudManager.EntityStructure.Fields.Count > 0)
                                 {
-                                    SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, null, e, DMEEditor.ErrorObject);
+                                //   SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, null, e, DMEEditor.ErrorObject);
                                     crudManager.EntityStructure.Filters = new List<AppFilter>();
                                     List<DefaultValue> defaults = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == ds.DatasourceName)].DatasourceDefaults;
-                                    visManager.Controlmanager.CreateEntityFilterControls(EntityStructure, defaults, e);
+                                    visManager.Controlmanager.CreateEntityFilterControls(crudManager.EntityStructure, defaults, e);
                                 }
-                                CurrentType = ds.GetEntityType(EntityStructure.EntityName);
+                                CurrentType = ds.GetEntityType(crudManager.EntityStructure.EntityName);
                             }
                             else
                             {

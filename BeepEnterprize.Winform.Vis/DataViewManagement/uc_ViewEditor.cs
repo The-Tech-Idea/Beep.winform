@@ -91,6 +91,7 @@ namespace TheTechIdea.ETL
 
             }
             EntityNameLabel.Text = e.CurrentEntity;
+
             this.dataConnectionsBindingSource.DataSource = DMEEditor.ConfigEditor.DataConnections;
             ds = (DataViewDataSource)DMEEditor.GetDataSource(e.CurrentEntity);
             ds.Openconnection();

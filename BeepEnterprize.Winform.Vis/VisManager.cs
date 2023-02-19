@@ -521,7 +521,16 @@ namespace BeepEnterprize.Winform.Vis
                             CurrentDisplayedAddin = addin;
                             IsDataModified = false;
                             container = (IDisplayContainer)control;
-                            container.AddControl(addin.AddinName, uc, ContainerTypeEnum.TabbedPanel);
+                            string title = null;
+                            if (e.Objects.Any(o => o.Name.Equals("TitleText", StringComparison.CurrentCultureIgnoreCase)))
+                            {
+                                ObjectItem x = e.Objects.First(o => o.Name.Equals("TitleText", StringComparison.CurrentCultureIgnoreCase));
+                                title = (string)x.obj;
+                                e.Objects.Remove(x);
+                            }
+                            else
+                                title = addin.AddinName;
+                            container.AddControl(title, uc, ContainerTypeEnum.TabbedPanel);
                             uc.Dock = DockStyle.Fill;
 
                         }

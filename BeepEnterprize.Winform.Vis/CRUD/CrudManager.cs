@@ -78,6 +78,8 @@ namespace BeepEnterprize.Winform.Vis.CRUD
           //  listEntities = new Frm_ListEntities(this);
           //  SetupConnection(e.DatasourceName, (PassedArgs)e);
             e.Objects.Add(new ObjectItem() { Name="CRUDMANAGER", obj= this });
+
+            e.Objects.Add(new ObjectItem() { Name = "TitleText" ,obj= $"{e.CurrentEntity}" });
             visManager.ShowPage("Frm_ListEntities", (PassedArgs)e, DisplayType.InControl);
 
         }

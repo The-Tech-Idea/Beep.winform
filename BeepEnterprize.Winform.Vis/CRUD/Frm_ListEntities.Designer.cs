@@ -79,7 +79,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             this.kryptonSplitContainer1.Panel2.Controls.Add(this.DataGridView1);
             this.kryptonSplitContainer1.Size = new System.Drawing.Size(1173, 503);
-            this.kryptonSplitContainer1.SplitterDistance = 361;
+            this.kryptonSplitContainer1.SplitterDistance = 409;
             this.kryptonSplitContainer1.TabIndex = 1;
             // 
             // FilterPanel
@@ -88,7 +88,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             this.FilterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FilterPanel.Location = new System.Drawing.Point(0, 0);
             this.FilterPanel.Name = "FilterPanel";
-            this.FilterPanel.Size = new System.Drawing.Size(361, 503);
+            this.FilterPanel.Size = new System.Drawing.Size(409, 503);
             this.FilterPanel.TabIndex = 0;
             // 
             // DataGridView1
@@ -105,7 +105,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             this.DataGridView1.ShowCellErrors = false;
             this.DataGridView1.ShowEditingIcon = false;
             this.DataGridView1.ShowRowErrors = false;
-            this.DataGridView1.Size = new System.Drawing.Size(808, 503);
+            this.DataGridView1.Size = new System.Drawing.Size(760, 503);
             this.DataGridView1.TabIndex = 0;
             // 
             // panel1
@@ -142,11 +142,10 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.BackColor = System.Drawing.Color.Gold;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(535, 38);
+            this.label3.Location = new System.Drawing.Point(11, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 23);
             this.label3.TabIndex = 9;
@@ -155,11 +154,10 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.BackColor = System.Drawing.Color.Gold;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(535, 62);
+            this.label2.Location = new System.Drawing.Point(11, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 23);
             this.label2.TabIndex = 8;
@@ -168,9 +166,10 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // SubmitButton
             // 
+            this.SubmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SubmitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubmitButton.ForeColor = System.Drawing.Color.White;
-            this.SubmitButton.Location = new System.Drawing.Point(94, 57);
+            this.SubmitButton.Location = new System.Drawing.Point(652, 60);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(81, 25);
             this.SubmitButton.TabIndex = 5;
@@ -178,9 +177,10 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // LoadDataButton
             // 
+            this.LoadDataButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LoadDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoadDataButton.ForeColor = System.Drawing.Color.White;
-            this.LoadDataButton.Location = new System.Drawing.Point(181, 57);
+            this.LoadDataButton.Location = new System.Drawing.Point(739, 60);
             this.LoadDataButton.Name = "LoadDataButton";
             this.LoadDataButton.Size = new System.Drawing.Size(81, 25);
             this.LoadDataButton.TabIndex = 7;
@@ -188,12 +188,11 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // EntityNameLabel
             // 
-            this.EntityNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.EntityNameLabel.BackColor = System.Drawing.Color.White;
             this.EntityNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EntityNameLabel.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Bold);
             this.EntityNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.EntityNameLabel.Location = new System.Drawing.Point(641, 62);
+            this.EntityNameLabel.Location = new System.Drawing.Point(117, 61);
             this.EntityNameLabel.Name = "EntityNameLabel";
             this.EntityNameLabel.Size = new System.Drawing.Size(247, 23);
             this.EntityNameLabel.TabIndex = 4;
@@ -202,9 +201,10 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // NewButton
             // 
+            this.NewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.NewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewButton.ForeColor = System.Drawing.Color.White;
-            this.NewButton.Location = new System.Drawing.Point(442, 57);
+            this.NewButton.Location = new System.Drawing.Point(1000, 60);
             this.NewButton.Name = "NewButton";
             this.NewButton.Size = new System.Drawing.Size(81, 25);
             this.NewButton.TabIndex = 2;
@@ -212,12 +212,11 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // SubtitleLabel
             // 
-            this.SubtitleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SubtitleLabel.BackColor = System.Drawing.Color.White;
             this.SubtitleLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SubtitleLabel.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubtitleLabel.ForeColor = System.Drawing.Color.Black;
-            this.SubtitleLabel.Location = new System.Drawing.Point(641, 38);
+            this.SubtitleLabel.Location = new System.Drawing.Point(117, 37);
             this.SubtitleLabel.Name = "SubtitleLabel";
             this.SubtitleLabel.Size = new System.Drawing.Size(247, 23);
             this.SubtitleLabel.TabIndex = 6;
@@ -226,11 +225,10 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(592, 0);
+            this.label1.Location = new System.Drawing.Point(68, -1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(216, 32);
             this.label1.TabIndex = 0;
@@ -238,9 +236,10 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // EditButton
             // 
+            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditButton.ForeColor = System.Drawing.Color.White;
-            this.EditButton.Location = new System.Drawing.Point(268, 57);
+            this.EditButton.Location = new System.Drawing.Point(826, 60);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(81, 25);
             this.EditButton.TabIndex = 0;
@@ -248,9 +247,10 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // DeleteButton
             // 
+            this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteButton.Location = new System.Drawing.Point(355, 57);
+            this.DeleteButton.Location = new System.Drawing.Point(913, 60);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(81, 25);
             this.DeleteButton.TabIndex = 1;

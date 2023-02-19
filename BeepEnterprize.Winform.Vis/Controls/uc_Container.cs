@@ -118,6 +118,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             TabContainerPanel.TabPages.Add(TitleText, TitleText);
             TabContainerPanel.TabPages[TabContainerPanel.TabPages.Count-1].Controls.Add(control);
+            TabContainerPanel.SelectedTab = TabContainerPanel.TabPages[TabContainerPanel.TabPages.Count - 1];
+
             control.Dock = DockStyle.Fill;
         //    this.TitleLabel.Text = TitleText;
             return true;
