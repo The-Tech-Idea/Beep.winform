@@ -3842,6 +3842,9 @@
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
       <Version>1.0.8</Version>
     </PackageReference>
+    <PackageReference Include="TheTechIdea.Beep.Winform.Vis">
+      <Version>1.0.31</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
