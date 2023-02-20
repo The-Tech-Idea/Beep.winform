@@ -45,7 +45,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             if (node2.Parent == null) return false;
             if (node2.Parent.Equals(node1)) return true;
 
-            // If the parent node is not null or equal to the first node, 
+            // If the parent node !=null or equal to the first node, 
             // call the ContainsNode method recursively using the parent of 
             // the second node.
             return ContainsNode(node1, node2.Parent);

@@ -148,6 +148,7 @@
       <DependentUpon>uc_webapiQueryParameters.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlManager.cs" />
+    <Compile Include="Controls\Class1.cs" />
     <Compile Include="Controls\MenuControl.cs" />
     <Compile Include="Controls\MyCheckBox.cs">
       <SubType>Component</SubType>
@@ -656,6 +657,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

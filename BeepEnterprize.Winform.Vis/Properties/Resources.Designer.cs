@@ -163,6 +163,16 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap minus {
+            get {
+                object obj = ResourceManager.GetObject("minus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap pasteentities_16 {
             get {
                 object obj = ResourceManager.GetObject("pasteentities_16", resourceCulture);
@@ -176,6 +186,16 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         public static System.Drawing.Bitmap please_wait {
             get {
                 object obj = ResourceManager.GetObject("please_wait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap plus {
+            get {
+                object obj = ResourceManager.GetObject("plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
