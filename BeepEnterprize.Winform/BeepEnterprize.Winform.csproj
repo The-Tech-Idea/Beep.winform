@@ -3815,16 +3815,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Beep.Winform.Controls\Beep.Winform.Controls.csproj">
-      <Project>{86a01e2b-0b8b-41cb-b747-a571146875a2}</Project>
-      <Name>Beep.Winform.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
-      <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
-      <Name>BeepEnterprize.Winform.Vis</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Autofac">
       <Version>6.5.0</Version>
     </PackageReference>
