@@ -253,9 +253,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.CSVManager.Winform", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.Control.CTreeView", "..\Plugins\CTreeView\Beep.Winform.Control.CTreeView.csproj", "{D3921ED7-EAA2-4433-8BA5-64B2255D4392}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.Controls", "..\BeepWinformAppNet6\Beep.Winform.Controls.net6\Beep.Winform.Controls.csproj", "{0A772ABC-0F48-4D73-B59C-8C647807AFE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.Controls.NET", "..\BeepWinformAppNet6\Beep.Winform.Controls.net6\Beep.Winform.Controls.NET.csproj", "{0A772ABC-0F48-4D73-B59C-8C647807AFE6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.Vis", "..\BeepWinformAppNet6\BeepEnterprize.Winform.Vis.net6\Beep.Winform.Vis.csproj", "{948D93A6-27C0-4A83-8284-7C6DD70FC485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.Vis.NET", "..\BeepWinformAppNet6\BeepEnterprize.Winform.Vis.net6\Beep.Winform.Vis.NET.csproj", "{948D93A6-27C0-4A83-8284-7C6DD70FC485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepEnterprize.Winform.Vis", "BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj", "{D185808C-5D43-454A-9468-829E122C2C2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Winform.Controls", "Beep.Winform.Controls\Beep.Winform.Controls.csproj", "{86A01E2B-0B8B-41CB-B747-A571146875A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1371,6 +1375,30 @@ Global
 		{948D93A6-27C0-4A83-8284-7C6DD70FC485}.x86|Any CPU.Build.0 = Debug|Any CPU
 		{948D93A6-27C0-4A83-8284-7C6DD70FC485}.x86|x86.ActiveCfg = Debug|Any CPU
 		{948D93A6-27C0-4A83-8284-7C6DD70FC485}.x86|x86.Build.0 = Debug|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.Debug|x86.Build.0 = Debug|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.Release|x86.ActiveCfg = Release|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.Release|x86.Build.0 = Release|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.x86|x86.ActiveCfg = Debug|Any CPU
+		{D185808C-5D43-454A-9468-829E122C2C2A}.x86|x86.Build.0 = Debug|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.Debug|x86.Build.0 = Debug|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.Release|x86.ActiveCfg = Release|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.Release|x86.Build.0 = Release|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.x86|x86.ActiveCfg = Debug|Any CPU
+		{86A01E2B-0B8B-41CB-B747-A571146875A2}.x86|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1487,6 +1515,8 @@ Global
 		{D3921ED7-EAA2-4433-8BA5-64B2255D4392} = {88786F7E-C715-4CF0-82B6-04CFAAA5926F}
 		{0A772ABC-0F48-4D73-B59C-8C647807AFE6} = {88786F7E-C715-4CF0-82B6-04CFAAA5926F}
 		{948D93A6-27C0-4A83-8284-7C6DD70FC485} = {88786F7E-C715-4CF0-82B6-04CFAAA5926F}
+		{D185808C-5D43-454A-9468-829E122C2C2A} = {88786F7E-C715-4CF0-82B6-04CFAAA5926F}
+		{86A01E2B-0B8B-41CB-B747-A571146875A2} = {88786F7E-C715-4CF0-82B6-04CFAAA5926F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {080094DB-7666-459B-88F8-5F017533DAA6}
