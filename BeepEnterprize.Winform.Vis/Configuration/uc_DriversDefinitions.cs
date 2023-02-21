@@ -1,25 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea;
 using TheTechIdea.Beep;
+using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
+
 namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "Drivers Definitions", Name = "uc_DriversDefinitions", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
+    [AddinVisSchema(BranchID = 3, RootNodeName = "Configuration", Order = 6, ID = 6, BranchText = "Non ADO Drivers Definitions", BranchType = EnumPointType.Function, IconImageName = "driversdefinition.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]
     public partial class uc_DriversDefinitions : UserControl,IDM_Addin, IAddinVisSchema
     {
+        #region "IAddinVisSchema"
+        public string RootNodeName { get; set; } = "Configuration";
+        public string CatgoryName { get; set; }
+        public int Order { get; set; } = 6;
+        public int ID { get; set; } = 6;
+        public string BranchText { get; set; } = "Non ADO Drivers Definitions";
+        public int Level { get; set; }
+        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
+        public int BranchID { get; set; } = 3;
+        public string IconImageName { get; set; } = "driversdefinition.ico";
+        public string BranchStatus { get; set; }
+        public int ParentBranchID { get; set; }
+        public string BranchDescription { get; set; } = "Non ADO Drivers Definitions";
+        public string BranchClass { get; set; } = "ADDIN";
+        #endregion "IAddinVisSchema"
         public uc_DriversDefinitions()
         {
             InitializeComponent();
@@ -42,21 +59,7 @@ namespace BeepEnterprize.Winform.Vis
         public string EntityName { get ; set ; }
         public IPassedArgs Passedarg { get ; set ; }
         public IVisManager Visutil { get; set; }
-        #region "IAddinVisSchema"
-        public string RootNodeName { get; set; } = "Configuration";
-        public string CatgoryName { get; set; }
-        public int Order { get; set; } = 6;
-        public int ID { get; set; } = 6;
-        public string BranchText { get; set; } = "Non ADO Drivers Definitions";
-        public int Level { get; set; }
-        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
-        public int BranchID { get; set; } = 3;
-        public string IconImageName { get; set; } = "driversdefinition.ico";
-        public string BranchStatus { get; set; }
-        public int ParentBranchID { get; set; }
-        public string BranchDescription { get; set; } = "Non ADO Drivers Definitions";
-        public string BranchClass { get; set; } = "ADDIN";
-        #endregion "IAddinVisSchema"
+    
 
        // public event EventHandler<PassedArgs> OnObjectSelected;
 

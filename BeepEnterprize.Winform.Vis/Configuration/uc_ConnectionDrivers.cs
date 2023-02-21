@@ -13,16 +13,15 @@ using TheTechIdea.Logger;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
 using System.IO;
-
 using TheTechIdea.Beep.Vis;
-
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Controls;
-using TheTechIdea.Beep.Vis;
+using TheTechIdea.Beep.Addin;
 
 namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "Connection Drivers", Name = "uc_ConnectionDrivers", misc = "Config", menu = "Configuration",addinType = AddinType.Control, displayType = DisplayType.Popup)]
+    [AddinVisSchema(BranchID =3, RootNodeName = "Configuration", Order = 3, ID = 3, BranchText = "Connection Drivers", BranchType = EnumPointType.Function, IconImageName = "connectiondrivers.ico", BranchClass = "ADDIN", BranchDescription  = "Data Sources Connection Drivers Setup Screen")]
     public partial class uc_ConnectionDrivers : UserControl,IDM_Addin, IAddinVisSchema
     {
         public uc_ConnectionDrivers()

@@ -1,26 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea;
 using TheTechIdea.Beep;
+using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
 
+
 namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "Function 2 Function", Name = "uc_function2function", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
+    [AddinVisSchema(BranchID = 1, RootNodeName = "Configuration", Order = 8, ID = 8, BranchText = "Function to Function Mapping", BranchType = EnumPointType.Function, IconImageName = "function2function.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]
     public partial class uc_function2function : UserControl,IDM_Addin, IAddinVisSchema
     {
+        #region "IAddinVisSchema"
+        public string RootNodeName { get; set; } = "Configuration";
+        public string CatgoryName { get; set; }
+        public int Order { get; set; } = 8;
+        public int ID { get; set; } = 8;
+        public string BranchText { get; set; } = "Function to Function Mapping";
+        public int Level { get; set; }
+        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
+        public int BranchID { get; set; } = 1;
+        public string IconImageName { get; set; } = "function2function.ico";
+        public string BranchStatus { get; set; }
+        public int ParentBranchID { get; set; }
+        public string BranchDescription { get; set; } = "";
+        public string BranchClass { get; set; } = "ADDIN";
+
+        #endregion "IAddinVisSchema"
         public uc_function2function()
         {
             InitializeComponent();
@@ -44,22 +61,7 @@ namespace BeepEnterprize.Winform.Vis
         public IPassedArgs Passedarg { get ; set ; }
         public IVisManager Visutil { get; set; }
        // public event EventHandler<PassedArgs> OnObjectSelected;
-        #region "IAddinVisSchema"
-        public string RootNodeName { get; set; } = "Configuration";
-        public string CatgoryName { get; set; }
-        public int Order { get; set; } = 8;
-        public int ID { get; set; } = 8;
-        public string BranchText { get; set; } = "Function to Function Mapping";
-        public int Level { get; set; }
-        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
-        public int BranchID { get; set; } = 1;
-        public string IconImageName { get; set; } = "function2function.ico";
-        public string BranchStatus { get; set; }
-        public int ParentBranchID { get; set; }
-        public string BranchDescription { get; set; } = "";
-        public string BranchClass { get; set; } = "ADDIN";
       
-        #endregion "IAddinVisSchema"
         public void RaiseObjectSelected()
         {
             throw new NotImplementedException();

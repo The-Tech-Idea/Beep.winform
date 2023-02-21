@@ -1,26 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea;
 using TheTechIdea.Beep;
+using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
 
+
 namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "Object Types", Name = "uc_objectTypes", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
+    [AddinVisSchema(BranchID = 1, RootNodeName = "Configuration", Order = 9, ID = 9, BranchText = "Object Types", BranchType = EnumPointType.Function, IconImageName = "box.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]
     public partial class uc_objectTypes : UserControl, IDM_Addin, IAddinVisSchema
     {
+
+        #region "IAddinVisSchema"
+        public string RootNodeName { get; set; } = "Configuration";
+        public string CatgoryName { get; set; }
+        public int Order { get; set; } = 9;
+        public int ID { get; set; } = 9;
+        public string BranchText { get; set; } = "Object Types";
+        public int Level { get; set; }
+        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
+        public int BranchID { get; set; } = 1;
+        public string IconImageName { get; set; } = "box.ico";
+        public string BranchStatus { get; set; }
+        public int ParentBranchID { get; set; }
+        public string BranchDescription { get; set; } = "";
+        public string BranchClass { get; set; } = "ADDIN";
+        public IVisManager Visutil { get; set; }
+        #endregion "IAddinVisSchema"
         public uc_objectTypes()
         {
             InitializeComponent();
@@ -43,23 +61,6 @@ namespace BeepEnterprize.Winform.Vis
         public string EntityName { get ; set ; }
         public IPassedArgs Passedarg { get ; set ; }
        
-
-        #region "IAddinVisSchema"
-        public string RootNodeName { get; set; } = "Configuration";
-        public string CatgoryName { get; set; }
-        public int Order { get; set; } = 9;
-        public int ID { get; set; } = 9;
-        public string BranchText { get; set; } = "Object Types";
-        public int Level { get; set; }
-        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
-        public int BranchID { get; set; } = 1;
-        public string IconImageName { get; set; } = "box.ico";
-        public string BranchStatus { get; set; }
-        public int ParentBranchID { get; set; }
-        public string BranchDescription { get; set; } = "";
-        public string BranchClass { get; set; } = "ADDIN";
-        public IVisManager Visutil { get; set; }
-        #endregion "IAddinVisSchema"
         public void Run(IPassedArgs pPassedarg)
         {
             throw new NotImplementedException();

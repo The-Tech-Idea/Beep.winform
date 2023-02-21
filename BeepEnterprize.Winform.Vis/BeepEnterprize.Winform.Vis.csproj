@@ -148,7 +148,6 @@
       <DependentUpon>uc_webapiQueryParameters.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlManager.cs" />
-    <Compile Include="Controls\Class1.cs" />
     <Compile Include="Controls\MenuControl.cs" />
     <Compile Include="Controls\MyCheckBox.cs">
       <SubType>Component</SubType>
@@ -640,10 +639,10 @@
       <Version>3.7.9.1</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine">
-      <Version>1.0.3</Version>
+      <Version>1.0.5</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels">
-      <Version>1.0.3</Version>
+      <Version>1.0.8</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
       <Version>1.0.8</Version>

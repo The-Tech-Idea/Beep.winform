@@ -8,22 +8,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheTechIdea.Util;
 using TheTechIdea;
 
 using TheTechIdea.Beep.Vis;
-using BeepEnterprize.Winform.Vis;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Controls;
-using Beep.Winform.Controls;
+using TheTechIdea.Beep.Addin;
 //using TheTechIdea.Beep.ViewModels;
 
 namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "DataConnection Configuration", Name = "uc_DataConnection", misc = "Config", menu = "Configuration", displayType = DisplayType.Popup, addinType = AddinType.Control)]
+    [AddinVisSchema(BranchID = 1, RootNodeName = "Configuration", Order = 1, ID = 1, BranchText = "Connection Manager", BranchType = EnumPointType.Function, IconImageName = "createentity.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]
     public partial class uc_DataConnection : UserControl ,IDM_Addin, IAddinVisSchema
     {
         public uc_DataConnection()

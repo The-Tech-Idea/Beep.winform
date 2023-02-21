@@ -2,24 +2,35 @@
 using TheTechIdea.Logger;
 using TheTechIdea.Beep;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheTechIdea.Util;
 using TheTechIdea;
 using TheTechIdea.Beep.Vis;
-using TheTechIdea.Beep.Vis;
+using TheTechIdea.Beep.Addin;
 
 namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "Query Configuration", Name = "uc_QueryConfig", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
+    [AddinVisSchema(BranchID = 5, RootNodeName = "Configuration", Order = 5, ID = 5, BranchText = "Query Setup", BranchType = EnumPointType.Function, IconImageName = "query.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]
     public partial class uc_QueryConfig : UserControl, IDM_Addin, IAddinVisSchema
     {
+        #region "IAddinVisSchema"
+        public string RootNodeName { get; set; } = "Configuration";
+        public string CatgoryName { get; set; }
+        public int Order { get; set; } = 5;
+        public int ID { get; set; } = 5;
+        public string BranchText { get; set; } = "Query Setup";
+        public int Level { get; set; }
+        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
+        public int BranchID { get; set; } = 5;
+        public string IconImageName { get; set; } = "query.ico";
+        public string BranchStatus { get; set; }
+        public int ParentBranchID { get; set; }
+        public string BranchDescription { get; set; } = "";
+        public string BranchClass { get; set; } = "ADDIN";
+        #endregion "IAddinVisSchema"
         public uc_QueryConfig()
         {
             InitializeComponent();
@@ -36,21 +47,7 @@ namespace BeepEnterprize.Winform.Vis
         public IDataSource DestConnection { get; set; }
         public IDMLogger Logger { get; set; }
         public IDataSource SourceConnection { get; set; }
-        #region "IAddinVisSchema"
-        public string RootNodeName { get; set; } = "Configuration";
-        public string CatgoryName { get; set; }
-        public int Order { get; set; } = 5;
-        public int ID { get; set; } = 5;
-        public string BranchText { get; set; } = "Query Setup";
-        public int Level { get; set; }
-        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
-        public int BranchID { get; set; } = 5;
-        public string IconImageName { get; set; } = "query.ico";
-        public string BranchStatus { get; set; }
-        public int ParentBranchID { get; set; }
-        public string BranchDescription { get; set; } = "";
-        public string BranchClass { get; set; } = "ADDIN";
-        #endregion "IAddinVisSchema"
+      
         public string EntityName { get; set; }
         public EntityStructure EntityStructure { get; set; }
         public DataSet Dset { get; set; }

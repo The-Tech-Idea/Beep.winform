@@ -1,7 +1,6 @@
 ﻿using TheTechIdea.Beep;
 
 using TheTechIdea.Beep.DataBase;
-using TheTechIdea.Beep.Editor;
 using TheTechIdea.Logger;
 using System;
 using System.Collections.Generic;
@@ -17,24 +16,18 @@ using TheTechIdea.Util;
 using TheTechIdea;
 using TheTechIdea.Beep.Vis;
 using BeepEnterprize.Vis.Module;
+using TheTechIdea.Beep.Addin;
 
 namespace BeepEnterprize.Winform.Vis.Configuration
 {
     [AddinAttribute(Caption = "Field Mapping", Name = "uc_DBFieldType", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
+    [AddinVisSchema(BranchID = 2, RootNodeName = "Configuration", Order = 2, ID = 2, BranchText = "Field Types", BranchType = EnumPointType.Function, IconImageName = "fieldtype.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]
     public partial class uc_DBFieldType : UserControl, IDM_Addin, IAddinVisSchema
     {
         public uc_DBFieldType()
         {
             InitializeComponent();
         }
-        public string AddinName { get; set; } = "Field Types";
-        public string Description { get; set; } = "";
-        public string ObjectName { get; set; }
-        public string ObjectType { get; set; } = "UserControl";
-        public string DllName { get; set; }
-        public string DllPath { get; set; }
-        public string NameSpace { get; set; }
-        public string ParentName { get; set; }
         #region "IAddinVisSchema"
         public string RootNodeName { get; set; } = "DDL";
         public string CatgoryName { get; set; }
@@ -50,6 +43,15 @@ namespace BeepEnterprize.Winform.Vis.Configuration
         public string BranchDescription { get; set; } = "";
         public string BranchClass { get; set; } = "ADDIN";
         #endregion "IAddinVisSchema"
+        public string AddinName { get; set; } = "Field Types";
+        public string Description { get; set; } = "";
+        public string ObjectName { get; set; }
+        public string ObjectType { get; set; } = "UserControl";
+        public string DllName { get; set; }
+        public string DllPath { get; set; }
+        public string NameSpace { get; set; }
+        public string ParentName { get; set; }
+      
         public DataSet Dset { get; set; }
         public Boolean DefaultCreate { get; set; } = true;
         public IErrorsInfo ErrorObject { get; set; }

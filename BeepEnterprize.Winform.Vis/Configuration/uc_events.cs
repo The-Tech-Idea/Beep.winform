@@ -1,26 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea;
 using TheTechIdea.Beep;
+using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
 
+
 namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "Events Definitions", Name = "uc_events", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
+    [AddinVisSchema(BranchID = 1, RootNodeName = "Configuration", Order = 9, ID = 9, BranchText = "Events", BranchType = EnumPointType.Function, IconImageName = "events.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]
     public partial class uc_events : UserControl, IDM_Addin, IAddinVisSchema
     {
+        #region "IAddinVisSchema"
+        public string RootNodeName { get; set; } = "Configuration";
+        public string CatgoryName { get; set; }
+        public int Order { get; set; } = 9;
+        public int ID { get; set; } = 9;
+        public string BranchText { get; set; } = "Events";
+        public int Level { get; set; }
+        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
+        public int BranchID { get; set; } = 1;
+        public string IconImageName { get; set; } = "events.ico";
+        public string BranchStatus { get; set; }
+        public int ParentBranchID { get; set; }
+        public string BranchDescription { get; set; } = "";
+        public string BranchClass { get; set; } = "ADDIN";
+        #endregion "IAddinVisSchema"
         public uc_events()
         {
             InitializeComponent();
@@ -44,21 +60,7 @@ namespace BeepEnterprize.Winform.Vis
         public IPassedArgs Passedarg { get ; set ; }
 
        // public event EventHandler<PassedArgs> OnObjectSelected;
-        #region "IAddinVisSchema"
-        public string RootNodeName { get; set; } = "Configuration";
-        public string CatgoryName { get; set; }
-        public int Order { get; set; } = 9;
-        public int ID { get; set; } = 9;
-        public string BranchText { get; set; } = "Events";
-        public int Level { get; set; }
-        public EnumPointType BranchType { get; set; } = EnumPointType.Entity;
-        public int BranchID { get; set; } = 1;
-        public string IconImageName { get; set; } = "events.ico";
-        public string BranchStatus { get; set; }
-        public int ParentBranchID { get; set; }
-        public string BranchDescription { get; set; } = "";
-        public string BranchClass { get; set; } = "ADDIN";
-        #endregion "IAddinVisSchema"
+     
         public IVisManager Visutil { get; set; }
         public void RaiseObjectSelected()
         {

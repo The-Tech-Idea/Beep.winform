@@ -13,10 +13,12 @@ using System.Windows.Forms;
 using TheTechIdea.Util;
 using TheTechIdea;
 using TheTechIdea.Beep.Vis;
+using TheTechIdea.Beep.Addin;
 
 namespace BeepEnterprize.Winform.Vis.Configuration
 {
     [AddinAttribute(Caption = "Entity Creator", Name = "uc_CreateEntity", misc = "Config", menu = "null", addinType = AddinType.Control, displayType = DisplayType.Popup)]
+    [AddinVisSchema(BranchID = 2, RootNodeName = "DDL", Order = 2, ID = 2, BranchText = "Entity Creator Drivers", BranchType = EnumPointType.Function, IconImageName = "createentity.ico", BranchClass = "DDL", BranchDescription = "Data Sources Connection Drivers Setup Screen")]
     public partial class uc_CreateEntity : UserControl, IDM_Addin, IAddinVisSchema
     {
         public uc_CreateEntity()

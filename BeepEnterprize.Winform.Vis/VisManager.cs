@@ -299,9 +299,9 @@ namespace BeepEnterprize.Winform.Vis
                 }
                 CurrentDisplayedAddin = null;
                 IsDataModified = false;
-                if (DMEEditor.assemblyHandler.AddIns.Where(c => c.ObjectName.Equals(pagename, StringComparison.OrdinalIgnoreCase)).Any())
+                if (DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(pagename, StringComparison.OrdinalIgnoreCase)).Any())
                 {
-                    Type type = DMEEditor.assemblyHandler.AddIns.Where(c => c.ObjectName.Equals(pagename, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().GetType();
+                    Type type = DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(pagename, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().type;
                     attrib = (AddinAttribute)type.GetCustomAttribute(typeof(AddinAttribute), false);
                     if (attrib != null)
                     {
@@ -400,7 +400,7 @@ namespace BeepEnterprize.Winform.Vis
         public IDM_Addin ShowUserControlInContainer(string usercontrolname,  IDMEEditor pDMEEditor, string[] args, IPassedArgs e)
         {
             // string path = System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath) + @"\Addin\";
-            if (DMEEditor.assemblyHandler.AddIns.Where(x => x.ObjectName.Equals(usercontrolname, StringComparison.OrdinalIgnoreCase)).Any())
+            if (DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(usercontrolname, StringComparison.OrdinalIgnoreCase)).Any())
             {
                 return ShowUserControlDialogOnControl( usercontrolname, (Control)Container, pDMEEditor, args, e);
             }
@@ -412,9 +412,9 @@ namespace BeepEnterprize.Winform.Vis
         }
         public IDM_Addin ShowUserControlPopUp(string usercontrolname, IDMEEditor pDMEEditor, string[] args, IPassedArgs e)
         {
-            if (DMEEditor.assemblyHandler.AddIns.Where(x => x.ObjectName.Equals(usercontrolname, StringComparison.OrdinalIgnoreCase)).Any())
+            if (DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(usercontrolname, StringComparison.OrdinalIgnoreCase)).Any())
             {
-                string path = DMEEditor.assemblyHandler.AddIns.Where(x => x.ObjectName.Equals(usercontrolname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().DllPath;
+               // string path = DMEEditor.ConfigEditor.Addins.Where(c => c.PackageName.Equals(usercontrolname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().;
 
                 return ShowUserControlDialog(  usercontrolname, pDMEEditor, args, e);
             }
@@ -438,7 +438,7 @@ namespace BeepEnterprize.Winform.Vis
             {
                 // Assembly assembly = Assembly.LoadFile(path);
                 //Type type = assembly.GetType(dllname + ".UserControls." + formname);
-                Type type = DMEEditor.assemblyHandler.AddIns.Where(c => c.ObjectName.Equals(formname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().GetType();
+                Type type = DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(formname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().type;
                 UserControl uc = (UserControl)Activator.CreateInstance(type);
                 if (uc != null)
                 {
@@ -497,7 +497,7 @@ namespace BeepEnterprize.Winform.Vis
             {
                 //Assembly assembly = Assembly.LoadFile(path);
                 //Type type = assembly.GetType(dllname + ".UserControls." + formname);
-                Type type = DMEEditor.assemblyHandler.AddIns.Where(c => c.ObjectName.Equals(formname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().GetType(); //dllname.Remove(dllname.IndexOf(".")) + ".Forms." + formname
+                Type type = DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(formname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().type; //dllname.Remove(dllname.IndexOf(".")) + ".Forms." + formname
                 AddinAttribute attrib = (AddinAttribute)type.GetCustomAttribute(typeof(AddinAttribute), false);
                 if (attrib != null)
                 {
@@ -572,7 +572,7 @@ namespace BeepEnterprize.Winform.Vis
         //-----------------------------------------
         private IDM_Addin ShowForm(string formname, IDMEEditor pDMEEditor, string[] args, IPassedArgs e)
         {
-            if (DMEEditor.assemblyHandler.AddIns.Where(x => x.ObjectName.Equals(formname, StringComparison.OrdinalIgnoreCase)).Any())
+            if (DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(formname, StringComparison.OrdinalIgnoreCase)).Any())
             {
                 return ShowFormDialog( formname, pDMEEditor, args, e);
             }
@@ -594,7 +594,7 @@ namespace BeepEnterprize.Winform.Vis
             try
             {
                 // Assembly assembly = Assembly.LoadFile(path);
-                Type type = DMEEditor.assemblyHandler.AddIns.Where(c => c.ObjectName.Equals(formname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().GetType(); //dllname.Remove(dllname.IndexOf(".")) + ".Forms." + formname
+                Type type = DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(formname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().type; //dllname.Remove(dllname.IndexOf(".")) + ".Forms." + formname
                 form = (Form)Activator.CreateInstance(type);
                 if (form != null)
                 {
@@ -657,7 +657,7 @@ namespace BeepEnterprize.Winform.Vis
             }
             try
             {
-                Type type = DMEEditor.assemblyHandler.AddIns.Where(c => c.ObjectName.Equals(classname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().GetType(); //dllname.Remove(dllname.IndexOf(".")) + ".Forms." + formname
+                Type type = DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(classname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().GetType(); //dllname.Remove(dllname.IndexOf(".")) + ".Forms." + formname
                 AddinAttribute attrib = (AddinAttribute)type.GetCustomAttribute(typeof(AddinAttribute), false);
                 if (attrib != null)
                 {
