@@ -645,7 +645,7 @@ namespace BeepEnterprize.Winform.Vis
             //BeepWaitForm.GetType().GetField("")
         }
         //---------------- Run Class Addin -----------------
-        private IDM_Addin RunAddinClass(string classname, IDMEEditor pDMEEditor, string[] args, IPassedArgs e)
+        private IDM_Addin RunAddinClass(string pclassname, IDMEEditor pDMEEditor, string[] args, IPassedArgs e)
         {
             IDM_Addin addin = null;
            
@@ -657,7 +657,7 @@ namespace BeepEnterprize.Winform.Vis
             }
             try
             {
-                Type type = DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(classname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().GetType(); //dllname.Remove(dllname.IndexOf(".")) + ".Forms." + formname
+                Type type = DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(pclassname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().type; //dllname.Remove(dllname.IndexOf(".")) + ".Forms." + formname
                 AddinAttribute attrib = (AddinAttribute)type.GetCustomAttribute(typeof(AddinAttribute), false);
                 if (attrib != null)
                 {
