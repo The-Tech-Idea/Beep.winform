@@ -33,21 +33,7 @@ namespace TheTechIdea.ETL
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_ScriptRun));
-            this.scriptBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.scriptBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.scriptBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.StopButton = new System.Windows.Forms.Button();
             this.RunScriptbutton = new System.Windows.Forms.Button();
             this.scriptDataGridView = new System.Windows.Forms.DataGridView();
@@ -84,11 +70,9 @@ namespace TheTechIdea.ETL
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dMEEditorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.progressBar1 = new TextProgressBar();
+            this.progressBar1 = new BeepEnterprize.Winform.Vis.Controls.TextProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.scriptBindingNavigator)).BeginInit();
-            this.scriptBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scriptBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scriptDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).BeginInit();
@@ -104,134 +88,9 @@ namespace TheTechIdea.ETL
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // scriptBindingNavigator
-            // 
-            this.scriptBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.scriptBindingNavigator.BindingSource = this.scriptBindingSource;
-            this.scriptBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.scriptBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.scriptBindingNavigator.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.scriptBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.scriptBindingNavigatorSaveItem});
-            this.scriptBindingNavigator.Location = new System.Drawing.Point(0, 72);
-            this.scriptBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.scriptBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.scriptBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.scriptBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.scriptBindingNavigator.Name = "scriptBindingNavigator";
-            this.scriptBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.scriptBindingNavigator.Size = new System.Drawing.Size(1295, 25);
-            this.scriptBindingNavigator.TabIndex = 1;
-            this.scriptBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
             // scriptBindingSource
             // 
             this.scriptBindingSource.DataSource = typeof(TheTechIdea.Beep.Editor.ETLScriptDet);
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // scriptBindingNavigatorSaveItem
-            // 
-            this.scriptBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.scriptBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("scriptBindingNavigatorSaveItem.Image")));
-            this.scriptBindingNavigatorSaveItem.Name = "scriptBindingNavigatorSaveItem";
-            this.scriptBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.scriptBindingNavigatorSaveItem.Text = "Save Data";
             // 
             // StopButton
             // 
@@ -570,10 +429,6 @@ namespace TheTechIdea.ETL
             this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // dMEEditorBindingSource
-            // 
-//            this.dMEEditorBindingSource.DataSource = typeof(TheTechIdea.Beep.DMEEditor);
-            // 
             // progressBar1
             // 
             this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -585,7 +440,7 @@ namespace TheTechIdea.ETL
             this.progressBar1.TabIndex = 11;
             this.progressBar1.TextColor = System.Drawing.Color.Black;
             this.progressBar1.TextFont = new System.Drawing.Font("Times New Roman", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.progressBar1.VisualMode = ProgressBarDisplayMode.CurrProgress;
+            this.progressBar1.VisualMode = BeepEnterprize.Winform.Vis.Controls.ProgressBarDisplayMode.CurrProgress;
             // 
             // label1
             // 
@@ -619,14 +474,10 @@ namespace TheTechIdea.ETL
             this.Controls.Add(this.StopButton);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.RunScriptbutton);
-            this.Controls.Add(this.scriptBindingNavigator);
             this.Controls.Add(this.panel4);
             this.DoubleBuffered = true;
             this.Name = "uc_ScriptRun";
             this.Size = new System.Drawing.Size(1295, 804);
-            ((System.ComponentModel.ISupportInitialize)(this.scriptBindingNavigator)).EndInit();
-            this.scriptBindingNavigator.ResumeLayout(false);
-            this.scriptBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scriptBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scriptDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).EndInit();
@@ -645,26 +496,12 @@ namespace TheTechIdea.ETL
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.BindingSource scriptBindingSource;
-        private System.Windows.Forms.BindingNavigator scriptBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton scriptBindingNavigatorSaveItem;
         private System.Windows.Forms.Button StopButton;
         private TextProgressBar progressBar1;
         private System.Windows.Forms.Button RunScriptbutton;
