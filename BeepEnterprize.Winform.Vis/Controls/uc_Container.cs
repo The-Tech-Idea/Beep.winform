@@ -104,7 +104,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
            | System.Windows.Forms.AnchorStyles.Right)));
                 TabContainerPanel.Location = new System.Drawing.Point(17,0);
                 TabContainerPanel.Name = "ControlPanel";
-                TabContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height-17);
+                TabContainerPanel.Size = new System.Drawing.Size(this.Width-20, this.Height-20);
                 TabContainerPanel.TabPages.Clear();
                 Controls.Add(TabContainerPanel);
                 CloseImage = Properties.Resources.close;
@@ -119,9 +119,12 @@ namespace BeepEnterprize.Winform.Vis.Controls
             TabContainerPanel.TabPages.Add(TitleText, TitleText);
             TabContainerPanel.TabPages[TabContainerPanel.TabPages.Count-1].Controls.Add(control);
             TabContainerPanel.SelectedTab = TabContainerPanel.TabPages[TabContainerPanel.TabPages.Count - 1];
-
-            control.Dock = DockStyle.Fill;
-        //    this.TitleLabel.Text = TitleText;
+            control.Location = new System.Drawing.Point(0, 0);
+            control.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+           | System.Windows.Forms.AnchorStyles.Left)
+           | System.Windows.Forms.AnchorStyles.Right)));
+            control.Size = new System.Drawing.Size(TabContainerPanel.Width - 20, TabContainerPanel.Height - 10);
+            //    this.TitleLabel.Text = TitleText;
             return true;
         }
         private bool AddToSingle(string TitleText, Control control)
