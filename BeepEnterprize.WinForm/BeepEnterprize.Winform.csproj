@@ -3588,6 +3588,15 @@
     <Content Include="ProjectClasses\Py\p395x64\_zoneinfo.pyd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Entities\iris.csv_entities.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\PPDM39_entities.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\taxi-fare-train.csv_entities.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="ProjectClasses\Py\tmp.csv" />
     <Content Include="ProjectData\AI_Datasets\Oilwell.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
