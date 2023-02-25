@@ -3597,6 +3597,13 @@
     <Content Include="Entities\taxi-fare-train.csv_entities.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Entities\AlaskaData.json_entities.json" />
+    <None Include="Entities\AlaskaDataLocal_entities.json" />
+    <None Include="Entities\Area_PPDM_20220712.xlsx_entities.json" />
+    <None Include="Entities\DhubLocal_entities.json" />
+    <None Include="Entities\DhubServer_entities.json" />
+    <None Include="Entities\PPDM39Server_entities.json" />
+    <None Include="Entities\sdsd_entities.json" />
     <None Include="ProjectClasses\Py\tmp.csv" />
     <Content Include="ProjectData\AI_Datasets\Oilwell.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
