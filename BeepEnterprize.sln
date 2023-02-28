@@ -255,6 +255,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.CSVManager.Winform", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealMDataSource", "..\BeepDataSources\DataSourcesPlugins\RealMDataSource\RealMDataSource.csproj", "{BDEC315D-0D36-45D2-8EFC-336F9B56DF09}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{829BA8B3-BC09-437D-9213-CB72CA1C9F62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

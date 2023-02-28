@@ -50,7 +50,8 @@ namespace BeepEnterprize.Winform.Vis.CRUD
         public IDM_Addin dataLoadingManager { get; set; }
         public IDM_Addin queryFields { get; set; }
         IDataSource ds;
-    
+
+        
         public TransActionType TransType { get; set; } 
       
         IVisManager visManager;
