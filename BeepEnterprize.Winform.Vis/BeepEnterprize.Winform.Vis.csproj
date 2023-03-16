@@ -636,7 +636,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ReaLTaiizor">
-      <Version>3.7.9.1</Version>
+      <Version>3.7.9.2</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine">
       <Version>1.0.5</Version>
