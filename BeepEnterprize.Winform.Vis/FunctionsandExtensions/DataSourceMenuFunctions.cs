@@ -519,7 +519,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                     if(ds.Openconnection()== System.Data.ConnectionState.Open)
                                     {
                                         EntityStructure entstruc = (EntityStructure)ds.GetEntityStructure(ExtensionsHelpers.pbr.BranchText,true).Clone();
-                                      //  Type enttype = ds.GetEntityType(ExtensionsHelpers.pbr.BranchText);
+                                        Type enttype = ds.GetEntityType(ExtensionsHelpers.pbr.BranchText);
                                         object ls = ds.GetEntity(ExtensionsHelpers.pbr.BranchText,null);
                                         SaveFileDialog fileDialog = new SaveFileDialog();
                                         fileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
@@ -527,7 +527,11 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                         fileDialog.ShowDialog();
                                         if (!string.IsNullOrEmpty(fileDialog.FileName))
                                         {
-                                            DMEEditor.Utilfunction.ToCSVFile((System.Collections.IList)ls,  fileDialog.FileName);
+                                            if(ls.GetType()==typeof(DataTable))
+                                            {
+                                              DMEEditor.Utilfunction.ToCSVFile((DataTable)ls, fileDialog.FileName);
+                                            }else
+                                             DMEEditor.Utilfunction.ToCSVFile((System.Collections.IList)ls,  fileDialog.FileName);
                                         }
                                     }
                                 }

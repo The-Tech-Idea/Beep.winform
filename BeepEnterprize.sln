@@ -249,7 +249,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.DeveloperAssistant.Log
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DistribComputing", "DistribComputing", "{0D432E1A-AE9C-4414-9D51-CAD2DC25107B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AKKA", "..\Plugins\AKKA\AKKA.csproj", "{B68E7369-0627-4C8B-87FE-68E90E7A3C3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.AKKA.Client", "..\Plugins\AKKA\Beep.AKKA.Client.csproj", "{B68E7369-0627-4C8B-87FE-68E90E7A3C3E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans", "..\Plugins\Orleans\Orleans.csproj", "{EFF73265-13E8-4931-A8A3-318213B81298}"
 EndProject
@@ -257,7 +257,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WPF.APP", "..\BeepWPF\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WPF.Vis", "..\BeepWPF\Beep.WPF.Vis\Beep.WPF.Vis.csproj", "{D6F8778B-8FA0-4B28-9910-4A13A9236CCB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQ.Client", "..\Plugins\RabbitMQ.Client\RabbitMQ.Client.csproj", "{FB2FCCD8-D4F3-4D9A-A1D0-9558C566CE82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.RabbitMQ.Client", "..\Plugins\RabbitMQ.Client\Beep.RabbitMQ.Client.csproj", "{FB2FCCD8-D4F3-4D9A-A1D0-9558C566CE82}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParquetDataSource", "..\BeepDataSources\DataSourcesPlugins\ParquetDataSource\ParquetDataSource.csproj", "{BFDC7C67-B61D-40B0-BA55-69A368234E8A}"
 EndProject

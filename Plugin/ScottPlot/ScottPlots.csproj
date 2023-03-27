@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <PackageReference Include="ScottPlot" Version="4.1.61" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels2.0" Version="1.0.0.25" />
   </ItemGroup>
 
 </Project>
