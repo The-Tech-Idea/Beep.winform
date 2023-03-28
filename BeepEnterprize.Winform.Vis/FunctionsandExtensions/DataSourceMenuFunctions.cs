@@ -518,8 +518,9 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                 {
                                     if(ds.Openconnection()== System.Data.ConnectionState.Open)
                                     {
+                                       
                                         EntityStructure entstruc = (EntityStructure)ds.GetEntityStructure(ExtensionsHelpers.pbr.BranchText,true).Clone();
-                                        Type enttype = ds.GetEntityType(ExtensionsHelpers.pbr.BranchText);
+                                       // Type enttype = ds.GetEntityType(ExtensionsHelpers.pbr.BranchText);
                                         object ls = ds.GetEntity(ExtensionsHelpers.pbr.BranchText,null);
                                         SaveFileDialog fileDialog = new SaveFileDialog();
                                         fileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
@@ -527,11 +528,17 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                         fileDialog.ShowDialog();
                                         if (!string.IsNullOrEmpty(fileDialog.FileName))
                                         {
-                                            if(ls.GetType()==typeof(DataTable))
+                                            Passedarguments.ParameterString1 = $"Saving entity Data to File";
+                                            ExtensionsHelpers.Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
+                                            ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                            if (ls.GetType()==typeof(DataTable))
                                             {
+
                                               DMEEditor.Utilfunction.ToCSVFile((DataTable)ls, fileDialog.FileName);
                                             }else
                                              DMEEditor.Utilfunction.ToCSVFile((System.Collections.IList)ls,  fileDialog.FileName);
+                                            ExtensionsHelpers.Vismanager.CloseWaitForm();
+                                            ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Data Saved");
                                         }
                                     }
                                 }
@@ -545,6 +552,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 }
                 catch (Exception ex)
                 {
+                    ExtensionsHelpers.Vismanager.CloseWaitForm();
+                    ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", $"Saving Data Error {ex.Message}");
                     DMEEditor.ErrorObject.Flag = Errors.Failed;
                     DMEEditor.ErrorObject.Ex = ex;
                     DMEEditor.AddLogMessage("Fail", $"Error running Import {ent.EntityName} - {ex.Message}", DateTime.Now, -1, null, Errors.Failed);
