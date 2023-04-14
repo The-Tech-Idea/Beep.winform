@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ScottPlot" Version="4.1.61" />
+    <PackageReference Include="ScottPlot" Version="4.1.63" />
   </ItemGroup>
 
 </Project>
