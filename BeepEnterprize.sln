@@ -306,7 +306,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContourLib", "ContourLib", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Contour.Blazor", "..\Plugins\Beep.Contour.Blazor\Beep.Contour.Blazor.csproj", "{00F2C487-BC78-40B4-B230-54281FDBAB05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.PumpPerformance", "..\Plugins\Beep.PumpPerformance\Beep.PumpPerformance.csproj", "{54F14F43-6153-4974-9406-5140A5FDDB05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.PumpPerformance", "..\Plugins\Beep.PumpPerformance\Beep.PumpPerformance.csproj", "{54F14F43-6153-4974-9406-5140A5FDDB05}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.DCA", "..\Plugins\Beep.DCA\Beep.DCA.csproj", "{FB9319DA-AA65-4F9C-B00C-6C17B25E7C77}"
 EndProject
@@ -314,9 +314,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleDataSource", "..\Beep
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Skia", "Skia", "{34872E16-FBEB-48CE-A08D-32811AD2E48D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Skia.Winform", "..\plugins\Beep.Skia.Winform\Beep.Skia.Winform.csproj", "{8D8C958C-5AAB-4D80-B63F-1208AA07580B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Skia.Winform", "..\plugins\Beep.Skia.Winform\Beep.Skia.Winform.csproj", "{8D8C958C-5AAB-4D80-B63F-1208AA07580B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Skia.Loader", "..\Plugins\Beep.Skia.Loader\Beep.Skia.Loader.csproj", "{A1917385-0672-4F69-85A1-6869B431DF76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Skia.Loader", "..\Plugins\Beep.Skia.Loader\Beep.Skia.Loader.csproj", "{A1917385-0672-4F69-85A1-6869B431DF76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepEnterprize.winform.net6", "..\BeepWinformAppNet6\BeepEnterprize.winform.net6\BeepEnterprize.winform.net6.csproj", "{A69E52F5-479C-4C9E-B993-6956FD083B34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1744,6 +1746,18 @@ Global
 		{A1917385-0672-4F69-85A1-6869B431DF76}.x86|Any CPU.Build.0 = Debug|Any CPU
 		{A1917385-0672-4F69-85A1-6869B431DF76}.x86|x86.ActiveCfg = Debug|Any CPU
 		{A1917385-0672-4F69-85A1-6869B431DF76}.x86|x86.Build.0 = Debug|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.Debug|x86.Build.0 = Debug|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.Release|x86.ActiveCfg = Release|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.Release|x86.Build.0 = Release|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.x86|x86.ActiveCfg = Debug|Any CPU
+		{A69E52F5-479C-4C9E-B993-6956FD083B34}.x86|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1891,6 +1905,7 @@ Global
 		{34872E16-FBEB-48CE-A08D-32811AD2E48D} = {4FA37B63-990C-49CC-8A78-698880B10C49}
 		{8D8C958C-5AAB-4D80-B63F-1208AA07580B} = {34872E16-FBEB-48CE-A08D-32811AD2E48D}
 		{A1917385-0672-4F69-85A1-6869B431DF76} = {34872E16-FBEB-48CE-A08D-32811AD2E48D}
+		{A69E52F5-479C-4C9E-B993-6956FD083B34} = {17E01E1A-D3CF-48D0-89C3-B1B7138930B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {080094DB-7666-459B-88F8-5F017533DAA6}
