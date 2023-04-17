@@ -86,6 +86,10 @@
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="..\..\..\..\..\.nuget\packages\pythonnet\3.0.1\lib\netstandard2.0\Python.Runtime.dll">
+      <Link>ProjectClasses\Py\Python.Runtime.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\AIExtensionLoader\netstandard2.0\AIExtensionLoader.dll">
       <Link>LoadingExtensions\AssemblyLoaderAI\AIExtensionLoader.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -188,6 +192,10 @@
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Nodes\netstandard2.0\Beep.Python.Nodes.dll">
       <Link>ProjectClasses\Py\Beep.Python.Nodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Runtime\netstandard2.0\Beep.Python.Runtime.dll">
+      <Link>ProjectClasses\Py\Beep.Python.Runtime.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Winform\Beep.Python.Winform.dll">
@@ -2955,6 +2963,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\Py\lib\__phello__.foo.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Py\Microsoft.CSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\Py\Microsoft.Dynamic.dll">
