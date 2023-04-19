@@ -214,8 +214,16 @@
       <Link>ProjectClasses\Py\Beep.Python.Logic.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Model\netstandard2.0\Beep.Python.Model.dll">
+      <Link>ProjectClasses\Py\Beep.Python.Model.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Nodes\netstandard2.0\Beep.Python.Nodes.dll">
       <Link>ProjectClasses\Py\Beep.Python.Nodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Runtime.Winform\Beep.Python.Runtime.Winform.dll">
+      <Link>ProjectClasses\Py\Beep.Python.Runtime.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Runtime\netstandard2.0\Beep.Python.Runtime.dll">
