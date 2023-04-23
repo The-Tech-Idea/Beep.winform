@@ -13,6 +13,7 @@
     <Copyright>2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+	<Platforms>AnyCPU;x64</Platforms>
 	 
   </PropertyGroup>
 	

@@ -68,6 +68,26 @@
   <PropertyGroup>
     <ApplicationIcon>SimpleODM.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -86,10 +106,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="..\..\..\..\..\.nuget\packages\pythonnet\3.0.1\lib\netstandard2.0\Python.Runtime.dll">
-      <Link>ProjectClasses\Py\Python.Runtime.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\AIExtensionLoader\netstandard2.0\AIExtensionLoader.dll">
       <Link>LoadingExtensions\AssemblyLoaderAI\AIExtensionLoader.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -198,16 +214,16 @@
       <Link>ProjectClasses\Py\Beep.Python.Nodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.RunTime.Engine\netstandard2.0\Beep.Python.RunTime.Engine.dll">
+      <Link>ProjectClasses\Py\Beep.Python.RunTime.Engine.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Runtime.Winform\Beep.Python.Runtime.Winform.dll">
       <Link>ProjectClasses\Py\Beep.Python.Runtime.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Runtime\netstandard2.0\Beep.Python.Runtime.dll">
       <Link>ProjectClasses\Py\Beep.Python.Runtime.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.Winform\Beep.Python.Winform.dll">
-      <Link>ProjectClasses\Py\Beep.Python.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.R.Extensions\netstandard2.0\Beep.R.Extensions.dll">
@@ -1846,6 +1862,9 @@
     <Content Include="Entities\taxi-fare-train.csv_entities.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Entities\AlaskaData.json_entities.json" />
     <None Include="Entities\AlaskaDataLocal_entities.json" />
     <None Include="Entities\Area_PPDM_20220712.xlsx_entities.json" />
@@ -2085,6 +2104,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces">
       <Version>7.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.CommandLine">
+      <Version>2.0.0-beta4.22272.1</Version>
     </PackageReference>
     <PackageReference Include="System.Diagnostics.DiagnosticSource">
       <Version>7.0.2</Version>
