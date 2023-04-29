@@ -62,7 +62,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 Branch.Visutil = visManager;
                 n.Tag = Branch;
                 n.Name = Branch.ID.ToString();
-                // n.ContextMenuStrip = Treecontrol.CreateMenuMethods(Branch);
+                Console.WriteLine(Branch.BranchText);
                 Treecontrol.CreateMenuMethods(Branch);
                 Treecontrol.CreateGlobalMenu(Branch, n);
                 Branch.DMEEditor = DMEEditor;

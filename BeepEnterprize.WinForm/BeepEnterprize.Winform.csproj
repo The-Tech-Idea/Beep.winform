@@ -111,7 +111,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\..\..\..\.nuget\packages\scintilla.net\5.3.2.3\lib\net45\Scintilla.NET.dll">
-      <Link>ProjectClasses\Py\Scintilla.NET.dll</Link>
+      <Link>ProjectClasses\Scintilla.NET.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\..\..\..\.nuget\packages\scintilla.net\5.3.2.7\build\x86\Lexilla.dll">
@@ -186,8 +186,28 @@
       <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.CSharp\netstandard2.0\Beep.Compilers.CSharp.dll">
+      <Link>ProjectClasses\IDE\Beep.Compilers.CSharp.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.ExtensionLoader\netstandard2.0\Beep.Compilers.ExtensionLoader.dll">
+      <Link>LoadingExtensions\Compilers\Beep.Compilers.ExtensionLoader.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.Module\netstandard2.0\Beep.Compilers.Module.dll">
+      <Link>LoadingExtensions\Compilers\Beep.Compilers.Module.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.Python\netstandard2.0\Beep.Compilers.Python.dll">
+      <Link>ProjectClasses\IDE\Beep.Compilers.Python.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.CSV.Extensions\netstandard2.0\Beep.CSV.Extensions.dll">
       <Link>ProjectClasses\CSVManager\Beep.CSV.Extensions.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.CSV.Nodes\netstandard2.0\Beep.CSV.Nodes.dll">
+      <Link>ProjectClasses\CSVManager\Beep.CSV.Nodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.CSVManager.Winform\Beep.CSVManager.Winform.dll">
@@ -202,8 +222,20 @@
       <Link>ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.logic.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.Nodes\netstandard2.0\Beep.DeveloperAssistant.Nodes.dll">
+      <Link>ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.Nodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.Winform\Beep.DeveloperAssistant.Winform.dll">
       <Link>ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.Winform.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.IDE.Nodes\netstandard2.0\Beep.IDE.Nodes.dll">
+      <Link>ProjectClasses\IDE\Beep.IDE.Nodes.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.IDE.Winform\Beep.IDE.Winform.dll">
+      <Link>ProjectClasses\IDE\Beep.IDE.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.ExtensionLoader\netstandard2.0\Beep.Python.ExtensionLoader.dll">
@@ -214,12 +246,8 @@
       <Link>ProjectClasses\Py\Beep.Python.Extensions.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.Logic\netstandard2.0\Beep.Python.Logic.dll">
-      <Link>ProjectClasses\Py\Beep.Python.Logic.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Model\netstandard2.0\Beep.Python.Model.dll">
-      <Link>ProjectClasses\Py\Beep.Python.Model.dll</Link>
+      <Link>LoadingExtensions\PythonExtentionLoader\Beep.Python.Model.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Nodes\netstandard2.0\Beep.Python.Nodes.dll">
@@ -627,6 +655,9 @@
     <Content Include="GFX\cockroachdb.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GFX\codegen.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="GFX\codeicon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -670,6 +701,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\csv.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\csvmanager.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\cursor.ico">
@@ -823,6 +857,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\ico.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\ide1.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\ide2.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\ideopen.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\importdata.ico">
@@ -1009,6 +1052,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\rtf.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\run.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\salesforce.ico">
@@ -2108,7 +2154,7 @@
       <Version>1.0.20</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels">
-      <Version>1.0.14</Version>
+      <Version>1.0.15</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DMLogger">
       <Version>1.0.0</Version>

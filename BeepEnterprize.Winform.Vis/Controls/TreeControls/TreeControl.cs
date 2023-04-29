@@ -180,7 +180,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 {
                     Type adc = DMEEditor.assemblyHandler.GetType(cls.PackageName);
                     ConstructorInfo ctor = adc.GetConstructors().Where(o => o.GetParameters().Length == 0).FirstOrDefault();
-                  
+                
                     if (ctor != null)
                     {
                         ObjectActivator<IBranch> createdActivator = GetActivator<IBranch>(ctor);
@@ -245,6 +245,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 n.SelectedImageKey = br.IconImageName;
             }
             //n.ContextMenuStrip = 
+            Console.WriteLine(br.BranchText);
             CreateMenuMethods(br);
             if ( br.ObjectType!=null && br.BranchClass != null)
             {
@@ -357,7 +358,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             {
                
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == branch.ToString() ).FirstOrDefault();
-                if (!menuList.classDefinitions.Any(p => p.PackageName.Equals(cls.PackageName, StringComparison.CurrentCultureIgnoreCase)))
+                if (!menuList.classDefinitions.Any(p => p.PackageName.Equals(cls.PackageName, StringComparison.InvariantCultureIgnoreCase)))
                 {
                     menuList.classDefinitions.Add(cls);
                     foreach (var item in cls.Methods.Where(y => y.Hidden == false))
