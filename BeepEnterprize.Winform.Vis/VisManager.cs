@@ -617,9 +617,11 @@ namespace BeepEnterprize.Winform.Vis
                     {
                         if (!string.IsNullOrEmpty(Title))
                         {
-                            form.Width = Width; form.Height=Height;
+                            form.Width = Width; 
+                            form.Height=Height;
                             form.Text = Title;
                         }
+                        IsShowingMainForm = false;
                     }
                     if (!string.IsNullOrEmpty(IconUrl))
                     {

@@ -556,25 +556,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         private void SetupTreeView()
         {
-            //Vismanager.Images = new ImageList();
-            //Vismanager.Images.ImageSize = IconsSize;
-            //Vismanager.Images.ColorDepth = ColorDepth.Depth32Bit;
-            //List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
-            //foreach (string filename_w_path in paths)
-            //{
-            //    try
-            //    {
-            //        string filename = Path.GetFileName(filename_w_path);
-            //        Vismanager.ImagesUrls.Add(new FileStorage() { FileName=filename, Url= filename_w_path });
-            //        Vismanager.Images.Images.Add(filename, Image.FromFile(filename_w_path));
-            //    }
-            //    catch (FileLoadException ex)
-            //    {
-            //        DMEEditor.ErrorObject.Flag = Errors.Failed;
-            //        DMEEditor.ErrorObject.Ex = ex;
-            //        DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
-            //    }
-            //}
             TreeV.CheckBoxes = false;
             TreeV.ImageList=new ImageList();
             TreeV.ImageList.ImageSize = IconsSize;
