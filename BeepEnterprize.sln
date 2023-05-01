@@ -256,7 +256,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnnxDataSource", "..\BeepDa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MlModelDataSource", "..\BeepDataSources\DataSourcesPlugins\MlModelDataSource\MlModelDataSource.csproj", "{E43DB3D7-465A-495C-ACB8-AE6AD02A2033}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Python.Runtime", "..\Plugins\Beep.Python.Runtime\Beep.Python.Runtime.csproj", "{D12C9D7A-81CF-48D2-B9EE-BC35A24D7815}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Python.Runtime.PythonNet", "..\Plugins\Beep.Python.Runtime\Beep.Python.Runtime.PythonNet.csproj", "{D12C9D7A-81CF-48D2-B9EE-BC35A24D7815}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KOC", "KOC", "{EA6055F5-B508-42EF-9E23-8BB61B1192EA}"
 EndProject
@@ -345,6 +345,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Contour.DrawGDI", "..\plugins\Beep.Contour.DrawGDI\Beep.Contour.DrawGDI.csproj", "{8083F868-356A-4F6F-BAB9-DA05FEF53B2F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Contour.Logic", "..\Plugins\Beep.Contour.Logic\Beep.Contour.Logic.csproj", "{955CEF72-02E5-41EF-84DE-6DC30D75F740}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Python.RunTime.CMD", "..\Plugins\Beep.Python.RunTime.CMD\Beep.Python.RunTime.CMD.csproj", "{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -2711,6 +2713,24 @@ Global
 		{955CEF72-02E5-41EF-84DE-6DC30D75F740}.x86|x64.Build.0 = Debug|Any CPU
 		{955CEF72-02E5-41EF-84DE-6DC30D75F740}.x86|x86.ActiveCfg = Debug|Any CPU
 		{955CEF72-02E5-41EF-84DE-6DC30D75F740}.x86|x86.Build.0 = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Debug|x64.Build.0 = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Debug|x86.Build.0 = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Release|x64.ActiveCfg = Release|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Release|x64.Build.0 = Release|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Release|x86.ActiveCfg = Release|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.Release|x86.Build.0 = Release|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.x86|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.x86|Any CPU.Build.0 = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.x86|x64.ActiveCfg = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.x86|x64.Build.0 = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.x86|x86.ActiveCfg = Debug|Any CPU
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846}.x86|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -2872,6 +2892,7 @@ Global
 		{16818955-775B-479C-9CA0-12A757658112} = {B718D7A7-571B-43BE-B975-091E4A672DCC}
 		{8083F868-356A-4F6F-BAB9-DA05FEF53B2F} = {1D7ABF77-B732-44C1-A3A9-85D5725CFBB5}
 		{955CEF72-02E5-41EF-84DE-6DC30D75F740} = {1D7ABF77-B732-44C1-A3A9-85D5725CFBB5}
+		{FC5D7409-1CF1-4AC7-A8E6-4C30A98AF846} = {79459AD6-7467-4FE5-943A-19FAA08086AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {080094DB-7666-459B-88F8-5F017533DAA6}
