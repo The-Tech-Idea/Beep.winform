@@ -1485,13 +1485,13 @@
     <Content Include="ProjectClasses\PrintManager\PrintManager.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AI\R\DynamicInterop.dll">
+    <Content Include="OtherDLL\DynamicInterop.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AI\R\FSharp.Core.dll">
+    <Content Include="OtherDLL\FSharp.Core.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AI\R\Microsoft.Win32.Registry.dll">
+    <Content Include="OtherDLL\Microsoft.Win32.Registry.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\AI\R\RDotNet.dll">
@@ -1500,13 +1500,10 @@
     <Content Include="ProjectClasses\AI\R\RDotNet.FSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AI\R\System.CodeDom.dll">
+    <Content Include="OtherDLL\System.Security.AccessControl.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\AI\R\System.Security.AccessControl.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\AI\R\System.Security.Principal.Windows.dll">
+    <Content Include="OtherDLL\System.Security.Principal.Windows.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\Py\beep.py">
