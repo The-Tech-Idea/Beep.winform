@@ -31,46 +31,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             nextButtonImage = global::BeepEnterprize.Winform.Vis.Properties.Resources.Collapseright;
             prevButtonImage = global::BeepEnterprize.Winform.Vis.Properties.Resources.CollapseLeft;
         }
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-
-            int paddingWidth = 25; // Additional padding for the Close button
-            int paddingHeight = 8; // Additional padding for the tab height
-
-            int x = 0;
-            int maxHeight = 0;
-
-            using (Graphics g = this.CreateGraphics())
-            {
-                for (int i = 0; i < this.TabPages.Count; i++)
-                {
-                    var tabPage = this.TabPages[i];
-                    SizeF textSize = g.MeasureString(tabPage.Text, tabPage.Font);
-                    int tabWidth = (int)textSize.Width + paddingWidth;
-                    int tabHeight = (int)textSize.Height + paddingHeight;
-
-                    if (tabHeight > maxHeight)
-                    {
-                        maxHeight = tabHeight;
-                    }
-
-                    var tabRect = new Rectangle(x, 0, tabWidth, tabHeight);
-                    g.FillRectangle(SystemBrushes.Control, tabRect);
-                    g.DrawString(tabPage.Text, tabPage.Font, Brushes.Black, tabRect);
-
-                    // Close button
-                    int closeButtonPadding = 4; // Padding from the right edge of the tab
-                    var closeButton = new RectangleF(tabRect.Right - closeButtonImage.Width - closeButtonPadding, tabRect.Top + (tabRect.Height - closeButtonImage.Height) / 2, closeButtonImage.Width, closeButtonImage.Height);
-                    g.DrawImage(closeButtonImage, closeButton.Location);
-
-                    x += tabWidth;
-                }
-            }
-
-            this.ItemSize = new Size(this.ItemSize.Width, maxHeight);
-            this.Invalidate(); // Redraw the control to apply the new tab sizes
-        }
+       
         private void RecalculateTabSizes()
         {
             if (this.TabPages.Count == 0)
