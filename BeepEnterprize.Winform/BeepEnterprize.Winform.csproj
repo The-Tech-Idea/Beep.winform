@@ -35,7 +35,7 @@
     <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -43,7 +43,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>true</Prefer32Bit>
+    <Prefer32Bit>false</Prefer32Bit>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -1253,6 +1253,9 @@
     <Content Include="OtherDLL\Microsoft.Extensions.DependencyInjection.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="OtherDLL\Microsoft.SourceLink.GitHub.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="OtherDLL\mkldnn.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1515,9 +1518,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\Py\HereweputClasses.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\Python.Runtime.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectData\HereweAddAllfiles.txt">
@@ -2195,6 +2195,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Plugins\Python.Net.Runtime\Python.Runtime.csproj">
+      <Project>{9b4e8a34-c01c-4fec-a993-ee7d46a72809}</Project>
+      <Name>Python.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
       <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
