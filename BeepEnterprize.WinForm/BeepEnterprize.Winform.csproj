@@ -109,11 +109,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="..\..\..\..\..\.nuget\packages\scintilla.net\5.3.2.3\lib\net45\Scintilla.NET.dll">
-      <Link>ProjectClasses\Scintilla.NET.dll</Link>
+      <Link>ProjectClasses\IDE\Scintilla.NET.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\..\..\..\.nuget\packages\scintilla.net\5.3.2.7\build\x86\Lexilla.dll">
-      <Link>ProjectClasses\Py\Lexilla.dll</Link>
+      <Link>ProjectClasses\IDE\Lexilla.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\AIExtensionLoader\netstandard2.0\AIExtensionLoader.dll">
@@ -240,6 +240,9 @@
       <Link>ProjectClasses\IDE\Beep.IDE.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.Julia.Interop\netstandard2.0\Beep.Julia.Interop.dll">
+      <Link>ProjectClasses\LangInterop\Beep.Julia.Interop.dll</Link>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.Python.ExtensionLoader\netstandard2.0\Beep.Python.ExtensionLoader.dll">
       <Link>LoadingExtensions\PythonExtentionLoader\Beep.Python.ExtensionLoader.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -287,6 +290,9 @@
     <Content Include="..\..\outputDLL\Beep.R.Winform\Beep.R.Winform.dll">
       <Link>ProjectClasses\AI\R\Beep.R.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Rust.Interop\netstandard2.0\Beep.Rust.Interop.dll">
+      <Link>ProjectClasses\LangInterop\Beep.Rust.Interop.dll</Link>
     </Content>
     <Content Include="..\..\outputDLL\CompositeLayerNodes\netstandard2.0\CompositeLayerNodes.dll">
       <Link>ProjectClasses\CompositeLayer\CompositeLayerNodes.dll</Link>
@@ -394,6 +400,10 @@
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\netstandard2.0\ML.NET.dll">
       <Link>ProjectClasses\ML.NET\ML.NET.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\pythonnet\runtime\netstandard2.0\Python.Runtime.dll">
+      <Link>ProjectClasses\Py\Python.Runtime.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\netstandard2.0\TheTechIdea.Beep.TreeNodes.dll">
@@ -2195,10 +2205,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Plugins\Python.Net.Runtime\Python.Runtime.csproj">
-      <Project>{9b4e8a34-c01c-4fec-a993-ee7d46a72809}</Project>
-      <Name>Python.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
       <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
       <Name>BeepEnterprize.Winform.Vis</Name>
