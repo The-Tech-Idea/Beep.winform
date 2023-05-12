@@ -84,9 +84,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompositeLayerNodes", "..\P
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rules", "Rules", "{5314747E-93A5-4C51-8389-52E38805C99D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepRules", "..\plugins\BeepRules\BeepRules.csproj", "{C0B3CF74-EED7-46BD-A650-9A280CD83B4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Rules", "..\plugins\BeepRules\Beep.Rules.csproj", "{C0B3CF74-EED7-46BD-A650-9A280CD83B4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepDefaults", "..\plugins\BeepDefaults\BeepDefaults.csproj", "{202B1742-2F27-46C1-8248-DD2518C4CF58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Defaults", "..\plugins\BeepDefaults\Beep.Defaults.csproj", "{202B1742-2F27-46C1-8248-DD2518C4CF58}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BranchAssemblyLoader", "..\Plugins\BranchAssemblyLoader\BranchAssemblyLoader.csproj", "{30703B3A-8D90-40B8-A48E-FA6F1411C9D3}"
 EndProject
@@ -218,7 +218,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DistribComputing", "Distrib
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.AKKA.Client", "..\Plugins\AKKA\Beep.AKKA.Client.csproj", "{B68E7369-0627-4C8B-87FE-68E90E7A3C3E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans", "..\Plugins\Orleans\Orleans.csproj", "{EFF73265-13E8-4931-A8A3-318213B81298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Orleans.Client", "..\Plugins\Orleans\Beep.Orleans.Client.csproj", "{EFF73265-13E8-4931-A8A3-318213B81298}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WPF.APP", "..\BeepWPF\Beep.WPF.APP\Beep.WPF.APP.csproj", "{DB131AC6-3ECC-4FE1-A91A-822DC1963C71}"
 EndProject
