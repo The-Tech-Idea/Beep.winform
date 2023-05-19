@@ -25,10 +25,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
     {
         public IDMEEditor DMEEditor { get; set; }
         public IPassedArgs Passedargs { get; set; }
-       
-        CancellationTokenSource tokenSource;
-
-        CancellationToken token;
+    
         
       
         private FunctionandExtensionsHelpers ExtensionsHelpers;
@@ -158,11 +155,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                             {
                                 DMEEditor.ETL.Script = new ETLScriptHDR();
                                 DMEEditor.ETL.Script.id = 1;
-                                var progress = new Progress<PassedArgs>(percent => {
-                                });
-                                tokenSource = new CancellationTokenSource();
-                                token = tokenSource.Token;
-                                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, progress, token);
+                             
+                                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, ExtensionsHelpers.progress, ExtensionsHelpers.token);
                                 ExtensionsHelpers.Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
                             }
                             ExtensionsHelpers.pbr.CreateChildNodes();

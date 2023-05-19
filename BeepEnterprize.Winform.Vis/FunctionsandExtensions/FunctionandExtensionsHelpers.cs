@@ -29,10 +29,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
         public MenuControl Menucontrol { get; set; }
         public ToolbarControl Toolbarcontrol { get; set; }
         public TreeControl TreeEditor { get; set; }
-
-        CancellationTokenSource tokenSource;
-
-        CancellationToken token;
+        public IProgress<PassedArgs> progress { get; set; }
+        public CancellationToken token { get; set; }
 
         public  IDataSource DataSource { get; set; }
         public IBranch pbr { get; set; }
@@ -46,7 +44,16 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             TreeEditor = ptreeControl;
         }
         public void GetValues(IPassedArgs Passedarguments)
+
         {
+            if (Passedarguments.Objects.Where(c => c.Name == "IProgress").Any())
+            {
+                progress = (IProgress<PassedArgs>)Passedarguments.Objects.Where(c => c.Name == "IProgress").FirstOrDefault().obj;
+            }
+            if (Passedarguments.Objects.Where(c => c.Name == "CancellationToken").Any())
+            {
+                token = (CancellationToken)Passedarguments.Objects.Where(c => c.Name == "CancellationToken").FirstOrDefault().obj;
+            }
             if (Passedarguments.Objects.Where(c => c.Name == "VISUTIL").Any())
             {
                 Vismanager = (VisManager)Passedarguments.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;

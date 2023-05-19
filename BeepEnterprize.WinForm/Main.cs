@@ -79,15 +79,20 @@ namespace BeepEnterprize.Winform
                 vis.ShowWaitForm(p);
                 // Passing Message to WaitForm
                 vis.PasstoWaitForm(p);
+               
+                    var progress = new Progress<PassedArgs>(percent => {
 
+                        p.ParameterString1 = percent.ParameterString1;
+                        vis.PasstoWaitForm(p);
+                    });
+                    DMEEditor.Passedarguments.Objects.Add(new ObjectItem() { Name = "IProgress", obj = progress });
+                    tokenSource = new CancellationTokenSource();
+                    token = tokenSource.Token;
+                    DMEEditor.Passedarguments.Objects.Add(new ObjectItem() { Name = "CancellationToken", obj = token });
+              
                 // Prepare Async Data Notification from Assembly loader to WaitForm
-                tokenSource = new CancellationTokenSource();
-                token = tokenSource.Token;
-                var progress = new Progress<PassedArgs>(percent => {
-
-                    p.ParameterString1 = percent.ParameterString1;
-                    vis.PasstoWaitForm(p);
-                });
+              
+                
 
                 // Load Assemblies
                 LLoader.LoadAllAssembly(progress, token);

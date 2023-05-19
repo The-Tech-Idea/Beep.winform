@@ -665,13 +665,14 @@ namespace BeepEnterprize.Winform.Vis.Controls
             if (cls != null)
             {
                 if (!IsMethodApplicabletoNode(cls, br)) return;
-                if (cls.RootName != "IFunctionExtension")
+                if (cls.componentType == "IFunctionExtension")
                 {
-                    RunMethod(br, item.Text);
+                    RunFunction(br, item);
+                   
                 }else
                 {
-                    
-                    RunFunction(br, item);
+
+                    RunMethod(br, item.Text);
                 };
 
             }
