@@ -265,7 +265,28 @@ namespace BeepEnterprize.Winform.Vis.DataViewManagement
                 });
                 CancellationTokenSource tokenSource = new CancellationTokenSource();
                 CancellationToken token = tokenSource.Token;
-                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(vds, ls, progress, token);
+                DMEEditor.ETL.Script = new ETLScriptHDR();
+                DMEEditor.ETL.Script.id = 1;
+                bool getdata = false;
+                PassedArgs Passedarguments = new PassedArgs();
+                if (visManager.Controlmanager.InputBoxYesNo("Beep", "Do you want to Copy Data Also?") == BeepEnterprize.Vis.Module.DialogResult.OK)
+                {
+                    getdata = true;
+                }
+                Passedarguments.Messege = $"Get Create Entity Scripts  ...";
+                visManager.PasstoWaitForm((PassedArgs)Passedarguments);
+
+                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(vds, ls, progress, token, DDLScriptType.CreateEntity);
+                if (getdata)
+                {
+                    Passedarguments.Messege = $"Get Copy Data Entity Scripts  ...";
+                    visManager.PasstoWaitForm((PassedArgs)Passedarguments);
+                    DMEEditor.ETL.Script.ScriptDTL.AddRange(DMEEditor.ETL.GetCreateEntityScript(vds, ls, progress, token, DDLScriptType.CopyData));
+                }
+                Passedarguments.ParameterString1 = $"Done ...";
+                visManager.CloseWaitForm();
+
+              //  DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(vds, ls, progress, token);
                 visManager.ShowPage("uc_CopyEntities", (PassedArgs)DMEEditor.Passedarguments, DisplayType.Popup);
             }
 

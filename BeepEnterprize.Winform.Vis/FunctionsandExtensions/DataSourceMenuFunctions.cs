@@ -96,7 +96,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
                                 if (srcds != null)
                                 {
-                                    EntityStructure entity = (EntityStructure)srcds.GetEntityStructure(br.BranchText, true).Clone();
+                                    EntityStructure entity = (EntityStructure)srcds.GetEntityStructure(br.BranchText, false).Clone();
                                     bool IsView = false;
                                    
                                     if (ExtensionsHelpers.DataSource.CheckEntityExist(entity.EntityName))
@@ -145,18 +145,31 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                     ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                                     ds.AddEntitytoDataView(item);
                                 }
-                                Passedarguments.ParameterString1 = $"Done ...";
+                                Passedarguments.Messege = $"Done ...";
                                 ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                                 Passedarguments.ParameterString1 = $"Done ...";
                                 ExtensionsHelpers.Vismanager.CloseWaitForm();
                                 ds.WriteDataViewFile(ds.DatasourceName);
                             }
                             else
-                            {
+                            {  bool getdata=false; 
+                                if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep", "Do you want to Copy Data Also?") == DialogResult.OK)
+                                {
+                                   getdata = true ;
+                                }
                                 DMEEditor.ETL.Script = new ETLScriptHDR();
                                 DMEEditor.ETL.Script.id = 1;
-                             
-                                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, ExtensionsHelpers.progress, ExtensionsHelpers.token);
+                                Passedarguments.Messege = $"Get Create Entity Scripts  ...";
+                                ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, ExtensionsHelpers.progress, ExtensionsHelpers.token, DDLScriptType.CreateEntity);
+                                if (getdata)
+                                {
+                                    Passedarguments.Messege = $"Get Copy Data Entity Scripts  ...";
+                                    ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                    DMEEditor.ETL.Script.ScriptDTL.AddRange(DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, ExtensionsHelpers.progress, ExtensionsHelpers.token, DDLScriptType.CopyData));
+                                }
+                                Passedarguments.ParameterString1 = $"Done ...";
+                                ExtensionsHelpers.Vismanager.CloseWaitForm();
                                 ExtensionsHelpers.Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
                             }
                             ExtensionsHelpers.pbr.CreateChildNodes();
@@ -409,7 +422,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return DMEEditor.ErrorObject;
         }
         [CommandAttribute(Caption = "Delete Connection", Name = "DeleteConnection", Click = true, iconimage = "remove.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
-        public IErrorsInfo DdeleteConnection(IPassedArgs Passedarguments)
+        public IErrorsInfo deleteConnection(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             EntityStructure ent = new EntityStructure();
