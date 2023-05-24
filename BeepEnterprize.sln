@@ -204,9 +204,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.AKKA.Client", "..\Plug
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Orleans.Client", "..\Plugins\Orleans\Beep.Orleans.Client.csproj", "{EFF73265-13E8-4931-A8A3-318213B81298}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WPF.APP", "..\BeepWPF\Beep.WPF.APP\Beep.WPF.APP.csproj", "{DB131AC6-3ECC-4FE1-A91A-822DC1963C71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WPF.APP", "..\Beep.WPF\Beep.WPF.APP\Beep.WPF.APP.csproj", "{DB131AC6-3ECC-4FE1-A91A-822DC1963C71}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WPF.Vis", "..\BeepWPF\Beep.WPF.Vis\Beep.WPF.Vis.csproj", "{D6F8778B-8FA0-4B28-9910-4A13A9236CCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WPF.Vis", "..\Beep.WPF\Beep.WPF.Vis\Beep.WPF.Vis.csproj", "{D6F8778B-8FA0-4B28-9910-4A13A9236CCB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.RabbitMQ.Client", "..\Plugins\RabbitMQ.Client\Beep.RabbitMQ.Client.csproj", "{FB2FCCD8-D4F3-4D9A-A1D0-9558C566CE82}"
 EndProject
