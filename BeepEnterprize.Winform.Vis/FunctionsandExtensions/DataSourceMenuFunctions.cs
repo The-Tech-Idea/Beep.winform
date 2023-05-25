@@ -96,7 +96,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
                                 if (srcds != null)
                                 {
-                                    EntityStructure entity = (EntityStructure)srcds.GetEntityStructure(br.BranchText, false).Clone();
+                                    EntityStructure entity = (EntityStructure)srcds.GetEntityStructure(br.BranchText, true).Clone();
                                     bool IsView = false;
                                    
                                     if (ExtensionsHelpers.DataSource.CheckEntityExist(entity.EntityName))

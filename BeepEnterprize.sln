@@ -226,9 +226,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Container", "..\Plugin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Container.Model", "..\Plugins\BeepContainersModel\Beep.Container.Model.csproj", "{BDFE5896-6241-469B-9DEA-41A92D3BA2B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.App", "..\BeepWinformAppNet6\Beep.WinForm.App\Beep.Winform.App.csproj", "{BB14D78B-2299-4CFE-914D-5B8E3FD6832A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.App", "..\BeepEnterprize.winform.net6\Beep.WinForm.App\Beep.Winform.App.csproj", "{BB14D78B-2299-4CFE-914D-5B8E3FD6832A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.Vis", "..\BeepWinformAppNet6\Beep.Winform.Vis\Beep.Winform.Vis.csproj", "{69E1804D-A87E-4426-92B6-26C4230FDABC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.Vis", "..\BeepEnterprize.winform.net6\Beep.Winform.Vis\Beep.Winform.Vis.csproj", "{69E1804D-A87E-4426-92B6-26C4230FDABC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Contour.Draw3D", "..\Plugins\Beep.Contour.Draw3D\Beep.Contour.Draw3D.csproj", "{E8722DEC-A340-4C4F-B4D1-38734FB6A7F3}"
 EndProject
@@ -246,7 +246,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Skia.Winform", "..\plu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Skia.Loader", "..\Plugins\Beep.Skia.Loader\Beep.Skia.Loader.csproj", "{A1917385-0672-4F69-85A1-6869B431DF76}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepEnterprize.winform.net6", "..\BeepWinformAppNet6\BeepEnterprize.winform.net6\BeepEnterprize.winform.net6.csproj", "{A69E52F5-479C-4C9E-B993-6956FD083B34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepEnterprize.winform.net6", "..\BeepEnterprize.winform.net6\BeepEnterprize.winform.net6\BeepEnterprize.winform.net6.csproj", "{A69E52F5-479C-4C9E-B993-6956FD083B34}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Python.Model", "..\Plugins\Beep.Python.Model\Beep.Python.Model.csproj", "{E05767F9-11B6-4AD3-92AC-BC443D2A99C2}"
 EndProject
