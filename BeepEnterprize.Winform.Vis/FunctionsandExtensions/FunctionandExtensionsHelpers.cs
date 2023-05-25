@@ -413,16 +413,9 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 };
                 if (f.FilePath.Contains(DMEEditor.ConfigEditor.ExePath))
                 {
-                    f.FilePath.Replace(DMEEditor.ConfigEditor.ExePath, ".");
+                    f.FilePath = f.FilePath.Replace(DMEEditor.ConfigEditor.ExePath, ".");
                 }
-                if (f.FilePath.Contains(DMEEditor.ConfigEditor.Config.DataFilePath))
-                {
-                    f.FilePath.Replace(DMEEditor.ConfigEditor.Config.DataFilePath, ".");
-                }
-                if (f.FilePath.Contains(DMEEditor.ConfigEditor.Config.ProjectDataPath))
-                {
-                    f.FilePath.Replace(DMEEditor.ConfigEditor.Config.ProjectDataPath, ".");
-                }
+               
                 string ext = Path.GetExtension(file).Replace(".", "").ToLower();
                 List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null  && p.extensionstoHandle.Contains(ext) && p.Favourite == true).ToList();
                 ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext) && o.Favourite == true).FirstOrDefault();
@@ -480,7 +473,8 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             AppTemplate app = new AppTemplate();
             app.DataSourceName = src.DatasourceName;
             app.Name = src.DatasourceName;
-            app.ID = Guid.NewGuid().ToString();
+            app.GuidID = Guid.NewGuid().ToString();
+            //app.ID = 
             foreach (EntityStructure item in src.Entities)
             {
                 AppBlock blk = new AppBlock();
@@ -561,7 +555,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 };
                 if (f.FilePath.Contains(DMEEditor.ConfigEditor.ExePath))
                 {
-                    pFilePath = @".";
+                    pFilePath = @".\";
                 }
                 if (f.FilePath.StartsWith(@DMEEditor.ConfigEditor.Config.DataFilePath, StringComparison.InvariantCultureIgnoreCase))
                 {

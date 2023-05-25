@@ -778,45 +778,57 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
 
         }
+        bool IsCheckingNodes=false;
         private void TreeView1_AfterCheck(object sender, TreeViewEventArgs e)
         {
             
             try
             {
-                IBranch br = (IBranch)e.Node.Tag;
-
-                if (br.BranchType == EnumPointType.Entity || br.BranchType == EnumPointType.Category)
+                if (!IsCheckingNodes)
                 {
-
-                    if (e.Node.Checked)
+                    IBranch br = (IBranch)e.Node.Tag;
+                    IsCheckingNodes = true;
+                    if (br.BranchType == EnumPointType.Entity || br.BranchType == EnumPointType.DataPoint || br.BranchType == EnumPointType.Category)
                     {
-                        CheckNodes(e.Node, e.Node.Checked);
-                        Treecontrol.SelectedBranchs.Add(br.BranchID);
-                    }
-                    else
-                        Treecontrol.SelectedBranchs.Remove(br.BranchID);
 
-                }
-
-                if (br.BranchType == EnumPointType.DataPoint)
-                {
-                    if (e.Node.Checked)
-                    {
-                        CheckNodes(e.Node, true);
-                    }
-                    else
-                        CheckNodes(e.Node, false);
-
-                }
-                if ((br.BranchType != EnumPointType.DataPoint)&&(br.BranchType != EnumPointType.Entity))
-                {
-                   
                         if (e.Node.Checked)
                         {
-                            e.Node.Checked = false;
+                            Treecontrol.SelectedBranchs.Add(br.BranchID);
                         }
-
+                        else
+                            Treecontrol.SelectedBranchs.Remove(br.BranchID);
+                        CheckNodes(e.Node, e.Node.Checked);
+                    }
                 }
+               
+                //else {
+                //    if (br.BranchType == EnumPointType.DataPoint)
+                //    {
+                //        if (e.Node.Checked)
+                //        {
+                //            CheckNodes(e.Node, true);
+                //        }
+                //        else
+                //            CheckNodes(e.Node, false);
+
+                //    }
+                //    else
+                //    {
+                //        if ((br.BranchType != EnumPointType.DataPoint) && (br.BranchType != EnumPointType.Entity))
+                //        {
+
+                //            if (e.Node.Checked)
+                //            {
+                //                e.Node.Checked = false;
+                //            }
+
+                //        }
+
+                //    }
+
+                //}
+               
+                
 
             }
             catch (Exception ex)
@@ -832,7 +844,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             try
             {
+                IsCheckingNodes=true;
                 SetChildrenChecked(node, node.Checked);
+                IsCheckingNodes = false;
             }
             catch (Exception ex)
             {
@@ -846,12 +860,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             foreach (TreeNode item in treeNode.Nodes)
             {
-                //if (item.Checked != checkedState)
-                //{
-
-                    // int vitem = Convert.ToInt32(item.Tag.ToString().Substring(item.Tag.ToString().IndexOf('-') + 1));
-                    item.Checked = checkedState;
-                    IBranch br = (IBranch)item.Tag;
+                item.Checked = checkedState;
+                IBranch br = (IBranch)item.Tag;
+                
                 if (item.Checked)
                     {
                         Treecontrol.SelectedBranchs.Add(Convert.ToInt32(br.ID));

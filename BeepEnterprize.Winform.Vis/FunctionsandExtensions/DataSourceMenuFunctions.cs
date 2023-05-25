@@ -7,6 +7,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Windows.Media;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -36,7 +37,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             ExtensionsHelpers=new FunctionandExtensionsHelpers(DMEEditor, pvisManager, ptreeControl);
         }
      
-        [CommandAttribute(Name = "Copy Entities", Caption = "Copy Entities", Click = true, iconimage = "copyentities.ico", PointType = EnumPointType.DataPoint,ObjectType ="Beep")]
+        [CommandAttribute(Name = "Select Entities", Caption = "Select Entities", Click = true, iconimage = "copyentities.ico", PointType = EnumPointType.DataPoint,ObjectType ="Beep")]
         public IErrorsInfo CopyEntities(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -58,7 +59,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 }
                
                 DMEEditor.AddLogMessage("Success", $"Copy Entites", DateTime.Now, 0, null, Errors.Ok);
-                ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", $"Copied  {ExtensionsHelpers.TreeEditor.SelectedBranchs.Count} Entities Successfully");
+                ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", $"Selected  {ExtensionsHelpers.TreeEditor.SelectedBranchs.Count} Entities Successfully");
             }
             catch (Exception ex)
             {
@@ -674,6 +675,53 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             catch (Exception ex)
             {
                 string mes = "Could not Add Database Connection";
+                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
+            };
+            return DMEEditor.ErrorObject;
+        }
+        [CommandAttribute(Caption = "Delete Selected files connections", Hidden = false, iconimage = "remove.ico", Click = true, PointType = EnumPointType.Root, ObjectType = "Beep", ClassType = "FILE")]
+        public IErrorsInfo RemoveFiles(IPassedArgs Passedarguments)
+        {
+            try
+            {
+                ExtensionsHelpers.GetValues(Passedarguments);
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
+                {
+                    List<EntityStructure> ls = new List<EntityStructure>();
+                    if (DMEEditor.Passedarguments != null)
+                    {
+                        if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
+                        {
+                            foreach (int item in ExtensionsHelpers.TreeEditor.SelectedBranchs)
+                            {
+                                IBranch br = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(item);
+                              
+                                 if(br.BranchType!= EnumPointType.Category)
+                                 {
+                                    if(br.BranchClass== "FILE")
+                                    {
+                                        IDataSource fds = DMEEditor.GetDataSource(br.DataSourceName);
+                                        if (fds != null)
+                                        {
+                                            if (fds.Category == DatasourceCategory.FILE)
+                                            {
+                                                DMEEditor.RemoveDataDource(fds.DatasourceName);
+                                                ExtensionsHelpers.TreeEditor.treeBranchHandler.RemoveBranch(br);
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+                ExtensionsHelpers.Vismanager.CloseWaitForm();
+                DMEEditor.AddLogMessage("Success", $"Removed Files connections", DateTime.Now, 0, null, Errors.Ok);
+            }
+            catch (Exception ex)
+            {
+                string mes = "Could not Remove Files Connection";
                 DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
             };
             return DMEEditor.ErrorObject;
