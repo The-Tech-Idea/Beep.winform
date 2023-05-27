@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -204,7 +205,6 @@ namespace BeepEnterprize.Winform.Vis
 
             return combo.SelectedValue.ToString();
         }
-
         public List<string> LoadFilesDialog(string exts, string dir, string filter)
         {
             OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog()
@@ -228,7 +228,21 @@ namespace BeepEnterprize.Winform.Vis
 
             return openFileDialog1.FileNames.ToList();
         }
-        
+        public string SelectFolderDialog()
+        {
+            string folderPath = string.Empty;
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            // Set validate names and check file exists to false otherwise windows will
+            // not let you select "Folder Selection."
+            folderBrowser.ShowNewFolderButton = true;
+            System.Windows.Forms.DialogResult result = folderBrowser.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                folderPath = folderBrowser.SelectedPath;
+                // ...
+            }
+            return folderPath;
+        }
         public string LoadFileDialog(string exts, string dir,string filter)
         {
             OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog()
@@ -1413,6 +1427,16 @@ namespace BeepEnterprize.Winform.Vis
 
                 return null;
             }
+        }
+
+        public bool ShowAlert()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowMessege()
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

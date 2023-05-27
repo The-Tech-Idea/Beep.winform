@@ -12,7 +12,6 @@ namespace BeepEnterprize.Winform.Vis
     {
         string DialogCombo(string text, List<object> comboSource, string DisplyMember, string ValueMember);
         IErrorsInfo GenerateEntityonControl(string entityname, object record, int width, string datasourceid, TransActionType TranType,  IPassedArgs passedArgs = null);
-        
         DialogResult InputBox(string title, string promptText, ref string value);
         DialogResult InputBoxYesNo(string title, string promptText);
         DialogResult InputComboBox(string title, string promptText, List<string> itvalues, ref string value);
@@ -21,6 +20,9 @@ namespace BeepEnterprize.Winform.Vis
         string SaveFileDialog(string exts, string dir, string filter);
         void MsgBox(string title, string promptText);
         List<FilterType> AddFilterTypes();
+        string SelectFolderDialog();
+        bool ShowAlert();
+        void ShowMessege();
         void CreateEntityFilterControls(  EntityStructure entityStructure, List<DefaultValue> dsdefaults, IPassedArgs passedArgs = null);
         void CreateFieldsFilterControls(List<EntityField> Fields, List<AppFilter> Filters, List<DefaultValue> dsdefaults, IPassedArgs passedArgs = null);
     }

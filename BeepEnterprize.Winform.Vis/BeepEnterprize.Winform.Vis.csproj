@@ -660,13 +660,13 @@
       <Version>3.7.9.2</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine">
-      <Version>1.0.38</Version>
+      <Version>1.0.40</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels">
-      <Version>1.0.34</Version>
+      <Version>1.0.35</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
-      <Version>1.0.12</Version>
+      <Version>1.0.13</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

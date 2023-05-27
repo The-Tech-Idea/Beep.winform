@@ -68,7 +68,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ML.NETExtensions", "..\Plug
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MLDOTNET", "MLDOTNET", "{C047B103-95EB-4D85-9AF9-42DD77E2DB4E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepEnterprizeTreeNodes", "..\Plugins\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.csproj", "{F66C068F-7733-49F6-A648-D6C85B4A7100}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.TreeNodes", "..\Plugins\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.csproj", "{F66C068F-7733-49F6-A648-D6C85B4A7100}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CompositeLayer", "CompositeLayer", "{D072585C-D5C4-46AF-9A7F-48EB1EFD2C26}"
 EndProject
@@ -340,7 +340,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DuckDBInterop", "..\Plugins
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Beep.DuckDb.Wrapper", "..\Plugins\Beep.DuckDb.Wrapper\Beep.DuckDb.Wrapper.vcxproj", "{7AF809D4-3C0F-48AA-8851-F9A0EAF2B9BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.PPDM39", "..\plugins\Beep.PPDM39\Beep.PPDM39.csproj", "{88B7CF2C-C7FC-43C5-8419-2672A1ECDFE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.PPDM39", "..\plugins\Beep.PPDM39\Beep.PPDM39.csproj", "{88B7CF2C-C7FC-43C5-8419-2672A1ECDFE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
