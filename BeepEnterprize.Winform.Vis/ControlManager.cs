@@ -232,6 +232,7 @@ namespace BeepEnterprize.Winform.Vis
         {
             string folderPath = string.Empty;
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            folderBrowser.SelectedPath = DMEEditor.ConfigEditor.Config.ProjectDataPath;
             // Set validate names and check file exists to false otherwise windows will
             // not let you select "Folder Selection."
             folderBrowser.ShowNewFolderButton = true;

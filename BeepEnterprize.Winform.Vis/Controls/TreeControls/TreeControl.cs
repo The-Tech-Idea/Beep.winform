@@ -723,6 +723,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
         #endregion
         #region "Filter Nodes"
         public string Filterstring { set { FilterString_TextChanged(value); } }
+
+       
+
         private TreeView TreeCache = new TreeView();
         private bool IsFiltering=false;
         public void FilterString_TextChanged(string value)
@@ -780,6 +783,23 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 }
             }
 
+        }
+
+      
+
+        public object GetTreeNodeByID(int id)
+        {
+            return GetTreeNodeByID(id, TreeV.Nodes);
+        }
+
+        public void RemoveNode(int id)
+        {
+            TreeNode tr = (TreeNode)GetTreeNodeByID(id, TreeV.Nodes);
+            if (tr != null)
+            {
+                TreeV.Nodes.Remove(tr);
+            }
+           
         }
         #endregion
     }

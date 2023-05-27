@@ -19,20 +19,20 @@ using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
-    public class FunctionandExtensionsHelpers
+    public class FunctionandExtensionsHelpers : IFunctionandExtensionsHelpers
     {
         public IDMEEditor DMEEditor { get; set; }
         public IPassedArgs Passedargs { get; set; }
-        public VisManager Vismanager { get; set; }
-        public ControlManager Controlmanager { get; set; }
-        public CrudManager Crudmanager { get; set; }
-        public MenuControl Menucontrol { get; set; }
-        public ToolbarControl Toolbarcontrol { get; set; }
-        public TreeControl TreeEditor { get; set; }
+        public IVisManager Vismanager { get; set; }
+        public IControlManager Controlmanager { get; set; }
+        public IDM_Addin Crudmanager { get; set; }
+        public IDM_Addin Menucontrol { get; set; }
+        public IDM_Addin Toolbarcontrol { get; set; }
+        public ITree TreeEditor { get; set; }
         public IProgress<PassedArgs> progress { get; set; }
         public CancellationToken token { get; set; }
 
-        public  IDataSource DataSource { get; set; }
+        public IDataSource DataSource { get; set; }
         public IBranch pbr { get; set; }
         public IBranch RootBranch { get; set; }
         public IBranch ParentBranch { get; set; }
@@ -78,7 +78,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             {
                 Toolbarcontrol = (ToolbarControl)Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").FirstOrDefault().obj;
             }
-           
+
             if (Passedarguments.Objects.Where(i => i.Name == "Branch").Any())
             {
                 Passedarguments.Objects.Remove(Passedarguments.Objects.Where(c => c.Name == "Branch").FirstOrDefault());
@@ -88,7 +88,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
             }
 
-           
+
             if (pbr != null)
             {
                 Passedarguments.DatasourceName = pbr.DataSourceName;
@@ -116,13 +116,13 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
                 Passedarguments.Objects.Add(new ObjectItem() { Name = "RootBranch", obj = RootBranch });
             }
-         
+
 
             if (Passedarguments.Objects.Where(i => i.Name == "RootBranch").Any())
             {
                 Passedarguments.Objects.Remove(Passedarguments.Objects.Where(c => c.Name == "RootBranch").FirstOrDefault());
             }
-         
+
             if (Passedarguments.Objects.Where(i => i.Name == "ParentBranch").Any())
             {
                 Passedarguments.Objects.Remove(Passedarguments.Objects.Where(c => c.Name == "ParentBranch").FirstOrDefault());
@@ -132,15 +132,21 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 DataSource = DMEEditor.GetDataSource(Passedarguments.DatasourceName);
                 DMEEditor.OpenDataSource(Passedarguments.DatasourceName);
             }
-           
-            
-          
+            if (progress == null)
+            {
+                progress = DMEEditor.progress;
+            }
+            if (token == null)
+            {
+
+            }
+
             ViewRootBranch = TreeEditor.Branches[TreeEditor.Branches.FindIndex(x => x.BranchClass == "VIEW" && x.BranchType == EnumPointType.Root)];
         }
         public Errors CreateView(string viewname)
         {
-          
-             try
+
+            try
             {
                 DMEEditor.ErrorObject.Ex = null;
                 DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -178,10 +184,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 DMEEditor.AddLogMessage("Dhub3", $"Error in  {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
             }
             return DMEEditor.ErrorObject.Flag;
-            
-           
+
+
         }
-        public List<EntityStructure> CreateEntitiesListFromSelectedBranchs ()
+        public List<EntityStructure> CreateEntitiesListFromSelectedBranchs()
         {
             List<EntityStructure> ls = new List<EntityStructure>();
             try
@@ -191,10 +197,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 int cnt = 0;
                 foreach (int item in TreeEditor.SelectedBranchs)
                 {
-                   
+
                     IBranch br = TreeEditor.treeBranchHandler.GetBranch(item);
                     IDataSource srcds = DMEEditor.GetDataSource(br.DataSourceName);
-                    if(br.BranchType== EnumPointType.Entity)
+                    if (br.BranchType == EnumPointType.Entity)
                     {
                         if (srcds != null)
                         {
@@ -215,22 +221,22 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                             //}
                             //if (!IsView)
                             //{
-                                entity.Caption = entity.EntityName.ToUpper();
-                                entity.DatasourceEntityName = entity.DatasourceEntityName;
-                                entity.Created = false;
-                                entity.DataSourceID = srcds.DatasourceName;
-                                entity.Id = cnt + 1;
-                                cnt += 1;
-                                entity.ParentId = 0;
-                                entity.ViewID = 0;
-                                entity.DatabaseType = srcds.DatasourceType;
-                                entity.Viewtype = ViewType.Table;
-                                ls.Add(entity);
-                          //  }
+                            entity.Caption = entity.EntityName.ToUpper();
+                            entity.DatasourceEntityName = entity.DatasourceEntityName;
+                            entity.Created = false;
+                            entity.DataSourceID = srcds.DatasourceName;
+                            entity.Id = cnt + 1;
+                            cnt += 1;
+                            entity.ParentId = 0;
+                            entity.ViewID = 0;
+                            entity.DatabaseType = srcds.DatasourceType;
+                            entity.Viewtype = ViewType.Table;
+                            ls.Add(entity);
+                            //  }
 
                         }
                     }
-                   
+
                 }
             }
             catch (Exception ex)
@@ -241,35 +247,36 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return ls;
 
         }
-        public Errors AddEntitiesToView(string datasourcename,List<EntityStructure> ls, IPassedArgs Passedarguments)
+        public Errors AddEntitiesToView(string datasourcename, List<EntityStructure> ls, IPassedArgs Passedarguments)
         {
-             try
-            {       IDataViewDataSource ds = (IDataViewDataSource)DMEEditor.GetDataSource(datasourcename);
-                    Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
-                    Passedarguments.ParameterString1 = $"Creating {ls.Count()} entities ...";
+            try
+            {
+                IDataViewDataSource ds = (IDataViewDataSource)DMEEditor.GetDataSource(datasourcename);
+                Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
+                Passedarguments.ParameterString1 = $"Creating {ls.Count()} entities ...";
+                Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                foreach (var item in ls)
+                {
+                    Passedarguments.ParameterString1 = $"Adding {item.EntityName} and Child if there is ...";
                     Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
-                    foreach (var item in ls)
+                    try
                     {
-                        Passedarguments.ParameterString1 = $"Adding {item.EntityName} and Child if there is ...";
-                        Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
-                        try
+                        if (ds.AddEntitytoDataView(item) == -1)
                         {
-                        if (ds.AddEntitytoDataView(item) ==-1)
-                        {
-                           
+
                         }
-                        }
-                        catch (Exception ex1)
-                        {
-                          DMEEditor.AddLogMessage("Dhub3", $"Error in adding {item.EntityName} - {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex1.Message}", DateTime.Now, 0, null, Errors.Ok);
-                        }
-                      
                     }
-                    Passedarguments.ParameterString1 = $"Done ...";
-                    Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
-                    Passedarguments.ParameterString1 = $"Done ...";
-                    Vismanager.CloseWaitForm();
-                    ds.WriteDataViewFile(ds.DatasourceName);
+                    catch (Exception ex1)
+                    {
+                        DMEEditor.AddLogMessage("Dhub3", $"Error in adding {item.EntityName} - {System.Reflection.MethodBase.GetCurrentMethod().Name} -  {ex1.Message}", DateTime.Now, 0, null, Errors.Ok);
+                    }
+
+                }
+                Passedarguments.ParameterString1 = $"Done ...";
+                Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                Passedarguments.ParameterString1 = $"Done ...";
+                Vismanager.CloseWaitForm();
+                ds.WriteDataViewFile(ds.DatasourceName);
                 //}
                 //else
                 //{
@@ -304,18 +311,18 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 lsnames = ds.GetEntitesList();
                 foreach (string item in lsnames)
                 {
-                            EntityStructure entity = (EntityStructure)ds.GetEntityStructure(item, false).Clone();
-                            entity.Caption = entity.EntityName.ToUpper();
-                            entity.DatasourceEntityName = entity.DatasourceEntityName;
-                            entity.Created = false;
-                            entity.DataSourceID = entity.DataSourceID;
-                            entity.Id = cnt + 1;
-                            cnt += 1;
-                            entity.ParentId = 0;
-                            entity.ViewID = 0;
-                            entity.DatabaseType = entity.DatabaseType;
-                            entity.Viewtype = ViewType.Table;
-                            ls.Add(entity);
+                    EntityStructure entity = (EntityStructure)ds.GetEntityStructure(item, false).Clone();
+                    entity.Caption = entity.EntityName.ToUpper();
+                    entity.DatasourceEntityName = entity.DatasourceEntityName;
+                    entity.Created = false;
+                    entity.DataSourceID = entity.DataSourceID;
+                    entity.Id = cnt + 1;
+                    cnt += 1;
+                    entity.ParentId = 0;
+                    entity.ViewID = 0;
+                    entity.DatabaseType = entity.DatabaseType;
+                    entity.Viewtype = ViewType.Table;
+                    ls.Add(entity);
 
                 }
             }
@@ -336,13 +343,15 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 List<string> filenames = new List<string>();
                 if (Directoryname == null)
                 {
-                    filenames = Vismanager.Controlmanager.LoadFilesDialog("*", DMEEditor.ConfigEditor.Config.Folders.Where(c => c.FolderFilesType == FolderFileTypes.DataFiles).FirstOrDefault().FolderPath, extens);
+                    Directoryname= Vismanager.Controlmanager.SelectFolderDialog();
                 }
-                else
+                if (!string.IsNullOrEmpty(Directoryname))
                 {
                     DirectorySearch(Directoryname);
+                   // retval = CreateFileConnections(filenames);
                 }
-                retval = CreateFileConnections(filenames);
+               
+                
                 return retval;
             }
             catch (Exception ex)
@@ -360,7 +369,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 {
                     // Console.WriteLine(Path.GetFileName(f));
                     CreateFileDataConnection(f);
-                    //  ExtensionsHelpers.TreeEditor.treeBranchHandler.MoveBranchToCategory
+                    
                 }
                 foreach (string d in Directory.GetDirectories(dir))
                 {
@@ -415,9 +424,9 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 {
                     f.FilePath = f.FilePath.Replace(DMEEditor.ConfigEditor.ExePath, ".");
                 }
-               
+
                 string ext = Path.GetExtension(file).Replace(".", "").ToLower();
-                List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null  && p.extensionstoHandle.Contains(ext) && p.Favourite == true).ToList();
+                List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null && p.extensionstoHandle.Contains(ext) && p.Favourite == true).ToList();
                 ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext) && o.Favourite == true).FirstOrDefault();
                 if (c is null)
                 {
@@ -535,10 +544,15 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             {
                 string pextens = DMEEditor.ConfigEditor.CreateFileExtensionString();
                 string pfilename = Vismanager.Controlmanager.LoadFileDialog("*", DMEEditor.ConfigEditor.Config.ProjectDataPath, pextens);
+                if(string.IsNullOrEmpty(pfilename))
+                {
+                    return null;
+
+                }
                 string pFileName = Path.GetFileName(pfilename);
                 string pFilePath = Path.GetDirectoryName(pfilename);
                 string pExt = Path.GetExtension(pfilename).Replace(".", "").ToLower();
-                if (!pFilePath.Contains(@"ProjectData"))
+                if (!pFilePath.Contains(DMEEditor.ConfigEditor.ExePath))
                 {
                     if (AskToCopyFile(pFileName, pFilePath))
                     {

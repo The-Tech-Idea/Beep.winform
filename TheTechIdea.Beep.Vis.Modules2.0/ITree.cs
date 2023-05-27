@@ -31,7 +31,9 @@ namespace BeepEnterprize.Vis.Module
             IErrorsInfo CreateRootTree();
             IErrorsInfo CreateFunctionExtensions(MethodsClass item);
             string Filterstring { set; }
-
+        IErrorsInfo TurnonOffCheckBox(IPassedArgs Passedarguments);
+        object GetTreeNodeByID( int id);
+        void RemoveNode(int id);
 
     }
 }

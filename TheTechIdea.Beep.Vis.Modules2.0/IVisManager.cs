@@ -30,7 +30,8 @@ namespace BeepEnterprize.Vis.Module
         bool IsDevModeOn { get; set; }
         int TreeIconSize { get; set; }
         bool TreeExpand { get; set; }
-
+        IFunctionandExtensionsHelpers Helpers { get; set; }
+      
         int SecondaryTreeIconSize { get; set; }
         bool SecondaryTreeExpand { get; set; }
         string AppObjectsName { get; set; }

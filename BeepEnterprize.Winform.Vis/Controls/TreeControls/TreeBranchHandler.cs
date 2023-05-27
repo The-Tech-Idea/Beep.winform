@@ -788,8 +788,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 {
                     IBranch br = (IBranch)e.Node.Tag;
                     IsCheckingNodes = true;
-                    if (br.BranchType == EnumPointType.Entity || br.BranchType == EnumPointType.DataPoint || br.BranchType == EnumPointType.Category)
-                    {
+                    
 
                         if (e.Node.Checked)
                         {
@@ -798,7 +797,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         else
                             Treecontrol.SelectedBranchs.Remove(br.BranchID);
                         CheckNodes(e.Node, e.Node.Checked);
-                    }
+                    
                 }
                
                 //else {
