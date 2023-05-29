@@ -294,8 +294,16 @@
       <Link>LoadingExtensions\Beep.Skia.Loader.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.Skia.WinformNet\Beep.Skia.WinformNet.dll">
-      <Link>ProjectClasses\Skia\Beep.Skia.WinformNet.dll</Link>
+    <Content Include="..\..\outputDLL\Beep.Skia.Model\netstandard2.0\Beep.Skia.Model.dll">
+      <Link>ProjectClasses\Skia\Beep.Skia.Model.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Skia.Winform\net48\Beep.Skia.Winform.dll">
+      <Link>ProjectClasses\Skia\Beep.Skia.Winform.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Skia\netstandard2.0\Beep.Skia.dll">
+      <Link>ProjectClasses\Skia\Beep.Skia.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\CompositeLayerNodes\netstandard2.0\CompositeLayerNodes.dll">
@@ -1496,9 +1504,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\Py\HereweputClasses.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Skia\Beep.Skia.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\Skia\OpenTK.dll">
