@@ -7,9 +7,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheTechIdea;
 
 namespace BeepEnterprize.Winform.Vis.Controls
 {
@@ -22,11 +24,23 @@ namespace BeepEnterprize.Winform.Vis.Controls
         Point _imageLocation = new Point(20, 4);
         Point _imgHitArea = new Point(20, 4);
 
+        public event EventHandler<ContainerEvents> AddinAdded;
+        public event EventHandler<ContainerEvents> AddinRemoved;
+        public event EventHandler<ContainerEvents> AddinMoved;
+        public event EventHandler<ContainerEvents> AddinChanging;
+        public event EventHandler<ContainerEvents> AddinChanged;
 
         public uc_Container()
         {
             InitializeComponent();
+            TabContainerPanel.TabIndexChanged += TabContainerPanel_TabIndexChanged;
           
+        }
+
+        private void TabContainerPanel_TabIndexChanged(object sender, EventArgs e)
+        {
+
+           
         }
 
         private void TabContainerPanel_MouseClick(object sender, MouseEventArgs e)
@@ -41,7 +55,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
                                          CloseImage.Height);
                 if (imageRect.Contains(e.Location))
                 {
+                    
                     this.TabContainerPanel.TabPages.RemoveAt(i);
+                    //AddinChanged?.Invoke(this, new ContainerEvents() { Control = TabContainerPanel.TabPages[i], TitleText = control.AddinName });
                     break;
                 }
             }
@@ -68,7 +84,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             catch (Exception ex) { }
         }
 
-        public bool AddControl(string TitleText, object pcontrol, ContainerTypeEnum pcontainerType)
+        public bool AddControl(string TitleText, IDM_Addin pcontrol, ContainerTypeEnum pcontainerType)
         {
             Control control = (Control)pcontrol;
             ContainerType = pcontainerType;
@@ -163,9 +179,21 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 drawRectangle.Height);
         }
 
-        public bool RemoveControl(string TitleText, object control)
+        public bool RemoveControl(string TitleText, IDM_Addin control)
         {
-            throw new NotImplementedException();
+            bool retval = true;
+            AddinRemoved?.Invoke(this, new ContainerEvents() { Control = control, TitleText = control.AddinName });
+            return retval;
+        }
+
+      
+
+        public bool ShowControl(string TitleText, IDM_Addin control)
+        {
+            bool retval = true;
+            AddinAdded?.Invoke(this, new ContainerEvents() { Control = control, TitleText = control.AddinName });
+            return retval;
+
         }
     }
    

@@ -44,7 +44,7 @@ namespace BeepEnterprize.Vis.Module
          bool ShowTreeWindow { get ; set; }
         int Width { get; set; }
         int Height { get; set; }
-
+        List<IDM_Addin> Addins { get; set; }
         IWaitForm WaitForm { get; set; }
         IErrorsInfo LoadSetting();
         IErrorsInfo SaveSetting();
@@ -54,7 +54,7 @@ namespace BeepEnterprize.Vis.Module
         IErrorsInfo CloseAddin();
         IErrorsInfo PrintGrid(IPassedArgs passedArgs);
         IDM_Addin ShowUserControlPopUp(string usercontrolname, IDMEEditor pDMEEditor, string[] args, IPassedArgs e);
-        IErrorsInfo ShowPage(string pagename,  PassedArgs Passedarguments,  DisplayType displayType = DisplayType.InControl);
+        IErrorsInfo ShowPage(string pagename,  PassedArgs Passedarguments,  DisplayType displayType = DisplayType.InControl,bool Singleton=false);
         IErrorsInfo ShowWaitForm(PassedArgs Passedarguments);
         IErrorsInfo PasstoWaitForm(PassedArgs Passedarguments);
         IErrorsInfo CloseWaitForm();

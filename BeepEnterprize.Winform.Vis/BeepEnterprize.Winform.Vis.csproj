@@ -75,6 +75,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddinsShownData.cs" />
     <Compile Include="Controls\BeepTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -666,7 +667,7 @@
       <Version>1.0.37</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
-      <Version>1.0.18</Version>
+      <Version>1.0.21</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

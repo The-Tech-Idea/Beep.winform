@@ -6,6 +6,7 @@ using System;
 using System.Drawing;
 
 using System.Windows.Forms;
+using TheTechIdea;
 
 namespace BeepEnterprize.Winform.Vis.Controls
 {
@@ -17,13 +18,19 @@ namespace BeepEnterprize.Winform.Vis.Controls
         Image CloseImage;
         Point _imageLocation = new Point(30, 4);
         Point _imgHitArea = new Point(30, 4);
-
-
+        public event EventHandler<ContainerEvents> AddinAdded;
+        public event EventHandler<ContainerEvents> AddinRemoved;
+        public event EventHandler<ContainerEvents> AddinMoved;
+        public event EventHandler<ContainerEvents> AddinChanging;
+        public event EventHandler<ContainerEvents> AddinChanged;
         public uc_Container_1()
         {
             InitializeComponent();
           
         }
+
+        
+        
 
         private void TabContainerPanel_MouseClick(object sender, MouseEventArgs e)
         {
@@ -64,7 +71,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             catch (Exception ex) { }
         }
 
-        public bool AddControl(string TitleText,object pcontrol, ContainerTypeEnum pcontainerType)
+        public bool AddControl(string TitleText,IDM_Addin pcontrol, ContainerTypeEnum pcontainerType)
         {
             Control control=(Control)pcontrol;
 
@@ -162,9 +169,18 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 drawRectangle.Height);
         }
 
-        public bool RemoveControl(string TitleText, object control)
+        public bool RemoveControl(string TitleText, IDM_Addin control)
         {
-            throw new NotImplementedException();
+            bool retval = true;
+            AddinRemoved?.Invoke(this, new ContainerEvents() { Control = control, TitleText = control.AddinName });
+            return retval;
+        }
+
+        public bool ShowControl(string TitleText, IDM_Addin control)
+        {
+            bool retval = true;
+            AddinAdded?.Invoke(this, new ContainerEvents() { Control = control, TitleText = control.AddinName });
+            return retval;
         }
     }
    
