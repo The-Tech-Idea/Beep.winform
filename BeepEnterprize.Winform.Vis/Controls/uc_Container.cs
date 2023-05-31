@@ -182,7 +182,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public bool RemoveControl(string TitleText, IDM_Addin control)
         {
             bool retval = true;
-            AddinRemoved?.Invoke(this, new ContainerEvents() { Control = control, TitleText = control.AddinName });
+            AddinRemoved?.Invoke(this, new ContainerEvents() { Control = control, TitleText = TitleText });
             return retval;
         }
 
@@ -191,7 +191,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public bool ShowControl(string TitleText, IDM_Addin control)
         {
             bool retval = true;
-            AddinAdded?.Invoke(this, new ContainerEvents() { Control = control, TitleText = control.AddinName });
+            AddinAdded?.Invoke(this, new ContainerEvents() { Control = control, TitleText = TitleText });
             return retval;
 
         }

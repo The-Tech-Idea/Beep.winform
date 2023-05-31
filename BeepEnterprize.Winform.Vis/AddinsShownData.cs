@@ -16,5 +16,6 @@ namespace BeepEnterprize.Winform.Vis
         public IDM_Addin Addin { get; set; }
         public string GuidID { get; set; } = Guid.NewGuid().ToString();
         public bool IsSingleton { get; set; } = false;
+        public bool IsShown { get; set; }=false;
     }
 }
