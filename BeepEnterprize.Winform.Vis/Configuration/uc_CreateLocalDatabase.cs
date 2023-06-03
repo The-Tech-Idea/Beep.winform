@@ -125,6 +125,7 @@ namespace BeepEnterprize.Winform.Vis
                 dataConnection.ID = DMEEditor.ConfigEditor.DataConnections.Max(y => y.ID) + 1;
                 dataConnection.FilePath = ".\\"+InstallFoldercomboBox.Text;
                 dataConnection.FileName = databaseTextBox.Text;
+                dataConnection.IsLocal = true;
                 dataConnection.ConnectionString =  package.ConnectionString; //Path.Combine(dataConnection.FilePath, dataConnection.FileName);
                 if (dataConnection.FilePath.Contains(DMEEditor.ConfigEditor.ExePath))
                 {

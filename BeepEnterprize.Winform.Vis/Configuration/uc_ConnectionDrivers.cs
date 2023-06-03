@@ -82,12 +82,14 @@ namespace BeepEnterprize.Winform.Vis
             DMEEditor = pbl;
            
             List<Icon> icons=new List<Icon>();
-           
-          
+            this.classHandlerComboBox.DisplayMember="className";
+            this.classHandlerComboBox.ValueMember = "className";
+
+
             Visutil = (IVisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
             foreach(AssemblyClassDefinition cls in DMEEditor.ConfigEditor.DataSourcesClasses)
             {
-                this.classHandlerComboBox.Items.Add(cls.className);
+                this.classHandlerComboBox.Items.Add(cls);
             }
             foreach (var item in Enum.GetValues(typeof(DatasourceCategory)))
             {
@@ -121,11 +123,30 @@ namespace BeepEnterprize.Winform.Vis
             }
             
             connectiondriversConfigBindingSource.DataSource = DMEEditor.ConfigEditor.DataDriversClasses;
+            connectiondriversConfigBindingSource.CurrentItemChanged += ConnectiondriversConfigBindingSource_CurrentItemChanged;
             uc_bindingNavigator1.bindingSource = connectiondriversConfigBindingSource;
             uc_bindingNavigator1.SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, new string[] { }, e, DMEEditor.ErrorObject);
             uc_bindingNavigator1.HightlightColor = Color.Yellow;
             uc_bindingNavigator1.SaveCalled += Uc_bindingNavigator1_SaveCalled;
             this.connectiondriversConfigDataGridView.DataError += ConnectiondriversConfigDataGridView_DataError;
+        }
+
+        private void ConnectiondriversConfigBindingSource_CurrentItemChanged(object sender, EventArgs e)
+        {
+            ConnectionDriversConfig cfg= (ConnectionDriversConfig)connectiondriversConfigBindingSource.Current;
+            if (cfg != null)
+            {
+                if (!string.IsNullOrEmpty(cfg.classHandler))
+                {
+                    AssemblyClassDefinition cls = DMEEditor.ConfigEditor.DataSourcesClasses.FirstOrDefault(p => p.className == cfg.classHandler);
+                    if (cls != null)
+                    {
+                        cfg.CreateLocal = cls.LocalDB;
+                        cfg.InMemory = cls.InMemory;
+                        
+                    }
+                }
+            }
         }
 
         private void Uc_bindingNavigator1_SaveCalled(object sender, BindingSource e)
@@ -153,6 +174,7 @@ namespace BeepEnterprize.Winform.Vis
                         cfg.parameter1 = item.parameter1;
                         cfg.parameter2 = item.parameter2;
                         cfg.parameter3 = item.parameter3;
+                       
 
                     }
                   

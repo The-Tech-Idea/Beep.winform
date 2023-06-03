@@ -42,6 +42,7 @@ namespace BeepEnterprize.Winform.Vis
             this.DatasourceCategoryComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DatasourceTypeComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.classHandlerComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.InMemory = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CreateLocal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ADOType = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Favourite = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -60,9 +61,6 @@ namespace BeepEnterprize.Winform.Vis
             // 
             // connectiondriversConfigDataGridView
             // 
-            this.connectiondriversConfigDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.connectiondriversConfigDataGridView.AutoGenerateColumns = false;
             this.connectiondriversConfigDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -80,6 +78,7 @@ namespace BeepEnterprize.Winform.Vis
             this.DatasourceCategoryComboBox,
             this.DatasourceTypeComboBox,
             this.classHandlerComboBox,
+            this.InMemory,
             this.CreateLocal,
             this.ADOType,
             this.Favourite,
@@ -89,12 +88,13 @@ namespace BeepEnterprize.Winform.Vis
             this.extensionstoHandle,
             this.ConnectionString});
             this.connectiondriversConfigDataGridView.DataSource = this.connectiondriversConfigBindingSource;
-            this.connectiondriversConfigDataGridView.Location = new System.Drawing.Point(2, 2);
+            this.connectiondriversConfigDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.connectiondriversConfigDataGridView.Location = new System.Drawing.Point(0, 0);
             this.connectiondriversConfigDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.connectiondriversConfigDataGridView.Name = "connectiondriversConfigDataGridView";
             this.connectiondriversConfigDataGridView.RowHeadersWidth = 62;
             this.connectiondriversConfigDataGridView.RowTemplate.Height = 28;
-            this.connectiondriversConfigDataGridView.Size = new System.Drawing.Size(1331, 623);
+            this.connectiondriversConfigDataGridView.Size = new System.Drawing.Size(1335, 624);
             this.connectiondriversConfigDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn5
@@ -116,8 +116,6 @@ namespace BeepEnterprize.Winform.Vis
             // uc_bindingNavigator1
             // 
             this.uc_bindingNavigator1.AddinName = null;
-            this.uc_bindingNavigator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.uc_bindingNavigator1.BackColor = System.Drawing.Color.White;
             this.uc_bindingNavigator1.bindingSource = null;
             this.uc_bindingNavigator1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -129,11 +127,12 @@ namespace BeepEnterprize.Winform.Vis
             this.uc_bindingNavigator1.DllName = null;
             this.uc_bindingNavigator1.DllPath = null;
             this.uc_bindingNavigator1.DMEEditor = null;
+            this.uc_bindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uc_bindingNavigator1.EntityName = null;
             this.uc_bindingNavigator1.EntityStructure = null;
             this.uc_bindingNavigator1.ErrorObject = null;
             this.uc_bindingNavigator1.HightlightColor = System.Drawing.Color.Red;
-            this.uc_bindingNavigator1.Location = new System.Drawing.Point(2, 625);
+            this.uc_bindingNavigator1.Location = new System.Drawing.Point(0, 624);
             this.uc_bindingNavigator1.Logger = null;
             this.uc_bindingNavigator1.Name = "uc_bindingNavigator1";
             this.uc_bindingNavigator1.NameSpace = null;
@@ -142,7 +141,7 @@ namespace BeepEnterprize.Winform.Vis
             this.uc_bindingNavigator1.ParentName = null;
             this.uc_bindingNavigator1.Passedarg = null;
             this.uc_bindingNavigator1.SelectedColor = System.Drawing.Color.Green;
-            this.uc_bindingNavigator1.Size = new System.Drawing.Size(1331, 31);
+            this.uc_bindingNavigator1.Size = new System.Drawing.Size(1335, 31);
             this.uc_bindingNavigator1.TabIndex = 2;
             this.uc_bindingNavigator1.VerifyDelete = true;
             // 
@@ -158,7 +157,7 @@ namespace BeepEnterprize.Winform.Vis
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "PackageName";
             this.dataGridViewTextBoxColumn1.HeaderText = "Package Name";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
@@ -167,34 +166,45 @@ namespace BeepEnterprize.Winform.Vis
             // 
             // DatasourceCategoryComboBox
             // 
-            this.DatasourceCategoryComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DatasourceCategoryComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.DatasourceCategoryComboBox.DataPropertyName = "DatasourceCategory";
             this.DatasourceCategoryComboBox.HeaderText = "Category";
             this.DatasourceCategoryComboBox.Name = "DatasourceCategoryComboBox";
+            this.DatasourceCategoryComboBox.Width = 79;
             // 
             // DatasourceTypeComboBox
             // 
-            this.DatasourceTypeComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DatasourceTypeComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.DatasourceTypeComboBox.DataPropertyName = "DatasourceType";
             this.DatasourceTypeComboBox.HeaderText = "Type";
             this.DatasourceTypeComboBox.Name = "DatasourceTypeComboBox";
+            this.DatasourceTypeComboBox.Width = 50;
             // 
             // classHandlerComboBox
             // 
-            this.classHandlerComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.classHandlerComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.classHandlerComboBox.DataPropertyName = "classHandler";
             this.classHandlerComboBox.HeaderText = "Class Handler";
             this.classHandlerComboBox.MinimumWidth = 8;
             this.classHandlerComboBox.Name = "classHandlerComboBox";
+            this.classHandlerComboBox.Width = 104;
+            // 
+            // InMemory
+            // 
+            this.InMemory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.InMemory.DataPropertyName = "InMemory";
+            this.InMemory.HeaderText = "InMemory";
+            this.InMemory.Name = "InMemory";
+            this.InMemory.Width = 83;
             // 
             // CreateLocal
             // 
             this.CreateLocal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.CreateLocal.DataPropertyName = "CreateLocal";
-            this.CreateLocal.HeaderText = "Create Local";
+            this.CreateLocal.HeaderText = "Local";
             this.CreateLocal.MinimumWidth = 8;
             this.CreateLocal.Name = "CreateLocal";
-            this.CreateLocal.Width = 96;
+            this.CreateLocal.Width = 53;
             // 
             // ADOType
             // 
@@ -207,29 +217,33 @@ namespace BeepEnterprize.Winform.Vis
             // 
             // Favourite
             // 
+            this.Favourite.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.Favourite.DataPropertyName = "Favourite";
             this.Favourite.HeaderText = "Fav";
             this.Favourite.Name = "Favourite";
+            this.Favourite.Width = 40;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "DriverClass";
             this.dataGridViewTextBoxColumn2.HeaderText = "Driver Class";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 111;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "version";
             this.dataGridViewTextBoxColumn3.HeaderText = "Version";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 88;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn4.DataPropertyName = "dllname";
             this.dataGridViewTextBoxColumn4.HeaderText = "DLL";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
@@ -238,9 +252,11 @@ namespace BeepEnterprize.Winform.Vis
             // 
             // extensionstoHandle
             // 
+            this.extensionstoHandle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.extensionstoHandle.DataPropertyName = "extensionstoHandle";
             this.extensionstoHandle.HeaderText = "Extensions to Handle";
             this.extensionstoHandle.Name = "extensionstoHandle";
+            this.extensionstoHandle.Width = 124;
             // 
             // ConnectionString
             // 
@@ -277,6 +293,7 @@ namespace BeepEnterprize.Winform.Vis
         private System.Windows.Forms.DataGridViewComboBoxColumn DatasourceCategoryComboBox;
         private System.Windows.Forms.DataGridViewComboBoxColumn DatasourceTypeComboBox;
         private System.Windows.Forms.DataGridViewComboBoxColumn classHandlerComboBox;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn InMemory;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CreateLocal;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ADOType;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Favourite;
