@@ -188,11 +188,11 @@ namespace BeepEnterprize.Winform.Vis
                 dataConnectionsBindingSource.EndEdit();
 
                 ds = (List<ConnectionProperties>)dataConnectionsBindingSource.DataSource;
-                foreach (var item in ds)
-                {
-                    DMEEditor.ConfigEditor.UpdateDataConnection(item, DataSourceCategoryType);
-                }
-                
+                //foreach (var item in ds)
+                //{
+                //    DMEEditor.ConfigEditor.UpdateDataConnection(item, DataSourceCategoryType);
+                //}
+                DMEEditor.ConfigEditor.DataConnections = ds;
                 DMEEditor.ConfigEditor.SaveDataconnectionsValues();
                 if (branch != null)
                 {

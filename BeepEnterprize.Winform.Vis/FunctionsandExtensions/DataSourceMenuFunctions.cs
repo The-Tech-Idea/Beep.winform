@@ -154,23 +154,24 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                             }
                             else
                             {  bool getdata=false; 
-                                if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep", "Do you want to Copy Data Also?") == DialogResult.OK)
+                                if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep", "Do you want to Copy Data Also?") == DialogResult.Yes)
                                 {
                                    getdata = true ;
                                 }
-                                DMEEditor.ETL.Script = new ETLScriptHDR();
-                                DMEEditor.ETL.Script.id = 1;
+                                ETLScriptHDR script = new ETLScriptHDR();
+                                script.id = 1;
                                 Passedarguments.Messege = $"Get Create Entity Scripts  ...";
                                 ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
-                                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, ExtensionsHelpers.progress, ExtensionsHelpers.token, DDLScriptType.CreateEntity);
+                                script.ScriptDTL.AddRange(DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, ExtensionsHelpers.progress, ExtensionsHelpers.token));
                                 if (getdata)
                                 {
                                     Passedarguments.Messege = $"Get Copy Data Entity Scripts  ...";
                                     ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
-                                    DMEEditor.ETL.Script.ScriptDTL.AddRange(DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, ExtensionsHelpers.progress, ExtensionsHelpers.token, DDLScriptType.CopyData));
+                                    script.ScriptDTL.AddRange(DMEEditor.ETL.GetCopyDataEntityScript(ExtensionsHelpers.DataSource, ls, ExtensionsHelpers.progress, ExtensionsHelpers.token));
                                 }
                                 Passedarguments.ParameterString1 = $"Done ...";
                                 ExtensionsHelpers.Vismanager.CloseWaitForm();
+                                DMEEditor.ETL.Script = script;
                                 ExtensionsHelpers.Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
                             }
                             ExtensionsHelpers.pbr.CreateChildNodes();

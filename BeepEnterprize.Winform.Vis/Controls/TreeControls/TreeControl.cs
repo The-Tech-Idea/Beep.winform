@@ -178,7 +178,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 Branches = new List<IBranch>();
                 foreach (AssemblyClassDefinition cls in DMEEditor.ConfigEditor.BranchesClasses.Where(p=>p.classProperties != null).OrderBy(x => x.Order))
                 {
-                    Type adc = DMEEditor.assemblyHandler.GetType(cls.PackageName);
+                    Type adc = DMEEditor.assemblyHandler.GetType(cls.type.AssemblyQualifiedName);
                     ConstructorInfo ctor = adc.GetConstructors().Where(o => o.GetParameters().Length == 0).FirstOrDefault();
                 
                     if (ctor != null)

@@ -372,7 +372,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.Controls.Add(this.MainWinfowPanle);
             this.Controls.Add(this.TopMenuPanel);
             this.DoubleBuffered = true;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+        //    this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "Frm_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

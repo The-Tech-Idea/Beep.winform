@@ -188,12 +188,12 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
                 DMEEditor.ETL.Script.id = 1;
                 Passedarguments.Messege = $"Get Create Entity Scripts  ...";
                 visManager.PasstoWaitForm((PassedArgs)Passedarguments);
-                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ds, Entities, progress, token, DDLScriptType.CreateEntity);
+                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ds, Entities, progress, token);
                 if (getdata)
                 {
                     Passedarguments.Messege = $"Get Copy Data Entity Scripts  ...";
                     visManager.PasstoWaitForm((PassedArgs)Passedarguments);
-                    DMEEditor.ETL.Script.ScriptDTL.AddRange(DMEEditor.ETL.GetCreateEntityScript(ds, Entities, progress, token, DDLScriptType.CopyData));
+                    DMEEditor.ETL.Script.ScriptDTL.AddRange(DMEEditor.ETL.GetCopyDataEntityScript(ds, Entities, progress, token));
                 }
                 Passedarguments.ParameterString1 = $"Done ...";
                 visManager.CloseWaitForm();

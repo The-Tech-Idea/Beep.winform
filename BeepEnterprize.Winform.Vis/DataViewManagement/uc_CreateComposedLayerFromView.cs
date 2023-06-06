@@ -259,14 +259,13 @@ namespace BeepEnterprize.Winform.Vis.DataViewManagement
                 }
 
 
-                DMEEditor.ETL.Script = new ETLScriptHDR();
-                DMEEditor.ETL.Script.id = 1;
+               
                 var progress = new Progress<PassedArgs>(percent => {
                 });
                 CancellationTokenSource tokenSource = new CancellationTokenSource();
                 CancellationToken token = tokenSource.Token;
-                DMEEditor.ETL.Script = new ETLScriptHDR();
-                DMEEditor.ETL.Script.id = 1;
+                ETLScriptHDR script = new ETLScriptHDR();
+                script.id = 1;
                 bool getdata = false;
                 PassedArgs Passedarguments = new PassedArgs();
                 if (visManager.Controlmanager.InputBoxYesNo("Beep", "Do you want to Copy Data Also?") == BeepEnterprize.Vis.Module.DialogResult.OK)
@@ -276,16 +275,16 @@ namespace BeepEnterprize.Winform.Vis.DataViewManagement
                 Passedarguments.Messege = $"Get Create Entity Scripts  ...";
                 visManager.PasstoWaitForm((PassedArgs)Passedarguments);
 
-                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(vds, ls, progress, token, DDLScriptType.CreateEntity);
+                script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(vds, ls, progress, token);
                 if (getdata)
                 {
                     Passedarguments.Messege = $"Get Copy Data Entity Scripts  ...";
                     visManager.PasstoWaitForm((PassedArgs)Passedarguments);
-                    DMEEditor.ETL.Script.ScriptDTL.AddRange(DMEEditor.ETL.GetCreateEntityScript(vds, ls, progress, token, DDLScriptType.CopyData));
+                    script.ScriptDTL.AddRange(DMEEditor.ETL.GetCopyDataEntityScript(vds, ls, progress, token));
                 }
                 Passedarguments.ParameterString1 = $"Done ...";
                 visManager.CloseWaitForm();
-
+                DMEEditor.ETL.Script=script;
               //  DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(vds, ls, progress, token);
                 visManager.ShowPage("uc_CopyEntities", (PassedArgs)DMEEditor.Passedarguments, DisplayType.Popup);
             }
