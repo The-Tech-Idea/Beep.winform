@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using BeepEnterprize.Winform.Vis.ETL.ImportData;
 using TheTechIdea;
 using TheTechIdea.Beep;
@@ -57,7 +58,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
         public CopyEntityManager copyEntityManager { get; set; }
         public void Run(IPassedArgs pPassedarg)
         {
-            throw new NotImplementedException();
+            
         }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
@@ -69,29 +70,45 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             {
                 visManager = (VisManager)e.Objects.Where(c => c.Name == "VISUTIL").FirstOrDefault().obj;
             }
-            //if (e.Objects.Where(c => c.Name == "CopyEntityManager").Any())
-            //{
-            //    copyEntityManager = (CopyEntityManager)e.Objects.Where(c => c.Name == "CopyEntityManager").FirstOrDefault().obj;
-            //}
-           // dataSource=DMEEditor.GetDataSource(e.DatasourceName);
-            this.dataConnectionsBindingSource.DataSource = DMEEditor.ConfigEditor.DataConnections;
 
+            this.dataConnectionsBindingSource.DataSource = DMEEditor.ConfigEditor.DataConnections;
             scriptBindingSource.DataSource = DMEEditor.ETL.Script.ScriptDTL;
             EntitiesnumericUpDown.Minimum = 0;
-            //if (dataSource != null)
-            //{
-            //dataSource.Openconnection();
-            // if(dataSource.ConnectionStatus== ConnectionState.Open)
-            // {
-            
-                   
-                    EntitiesnumericUpDown.Maximum = DMEEditor.ETL.Script.ScriptDTL.Count() + 1;
-                    EntitiesnumericUpDown.Value = DMEEditor.ETL.Script.ScriptDTL.Count();
-                   
-               // }
-           // }
+            EntitiesnumericUpDown.Maximum = DMEEditor.ETL.Script.ScriptDTL.Count() + 1;
+            EntitiesnumericUpDown.Value = DMEEditor.ETL.Script.ScriptDTL.Count();
             this.RunMainScripButton.Click += RunMainScripButton_Click;
             this.StopButton.Click += StopButton_Click;
+            this.scriptDataGridView.CellContentClick += ScriptDataGridView_CellContentClick;
+            this.SaveScriptbutton.Click += SaveScriptbutton_Click;
+        }
+
+        private void SaveScriptbutton_Click(object sender, EventArgs e)
+        {
+           if(DMEEditor.ETL.Script.ScriptDTL.Count > 0)
+            {
+                string filepath= DMEEditor.ConfigEditor.ConfigPath + "\\Scripts\\" + DMEEditor.ETL.Script.scriptName+ ".json";
+                DMEEditor.ConfigEditor.JsonLoader.Serialize(filepath,DMEEditor.ETL.Script); ;
+            }
+        }
+
+        private void ScriptDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                string result = "";
+                visManager.Controlmanager.InputBox("Enter Entity Name", "Entity Name", ref  result);
+                if (!string.IsNullOrEmpty(result))
+                {
+                    ETLScriptDet scriptDet = (ETLScriptDet)this.scriptBindingSource.Current;
+                    scriptDet.destinationentityname = result;
+                    scriptDet.destinationDatasourceEntityName = result;
+                    
+
+                }
+            }
         }
 
         private void StopButton_Click(object sender, EventArgs e)
@@ -182,6 +199,43 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
 
 
 
+        }
+        public bool TrueifEntityExist(string entityname, string datasource)
+        {
+            bool retval = false;
+
+            if (DMEEditor != null)
+            {
+                IDataSource DataSource = DMEEditor.GetDataSource(datasource);
+                if (DataSource.Openconnection() == System.Data.ConnectionState.Open)
+                {
+                    EntityStructure ent = DataSource.GetEntityStructure(entityname, false);
+                    if (ent != null)
+                    {
+                        retval = true;
+                    }
+
+                }
+            }
+            return retval;
+        }
+        public List<string> ValidateScripts()
+        {
+            List<string> retval = new List<string>();
+            if (DMEEditor != null)
+            {
+                foreach (ETLScriptDet scriptDet in DMEEditor.ETL.Script.ScriptDTL)
+                {
+                    if (scriptDet.destinationentityname != null)
+                    {
+                        if (!TrueifEntityExist(scriptDet.destinationentityname, scriptDet.destinationDatasourceEntityName))
+                        {
+                            retval.Add($"Entity Exists Already {scriptDet.destinationentityname}");
+                        }
+                    }
+                }
+            }
+            return retval;
         }
     }
 }

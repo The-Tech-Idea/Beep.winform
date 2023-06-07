@@ -53,6 +53,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Beep.IDE.WinformCore">
+      <HintPath>..\..\plugins\Beep.IDE.WinformCore\obj\Debug\net48\Beep.IDE.WinformCore.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -227,6 +230,12 @@
       <DependentUpon>uc_CreateViewQueryEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="ETL\CopyEntityandData\CopyEntityManager.cs" />
+    <Compile Include="ETL\CopyEntityandData\frm_EditScriptRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ETL\CopyEntityandData\frm_EditScriptRecord.Designer.cs">
+      <DependentUpon>frm_EditScriptRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="ETL\CopyEntityandData\uc_CopyEntities.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -496,6 +505,9 @@
     <EmbeddedResource Include="DataViewManagement\uc_CreateViewQueryEntity.resx">
       <DependentUpon>uc_CreateViewQueryEntity.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ETL\CopyEntityandData\frm_EditScriptRecord.resx">
+      <DependentUpon>frm_EditScriptRecord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ETL\CopyEntityandData\uc_CopyEntities.resx">
       <DependentUpon>uc_CopyEntities.cs</DependentUpon>
     </EmbeddedResource>
@@ -583,6 +595,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\TheTechIdea.Beep.DataBase.EntityStructure.datasource" />
+    <None Include="Properties\DataSources\TheTechIdea.Beep.Editor.ETL.datasource" />
     <None Include="Properties\DataSources\TheTechIdea.Beep.Workflow.Mapping.EntityDataMap.datasource" />
     <None Include="Properties\DataSources\TheTechIdea.Beep.Workflow.Mapping.EntityDataMap_DTL.datasource" />
     <None Include="Resources\close_window_26px.png" />
@@ -661,10 +674,10 @@
       <Version>3.7.9.3</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine">
-      <Version>1.0.52</Version>
+      <Version>1.0.53</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels">
-      <Version>1.0.45</Version>
+      <Version>1.0.46</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
       <Version>1.0.21</Version>

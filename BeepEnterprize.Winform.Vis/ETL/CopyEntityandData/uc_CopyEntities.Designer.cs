@@ -34,8 +34,6 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.scriptDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataConnectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.scriptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.LogtextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.EntitiesnumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -47,10 +45,10 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.panel3 = new System.Windows.Forms.Panel();
             this.progressBar1 = new BeepEnterprize.Winform.Vis.Controls.TextProgressBar();
             this.StopButton = new System.Windows.Forms.Button();
-            this.loadDataLogsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.scriptTypeComboBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinationentityname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Failed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -58,15 +56,20 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.IsModified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.sourcedatasourcename = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.destinationdatasourcename = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.errormessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataConnectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ddlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scriptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loadDataLogsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SaveScriptbutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scriptDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scriptBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EntitiesnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorsAllowdnumericUpDown)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scriptBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadDataLogsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +85,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 72);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1262, 557);
+            this.panel1.Size = new System.Drawing.Size(1262, 621);
             this.panel1.TabIndex = 22;
             // 
             // scriptDataGridView
@@ -96,6 +99,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.scriptDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.scriptDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.scriptDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.EditButton,
             this.scriptTypeComboBox,
             this.destinationentityname,
             this.Failed,
@@ -103,29 +107,22 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.IsModified,
             this.sourcedatasourcename,
             this.destinationdatasourcename,
-            this.ddlDataGridViewTextBoxColumn});
+            this.ddlDataGridViewTextBoxColumn,
+            this.errormessage});
             this.scriptDataGridView.DataSource = this.scriptBindingSource;
-            this.scriptDataGridView.Enabled = false;
             this.scriptDataGridView.Location = new System.Drawing.Point(8, 56);
             this.scriptDataGridView.MultiSelect = false;
             this.scriptDataGridView.Name = "scriptDataGridView";
             this.scriptDataGridView.ShowCellErrors = false;
-            this.scriptDataGridView.Size = new System.Drawing.Size(1254, 376);
+            this.scriptDataGridView.ShowRowErrors = false;
+            this.scriptDataGridView.Size = new System.Drawing.Size(1254, 440);
             this.scriptDataGridView.TabIndex = 33;
-            // 
-            // dataConnectionsBindingSource
-            // 
-            this.dataConnectionsBindingSource.DataSource = typeof(TheTechIdea.Util.ConnectionProperties);
-            // 
-            // scriptBindingSource
-            // 
-            this.scriptBindingSource.DataSource = typeof(TheTechIdea.Beep.Editor.ETLScriptDet);
             // 
             // LogtextBox
             // 
             this.LogtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LogtextBox.Location = new System.Drawing.Point(3, 438);
+            this.LogtextBox.Location = new System.Drawing.Point(3, 502);
             this.LogtextBox.Multiline = true;
             this.LogtextBox.Name = "LogtextBox";
             this.LogtextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -210,11 +207,12 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             // 
             this.panel3.BackColor = System.Drawing.Color.SteelBlue;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.SaveScriptbutton);
             this.panel3.Controls.Add(this.progressBar1);
             this.panel3.Controls.Add(this.RunMainScripButton);
             this.panel3.Controls.Add(this.StopButton);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 590);
+            this.panel3.Location = new System.Drawing.Point(0, 654);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1262, 39);
             this.panel3.TabIndex = 27;
@@ -241,10 +239,6 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.StopButton.TabIndex = 28;
             this.StopButton.Text = "Stop";
             this.StopButton.UseVisualStyleBackColor = true;
-            // 
-            // loadDataLogsBindingSource
-            // 
-            this.loadDataLogsBindingSource.DataSource = typeof(TheTechIdea.Beep.Workflow.LoadDataLogResult);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -273,6 +267,14 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.dataGridViewTextBoxColumn3.HeaderText = "Messege";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // EditButton
+            // 
+            this.EditButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.EditButton.HeaderText = "Edit";
+            this.EditButton.Name = "EditButton";
+            this.EditButton.UseColumnTextForButtonValue = true;
+            this.EditButton.Width = 31;
             // 
             // scriptTypeComboBox
             // 
@@ -328,12 +330,43 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.destinationdatasourcename.Name = "destinationdatasourcename";
             this.destinationdatasourcename.ValueMember = "ConnectionName";
             // 
+            // errormessage
+            // 
+            this.errormessage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.errormessage.DataPropertyName = "errormessage";
+            this.errormessage.HeaderText = "Message";
+            this.errormessage.Name = "errormessage";
+            this.errormessage.ReadOnly = true;
+            // 
+            // dataConnectionsBindingSource
+            // 
+            this.dataConnectionsBindingSource.DataSource = typeof(TheTechIdea.Util.ConnectionProperties);
+            // 
             // ddlDataGridViewTextBoxColumn
             // 
             this.ddlDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ddlDataGridViewTextBoxColumn.DataPropertyName = "ddl";
             this.ddlDataGridViewTextBoxColumn.HeaderText = "Script";
             this.ddlDataGridViewTextBoxColumn.Name = "ddlDataGridViewTextBoxColumn";
+            this.ddlDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // scriptBindingSource
+            // 
+            this.scriptBindingSource.DataSource = typeof(TheTechIdea.Beep.Editor.ETLScriptDet);
+            // 
+            // loadDataLogsBindingSource
+            // 
+            this.loadDataLogsBindingSource.DataSource = typeof(TheTechIdea.Beep.Workflow.LoadDataLogResult);
+            // 
+            // SaveScriptbutton
+            // 
+            this.SaveScriptbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.SaveScriptbutton.Location = new System.Drawing.Point(1075, 6);
+            this.SaveScriptbutton.Name = "SaveScriptbutton";
+            this.SaveScriptbutton.Size = new System.Drawing.Size(75, 23);
+            this.SaveScriptbutton.TabIndex = 29;
+            this.SaveScriptbutton.Text = "Save Script";
+            this.SaveScriptbutton.UseVisualStyleBackColor = true;
             // 
             // uc_CopyEntities
             // 
@@ -343,17 +376,17 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "uc_CopyEntities";
-            this.Size = new System.Drawing.Size(1262, 629);
+            this.Size = new System.Drawing.Size(1262, 693);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scriptDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scriptBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EntitiesnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorsAllowdnumericUpDown)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scriptBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadDataLogsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -380,6 +413,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
         private System.Windows.Forms.DataGridView scriptDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewButtonColumn EditButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn scriptTypeComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn destinationentityname;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Failed;
@@ -388,5 +422,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
         private System.Windows.Forms.DataGridViewComboBoxColumn sourcedatasourcename;
         private System.Windows.Forms.DataGridViewComboBoxColumn destinationdatasourcename;
         private System.Windows.Forms.DataGridViewTextBoxColumn ddlDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn errormessage;
+        private System.Windows.Forms.Button SaveScriptbutton;
     }
 }

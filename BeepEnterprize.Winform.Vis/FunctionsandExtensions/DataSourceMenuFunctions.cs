@@ -172,6 +172,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                 Passedarguments.ParameterString1 = $"Done ...";
                                 ExtensionsHelpers.Vismanager.CloseWaitForm();
                                 DMEEditor.ETL.Script = script;
+                                DMEEditor.ETL.Script.scriptName = ExtensionsHelpers.pbr.BranchText;
                                 ExtensionsHelpers.Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
                             }
                             ExtensionsHelpers.pbr.CreateChildNodes();

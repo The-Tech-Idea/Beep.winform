@@ -197,7 +197,7 @@ namespace BeepEnterprize.Winform.Vis.CRUD
         }
         public object GetData()
         {
-            return ds.GetEntity(crudManager.EntityStructure.DatasourceEntityName, crudManager.EntityStructure.Filters);
+            return ds.GetEntity(crudManager.EntityStructure.EntityName, crudManager.EntityStructure.Filters);
         }
         public void SetupConnection(string DatasourceName, PassedArgs e)
         {
