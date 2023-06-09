@@ -230,12 +230,6 @@
       <DependentUpon>uc_CreateViewQueryEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="ETL\CopyEntityandData\CopyEntityManager.cs" />
-    <Compile Include="ETL\CopyEntityandData\frm_EditScriptRecord.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ETL\CopyEntityandData\frm_EditScriptRecord.Designer.cs">
-      <DependentUpon>frm_EditScriptRecord.cs</DependentUpon>
-    </Compile>
     <Compile Include="ETL\CopyEntityandData\uc_CopyEntities.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -383,47 +377,60 @@
     <Compile Include="ETL\CreateEntity\uc_createeditentityrelations.Designer.cs">
       <DependentUpon>uc_createeditentityrelations.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_Cloud.cs">
+    <Compile Include="Wizards\ManageDataConnection\DataConnectionManager.cs" />
+    <Compile Include="Wizards\ManageDataConnection\Frm_Cloud.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_Cloud.Designer.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_Cloud.Designer.cs">
       <DependentUpon>Frm_Cloud.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_File.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_File.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_File.Designer.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_File.Designer.cs">
       <DependentUpon>Frm_File.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_MessegingQueue.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_MessegingQueue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_MessegingQueue.Designer.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_MessegingQueue.Designer.cs">
       <DependentUpon>Frm_MessegingQueue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_RDBMS.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_RDBMS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_RDBMS.Designer.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_RDBMS.Designer.cs">
       <DependentUpon>Frm_RDBMS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_SelectDataSource.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_SelectDataSource.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_SelectDataSource.Designer.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_SelectDataSource.Designer.cs">
       <DependentUpon>Frm_SelectDataSource.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_View.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_View.Designer.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_View.Designer.cs">
       <DependentUpon>Frm_View.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_WebApi.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_WebApi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Wizards\DataConnection\Frm_WebApi.Designer.cs">
+    <Compile Include="Wizards\ManageDataConnection\Frm_WebApi.Designer.cs">
       <DependentUpon>Frm_WebApi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\ManageDataConnection\uc_ConnectionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\ManageDataConnection\uc_ConnectionList.Designer.cs">
+      <DependentUpon>uc_ConnectionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\ManageDataConnection\uc_connectionTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\ManageDataConnection\uc_connectionTypes.Designer.cs">
+      <DependentUpon>uc_connectionTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Wizards\Frm_Wizard.cs">
       <SubType>Form</SubType>
@@ -505,9 +512,6 @@
     <EmbeddedResource Include="DataViewManagement\uc_CreateViewQueryEntity.resx">
       <DependentUpon>uc_CreateViewQueryEntity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ETL\CopyEntityandData\frm_EditScriptRecord.resx">
-      <DependentUpon>frm_EditScriptRecord.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ETL\CopyEntityandData\uc_CopyEntities.resx">
       <DependentUpon>uc_CopyEntities.cs</DependentUpon>
     </EmbeddedResource>
@@ -570,23 +574,29 @@
     <EmbeddedResource Include="ETL\CreateEntity\uc_createeditEntitymain.resx">
       <DependentUpon>uc_createeditEntitymain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizards\DataConnection\Frm_Cloud.resx">
+    <EmbeddedResource Include="Wizards\ManageDataConnection\Frm_Cloud.resx">
       <DependentUpon>Frm_Cloud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizards\DataConnection\Frm_File.resx">
+    <EmbeddedResource Include="Wizards\ManageDataConnection\Frm_File.resx">
       <DependentUpon>Frm_File.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizards\DataConnection\Frm_RDBMS.resx">
+    <EmbeddedResource Include="Wizards\ManageDataConnection\Frm_RDBMS.resx">
       <DependentUpon>Frm_RDBMS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizards\DataConnection\Frm_SelectDataSource.resx">
+    <EmbeddedResource Include="Wizards\ManageDataConnection\Frm_SelectDataSource.resx">
       <DependentUpon>Frm_SelectDataSource.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizards\DataConnection\Frm_View.resx">
+    <EmbeddedResource Include="Wizards\ManageDataConnection\Frm_View.resx">
       <DependentUpon>Frm_View.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizards\DataConnection\Frm_WebApi.resx">
+    <EmbeddedResource Include="Wizards\ManageDataConnection\Frm_WebApi.resx">
       <DependentUpon>Frm_WebApi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ManageDataConnection\uc_ConnectionList.resx">
+      <DependentUpon>uc_ConnectionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\ManageDataConnection\uc_connectionTypes.resx">
+      <DependentUpon>uc_connectionTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizards\Frm_Wizard.resx">
       <DependentUpon>Frm_Wizard.cs</DependentUpon>
@@ -595,6 +605,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\TheTechIdea.Beep.DataBase.EntityStructure.datasource" />
+    <None Include="Properties\DataSources\TheTechIdea.Beep.DMEEditor.datasource" />
     <None Include="Properties\DataSources\TheTechIdea.Beep.Editor.ETL.datasource" />
     <None Include="Properties\DataSources\TheTechIdea.Beep.Workflow.Mapping.EntityDataMap.datasource" />
     <None Include="Properties\DataSources\TheTechIdea.Beep.Workflow.Mapping.EntityDataMap_DTL.datasource" />
@@ -674,10 +685,10 @@
       <Version>3.7.9.3</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine">
-      <Version>1.0.53</Version>
+      <Version>1.0.66</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels">
-      <Version>1.0.46</Version>
+      <Version>1.0.47</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
       <Version>1.0.21</Version>

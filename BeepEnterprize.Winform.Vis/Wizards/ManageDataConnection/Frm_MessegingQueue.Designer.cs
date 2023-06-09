@@ -1,5 +1,5 @@
 ﻿
-namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
+namespace BeepEnterprize.Winform.Vis.Wizards.ManageDataConnection
 {
     partial class Frm_MessegingQueue
     {

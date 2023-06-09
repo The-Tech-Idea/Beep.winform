@@ -16,12 +16,12 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
+namespace BeepEnterprize.Winform.Vis.Wizards.ManageDataConnection
 {
-    [AddinAttribute(Caption = "Messege and Queue Connection", Name = "Frm_MessegingQueue", misc = "Wizard", addinType = AddinType.Form)]
-    public partial class Frm_MessegingQueue : Form, IDM_Addin, IWizardComponent
+    [AddinAttribute(Caption = "View Connection", Name = "Frm_View", misc = "Wizard", addinType = AddinType.Form)]
+    public partial class Frm_View : Form, IDM_Addin, IWizardComponent
     {
-        public Frm_MessegingQueue()
+        public Frm_View()
         {
             InitializeComponent();
         }

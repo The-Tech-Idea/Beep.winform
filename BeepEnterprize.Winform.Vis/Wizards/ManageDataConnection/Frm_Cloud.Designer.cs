@@ -1,7 +1,7 @@
 ﻿
-namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
+namespace BeepEnterprize.Winform.Vis.Wizards.ManageDataConnection
 {
-    partial class Frm_RDBMS
+    partial class Frm_Cloud
     {
         /// <summary>
         /// Required designer variable.
@@ -52,18 +52,18 @@ namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
             this.label1.ForeColor = System.Drawing.Color.Gold;
             this.label1.Location = new System.Drawing.Point(42, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(257, 32);
+            this.label1.Size = new System.Drawing.Size(219, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Database Connection";
+            this.label1.Text = "Cloud Connection";
             // 
-            // Frm_RDBMS
+            // Frm_Cloud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Name = "Frm_RDBMS";
-            this.Text = "Frm_RDBMS";
+            this.Name = "Frm_Cloud";
+            this.Text = "Frm_Cloud";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

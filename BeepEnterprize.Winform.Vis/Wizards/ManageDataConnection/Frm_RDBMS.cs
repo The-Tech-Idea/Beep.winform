@@ -16,13 +16,12 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-
-namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
+namespace BeepEnterprize.Winform.Vis.Wizards.ManageDataConnection
 {
-    [AddinAttribute(Caption = "WebAPI Connection", Name = "Frm_WebApi", misc = "Wizard", addinType = AddinType.Form)]
-    public partial class Frm_WebApi : Form, IDM_Addin, IWizardComponent
+    [AddinAttribute(Caption = "RDMS Connection", Name = "Frm_RDBMS", misc = "Wizard", addinType = AddinType.Form)]
+    public partial class Frm_RDBMS : Form, IDM_Addin, IWizardComponent
     {
-        public Frm_WebApi()
+        public Frm_RDBMS()
         {
             InitializeComponent();
         }
