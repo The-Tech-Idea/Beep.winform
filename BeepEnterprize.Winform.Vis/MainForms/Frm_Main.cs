@@ -211,6 +211,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             }
             ///----------------------------------------
             this.Shown += Frm_Main_Shown;
+            this.FormClosing += Frm_Main_FormClosing;
             startLoggin = true;
             visManager.CloseWaitForm();
             this.Filterbutton.Click += Filterbutton_Click;
@@ -233,6 +234,50 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.ShowInTaskbar = true;
             this.ResumeLayout(true);
             this.TreeFilterTextBox.Focus();
+        }
+
+        private void Frm_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            startLoggin = false;
+            visManager.ShowWaitForm((PassedArgs)Passedarg);
+            Passedarg.ParameterString1 = "Closing All Connections";
+            visManager.PasstoWaitForm((PassedArgs)Passedarg);
+            foreach (var item in DMEEditor.DataSources)
+            {
+                Passedarg.ParameterString1 = $"Closing Connection {item.DatasourceName}";
+                visManager.PasstoWaitForm((PassedArgs)Passedarg);
+                item.Closeconnection();
+                item.Dispose();
+                Passedarg.ParameterString1 = $"Finished Closing Connection {item.DatasourceName}";
+                visManager.PasstoWaitForm((PassedArgs)Passedarg);
+            }
+            Passedarg.ParameterString1 = $"Closed All Connections ";
+            visManager.PasstoWaitForm((PassedArgs)Passedarg);
+            wait(3000);
+
+
+        }
+        public void wait(int milliseconds)
+        {
+            var timer1 = new System.Windows.Forms.Timer();
+            if (milliseconds == 0 || milliseconds < 0) return;
+
+            // Console.WriteLine("start wait timer");
+            timer1.Interval = milliseconds;
+            timer1.Enabled = true;
+            timer1.Start();
+
+            timer1.Tick += (s, e) =>
+            {
+                timer1.Enabled = false;
+                timer1.Stop();
+                // Console.WriteLine("stop wait timer");
+            };
+
+            while (timer1.Enabled)
+            {
+                Application.DoEvents();
+            }
         }
         private void RemoveAppGui()
         {

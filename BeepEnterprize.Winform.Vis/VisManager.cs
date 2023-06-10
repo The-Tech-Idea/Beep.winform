@@ -186,6 +186,7 @@ namespace BeepEnterprize.Winform.Vis
                     DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
                 }
             }
+         
         }
 
         private void Container_AddinChanged(object sender, ContainerEvents e)
@@ -731,6 +732,7 @@ namespace BeepEnterprize.Winform.Vis
                     }
                    
                     form.ShowDialog();
+                    
 
                 }
                 else

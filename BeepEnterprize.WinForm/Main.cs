@@ -106,10 +106,7 @@ namespace BeepEnterprize.Winform
                 // the screen has to be in one the Addin DLL's loaded by the Assembly loader
                 // Config_editor.Config.SystemEntryFormName = @"MainForm";
                 Config_editor.Config.SystemEntryFormName = @"Frm_Main";
-                //AppDomain.CurrentDomain.FirstChanceException += (sender, eventArgs) =>
-                //{
-                //    DMEEditor.AddLogMessage("Beep",eventArgs.Exception.ToString(),DateTime.Now,0,null,Errors.Failed);
-                //};
+                
                 DMEEditor.AddLogMessage("Show Main Page");
                 // Show Beep Data Management System Tree
                 vis.BeepObjectsName = "Beep";

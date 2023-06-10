@@ -97,7 +97,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
                                 if (srcds != null)
                                 {
-                                    EntityStructure entity = (EntityStructure)srcds.GetEntityStructure(br.BranchText, true).Clone();
+                                    EntityStructure entity = (EntityStructure)srcds.GetEntityStructure(br.BranchText, false).Clone();
                                     bool IsView = false;
                                    
                                     if (ExtensionsHelpers.DataSource.CheckEntityExist(entity.EntityName))
@@ -108,11 +108,11 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
                                             ////entity.EntityName = entity.EntityName +$"_{entcnt+1}"
                                             //entity.EntityName = entity.EntityName + $"_{srcds.DatasourceName}";
-                                            IsView = false;
+                                            IsView = true;
                                         }
                                         else
                                         {
-                                            IsView = true;
+                                            IsView = false;
                                             DMEEditor.AddLogMessage("Fail", $"Could Not Paste Entity {entity.EntityName}, it already exist", DateTime.Now, -1, null, Errors.Failed);
                                         }
                                     }
