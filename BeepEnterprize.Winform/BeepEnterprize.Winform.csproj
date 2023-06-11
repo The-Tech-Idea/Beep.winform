@@ -326,6 +326,10 @@
       <Link>ProjectClasses\DataSources\CouchDBDataSourceCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\DataSources\DuckDBDataSourceCore\netstandard2.0\DuckDBDataSourceCore.dll">
+      <Link>ProjectClasses\DataSources\DuckDBDataSourceCore.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\DataSources\FireBaseDataSourceCore\netstandard2.0\FireBaseDataSourceCore.dll">
       <Link>ProjectClasses\DataSources\FireBaseDataSourceCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -527,6 +531,9 @@
     <Content Include="ConnectionDrivers\DnsClient.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ConnectionDrivers\duckdb_odbc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ConnectionDrivers\Google.Protobuf.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -669,6 +676,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ConnectionDrivers\StackExchange.Redis.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConnectionDrivers\System.Data.Odbc.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ConnectionDrivers\System.Data.SqlClient.dll">
@@ -2029,12 +2039,6 @@
     <Content Include="ConnectionDrivers\Couchbase.Lite.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ConnectionDrivers\Devart.Data.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\Devart.Data.Oracle.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ConnectionDrivers\Elasticsearch.Net.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2239,7 +2243,7 @@
       <Version>1.0.80</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels">
-      <Version>1.0.49</Version>
+      <Version>1.0.50</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DMLogger">
       <Version>1.0.1</Version>
