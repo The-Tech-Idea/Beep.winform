@@ -506,8 +506,8 @@
       <Link>ProjectClasses\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\Plugins\BranchAssemblyLoader\bin\Release\netstandard2.0\BranchAssemblyLoader.dll">
-      <Link>LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader.dll</Link>
+    <Content Include="..\..\outputDLL\TheTechIdea.Beep.Vis.Loader\netstandard2.0\TheTechIdea.Beep.Vis.Loader.dll">
+      <Link>LoadingExtensions\AssemblyLoaderExtension\TheTechIdea.Beep.Vis.Loader.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Addin\HereweAddAllVisualAddin.txt">
@@ -1311,7 +1311,7 @@
     <Content Include="LoadingExtensions\AssemblyLoaderAI\HereweAddLoadingAssemblyExtensions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LoadingExtensions\AssemblyLoaderExtension\HereweAddLoadingAssemblyExtensions.txt">
+    <Content Include="LoadingExtensions\IBranchLoaderExtension\HereweAddLoadingAssemblyExtensions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LoadingExtensions\BusinessProcess\HereweAddLoadingAssemblyExtensions - Copy %282%29.txt">
@@ -2256,9 +2256,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj">
-      <Project>{d185808c-5d43-454a-9468-829e122c2c2a}</Project>
-      <Name>BeepEnterprize.Winform.Vis</Name>
+    <ProjectReference Include="..\..\BeepEnterprize.winform.net6\Beep.Winform.Vis\Beep.Winform.Vis.csproj">
+      <Project>{cc635cb6-4736-4abd-bd3e-dfceb73b1bf9}</Project>
+      <Name>Beep.Winform.Vis</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
