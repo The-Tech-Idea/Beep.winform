@@ -236,8 +236,8 @@
       <Link>ProjectClasses\IDE\Beep.IDE.Nodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.IDE.Winform\Beep.IDE.Winform.dll">
-      <Link>ProjectClasses\IDE\Beep.IDE.Winform.dll</Link>
+    <Content Include="..\..\outputDLL\Beep.IDE.WinformCore\net48\Beep.IDE.WinformCore.dll">
+      <Link>ProjectClasses\IDE\Beep.IDE.WinformCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.InMemory.Logic\netstandard2.0\Beep.InMemory.Logic.dll">
