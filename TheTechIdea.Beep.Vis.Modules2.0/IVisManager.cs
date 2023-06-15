@@ -58,5 +58,14 @@ namespace BeepEnterprize.Vis.Module
         IErrorsInfo ShowWaitForm(PassedArgs Passedarguments);
         IErrorsInfo PasstoWaitForm(PassedArgs Passedarguments);
         IErrorsInfo CloseWaitForm();
+        IErrorsInfo ShowHome();
+      
+        string HomePageTitle { get; set; }
+        string HomePageDescription { get; set; }
+        IProfile DefaultProfile { get; set; }
+        List<IPrivilege> Privileges { get; set; }
+        List<IUser>    Users { get; set; }
+
+
     }
 }
