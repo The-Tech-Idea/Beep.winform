@@ -17,6 +17,13 @@ namespace BeepEnterprize.Vis.Module
         WizardState State { get; set; }
          int StartLeft { get; set; }
          int StartTop { get; set; } 
+        bool Isloaded { get; set; }
+        bool IsSaved { get; set; }  
+        bool IsEdited { get; set; }
+        bool IsEditing { get; set; }
+        bool IsHidden { get; set; }
+        bool IsVisible { get; set; }
+
          int CurrentIdx { get;  }
         IDMEEditor DMEEditor { get; set; }
         void MoveNext();
