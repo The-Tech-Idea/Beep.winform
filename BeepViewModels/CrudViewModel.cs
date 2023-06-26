@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Report;
 using TheTechIdea.Util;
 
-namespace TheTechIdea.Beep.ViewModels
+namespace Beep.ViewModels
 {
     public partial class CrudViewModel<T> :BaseViewModel, ICrud<T> where T : class, new()
     {

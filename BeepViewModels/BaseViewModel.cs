@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheTechIdea.Beep.ViewModels.Enums;
+using Beep.ViewModels.Enums;
+using TheTechIdea.Beep;
 
-namespace TheTechIdea.Beep.ViewModels
+namespace Beep.ViewModels
 {
     public partial class BaseViewModel : ObservableObject
     {

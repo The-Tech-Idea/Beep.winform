@@ -10,7 +10,7 @@ using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Collections.ObjectModel;
 
-namespace TheTechIdea.Beep.ViewModels
+namespace Beep.ViewModels
 {
     public partial class DataConnectionViewModel : BaseViewModel, ICrud<ConnectionProperties>
     {
@@ -20,7 +20,7 @@ namespace TheTechIdea.Beep.ViewModels
         ObservableCollection<ConnectionProperties> connections;
 
        
-        public DataConnectionViewModel(IDMEEditor dMEditor) : base(dMEditor)
+        public DataConnectionViewModel(TheTechIdea.Beep.IDMEEditor dMEditor) : base(dMEditor)
         {
             DMEditor = dMEditor;
             connections=new ObservableCollection<ConnectionProperties>();
@@ -31,7 +31,7 @@ namespace TheTechIdea.Beep.ViewModels
         public Task<IErrorsInfo> Delete(int id)
         {
             RecordTraces.Add(new RecordTrace() { ID = id, OriginalStatus = Enums.RecordStatus.Modified, Status = Enums.RecordStatus.Deleted });
-            bool retval = Task.Run<bool>(() => DMEditor.ConfigEditor.RemoveConnByID(id)).Result ;
+            bool retval = Task.Run(() => DMEditor.ConfigEditor.RemoveConnByID(id)).Result ;
             if (retval)
             {
                 DMEditor.ErrorObject.Flag = Errors.Ok;
@@ -67,7 +67,7 @@ namespace TheTechIdea.Beep.ViewModels
         public Task<IErrorsInfo> Insert(ConnectionProperties doc)
         {
             UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.New, Enums.RecordStatus.New);
-            bool retval = Task.Run<bool>(() => DMEditor.ConfigEditor.AddDataConnection(doc)).Result;
+            bool retval = Task.Run(() => DMEditor.ConfigEditor.AddDataConnection(doc)).Result;
             if (retval)
             {
                 UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.New, Enums.RecordStatus.Idle);
@@ -81,7 +81,7 @@ namespace TheTechIdea.Beep.ViewModels
         public Task<IErrorsInfo> Update(ConnectionProperties doc)
         {
 
-            bool retval = Task.Run<bool>(() => DMEditor.ConfigEditor.UpdateDataConnection(doc,doc.Category.ToString())).Result;
+            bool retval = Task.Run(() => DMEditor.ConfigEditor.UpdateDataConnection(doc,doc.Category.ToString())).Result;
             if (retval)
             {
                 UpdateRecordTrace(doc.ID, null, Enums.RecordStatus.Modified, Enums.RecordStatus.Idle);

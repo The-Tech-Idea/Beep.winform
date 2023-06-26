@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace TheTechIdea.Beep.ViewModels
+namespace Beep.ViewModels
 {
     public class ObjectBase : INotifyPropertyChanged
     {

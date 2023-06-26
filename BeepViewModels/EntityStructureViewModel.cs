@@ -3,9 +3,10 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
 
-namespace TheTechIdea.Beep.ViewModels
+namespace Beep.ViewModels
 {
     public partial class EntityStructureViewModel : BaseViewModel
     {

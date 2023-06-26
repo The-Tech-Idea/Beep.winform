@@ -3,9 +3,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TheTechIdea.Beep.ViewModels.Enums;
+using Beep.ViewModels.Enums;
 
-namespace TheTechIdea.Beep.ViewModels
+namespace Beep.ViewModels
 {
     public partial class RecordTrace : ObservableObject
     {

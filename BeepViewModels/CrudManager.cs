@@ -16,7 +16,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.CRUD
+namespace Beep.ViewModels.CRUD
 {
     [AddinAttribute(Caption = "Crud Manager", Name = "CRUDMANAGER", misc = "CRUD",addinType =AddinType.Class)]
     public class CrudManager<T> : IDM_Addin where T : class

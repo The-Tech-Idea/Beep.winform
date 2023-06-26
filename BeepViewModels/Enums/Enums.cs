@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TheTechIdea.Beep.ViewModels.Enums
+namespace Beep.ViewModels.Enums
 {
    
     public enum RecordStatus
