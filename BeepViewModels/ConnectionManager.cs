@@ -13,29 +13,59 @@ namespace Beep.ViewModels
 {
     public static class ConnectionManager
     {
-        public static ConnectionState SetupConnection(IDMEEditor DMEEditor, string DatasourceName, PassedArgs e)
+        public static IErrorsInfo OpenConnection(IDMEEditor DMEEditor, string DatasourceName)
+        {
+            DMEEditor.ErrorObject.Flag = Errors.Ok;
+            DMEEditor.ErrorObject.Message = null;
+            try
+            {
+                IDataSource ds;
+
+                ds = DMEEditor.GetDataSource(DatasourceName);
+                if (ds != null)
+                {
+                    ds.Openconnection();
+
+                    if (ds != null && ds.ConnectionStatus == ConnectionState.Open)
+                    {
+                        DMEEditor.ErrorObject.Flag = Errors.Ok;
+                    }
+                    else
+                        DMEEditor.AddLogMessage("Beep", $"Could not Connect to  DataSource  {DatasourceName}", DateTime.Now, 0, null, Errors.Failed);
+                }
+                else
+                    DMEEditor.AddLogMessage("Beep", $"Could not Find DataSource  {DatasourceName}", DateTime.Now, 0, null, Errors.Failed);
+
+
+            }
+            catch (Exception ex)
+            {
+                DMEEditor.AddLogMessage("Beep", $"Error And Failure not Connect to  DataSource  {DatasourceName}- {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
+            }
+
+            return DMEEditor.ErrorObject;
+
+        }
+        public static ConnectionState SetupEntityConnection(IDMEEditor DMEEditor, string DatasourceName,string entityname,EntityStructure entityStructure = null)
         {
             IDataSource ds;
-            PassedArgs Passedarg = e;
+         
             ds = DMEEditor.GetDataSource(DatasourceName);
-            EntityStructure entityStructure = null;
+          
             Type CurrentType;
             if (ds != null)
             {
                 ds.Openconnection();
-                //  ds.ConnectionStatus = ds.Dataconnection.ConnectionStatus;
+               
                 if (ds != null && ds.ConnectionStatus == ConnectionState.Open)
                 {
-                   string EntityName = e.CurrentEntity;
+                   string EntityName = entityname;
 
-                    if (e.Objects.Where(c => c.Name == "EntityStructure").Any())
+                    if (entityStructure == null)
                     {
-                        entityStructure = (EntityStructure)e.Objects.Where(c => c.Name == "EntityStructure").FirstOrDefault().obj;
-                    }
-                    else
-                    {
-                        entityStructure = ds.GetEntityStructure(EntityName, true);
-                        e.Objects.Add(new ObjectItem { Name = "EntityStructure", obj = entityStructure });
+                     
+                        entityStructure = ds.GetEntityStructure(EntityName, false);
+                      
                     }
                     if (entityStructure != null)
                     {
@@ -46,13 +76,9 @@ namespace Beep.ViewModels
                             {
                                 if (entityStructure.Fields.Count > 0)
                                 {
-                                    listEntities.SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, null, e, DMEEditor.ErrorObject);
-                                    entityStructure.Filters = new List<AppFilter>();
-                                    List<DefaultValue> defaults = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == ds.DatasourceName)].DatasourceDefaults;
-
-                                    visManager.Controlmanager.CreateEntityFilterControls(entityStructure, defaults, e);
+                                    CurrentType = ds.GetEntityType(entityStructure.EntityName);
                                 }
-                                CurrentType = ds.GetEntityType(entityStructure.EntityName);
+                             
                             }
                             else
                             {
@@ -84,15 +110,48 @@ namespace Beep.ViewModels
         }
         public static List<DefaultValue> Getdefaults(IDMEEditor DMEEditor, string DatasourceName, PassedArgs e)
         {
-            IDataSource ds;
-            PassedArgs Passedarg = e;
+            DMEEditor.ErrorObject.Message = null;
+            DMEEditor.ErrorObject.Flag = Errors.Ok;
             List<DefaultValue> defaults = null;
-            if (SetupConnection(DMEEditor, DatasourceName, e)== ConnectionState.Open)
+            try
             {
-                ds = DMEEditor.GetDataSource(DatasourceName);
-                 defaults = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == ds.DatasourceName)].DatasourceDefaults;
+                ConnectionProperties cn = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == DatasourceName)];
+                if (cn != null)
+                {
+                    defaults = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == DatasourceName)].DatasourceDefaults;
+                }
+                else DMEEditor.AddLogMessage("Beep", $"Could not Find DataSource  {DatasourceName}", DateTime.Now, 0, null, Errors.Failed);
+               
             }
-            return defaults; 
+            catch (Exception ex)
+            {
+                DMEEditor.AddLogMessage("Beep", $"Could not Save DataSource Defaults Values {DatasourceName}- {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
+              
+            }
+            return defaults;
+
+        }
+        public static IErrorsInfo Savedefaults(IDMEEditor DMEEditor, List<DefaultValue> defaults, string DatasourceName)
+        {
+            DMEEditor.ErrorObject.Message = null;
+            DMEEditor.ErrorObject.Flag = Errors.Ok;
+            try
+            {
+
+                ConnectionProperties cn = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == DatasourceName)];
+                if (cn != null)
+                {
+                    cn.DatasourceDefaults = defaults;
+                    DMEEditor.ConfigEditor.SaveDataconnectionsValues();
+                }
+                else DMEEditor.AddLogMessage("Beep", $"Could not Find DataSource  {DatasourceName}", DateTime.Now, 0, null, Errors.Failed);
+            }
+            catch (Exception ex)
+            {
+                DMEEditor.AddLogMessage("Beep", $"Could not Save DataSource Defaults Values {DatasourceName}- {ex.Message}", DateTime.Now, 0, null, Errors.Failed);
+            }
+
+            return DMEEditor.ErrorObject;
         }
     }
 }
