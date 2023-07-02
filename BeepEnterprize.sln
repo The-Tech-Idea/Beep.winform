@@ -326,7 +326,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net48", "Net48", "{7AE6BD9F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.Vis.Modules", "..\Plugins\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules.csproj", "{9ADB60F5-3E07-4294-BDE7-BAF3909BAEEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepEnterprize.Winform", "BeepEnterprize.WinForm\BeepEnterprize.Winform.csproj", "{98D9F47F-C4B3-4EF3-9888-40209E9D689E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Winform.App.48", "BeepEnterprize.WinForm\Beep.Winform.App.48.csproj", "{98D9F47F-C4B3-4EF3-9888-40209E9D689E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.App", "..\Beep.Winform.Net6\Beep.WinForm.App\Beep.Winform.App.csproj", "{AB382F17-CAF7-4703-BA3C-A037CCD0D100}"
 EndProject

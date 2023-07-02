@@ -7,7 +7,7 @@
     <ProjectGuid>{98D9F47F-C4B3-4EF3-9888-40209E9D689E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>BeepEnterprize.Winform</RootNamespace>
-    <AssemblyName>BeepEnterprize.Winform</AssemblyName>
+    <AssemblyName>Beep.Winform.App.48</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -136,8 +136,8 @@
       <Link>ProjectClasses\AI\Accord\Beep.Accord.Winform.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.App.Controls.Winform\Beep.App.Controls.Winform.dll">
-      <Link>ProjectClasses\AppBuilder\Beep.App.Controls.Winform.dll</Link>
+    <Content Include="..\..\outputDLL\Beep.App.Controls.WinformCore\net48\Beep.App.Controls.WinformCore.dll">
+      <Link>ProjectClasses\AppBuilder\Beep.App.Controls.WinformCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.App.ExtensionsLoader\netstandard2.0\Beep.App.ExtensionsLoader.dll">
@@ -156,8 +156,8 @@
       <Link>ProjectClasses\AppBuilder\Beep.App.Nodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.App.Winform.Builder\Beep.App.Winform.Builder.dll">
-      <Link>ProjectClasses\AppBuilder\Beep.App.Winform.Builder.dll</Link>
+    <Content Include="..\..\outputDLL\Beep.App.Winform.BuilderCore\net48\Beep.App.Winform.BuilderCore.dll">
+      <Link>ProjectClasses\AppBuilder\Beep.App.Winform.BuilderCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.AssemblyLoaderExtension\netstandard2.0\Beep.BusinessProcess.AssemblyLoaderExtension.dll">
@@ -180,8 +180,8 @@
       <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Nodes.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Winform\Beep.BusinessProcess.Winform.dll">
-      <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Winform.dll</Link>
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess.WinformCore\net48\Beep.BusinessProcess.WinformCore.dll">
+      <Link>ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.WinformCore.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Compilers.CSharp\netstandard2.0\Beep.Compilers.CSharp.dll">
@@ -2237,13 +2237,13 @@
       <Version>4.3.0</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader">
-      <Version>1.0.8</Version>
+      <Version>1.0.9</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine">
-      <Version>1.0.87</Version>
+      <Version>1.0.89</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels">
-      <Version>1.0.51</Version>
+      <Version>1.0.52</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DMLogger">
       <Version>1.0.1</Version>
@@ -2254,12 +2254,9 @@
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
       <Version>1.0.24</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\BeepEnterprize.winform.net6\Beep.Winform.Vis\Beep.Winform.Vis.csproj">
-      <Project>{cc635cb6-4736-4abd-bd3e-dfceb73b1bf9}</Project>
-      <Name>Beep.Winform.Vis</Name>
-    </ProjectReference>
+    <PackageReference Include="TheTechIdea.Beep.Winform.Vis">
+      <Version>1.0.41</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

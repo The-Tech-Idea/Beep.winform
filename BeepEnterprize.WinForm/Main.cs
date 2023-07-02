@@ -13,6 +13,7 @@ using System.Threading;
 using TheTechIdea;
 using System;
 using TheTechIdea.Beep.Tools;
+using Beep.Winform.Vis;
 
 namespace BeepEnterprize.Winform
 
