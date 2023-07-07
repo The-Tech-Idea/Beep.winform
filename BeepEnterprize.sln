@@ -344,11 +344,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.CRUD.Blazor", "..\plug
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BeepConfig", "BeepConfig", "{B47B4AB0-FDC8-4358-8AB8-81FC15AE05B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Config.Logic", "..\plugins\Beep.Config.Logic\Beep.Config.Logic.csproj", "{C46CC5FC-1DCE-4D96-8887-F1D41894A968}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Config.Logic", "..\plugins\Beep.Config.Logic\Beep.Config.Logic.csproj", "{C46CC5FC-1DCE-4D96-8887-F1D41894A968}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Config.Winform", "..\plugins\Beep.Config.Winform\Beep.Config.Winform.csproj", "{6CE45914-FF0A-4863-91CF-0E45D59FCA8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Config.Winform", "..\plugins\Beep.Config.Winform\Beep.Config.Winform.csproj", "{6CE45914-FF0A-4863-91CF-0E45D59FCA8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.DeveloperAssistant.WinformCore", "..\plugins\Beep.DeveloperAssistant.WinformCore\Beep.DeveloperAssistant.WinformCore.csproj", "{3397F355-7C50-4EC7-94FD-D5D3C2A9C7EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.DeveloperAssistant.WinformCore", "..\plugins\Beep.DeveloperAssistant.WinformCore\Beep.DeveloperAssistant.WinformCore.csproj", "{3397F355-7C50-4EC7-94FD-D5D3C2A9C7EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
