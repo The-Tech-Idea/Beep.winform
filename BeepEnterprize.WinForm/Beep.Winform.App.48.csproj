@@ -2240,10 +2240,10 @@
       <Version>1.0.11</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine">
-      <Version>1.0.167</Version>
+      <Version>1.0.173</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels">
-      <Version>1.0.67</Version>
+      <Version>1.0.68</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DMLogger">
       <Version>1.0.1</Version>
@@ -2254,9 +2254,12 @@
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
       <Version>1.0.28</Version>
     </PackageReference>
-    <PackageReference Include="TheTechIdea.Beep.Winform.Vis">
-      <Version>1.0.46</Version>
-    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Beep.Winform.Net6\Beep.Winform.Vis\Beep.Winform.Vis.csproj">
+      <Project>{00ceb185-dde1-4f2f-9cdb-1794b8cbac5c}</Project>
+      <Name>Beep.Winform.Vis</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
