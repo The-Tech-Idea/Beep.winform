@@ -2240,10 +2240,10 @@
       <Version>1.0.12</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine">
-      <Version>1.0.191</Version>
+      <Version>1.0.194</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels">
-      <Version>1.0.74</Version>
+      <Version>1.0.75</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DMLogger">
       <Version>1.0.1</Version>
@@ -2252,7 +2252,7 @@
       <Version>1.0.5</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
-      <Version>1.0.30</Version>
+      <Version>1.0.34</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
