@@ -2251,7 +2251,7 @@
       <Version>1.0.5</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
-      <Version>1.0.42</Version>
+      <Version>1.0.45</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
