@@ -2239,7 +2239,7 @@
       <Version>1.0.17</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine">
-      <Version>1.0.222</Version>
+      <Version>1.0.224</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels">
       <Version>1.0.85</Version>
@@ -2251,7 +2251,7 @@
       <Version>1.0.5</Version>
     </PackageReference>
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules">
-      <Version>1.0.51</Version>
+      <Version>1.0.52</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
